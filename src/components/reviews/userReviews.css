@@ -1,0 +1,17 @@
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.aws-btn {
+
+--control-button-background: transparent;
+--control-bullet: false;
+--control-bullet-color: false;
+--control-bullet-active: false;
+
+}
