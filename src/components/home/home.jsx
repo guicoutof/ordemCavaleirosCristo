@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React from 'react'
 import './home.css'
 //import {Galery, GaleryImage} from 'react-gesture-gallery'
@@ -11,4 +12,15 @@ export default () => {
             <h2 className='subtitulo'></h2>
         </div>
     )
+=======
+import React from 'react'
+import './home.css'
+export default () => {
+    return(
+        <div className="principal">
+            <h1>Teste</h1>
+            {/* <img src={require('../../assets/img/fundoHome.png')} className="background"/> */}
+        </div>
+    )
+>>>>>>> Stashed changes
 }
