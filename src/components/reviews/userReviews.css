@@ -4,7 +4,7 @@
 .carousel .slide{
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('./pergaminho.png');
+  background-image: url('../../assets/img/pergaminhoCarrosel.png');
   background-color: transparent;
   background-position: center;
   transition: .35s ease-in-out;

@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './userReviews.css';
 
-import Um from './1.jpg';
+import Um from '../../assets/img/1.jpg';
 
 /* 
 let sectionStyle = {
