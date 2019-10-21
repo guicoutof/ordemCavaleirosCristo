@@ -1,0 +1,173 @@
+.courses{
+ height: 100%;
+ width: 100%;
+ display:grid;
+ grid-template-columns: 1fr 1fr 1fr;
+ grid-template-rows: 18% 100%;
+ grid-column-gap: 1%;;
+}
+
+.cour{
+ height: 70%;
+ width: 50%;
+ display: flex;
+ margin: 0% auto;
+ background-color:transparent;
+ border-bottom-color: #696969;
+ border-bottom-width: medium;
+ border-bottom-style: solid;
+ justify-content: center;
+ grid-column-start: 1;
+ grid-column-end: 4;
+}
+
+#text{
+ color: #696969;
+ display: flex;
+ align-items: center;
+ font-family: 'Times New Roman', Times, serif;
+
+}
+
+.cards{
+ background-image: url('../../assets/img/pergaminho.png');
+ background-size: 103%;
+ background-repeat: no-repeat ;
+ height: 100%;
+ width: 100%;
+ margin-top: 2%;
+ justify-content: center;
+ align-items: center;
+ 
+}
+
+.imageinsideone{
+ background-image: url('../../assets/img/soldier.jpg');
+ background-size: 75%;
+ background-repeat: no-repeat;
+ background-position: center;
+ height: 25%;
+ width: 80%;
+ background-color: transparent;
+ margin: 0% auto;
+ margin-top:18%;
+ margin-left: 12%;
+}
+
+.textinsideone{
+ height: 5%;
+ width: 15%;
+ margin: 0% auto;
+ background-color: transparent;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden; 
+}
+
+.textinsideonee{
+ margin: 0% auto;
+ height: 32%;
+ width: 79%;
+ background-color: transparent;
+ margin-left: 12%;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden;
+}
+
+.buttom{
+ height: 5%;
+ width: 30%;
+ margin: 0% auto;
+ border-radius: 30px 30px 30px 30px;
+ background-color: rgba(255, 254, 254, 0.918);
+ color: #696969;
+ font-family: 'Times New Roman', Times, serif;
+ border-style: solid;
+ outline-style: none;
+ transition: all 0.5s;
+ cursor: pointer;
+}
+
+.imageinsidetwo{
+ background-image: url('../../assets/img/soldier.jpg');
+ background-size: 75%;
+ background-repeat: no-repeat;
+ background-position: center;
+ height: 25%;
+ width: 80%;
+ background-color: transparent;
+ margin: 0% auto;
+ margin-top:18%;
+ margin-left: 12%;  
+}
+   
+.textinsidetwo{
+ height: 5%;
+ width: 15%;
+ margin: 0% auto;
+ background-color: transparent;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden;
+}
+
+.textinsidetwoo{
+ margin: 0% auto;
+ height: 32%;
+ width: 79%;
+ background-color: transparent;
+ margin-left: 12%;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden;
+}
+
+.imageinsidethree{
+ background-image: url('../../assets/img/soldier.jpg');
+ background-size: 75%;
+ background-repeat: no-repeat;
+ background-position: center;
+ height: 25%;
+ width: 80%;
+ background-color: transparent;
+ margin: 0% auto;
+ margin-top:18%;
+ margin-left: 12%;  
+}
+   
+.textinsidethree{
+ height: 5%;
+ width: 15%;
+ margin: 0% auto;
+ background-color: transparent;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden;
+}
+
+.textinsidethreee{
+ margin: 0% auto;
+ height: 32%;
+ width: 79%;
+ background-color: transparent;
+ margin-left: 12%;
+ color: #696969;
+ display: flex;
+ align-items: center;
+ font-family: 'Times New Roman', Times, serif;
+ overflow: hidden;
+}
