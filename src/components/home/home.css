@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 .principal{
     font-family: 'Times New Roman', Times, serif;
 
@@ -25,4 +26,8 @@
     color: white;
     text-shadow: 2px 2px 10px #000000;
     font-size: 25px;
+=======
+.principal{
+background-color: transparent;
+>>>>>>> Stashed changes
 }
