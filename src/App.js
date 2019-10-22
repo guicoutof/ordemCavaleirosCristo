@@ -9,7 +9,7 @@ import Courses from './components/courses/courses'
 
 export default () => {
   return (
-    <div>
+    <div className="app">
       <Navbar/>
       <Home/>
       <Courses title="CURSO1" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 

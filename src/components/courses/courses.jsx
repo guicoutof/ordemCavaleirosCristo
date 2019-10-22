@@ -5,43 +5,42 @@ export default (props) => {
         <div className="courses">
            <div className="cour">
                <h1 id="text">CURSOS</h1>
-
            </div>
             <div className="cards">
-                <div className="imageinsideone">
+                <div className="coverimg">
                     {props.image}
                 </div>
-                <div className="textinsideone">
+                <div className="title">
                     {props.title}
                 </div>
-                <div className="textinsideonee">
+                <div className="content">
                     {props.text}
                 </div>
-                <button className="buttom">COMPRAR</button>
+                {/* <button className="buttom">COMPRAR</button> */}
             </div>
             <div className="cards">
-                <div className="imageinsidetwo">
+                <div className="coverimg">
                     {props.image2}
                 </div>
-                <div className="textinsidetwo">
+                <div className="title">
                     {props.title2}
                 </div>  
-                <div className="textinsidetwoo">
+                <div className="content">
                     {props.text2}
                 </div>
-                <button className="buttom">COMPRAR</button>  
+                {/* <button className="buttom">COMPRAR</button>   */}
             </div>
             <div className="cards">
-                <div className="imageinsidethree">
+                <div className="coverimg">
                     {props.image3}
                 </div>
-                <div className="textinsidethree">
+                <div className="title">
                     {props.title3}
                 </div>
-                <div className="textinsidethreee">
+                <div className="content">
                     {props.text3}
                 </div>
-                <button className="buttom">COMPRAR</button>
+                {/* <button className="buttom">COMPRAR</button> */}
             </div>     
         </div>
     )
