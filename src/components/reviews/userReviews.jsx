@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import './userReviews.css';
 
-import Um from './1.jpg';
+import Um from '../../assets/img/1.jpg';
 
 /* 
 let sectionStyle = {
@@ -14,7 +14,7 @@ let sectionStyle = {
 
 export default () => {
     return (
-        <Carousel showThumbs={false} showStatus={false} autoPlay={false}>
+        <Carousel showThumbs={false} showStatus={false} showArrows={true} autoPlay={true} stopOnHover={true} infiniteLoop={true}>
             <div id="review">
                 <div className="legend">
                     <div style={{ backgroundImage: "url(" + Um + ")" }}></div>

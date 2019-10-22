@@ -4,22 +4,22 @@ import './navbar.css'
 export default function navbar(){
     return(
         <div className='navbar'>
-            <img src={require('../../assets/img/logo.png')} className='imagemLogo'/>
+            <img src={require('../../assets/img/logo.png')} alt="logo"/>
             
             <div className="itemMenu">
-                <a href="#">HOME</a>
+                <li>HOME</li>
             </div>
             <div className="itemMenu">
-                <a href="#">DOAÇÕES</a>
+                <li >DOAÇÕES</li>
             </div>
             <div className="itemMenu">
-                <a href="#">BLOG</a>
+                <li >BLOG</li>
             </div>
             <div className="itemMenu">
-                <a href="#">CONTATO</a>
+                <li >CONTATO</li>
             </div>
             <div className="itemMenu">
-                <a href="#">LOGIN</a>
+                <li >LOGIN</li>
             </div>
         </div>
     ) 

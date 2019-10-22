@@ -8,21 +8,21 @@ export default function footer() {
             <div className='footerContainer'>
                 <div className='row'>
                     <ul>
-                        <li><a href='#'>CONTATO</a></li>
-                        <li><a href='#'>(00)9999-9999</a></li>
-                        <li><a href='#'>email.contato@email.com</a></li>
+                        <li>CONTATO</li>
+                        <li>(00)9999-9999</li>
+                        <li>email.contato@email.com</li>
                     </ul>
                 </div>
                 <div className='row'>
                     <ul>
-                        <li><a href='#'>DÚVIDAS ? CONVERSE CONOSCO</a></li>
-                        <li><a href='#'>ícones aqui</a><a href='#'>ícones aqui</a></li>
+                        <li>DÚVIDAS ? CONVERSE CONOSCO</li>
+                        <li>ícones aquiícones aqui</li>
                     </ul>
                 </div>
                 <div className='row'>
                     <ul>
-                        <li><a href='#'>REDES SOCIAIS</a></li>
-                        <li><a href='#'>ícones aqui</a><a href='#'>ícones aqui</a><a href='#'>ícones aqui</a></li>
+                        <li>REDES SOCIAIS</li>
+                        <li>ícones aquiícones aquiícones aqui</li>
                     </ul>
                 </div>
             </div>

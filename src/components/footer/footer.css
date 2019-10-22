@@ -3,9 +3,6 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
     flex-direction: row;
-    padding-top: 15px;
-    padding-left: 30px;
-    padding-bottom: 15px;
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(213,182,115,1) 100%);
     /*position: fixed;*/
     bottom: 0;
@@ -21,16 +18,13 @@
     display: inline-block;
 }
 
-li {
+.row > ul > li {
     list-style-type: none;
-}
-
-a{
     text-decoration: none;
     color: #696969;
 }
 
-a:hover{
+.row > ul > li:hover{
     text-decoration: bold;
     border-bottom: 1px solid #696969;
 }
