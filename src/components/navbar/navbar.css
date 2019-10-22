@@ -21,11 +21,13 @@
 }
 
 .itemMenu > li{
+    list-style-type: none;
     text-decoration: none;
     color: #696969;
 }
 
 .itemMenu > li:hover{
+    list-style-type: none;
     text-decoration: bold;
     border-bottom: 1px solid #696969;
     cursor: pointer;
