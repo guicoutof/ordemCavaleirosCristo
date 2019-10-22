@@ -1,17 +1,15 @@
 .principal{
     font-family: 'Times New Roman', Times, serif;
-    width: 100%;
-    height: 90%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    background-image: url("../../assets/img/fundoHome.jpeg");
-    /* background-attachment: fixed; */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+}
+
+.imagem{
+    width: 100%;
+    height: auto;
 }
 
 .titulo{
