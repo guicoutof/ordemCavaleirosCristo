@@ -7,6 +7,14 @@ import Footer from './components/footer/footer'
 import UserReviews from './components/reviews/userReviews'
 import Courses from './components/courses/courses'
 
+// Import das bibliotecas de icones
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons' // adicione os imports dos iones que voce queira aqui
+
+//adicionando os icones a uma biblioteca para facilitar o desenvolvimento dos componentes 
+library.add(fab, faCheckSquare, faCoffee, faPhone, faEnvelope) // adicione-os a biblioteca para serem usados
+
 export default () => {
   return (
     <div className="app">

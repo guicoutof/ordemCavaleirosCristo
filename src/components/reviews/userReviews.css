@@ -1,21 +1,36 @@
+.carrosselContainer{
+  font-family: 'Times New Roman', Times, serif;
+  padding-left: 350px;
+  padding-right: 350px;
+}
+
+#review-coments{
+  font-size: 17px;
+  padding-left: 165px;
+  padding-right: 165px;
+  text-align: justify;
+}
+
 .review{
   display: flex;
 }
 .carousel .slide{
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url('../../assets/img/pergaminhoCarrosel.png');
+  background-image: url('../../assets/img/PergaminhoPreview.png');
   background-color: transparent;
   background-position: center;
   transition: .35s ease-in-out;
-  height: 400px;
+  height: 900px;
 }
 
 .legend {
   bottom: 0px;
   background: transparent !important;
   color: rgb(37, 37, 37) !important;
-
+  bottom: 275px !important;
+  opacity: 1;
+  transition: opacity 0 none;
 }
 
 .legend div{
@@ -26,4 +41,10 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 99px;
+}
+
+.carousel .control-arrow .control-next{
+  margin-top: 90px;
+  height: 600px;
+  width: 20px;
 }
