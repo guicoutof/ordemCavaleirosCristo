@@ -7,44 +7,48 @@ export default function navbar(){
     const navUsuarioNaoLogado = 
         <div className='navbar'>
             <div className="itemMenu">
-                <img src={require('../../assets/img/logo.png')} className='itemMenuLogo'/>
+                <img src={require('../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
             
-            <div className="itemMenu"> <a href="#">INÍCIO</a> </div>
-            <div className="itemMenu"> <a href="#">DOAÇÕES</a> </div>
-            <div className="itemMenu"> <a href="#">BLOG</a> </div>
-            <div className="itemMenu"> <a href="#">CONTATO</a> </div>
-            <div className="itemMenuDireita"> <a href="#">LOGIN</a> </div>
+            <div className="itemMenu"> <li>INÍCIO</li> </div>
+            <div className="itemMenu"> <li>DOAÇÕES </li> </div>
+            <div className="itemMenu"> <li>BLOG </li> </div>
+            <div className="itemMenu"> <li>CONTATO </li> </div>
+            <div className="itemMenuDireita"> <li>LOGIN </li> </div>
         </div>
 
     const navUsuarioLogado = 
         <div className='navbar'>
-            <img src={require('../../assets/img/logo.png')} className='itemMenuLogo'/>
+            <div className="itemMenu">
+                <img src={require('../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
+            </div>
 
-            <div className="itemMenu"> <a href="#">INÍCIO</a> </div>
-            <div className="itemMenu"> <a href="#">CURSOS</a> </div>
-            <div className="itemMenu"> <a href="#">BIBLIOTECA</a> </div>
-            <div className="itemMenu"> <a href="#">BLOG</a> </div>
-            <div className="itemMenuDireita"> <a href="#">SAIR</a> </div>
+            <div className="itemMenu"> <li>INÍCIO </li> </div>
+            <div className="itemMenu"> <li>CURSOS </li> </div>
+            <div className="itemMenu"> <li>BIBLIOTECA </li> </div>
+            <div className="itemMenu"> <li>BLOG </li> </div>
+            <div className="itemMenuDireita"> <li>SAIR </li> </div>
         </div>
 
     const navAdmin = 
         <div className='navbar'>
-            <img src={require('../../assets/img/logo.png')} className='itemMenuLogo'/>
+            <div className="itemMenu">
+                <img src={require('../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
+            </div>
 
-            <div className="itemMenu"> <a href="#">INÍCIO</a> </div>
-            <div className="itemMenu"> <a href="#">USUÁRIOS</a> </div>
-            <div className="itemMenu"> <a href="#">CURSOS</a> </div>
-            <div className="itemMenu"> <a href="#">BLOG</a> </div>
-            <div className="itemMenuDireita"> <a href="#">SAIR</a> </div>
+            <div className="itemMenu"> <li>INÍCIO </li> </div>
+            <div className="itemMenu"> <li>USUÁRIOS </li> </div>
+            <div className="itemMenu"> <li>CURSOS </li> </div>
+            <div className="itemMenu"> <li>BLOG </li> </div>
+            <div className="itemMenuDireita"><li> SAIR </li> </div>
         </div>
 
     switch(varControle) {
-        case -1:
-            return navUsuarioNaoLogado;
         case 0:
             return navUsuarioLogado;
         case 1:
             return navAdmin;
+        default:
+            return navUsuarioNaoLogado;
     }
 }

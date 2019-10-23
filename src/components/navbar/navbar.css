@@ -1,6 +1,7 @@
 .navbar{
     font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
+    height: 10%;
     display: flex;
     flex-direction: row;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(213,182,115,1) 100%);
@@ -27,7 +28,8 @@
     margin-right: 20px;
 }
 
-a{
+.itemMenu > li{
+    list-style-type: none;
     text-decoration: none;
     color: #696969;
 }
@@ -36,5 +38,20 @@ a{
     list-style-type: none;
     text-decoration: bold;
     border-bottom: 1px solid #696969;
+    cursor: pointer;
+}
+.itemMenuDireita > li{
+    padding: 16%;
+    list-style-type: none;
+    text-decoration: none;
+    color: #696969;
+    border:1px solid #696969;
+}
+
+.itemMenuDireita > li:hover{
+    list-style-type: none;
+    text-decoration: bold;
+    color:rgba(213,182,115,1);
+    background-color: whitesmoke;
     cursor: pointer;
 }
