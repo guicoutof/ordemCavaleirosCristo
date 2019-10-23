@@ -29,5 +29,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "desenvolvimento da aplicacao ordem dos cavaleiros de cristo",
+  "main": "index.js",
+  "license": "MIT"
 }
