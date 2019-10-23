@@ -1,5 +1,6 @@
 import React from 'react'
 import './home.css'
+//import {Galery, GaleryImage} from 'react-gesture-gallery'
 
 export default () => {
     return <div id="home" className="principal">
@@ -10,7 +11,6 @@ export default () => {
                 <a href="https://wa.me/5514996903532" target='_blank'>
                     <img src={require('../../assets/img/wpp.png')} alt="Background" className="whats" />
                 </a>
-
             </div>
     
 }

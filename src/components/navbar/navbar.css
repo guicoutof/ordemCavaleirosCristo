@@ -3,10 +3,14 @@
     font-size: 17px;
     display: flex;
     flex-direction: row;
-    padding-top: 15px;
-    padding-left: 30px;
-    padding-bottom: 15px;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(213,182,115,1) 100%);
+    
+}
+
+.itemMenuLogo{
+    height: 4rem;
+    width: auto;
+    padding: 5px;
 }
 
 .itemMenu{
@@ -15,17 +19,22 @@
     align-self: center;
 }
 
+.itemMenuDireita{
+    display: flex;
+    align-self: center;
+    
+    margin-left: auto;
+    margin-right: 20px;
+}
+
 a{
     text-decoration: none;
     color: #696969;
 }
 
-a:hover{
+.itemMenu > li:hover{
+    list-style-type: none;
     text-decoration: bold;
     border-bottom: 1px solid #696969;
-}
-
-.imagemLogo{
-    width: 4%;
-    height: auto;
+    cursor: pointer;
 }

@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
     "react": "^16.10.2",
+    "react-awesome-slider": "^2.0.0",
     "react-dom": "^16.10.2",
+    "react-responsive-carousel": "^3.1.50",
     "react-scripts": "^3.2.0"
   },
   "devDependencies": {},
@@ -25,5 +29,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "desenvolvimento da aplicacao ordem dos cavaleiros de cristo",
+  "main": "index.js",
+  "license": "MIT"
 }
