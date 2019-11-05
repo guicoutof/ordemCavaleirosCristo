@@ -6,6 +6,7 @@ import Home from './components/home/home'
 import Footer from './components/footer/footer'
 import UserReviews from './components/reviews/userReviews'
 import Courses from './components/courses/courses'
+import Donate from './components/donate/donate'
 
 export default () => {
   return (
@@ -26,6 +27,7 @@ export default () => {
         It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
         It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker."/>
       <UserReviews/>
+      <Donate/>
       <Footer/>
     </div>
   )
