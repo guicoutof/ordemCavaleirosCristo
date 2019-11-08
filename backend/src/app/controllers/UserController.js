@@ -41,6 +41,7 @@ class UserController {
     if (!possibleTypes.includes(type))
       return res.status(400).json({ error: 'Type must be either 0,1 or 2!' });
     const user = await User.create(req.body);
+    delete user.dataValues.password;
     return res.json(user);
   }
 
