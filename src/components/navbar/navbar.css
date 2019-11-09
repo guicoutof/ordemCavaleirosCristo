@@ -1,23 +1,31 @@
 .navbar{
-    width: 100%;
-    height: 10%;
     font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
+    height: 10%;
     display: flex;
     flex-direction: row;
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(213,182,115,1) 100%);
     
 }
 
-.navbar img{
-    padding: 15px;
-    width: 5%;
+.itemMenuLogo{
+    height: 4rem;
+    width: auto;
+    padding: 5px;
 }
 
 .itemMenu{
     margin-left: 20px;
     display: flex;
     align-self: center;
+}
+
+.itemMenuDireita{
+    display: flex;
+    align-self: center;
+    
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 .itemMenu > li{
@@ -30,5 +38,20 @@
     list-style-type: none;
     text-decoration: bold;
     border-bottom: 1px solid #696969;
+    cursor: pointer;
+}
+.itemMenuDireita > li{
+    padding: 16%;
+    list-style-type: none;
+    text-decoration: none;
+    color: #696969;
+    border:1px solid #696969;
+}
+
+.itemMenuDireita > li:hover{
+    list-style-type: none;
+    text-decoration: bold;
+    color:rgba(213,182,115,1);
+    background-color: whitesmoke;
     cursor: pointer;
 }

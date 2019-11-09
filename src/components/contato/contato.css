@@ -1,0 +1,57 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.contatoTitulo{
+    margin-bottom: 5px;
+}
+
+.contato{
+    border-bottom: 3px solid #696969;
+    margin-bottom: 30px;
+    color: #696969;
+}
+
+.inputSimples{
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+
+    outline: 0;
+}
+
+.inputTexto{
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    padding-left: 5px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    resize: none;
+}
+
+.submit{
+    margin-top: 20px;
+    width: 4rem;
+    height: 2rem;
+    border-radius: 5px;
+    background-color: #ffeec5;
+    align-self: center;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.submit:hover{
+    font-weight: bold;
+}
