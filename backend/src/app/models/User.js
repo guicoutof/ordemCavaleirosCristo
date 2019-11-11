@@ -15,6 +15,8 @@ class User extends Model {
         state: Sequelize.STRING,
         country: Sequelize.STRING,
         phone_number: Sequelize.STRING,
+        module: Sequelize.INTEGER,
+        type: Sequelize.INTEGER,
       },
       {
         sequelize,
