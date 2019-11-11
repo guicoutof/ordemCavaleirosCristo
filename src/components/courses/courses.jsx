@@ -1,47 +1,47 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+
 import './courses.css'
+
 export default (props) => {
+
+    const [countCard, setCount] = useState(0);
+    let cards = [];
+    
+    function previousCarousel(){
+        if (countCard - 3 >= 0) setCount(countCard-3)
+    }
+
+    function nextCarousel(){
+        if((props.cards.length - (countCard + 3)) > 0) setCount(countCard+3);
+    }
+    
     return(
         <div className="courses">
-           <div className="cour">
-               <h1 id="text">CURSOS</h1>
-           </div>
-            <div className="cards">
-                <div className="coverimg">
-                    {props.image}
-                </div>
-                <div className="title">
-                    {props.title}
-                </div>
-                <div className="content">
-                    {props.text}
-                </div>
-                {/* <button className="buttom">COMPRAR</button> */}
+            <div className="title">
+                <h1>CURSOS</h1>
             </div>
             <div className="cards">
-                <div className="coverimg">
-                    {props.image2}
-                </div>
-                <div className="title">
-                    {props.title2}
-                </div>  
-                <div className="content">
-                    {props.text2}
-                </div>
-                {/* <button className="buttom">COMPRAR</button>   */}
+
+                <li className="pointer" onClick={()=>previousCarousel()}><FontAwesomeIcon icon={faCaretLeft} size="3x"/></li>
+                    {
+                        cards = props.cards.filter((c)=>{
+                            if(c.pk===countCard || c.pk===(countCard+1) || c.pk===(countCard+2))return c;
+                            else return null;
+                        }),
+                    
+                        cards.map((c)=>
+                            <div className="card" key={c.pk}>
+                                <img className="image" src={c.image} alt="imagem"/>
+                                <h3 className="title">{c.title}</h3>
+                                <li className="btn">DETALHES</li>
+                            </div>
+                        )
+                    } 
+                <li className="pointer" onClick={()=>nextCarousel()}><FontAwesomeIcon icon={faCaretRight} size="3x"/></li>
+
             </div>
-            <div className="cards">
-                <div className="coverimg">
-                    {props.image3}
-                </div>
-                <div className="title">
-                    {props.title3}
-                </div>
-                <div className="content">
-                    {props.text3}
-                </div>
-                {/* <button className="buttom">COMPRAR</button> */}
-            </div>     
         </div>
     )
 }

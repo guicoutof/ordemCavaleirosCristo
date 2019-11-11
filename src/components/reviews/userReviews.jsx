@@ -14,7 +14,7 @@ let sectionStyle = {
 
 export default () => {
     return (
-        <Carousel showThumbs={false} showStatus={false} showArrows={true} autoPlay={true} stopOnHover={true} infiniteLoop={true}>
+        <Carousel showThumbs={false} lenght={3} showStatus={false} showArrows={true} autoPlay={true} stopOnHover={true} infiniteLoop={true}>
             <div id="review">
                 <div className="legend">
                     <div style={{ backgroundImage: "url(" + Um + ")" }}></div>
