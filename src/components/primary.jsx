@@ -10,8 +10,6 @@ import Courses from './courses/courses'
 import Image from '../assets/img/test.png'
 
 export default function index(){
-    const title = "CURSO1"
-    const text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker."
     const courses = [
         {pk:0,title:'Misticismo Católico A Fé em Ação',image:Image},
         {pk:1,title:'Kabbalah',image:Image},
@@ -32,11 +30,8 @@ export default function index(){
                 <img src={require('../assets/img/wpp.png')} alt="Background" className="whats" />
             </a>
             <Navbar/>
-            <Home/>
-            <Courses cards={courses} 
-                    title={title} text={text}
-                    title2={title} text2={text}
-                    title3={title} text3={text} />
+            <Home titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
+            <Courses cards={courses}/>
             <UserReviews/>
             <Footer/>
         </div>
