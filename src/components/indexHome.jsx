@@ -38,7 +38,7 @@ export default function index(){
             </a>
         <div className='index'>
             <Navbar/>
-            <Home/>
+            <Home titulo="ORDEM DOS CAVALEIROS DE CRISTO" subtitulo="Treinamento Espiritual e Filosófico"/>
             <Courses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
             <Footer/>
