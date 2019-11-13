@@ -25,15 +25,18 @@ export default function index(){
                 ];
 
     return(
-        <div className='index'>
-            <a href="https://wa.me/5514996903532" target='_blank' rel="noopener noreferrer">
+        <div>
+            {/* <a href="https://wa.me/5514996903532" target='_blank' rel="noopener noreferrer">
                 <img src={require('../assets/img/wpp.png')} alt="Background" className="whats" />
-            </a>
-            <Navbar/>
-            <Home titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
-            <Courses cards={courses}/>
-            <UserReviews/>
-            <Footer/>
+            </a> */}
+            <div className='index'>
+                <Navbar/>
+                <Home titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
+                <Courses cards={courses}/>
+                <UserReviews/>
+                <Footer/>
+            </div>
+
         </div>
     )
 }
