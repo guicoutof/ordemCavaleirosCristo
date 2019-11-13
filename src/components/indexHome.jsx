@@ -32,15 +32,17 @@ export default function index(){
                     ];
 
     return(
-        <div className='index'>
+        <div>
             <a href="https://wa.me/5514996903532" target='_blank' rel="noopener noreferrer">
                 <img src={require('../assets/img/wpp.png')} alt="Background" className="whats" />
             </a>
+        <div className='index'>
             <Navbar/>
             <Home/>
             <Courses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
             <Footer/>
+        </div>
         </div>
     )
 }
