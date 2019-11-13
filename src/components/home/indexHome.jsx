@@ -2,12 +2,12 @@ import React from 'react'
 import './indexHome.css'
 
 import Navbar from './navbar/navbar'
-import Home from './home/home'
+import Title from './title/title'
 import Footer from './footer/footer'
 import UserReviews from './reviews/userReviews'
 import Courses from './courses/courses'
 
-import Image from '../assets/img/test.png'
+import Image from '../../assets/img/test.png'
 
 export default function index(){
     const courses = [
@@ -32,15 +32,17 @@ export default function index(){
                     ];
 
     return(
-        <div className='index'>
+        <div>
             <a href="https://wa.me/5514996903532" target='_blank' rel="noopener noreferrer">
-                <img src={require('../assets/img/wpp.png')} alt="Background" className="whats" />
+                <img src={require('../../assets/img/wpp.png')} alt="Background" className="whats" />
             </a>
-            <Navbar/>
-            <Home/>
-            <Courses cards={courses} />
-            <UserReviews feedbacks={feedbacks} />
-            <Footer/>
+            <div className='index'>
+                <Navbar controle={-1}/>
+                <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
+                <Courses cards={courses} />
+                <UserReviews feedbacks={feedbacks} />
+                <Footer/>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,68 @@
+.feedback{
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background-image: url('../../../assets/img/background.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.feedback > .title{
+  text-align: center;
+  width: 50%;
+  margin:2%;
+  color: #3d3d3d;
+  border-bottom: 1.5px solid #3d3d3d;
+}
+
+.feedback > .carousel{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.feedback > .carousel > .pointer{
+  cursor: pointer;
+  color:#696969;
+}
+
+.feedback > .carousel > .cardCarousel{
+  padding: 10%;
+  align-self: center;
+}
+
+.feedback > .carousel > .cardCarousel > .name{
+  text-align: center;
+}
+
+.feedback > .carousel > .cardCarousel > .text{
+  text-align: justify;
+}
+
+.feedback > .list{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.feedback > .list > li{
+  padding: 1vh;
+  color: #696969;
+}
+
+.feedback > .list > #visitedCircle{
+  padding: 1vh;
+  color: black;
+}
+
+.feedback > .list > li > .iconCircle{
+  height: 50%;
+}

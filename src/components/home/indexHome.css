@@ -5,7 +5,7 @@
     perspective: 2px;
     transform-style: preserve-3d;
     
-    background-image: url('../assets/img/background.png');
+    background-image: url('../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
