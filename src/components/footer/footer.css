@@ -1,17 +1,12 @@
-.footerMenu{
-    width: 100%;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.26em;
-    display: flex;
-    flex-direction: column;
-    /*background: blue;*/
-    background: transparent;
-    /* position: fixed; */
-    bottom: 0;
-    height: fit-content;
-    /* display: inline-block; */
-    margin: 0 auto;
+p{
+    margin: 0
+}
 
+.liInfo{
+    margin-top: 0.2rem;
+}
+
+.footerMenu{
     background-image: url('../../assets/img/background.jpg');
     background-attachment: fixed;
     background-position: center;
@@ -20,41 +15,51 @@
 }
 
 .footer-container{
-    width: 80%;
-    height: fit-content;
-    align-items: center !important;
-    justify-content: center;
-    display: inline-block !important;
-    /*background: yellow;*/
-    background: transparent;
+    align-items: center;
     margin: 1.5% auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .row-left{
-    margin-left: 5.3%;
-    width: 20%;
-    float: left;
-    text-align: left;
-    /*background: red;*/
-    background: transparent;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoRowLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .row-center{
-    margin-left: 14%;
-    margin-right: 14%;
-    float: left;
-    text-align: left;
-    /*background: green;*/
-    background: transparent;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoRowCenter{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .row-right{
-    width: 20%;
-    float: left;
-    text-align: left;
-    /*background: purple;*/
-    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.infoRowRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 
 .icon-list{
     cursor: pointer;
@@ -69,11 +74,19 @@
 }
 
 .footer-nav{
-  display: inline;
+    display: inline;
 }
 
 li {
     list-style-type: none;
+}
+
+.row-center > .infoRowCenter > li{
+    padding-right: 0.5rem;
+}
+
+.row-right > .infoRowRight > li{
+    padding-right: 0.5rem;
 }
 
 a{

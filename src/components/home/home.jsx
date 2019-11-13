@@ -2,11 +2,20 @@ import React from 'react'
 import './home.css'
 //import {Galery, GaleryImage} from 'react-gesture-gallery'
 
-export default () => {
+export default (props) => {
     return <div id="home" className="principal">
-                {/* <img src={require('../../assets/img/fundoHome.png')} alt="Background" className="imagem" /> */}
-                <h1 className='titulo'>ORDEM DOS CAVALEIROS DE CRISTO</h1>
-                <h2 className='subtitulo'>Venha aprender sobre Teologia Ancestral, Cristianismo Primitivo, Kabbalah e Alquimia</h2>
+                <div className="conteudo">
+                    <div className="divLogo">
+                        <img src={require('../../assets/img/logo.png')} alt="" className="imagemLogo"/>
+                    </div>
+
+                    <div className="titulo">
+                        <h1>{props.titulo}</h1>
+                        <div className="subtitulo">
+                            <h4>{props.subtitulo}</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
     
 }
