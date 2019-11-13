@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Navbar from './components/navbar/navbar'
+import Articlespreview from './components/articlespreview/articlespreview'
 import Home from './components/home/home'
 import Footer from './components/footer/footer'
 import UserReviews from './components/reviews/userReviews'
@@ -12,6 +13,7 @@ export default () => {
   return (
     <div className="app">
       <Navbar/>
+      <Articlespreview/>
       <Home/>
       <Courses title="CURSO1" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
