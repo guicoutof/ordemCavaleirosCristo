@@ -11,6 +11,12 @@
     height: fit-content;
     /* display: inline-block; */
     margin: 0 auto;
+
+    background-image: url('../../assets/img/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .footer-container{
