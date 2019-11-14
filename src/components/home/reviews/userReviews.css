@@ -12,6 +12,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  list-style: none;
 }
 
 .feedback > .title{
@@ -41,10 +43,13 @@
 
 .feedback > .carousel > .cardCarousel > .name{
   text-align: center;
+  font-size: 1.6rem;
 }
 
 .feedback > .carousel > .cardCarousel > .text{
   text-align: justify;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .feedback > .list{

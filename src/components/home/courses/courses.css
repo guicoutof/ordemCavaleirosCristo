@@ -66,12 +66,16 @@
 
 .card > .btn{
     width: 60%;
+    height: 8%;
     border-radius: 6%;
     margin-bottom: 20%;
-    text-align: center;
     border: 1px solid rgba(213,182,115,1);
     background-color: white;
     cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card > .btn:hover{
@@ -87,6 +91,7 @@
 
 .list > li{
     cursor: pointer;
+    list-style: none;
 }
 .list > #visited{
     border-bottom: 1px solid black;
