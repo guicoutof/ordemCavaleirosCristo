@@ -7,6 +7,7 @@ import Footer from './footer/footer'
 import UserReviews from './reviews/userReviews'
 import Courses from './courses/courses'
 import Article from './articlespreview/articlespreview'
+import FinalDonate from './finalDonate/finalDonate'
 
 import Image from '../../assets/img/test.png'
 
@@ -46,6 +47,8 @@ export default function index(){
                          />
                 <Courses cards={courses} />
                 <UserReviews feedbacks={feedbacks} />
+                <FinalDonate titulo="DOAÇÕES" conteudo="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book." 
+                />
                 <Footer/>
             </div>
         </div>
