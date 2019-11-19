@@ -34,6 +34,13 @@ p{
     flex-direction: column;
     justify-content: space-around;
 }
+.footer-container > .row > .infoRowContato > .info{
+    display: flex;
+    align-items: center;
+}
+.footer-container > .row > .infoRowContato > .info > .icon{
+    margin-right: 0.5em;
+}
 
 .footer-container > .row > .infoRow{
     width: 100%;
@@ -46,4 +53,19 @@ p{
     cursor: pointer;
     list-style-type: none;
     margin-top: 0.2rem;
+}
+.footer-container > .row > .infoRow > a{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(9, 148, 9);
+    margin-top: 0.2rem;
+}
+.footer-container > .row > .infoRow > #fb{
+    color: blue;
+}
+.footer-container > .row > .infoRow > #ig{
+    color: orange;
+}
+.footer-container > .row > .infoRow > #yt{
+    color: red;
 }

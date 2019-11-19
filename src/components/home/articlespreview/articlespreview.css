@@ -34,7 +34,7 @@
 }
 
 .articleContent > .Text{
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .mainToBackGND > .Ref{
@@ -58,8 +58,6 @@
     border-color: #E3BF78;
     border-radius: 3%;
     background-color:white;
-    background-image:linear-gradient(bottom, transparent 1px, #E3BF78  1px);
-
 }
 
 .mainToBackGND > button:hover{
