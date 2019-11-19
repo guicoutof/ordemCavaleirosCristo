@@ -1,0 +1,74 @@
+.backimg{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('../../../assets/img/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:auto;
+}
+
+.option{
+    
+    width: 50%;
+    height: 15%;
+    background-color: transparent;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.tit{
+    display: flex;
+}
+.Content{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.introText{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 70%; 
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    overflow: hidden;
+    
+
+}
+
+.texto{
+    color: black;
+    font-display: center;
+    text-align: center;
+    
+}
+
+.simbol{
+    width: 30%;
+    height: 40%;
+    margin-left: 5%;
+    background-image: url('../../../assets/img/mercado-pago-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
