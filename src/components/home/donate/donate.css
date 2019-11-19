@@ -1,93 +1,74 @@
-.donatemain{
-    width: 100%;
-    height: 50%;
-    background-image: url('../../../assets/img/pergaminhoCarrosel.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex: auto;
-    flex-flow: row;
-    flex-direction: column;
-    
-}
-
-.donateinside{
-    
-    align-content: center;
-    display: flex;
+.backimg{
     width: 100%;
     height: 90%;
-    background-image: url('../../../assets/img/pergaminhoCarrosel.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    align-items: center;
+
+    display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
-
-}
-
-.textdonate{
-    margin-bottom: 9%;
-    color: #2e1e1e;
     align-items: center;
-    font-family: 'Times New Roman', Times, serif;
-    margin: auto;
-    clear: both;
-    
+
+    background-image: url('../../../assets/img/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.a{
-    margin-bottom: 3%;
-    height: 50%;
-    width: 20%;
+.option{
+    
+    width: 50%;
+    height: 15%;
     background-color: transparent;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.tit{
+    display: flex;
+}
+.Content{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
-    display: flex;
-    
 }
 
-
-.rs{
-    color: black;
-    font-weight:bold;
+.introText{
     display: flex;
-}
-
-#dinheiro{
-    display: flex;
-    align-content: center;
-    align-items: center;
-    border-radius: 30px 30px 30px 30px;
-    border-style: groove;
-    outline-style: none;
-    
-}
-
-.butao{
-    height: 13%;
-    width: 13%;
-    border-radius: 30px 30px 30px 30px;
-    background-color: white;
+    flex-direction: column;
+    width: 40%;
+    height: 70%; 
     align-items: center;
     justify-items: center;
     justify-content: center;
-    display: flex;
-    border-style: solid;
-    outline-style: none;
-    cursor: pointer;
+    overflow: hidden;
     
+
 }
-.ok{
-    font-size: 80%;
+
+.texto{
+    color: black;
+    font-display: center;
+    text-align: center;
     
 }
 
-.butao:hover{
-    background-color: rgb(226, 211, 142);
+.simbol{
+    width: 30%;
+    height: 40%;
+    margin-left: 5%;
+    background-image: url('../../../assets/img/mercado-pago-logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
 }

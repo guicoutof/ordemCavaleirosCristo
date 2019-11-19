@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import './navbar.css'
 
 export default function navbar(props){
@@ -10,10 +11,10 @@ export default function navbar(props){
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <div className="itemMenu"><li>INÍCIO</li></div>
+            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <div className="itemMenu"><li>CADASTRO</li></div>
             <div className="itemMenu"><li>CURSOS</li></div>
-            <div className="itemMenu"><li>DOAÇÕES</li></div>
+            <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>LOJA</li></div>
             <div className="itemMenu"><li>CONTATO</li></div>
 
@@ -26,12 +27,12 @@ export default function navbar(props){
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <div className="itemMenu"> <li>INÍCIO </li> </div>
-            <div className="itemMenu"> <li>DOAÇÕES </li> </div>
-            <div className="itemMenu"> <li>BLOG </li> </div>
-            <div className="itemMenu"> <li>CONTATO </li> </div>
-            <div className="itemMenu"> <li>CONTA </li> </div>
-            <div className="itemMenuDireita"> <li>SAIR </li> </div>
+            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
+            <div className="itemMenu"><li>BLOG</li></div>
+            <div className="itemMenu"><li>CONTATO</li></div>
+            <div className="itemMenu"><li>CONTA</li></div>
+            <div className="itemMenuDireita"><li>SAIR</li></div>
         </div>
 
     const navAdmin = 
@@ -40,11 +41,11 @@ export default function navbar(props){
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <div className="itemMenu"> <li>INÍCIO </li> </div>
-            <div className="itemMenu"> <li>USUÁRIOS </li> </div>
-            <div className="itemMenu"> <li>CURSOS </li> </div>
-            <div className="itemMenu"> <li>BLOG </li> </div>
-            <div className="itemMenuDireita"><li> SAIR </li> </div>
+            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <div className="itemMenu"><li>USUÁRIOS</li></div>
+            <div className="itemMenu"><li>CURSOS</li></div>
+            <div className="itemMenu"><li>BLOG</li></div>
+            <div className="itemMenuDireita"><li>SAIR</li></div>
         </div>
 
     switch(varControle) {

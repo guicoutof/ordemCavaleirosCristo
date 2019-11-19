@@ -7,7 +7,7 @@ import Footer from './footer/footer'
 import UserReviews from './reviews/userReviews'
 import Courses from './courses/courses'
 import Article from './articlespreview/articlespreview'
-import FinalDonate from './finalDonate/finalDonate'
+import Donate from './donate/donate'
 
 import Image from '../../assets/img/test.png'
 
@@ -44,7 +44,17 @@ export default function index(){
             <Courses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
             <Footer/>
-                <FinalDonate titulo="DOAÇÕES" conteudo="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book." 
+                
+        </div>
+    )
+}
+
+export function indexDonate(){
+
+    return(
+        <div className='index'>
+            <Navbar controle={-1}/>
+            <Donate titulo="DOAÇÕES" conteudo="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book." 
                 />
         </div>
     )
