@@ -1,0 +1,62 @@
+.containerADM{
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../../../src/assets/img/background.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardModulo{
+    border: solid black 1px;
+    border-radius: 20px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 10px;
+}
+
+.nomeCurso{
+    margin: 0;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+}
+
+.abrirModulo{
+    background-color: greenyellow;
+    border-radius: 20px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none
+}
+
+.removerModulo{
+    background-color: red;
+    border-radius: 20px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none
+}
+
+.abrirModulo:hover{
+    background-color: green;
+    font-weight: bold;
+}
+
+.removerModulo:hover{
+    background-color: #CC0D0D;
+    font-weight: bold;
+}

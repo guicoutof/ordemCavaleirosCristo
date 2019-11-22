@@ -6,7 +6,7 @@ import { faFacebookSquare, faInstagram, faYoutube, faWhatsapp } from '@fortaweso
 import {  faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 export default function footer() {
-    return (
+    return(
         <footer className='footerMenu'>
             <div className="footer-container">
                 <div className='row'>
