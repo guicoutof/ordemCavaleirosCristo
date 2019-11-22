@@ -5,7 +5,8 @@ import Footer from '../home/footer/footer'
 import './panelAdm.css'
 
 export default (props)=>{
-    var modulos = ['la','la', 'la', 'la', 'la']
+    var modulos = ['la','la', 'la']
+
     return(
         <div className='principalADM'>
             <Navbar controle={1}></Navbar>
@@ -13,9 +14,8 @@ export default (props)=>{
                 {
                 modulos.map((modulo) =>
                     <div className='cardModulo'>
-                        <h1 className='nomeCurso'>Nome do Curso</h1>
-                        <p className=''>Quantidade de cursos:</p>
-                        <br/>
+                        <h3 className='nomeCurso'>Nome do Curso</h3>
+                        <p className='qtdCurso'>Cursos:</p>
                         <div className="botoes">
                             <button className="abrirModulo">Abrir</button>
                             <button className="removerModulo">Remover</button>
