@@ -18,8 +18,8 @@ export default function navbar(props) {
             <div className="itemMenu"><li>CURSOS</li></div>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>LOJA</li></div>
-            <div className="itemMenu"><li>CONTATO</li></div>
-            
+            <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
+
             <div className="itemMenuDireita"><li>ENTRAR</li></div>
         </div>
 
@@ -32,7 +32,7 @@ export default function navbar(props) {
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>BLOG</li></div>
-            <div className="itemMenu"><li>CONTATO</li></div>
+            <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
             <div className="itemMenu"><li>CONTA</li></div>
             <div className="itemMenuDireita"><li>SAIR</li></div>
         </div>
