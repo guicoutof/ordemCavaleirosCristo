@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { NavLink } from 'react-router-dom'
 import './navbar.css'
 
-export default function navbar(props){
-    const varControle = props.controle;
+import Login from '../login/login'
 
+export default function navbar(props) {
+    const varControle = props.controle;
+    /* const [login,setLogin] = useState(false); */
     const navUsuarioNaoLogado = 
         <div className='navbar'>
             <div className="itemMenu">
@@ -12,12 +14,12 @@ export default function navbar(props){
             </div>
 
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
-            <div className="itemMenu"><li>CADASTRO</li></div>
+            <NavLink to="/cadastro" className="itemMenu"><li>CADASTRO</li></NavLink>
             <div className="itemMenu"><li>CURSOS</li></div>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>LOJA</li></div>
             <div className="itemMenu"><li>CONTATO</li></div>
-
+            
             <div className="itemMenuDireita"><li>ENTRAR</li></div>
         </div>
 

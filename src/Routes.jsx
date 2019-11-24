@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import indexHome, { indexDonate } from './components/home/indexHome'
 import PanelAdm from './components/admPanel/panelAdm'
+import CadScreen from './components/home/cadastro/cadastro'
 
 export default function routes() {
     return (
@@ -11,6 +12,7 @@ export default function routes() {
             <Route exact path="/" component={indexHome} />
             <Route exact path="/doacoes" component={indexDonate} />
             <Route exact path="/admin" component={PanelAdm} />
+            <Route path="/cadastro" component={CadScreen}/>
             <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
