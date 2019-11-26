@@ -9,6 +9,7 @@ import Courses from './courses/courses'
 import Article from './articlespreview/articlespreview'
 import Donate from './donate/donate'
 import Contacts from './contato/contato'
+import Cadastro from './cadastro/cadastro'
 
 import Image from '../../assets/img/test.png'
 
@@ -68,6 +69,17 @@ export function indexContato(){
         <div className='index'>
             <Navbar controle={-1}/>
             <Contacts/>
+            <Footer/>
+        </div>
+    )
+}
+
+export function indexCadastro(){
+
+    return(
+        <div className='index'>
+            <Navbar controle={-1}/>
+            <Cadastro/>
             <Footer/>
         </div>
     )

@@ -1,9 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import indexHome, { indexDonate, indexContato } from './components/home/indexHome'
+import indexHome, { indexDonate, indexContato, indexCadastro } from './components/home/indexHome'
 import PanelAdm from './components/admPanel/panelAdm'
-import CadScreen from './components/home/cadastro/cadastro'
 
 export default function routes() {
     return (
@@ -13,7 +12,7 @@ export default function routes() {
             <Route exact path="/doacoes" component={indexDonate} />
             <Route exact path="/contato" component={indexContato} />
             <Route exact path="/admin" component={PanelAdm} />
-            <Route path="/cadastro" component={CadScreen}/>
+            <Route exact path="/cadastro" component={indexCadastro}/>
             <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
