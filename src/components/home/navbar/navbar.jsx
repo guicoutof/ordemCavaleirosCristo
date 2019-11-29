@@ -40,11 +40,11 @@ export default function navbar(props){
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <div className="itemMenu"> <li>INÍCIO </li> </div>
-            <div className="itemMenu"> <li>USUÁRIOS </li> </div>
-            <div className="itemMenu"> <li>CURSOS </li> </div>
-            <div className="itemMenu"> <li>BLOG </li> </div>
-            <div className="itemMenuDireita"><li> SAIR </li> </div>
+            <div className="itemMenu"> <li>INÍCIO</li> </div>
+            <div className="itemMenu"> <li>USUÁRIOS</li> </div>
+            <div className="itemMenu"> <li>CURSOS</li> </div>
+            <div className="itemMenu"> <li>BLOG</li> </div>
+            <div className="itemMenuDireita"><li>SAIR</li> </div>
         </div>
 
     switch(varControle) {
