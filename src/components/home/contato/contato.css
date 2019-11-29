@@ -1,29 +1,27 @@
+.contato{
+    width: 50%;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    text-align: center;
+}
+
 .formulario{
+    width: 40%;
+    margin-top: 2%;
+    font-family: 'Times New Roman', Times, serif;
+
     display: flex;
     flex-direction: column;
-    width: 40%;
-    margin-top: 30px;
-    margin-left: 20%;
-    margin-right: 20%;
-    font-family: 'Times New Roman', Times, serif;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.contatoTitulo{
-    margin-bottom: 5px;
-}
-
-.contato{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid #696969;
-    margin-bottom: 30px;
-    color: #696969;
-}
 
 .inputSimples{
+    width: 100%;
+
     border-radius: 10px;
-    height: 20px;
     margin-bottom: 20px;
     padding-left: 5px;
     padding-top: 5px;

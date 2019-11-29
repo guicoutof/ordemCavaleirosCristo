@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './cadastro.css'
 
-import MdPersonFree from 'react-ionicons/lib/MdPerson'
-import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
+// import MdPersonFree from 'react-ionicons/lib/MdPerson'
+// import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
 
 class CadScreen extends Component {
   state = {
@@ -50,7 +50,7 @@ class CadScreen extends Component {
                 <p className="tipo-cad">Tipo de cadastro:</p>
                 <div  className="cad-option-view">
                   <div id="cad-free-option" className="cad-option1">
-                    <MdPersonFree color="#000000" />
+                    {/* <MdPersonFree color="#000000" /> */}
                     <li className="li-no-dots">&#10003;</li>
                     <li className="li-no-dots">&#10003;</li>
                     <li className="li-no-dots">&#10005;</li>
@@ -62,7 +62,7 @@ class CadScreen extends Component {
                     </li>
                   </div>
                   <div id="cad-afiliado-option" className="cad-option2">
-                    <MdPersonPremium color="#000000" />
+                    {/* <MdPersonPremium color="#000000" /> */}
                     <li className="li-no-dots">&#10003;</li>
                     <li className="li-no-dots">&#10003;</li>
                     <li className="li-no-dots">&#10003;</li>

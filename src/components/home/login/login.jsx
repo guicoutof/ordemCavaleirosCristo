@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import MdClose from 'react-ionicons/lib/MdClose'
+// import MdClose from 'react-ionicons/lib/MdClose'
 
 import './login.css'
 
@@ -104,7 +104,7 @@ class Login extends React.Component {
           ariaHideApp={false}
         >
           <button className="close-btn" onClick={this.closeModal}>
-            <MdClose />
+            {/* <MdClose /> */}
           </button>
           
           {this.state.isLoginOpen ? this.LoginForm() : "" }

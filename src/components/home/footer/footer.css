@@ -3,13 +3,14 @@ p{
 }
 
 .footerMenu{
-    background-image: url('../../../assets/img/background.jpg');
+    background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     list-style-type: none;
+    height: 15%;
 }
 
 .footerMenu > .footer-container{
@@ -17,7 +18,7 @@ p{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    padding: 2%;
+    height: 100%;
 }
 
 .footer-container > .row{
@@ -25,7 +26,7 @@ p{
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 15%;
+    width: 20%;
 }
 
 .footer-container > .row > .infoRowContato{

@@ -15,17 +15,19 @@
 .conteudo{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 .divLogo{
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
 }
 
 .imagemLogo{
-    padding: 0;
-    margin: 0;
+    align-self: center;
+    flex-basis: auto;
+    flex-shrink: 3;
 }
 
 

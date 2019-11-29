@@ -15,11 +15,11 @@ export default function navbar(props) {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <Login open={login} />
+            {/* <Login open={login} /> */}
 
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/cadastro" className="itemMenu"><li>CADASTRO</li></NavLink>
-            <div className="itemMenu"><li>CURSOS</li></div>
+            <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>LOJA</li></div>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
@@ -34,6 +34,7 @@ export default function navbar(props) {
             </div>
 
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>BLOG</li></div>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
