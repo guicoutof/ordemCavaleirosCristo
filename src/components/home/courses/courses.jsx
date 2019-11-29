@@ -11,6 +11,7 @@ export default function courses(props){
                 {props.courses.map((c)=>
                     <div key={c.pk} className="card">
                         <img src={c.image} alt={`Curso ${c.pk}`} />
+                        <div className="module">Modulo {c.module}</div>
                         <div className="title" >{c.title}</div>
                         <div className="desc">{c.desc}</div>
                         <div className="bottom">

@@ -87,17 +87,17 @@ export function indexCadastro(){
 }
 export function indexCourses(){
     const courses = [
-        {pk:0,title:'Misticismo Católico A Fé em Ação',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:1,title:'Kabbalah',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:2,title:'Alquimia',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:3,title:'Alquimi',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:4,title:'Alquim',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:5,title:'Alqui',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:6,title:'Alqu',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:7,title:'Alq',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:8,title:'Al',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:9,title:'A',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
-        {pk:10,title:'Alquimia',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:0,module:1,title:'Misticismo Católico A Fé em Ação',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:1,module:1,title:'Kabbalah',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:2,module:1,title:'Alquimia',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:3,module:1,title:'Alquimi',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:4,module:2,title:'Alquim',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:5,module:2,title:'Alqui',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:6,module:2,title:'Alqu',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:7,module:2,title:'Alq',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:8,module:1,title:'Al',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:9,module:1,title:'A',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:10,module:1,title:'Alquimia',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
                 ];
     return(
         <div className='index'>

@@ -38,13 +38,20 @@
     box-shadow: 0px 0px 15px gray
 }
 .courses > .cards >.card:hover{
-    box-shadow: 0px 0px 15px black;
+    box-shadow: 0px 0px 10px black;
 }
 .courses > .cards >.card > img{
     border-radius: 2%;
     border-bottom: 1px solid black;
     width: 100%;
     
+}
+.courses > .cards >.card > .module{
+    padding: 1%;
+    width: 80%;
+    font-weight: 600;
+    text-align: center;
+    align-self: center;
 }
 .courses > .cards >.card > .title{
     padding: 5%;
@@ -57,6 +64,7 @@
     padding-left:0.5rem;
     padding-right:0.5rem;
     text-align: justify;
+    overflow: hidden;
 }
 .courses > .cards >.card > .bottom{
     margin-top: auto;
@@ -67,7 +75,21 @@
 }
 .courses > .cards >.card > .bottom > .btn{
     height: 2rem;
+    width: 35%;
     align-self: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    background: rgb(250, 228, 178);
+    /* color: white; */
+    /* margin-left: auto; */
+}
+.courses > .cards >.card > .bottom > .btn:hover{
+    cursor: pointer;
+    /* background: greenyellow; */
+    font-weight: bolder;
+    
 }
 .courses > .cards >.card > .bottom > .price{
     font-size: large;
