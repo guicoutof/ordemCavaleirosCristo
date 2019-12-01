@@ -14,19 +14,18 @@ p{
 }
 
 .footerMenu > .footer-container{
+    height: 100%;
     align-items: center;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    height: 100%;
 }
-
 .footer-container > .row{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 20%;
+    width: 16%;
 }
 
 .footer-container > .row > .infoRowContato{
@@ -69,4 +68,19 @@ p{
 }
 .footer-container > .row > .infoRow > #yt{
     color: red;
+}
+@media only screen and (max-width: 600px) {
+    .footerMenu{
+        height: auto;
+        border-top: 1px solid rgb(153, 147, 147);
+        padding-top: 0.5rem;
+    }
+    .footerMenu > .footer-container {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .footer-container > .row{
+        padding-bottom:2rem ;
+        width: 60%;
+    }
 }

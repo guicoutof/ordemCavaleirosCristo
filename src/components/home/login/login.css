@@ -1,5 +1,10 @@
 .logo-img{
-    background-image: url('../../../assets/img/logo.png');
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.logo-img > img{
+    width: 30%;
 }
 
 .button-group{

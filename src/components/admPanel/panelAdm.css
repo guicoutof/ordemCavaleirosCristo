@@ -1,6 +1,11 @@
+.principalADM{
+    width: 100%;
+    height: 100%;    
+}
+
 .containerADM{
     width: 100%;
-    height: 100%;
+    min-height: 75%;
 
     background-image: url('../../../src/assets/img/background.png');
     background-attachment: fixed;
@@ -17,11 +22,12 @@
     border: solid black 1px;
     border-radius: 20px;
     width: 20%;
+    height: 18%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
-    background-color: white;
+    background-color: rgb(235, 219, 181);
     padding: 10px;
 }
 

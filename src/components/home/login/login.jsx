@@ -19,11 +19,10 @@ const customStyles = {
 };
 
 class Login extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
-      modalIsOpen: this.props.modal,
       isForgotPSWDOpen: false,
       isLoginOpen: true,
 
@@ -33,16 +32,6 @@ class Login extends React.Component {
 
     };
 
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
   }
 
   showLoginField(){
@@ -52,11 +41,14 @@ class Login extends React.Component {
   showForgotPasswordField(){
     this.setState({ isForgotPSWDOpen: true, isLoginOpen: false })
   }
-
+  
   LoginForm() {
     return (
       <form id="login-form">
-        <div className="logo-img"></div>
+        {/* <div className="logo-img"></div> */}
+        <div className="logo-img">
+          <img  src={require('../../../assets/img/logo.png')} alt="Logo"/>
+        </div>
         <div className="input-group">
           <div className="login-input-email">
             <input id="login-email" className="login-input" type="text" name="email" placeholder="Email"></input>
@@ -94,11 +86,10 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.props.open}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.closeModal}
+          onRequestClose={this.props.close}
           style={customStyles}
           contentLabel="login-modal"
           ariaHideApp={false}

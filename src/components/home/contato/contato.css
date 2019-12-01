@@ -8,7 +8,7 @@
 
 .formulario{
     width: 40%;
-    margin-top: 2%;
+    margin-top: 3%;
     font-family: 'Times New Roman', Times, serif;
 
     display: flex;
@@ -20,7 +20,6 @@
 
 .inputSimples{
     width: 100%;
-
     border-radius: 10px;
     margin-bottom: 20px;
     padding-left: 5px;
@@ -34,10 +33,11 @@
 }
 
 .inputTexto{
+    width: 100%;
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-    height: 80px;
+    height: 6rem;
     padding-left: 5px;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
@@ -49,7 +49,8 @@
     width: 7rem;
     height: 37px;
     border-radius: 30px 30px 30px 30px;
-    border-style: groove;
+    border-style: none;
+    border: 1px solid #696969;
     background-color: #FFEEC5;
     align-self: center;
     font-family: 'Times New Roman', Times, serif;
@@ -60,5 +61,5 @@
 .submit:hover{
     font-weight: bold;
     background-color: rgb(250, 228, 178) ;
-    border-style: solid;
+    /* border-style: solid; */
 }
