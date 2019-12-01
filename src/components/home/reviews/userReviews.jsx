@@ -3,12 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretLeft, faCaretRight, faCircle } from '@fortawesome/free-solid-svg-icons'
 import './userReviews.css';
 
-/* 
-let sectionStyle = {
-    //backgroundImage: "require(`urlEmelent`)",  
-    bullets: false,
-    fillParent: true,
-}; */
 
 export default (props) => {
     
@@ -40,9 +34,9 @@ export default (props) => {
             <div className="list">{
                 props.feedbacks.map((c)=>
                     c.pk=== carousel?
-                        <li id="visitedCircle">{<FontAwesomeIcon className="iconCircle" icon={faCircle} onClick={()=> setCarousel(c.pk)} />}</li>
+                        <li key={c.pk} id="visitedCircle">{<FontAwesomeIcon className="iconCircle" icon={faCircle} onClick={()=> setCarousel(c.pk)} />}</li>
                     : 
-                        <li>{<FontAwesomeIcon className="iconCircle" icon={faCircle} onClick={()=> setCarousel(c.pk)} />}</li>
+                        <li key={c.pk}>{<FontAwesomeIcon className="iconCircle" icon={faCircle} onClick={()=> setCarousel(c.pk)} />}</li>
                 )
             }</div>
         </div>

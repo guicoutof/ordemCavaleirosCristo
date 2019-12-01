@@ -18,6 +18,10 @@ class Admin extends Model {
         admin.password_hash = await bcrypt.hash(admin.password, 8);
     });
   }
+
+  checkPassword(password) {
+    return bcrypt.compare(password, this.password_hash);
+  }
 }
 
 export default Admin;

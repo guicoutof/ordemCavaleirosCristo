@@ -3,29 +3,29 @@ p{
 }
 
 .footerMenu{
-    background-image: url('../../../assets/img/background.jpg');
+    background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     list-style-type: none;
+    height: 15%;
 }
 
 .footerMenu > .footer-container{
+    height: 100%;
     align-items: center;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    padding: 2%;
 }
-
 .footer-container > .row{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 15%;
+    width: 16%;
 }
 
 .footer-container > .row > .infoRowContato{
@@ -33,6 +33,13 @@ p{
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+}
+.footer-container > .row > .infoRowContato > .info{
+    display: flex;
+    align-items: center;
+}
+.footer-container > .row > .infoRowContato > .info > .icon{
+    margin-right: 0.5em;
 }
 
 .footer-container > .row > .infoRow{
@@ -46,4 +53,34 @@ p{
     cursor: pointer;
     list-style-type: none;
     margin-top: 0.2rem;
+}
+.footer-container > .row > .infoRow > a{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(9, 148, 9);
+    margin-top: 0.2rem;
+}
+.footer-container > .row > .infoRow > #fb{
+    color: blue;
+}
+.footer-container > .row > .infoRow > #ig{
+    color: orange;
+}
+.footer-container > .row > .infoRow > #yt{
+    color: red;
+}
+@media only screen and (max-width: 600px) {
+    .footerMenu{
+        height: auto;
+        border-top: 1px solid rgb(153, 147, 147);
+        padding-top: 0.5rem;
+    }
+    .footerMenu > .footer-container {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .footer-container > .row{
+        padding-bottom:2rem ;
+        width: 60%;
+    }
 }

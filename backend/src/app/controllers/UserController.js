@@ -50,34 +50,24 @@ class UserController {
       email: Yup.string()
         .email()
         .required(),
-      oldPassword: Yup.string()
-        .required()
-        .min(6),
-      password: Yup.when('oldPassword', (oldPassword, field) => {
-        // eslint-disable-next-line no-unused-expressions
-        oldPassword
-          ? field
-              .required()
-              .string()
-              .min(6)
-          : field;
-      }),
-      confirmPassword: Yup.when('password', (password, field) =>
-        password
-          ? field
-              .required()
-              .string()
-              .min(6)
-              .oneOf(Yup.ref(['password']))
-          : field
-      ),
+      oldPassword: Yup.string(),
+      password: Yup.string()
+        .min(6)
+        .when('oldPassword', (oldPassword, field) =>
+          oldPassword ? field.required() : field
+        ),
+      confirmPassword: Yup.string()
+        .min(6)
+        .when('password', (password, field) =>
+          password ? field.required().oneOf([Yup.ref('password')]) : field
+        ),
       name: Yup.string().required(),
       birth_date: Yup.date(),
       city: Yup.string(),
       state: Yup.string(),
       country: Yup.string(),
       phone_number: Yup.string(),
-      module: Yup.integer(),
+      module: Yup.number(),
       type: Yup.number()
         .required()
         .min(0)
