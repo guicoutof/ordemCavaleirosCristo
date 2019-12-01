@@ -1,0 +1,526 @@
+.logo-img{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.logo-img > img{
+    width: 30%;
+}
+
+.button-group{
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+.close-btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.login-box{
+    font-family: "Bookman Old Style";
+    background-color: white;
+
+    text-align: left;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    width: 600px;
+    height: 500px;
+    box-shadow: 1px 1.2px 1.2px 1px rgba(245, 222, 179, 0.842);
+}
+
+.input-group{
+    padding-top: 15px;
+}
+
+.login-input-email{
+    padding-bottom: 12px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.login-input-password{
+    padding-top: 12px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.login-input{
+    height: 55px;
+    width: 400px;
+    border: 2px solid rgb(197, 151, 66);
+    box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+    border-radius: 15px;
+    background-color: whitesmoke;
+    font-size: 25px;
+    text-align: center;
+}
+
+.login-btn{
+    font-size: 1.3em;
+    font-family: "Bookman Old Style";
+    cursor: pointer;
+    width: 145px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid rgb(197, 151, 66);
+    box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+    border-radius: 6px;
+    background-color: rgb(211, 164, 77);
+    margin-left: 120px;
+}
+
+.login-forgot-password{
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 125px;
+    padding-right: 75px;
+    text-decoration: bold;
+    color: black;
+}
+
+.forgot-password-input-email{
+    padding-bottom: 12px;
+    height: fit-content;
+    margin-left: 75px;
+    margin-right: auto;
+}
+
+.back-to-login-btn{
+    font-size: 1.3em;
+    font-family: "Bookman Old Style";
+    cursor: pointer;
+    width: 235px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid rgb(197, 151, 66);
+    box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+    border-radius: 6px;
+    background-color: rgb(211, 164, 77);
+    margin-left: 110px;
+}
+
+.forgot-password-btn{
+    font-size: 1.3em;
+    font-family: "Bookman Old Style";
+    cursor: pointer;
+    width: 235px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid rgb(197, 151, 66);
+    box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+    border-radius: 6px;
+    background-color: rgb(211, 164, 77);
+    margin-left: 105px;
+}
+
+.forgot-password-input{
+    height: 55px;
+    width: 650px;
+    border: 2px solid rgb(197, 151, 66);
+    box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+    border-radius: 15px;
+    background-color: whitesmoke;
+    font-size: 25px;
+    text-align: center;
+}
+
+.forgot-password-title{
+    font-size: 1.7em;
+    font-family: "Bookman Old Style";
+    text-justify: auto;
+    font-weight:normal;
+    text-align: center;
+
+}
+
+.forgot-password-warning{
+    font-size: 1.2em;
+    font-family: "Bookman Old Style";
+    text-justify: auto;
+    font-weight: normal;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For everything lower than 768px */
+    .forgot-password-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        margin-left: 80px;
+        margin-right: auto;
+    }
+
+    .back-to-login-btn{
+        font-size: 1.3em;
+        font-family: "Bookman Old Style";
+        cursor: pointer;
+        width: 235px;
+        height: 40px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 100px;
+    }
+
+    .forgot-password-btn{
+        font-size: 1.3em;
+        font-family: "Bookman Old Style";
+        cursor: pointer;
+        width: 235px;
+        height: 40px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 40px;
+    }
+
+    .forgot-password-input{
+        height: 45px;
+        width: 550px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .forgot-password-title{
+        font-size: 1.24em;
+        font-family: "Bookman Old Style";
+        font-weight:normal;
+        text-align: center;
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+
+    .forgot-password-warning{
+        font-size: 1.24em;
+        font-family: "Bookman Old Style";
+        font-weight:normal;
+        text-align: center;
+        padding-left: 65px;
+        padding-right: 65px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+  /* For everything lower than 425px */
+    .login-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .login-input-password{
+        padding-top: 12px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    .login-input{
+        height: 55px;
+        width: 330px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .login-btn{
+        font-size: 1.3em;
+
+        cursor: pointer;
+        width: 145px;
+        height: 40px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 85px;
+    }
+
+    .login-forgot-password{
+        cursor: pointer;
+        font-size: 16px;
+        padding-left: 90px;
+        padding-right: auto;
+        text-decoration: bold;
+        color: black;
+    }
+
+
+    .forgot-password-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        margin-left: 30px;
+        margin-right: auto;
+    }
+
+    .back-to-login-btn{
+        font-size: 1.0em;
+
+        cursor: pointer;
+        width: 145px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 45px;
+    }
+
+    .forgot-password-btn{
+        font-size: 1.0em;
+
+        cursor: pointer;
+        width: 145px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 10px;
+    }
+
+    .forgot-password-input{
+        height: 45px;
+        width: 320px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .forgot-password-title{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .forgot-password-warning{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+  /* For everything lower than 425px */
+    .forgot-password-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        margin-left: 35px;
+        margin-right: auto;
+    }
+
+    .back-to-login-btn{
+        font-size: 1.0em;
+
+        cursor: pointer;
+        width: 145px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 25px;
+    }
+
+    .forgot-password-btn{
+        font-size: 1.0em;
+
+        cursor: pointer;
+        width: 145px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+    }
+
+    .forgot-password-input{
+        height: 45px;
+        width: 265px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .forgot-password-title{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .forgot-password-warning{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+  /* For everything lower than 425px */
+    .forgot-password-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        margin-left: 2.5%;
+        margin-right: auto;
+    }
+
+    .back-to-login-btn{
+        font-size: 0.9em;
+
+        cursor: pointer;
+        width: 140px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 4%;
+    }
+
+    .forgot-password-btn{
+        font-size: 0.9em;
+
+        cursor: pointer;
+        width: 140px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+
+    }
+
+    .forgot-password-input{
+        height: 45px;
+        width: 300px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .forgot-password-title{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .forgot-password-warning{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+  /* For everything lower than 425px */
+    .forgot-password-input-email{
+        padding-bottom: 12px;
+        height: fit-content;
+        margin-left: 18%;
+        margin-right: auto;
+    }
+
+    .back-to-login-btn{
+        font-size: 0.8em;
+
+        cursor: pointer;
+        width: 125px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+        margin-left: 5%;
+    }
+
+    .forgot-password-btn{
+        font-size: 0.8em;
+
+        cursor: pointer;
+        width: 125px;
+        height: 45px;
+        text-align: center;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        background-color: rgb(211, 164, 77);
+
+    }
+
+    .forgot-password-input{
+        height: 45px;
+        width: 180px;
+        border: 2px solid rgb(197, 151, 66);
+        box-shadow: 1px 1px 1.2px 0px rgb(226, 181, 96);
+        border-radius: 15px;
+        background-color: whitesmoke;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .forgot-password-title{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .forgot-password-warning{
+        font-size: 1.1em;
+
+        font-weight:normal;
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

@@ -1,57 +1,65 @@
+.contato{
+    width: 50%;
+    border-bottom-width: 1px;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+    text-align: center;
+}
+
 .formulario{
+    width: 40%;
+    margin-top: 3%;
+    font-family: 'Times New Roman', Times, serif;
+
     display: flex;
     flex-direction: column;
-
-    margin-top: 30px;
-    margin-left: 20%;
-    margin-right: 20%;
-    font-family: 'Times New Roman', Times, serif;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.contatoTitulo{
-    margin-bottom: 5px;
-}
-
-.contato{
-    border-bottom: 3px solid #696969;
-    margin-bottom: 30px;
-    color: #696969;
-}
 
 .inputSimples{
-    border-radius: 5px;
-    margin-bottom: 5px;
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-
-    font-size: 16px;
+    border-style: groove;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 
     outline: 0;
 }
 
 .inputTexto{
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-
+    height: 6rem;
     padding-left: 5px;
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     resize: none;
 }
 
 .submit{
     margin-top: 20px;
-    width: 4rem;
-    height: 2rem;
-    border-radius: 5px;
-    background-color: #ffeec5;
+    width: 7rem;
+    height: 37px;
+    border-radius: 30px 30px 30px 30px;
+    border-style: none;
+    border: 1px solid #696969;
+    background-color: #FFEEC5;
     align-self: center;
     font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+
 }
 
 .submit:hover{
     font-weight: bold;
+    background-color: rgb(250, 228, 178) ;
+    /* border-style: solid; */
 }
