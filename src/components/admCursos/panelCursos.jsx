@@ -7,8 +7,6 @@ import './panelCurso.css'
 export default function panelCurso (props){
     return(
         <div className="principalCursos">
-            {/* <Navbar></Navbar> */}
-
             <div className="containerCURSO">
                 <div className="headerCursos">
                     <button className="botaoCriarCurso">Novo Curso</button>
@@ -63,8 +61,6 @@ export default function panelCurso (props){
                 </div>
                 
             </div>
-
-            {/* <Footer></Footer> */}
         </div>
     )
 }

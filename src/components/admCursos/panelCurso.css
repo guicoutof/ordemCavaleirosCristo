@@ -1,12 +1,19 @@
-.containerCURSO{
+.principalCursos{
+    min-height: 75%;
     width: 100%;
-    height: 100%;
-
-    background-image: url('../../../src/assets/img/background.jpg');
+    
+    background-image: url('../../../src/assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.containerCURSO{
+    width: 100%;
+    height: 100%;
+
+
     
     justify-content: space-around;
     display: flex;
