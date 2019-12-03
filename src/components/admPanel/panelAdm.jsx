@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
-import Cursos from '../admCursos/panelCursos'
+import Cursos from './cursos/panelCursos'
 
 import './panelAdm.css'
 

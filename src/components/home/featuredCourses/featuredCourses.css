@@ -1,6 +1,6 @@
 .fCourses{
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -96,3 +96,11 @@
 .fCourses > .list > #visited{
     border-bottom: 1px solid black;
 }
+@media only screen and (max-width: 600px) {
+    .fCourses > .list{
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+  }

@@ -1,5 +1,5 @@
 .feedback{
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 
   display: flex;
@@ -70,4 +70,12 @@
 
 .feedback > .list > li > .iconCircle{
   height: 50%;
+}
+@media only screen and (max-width: 600px) {
+  .feedback > .title{
+    width: 70%;
+  }
+  .feedback > .carousel{
+    width: 96%;
+  }
 }
