@@ -2,7 +2,7 @@
     min-height: 75%;
     width: 100%;
     
-    background-image: url('../../../src/assets/img/background.png');
+    background-image: url('../../../../src/assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
