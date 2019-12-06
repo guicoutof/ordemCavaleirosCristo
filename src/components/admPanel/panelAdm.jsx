@@ -3,6 +3,7 @@ import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
 import Cursos from '../admCursos/panelCursos'
+import Aulas from './admAulas/admAulas'
 
 import './panelAdm.css'
 
@@ -16,7 +17,8 @@ export default (props)=>{
     return(
         <div className='principalADM'>
             <Navbar controle={1}></Navbar>
-            <Cursos></Cursos>
+            {/* <Cursos></Cursos> */}
+            <Aulas></Aulas>
             {/* <div className='containerADM'>
                 {
                 modulos.map((modulo) =>
