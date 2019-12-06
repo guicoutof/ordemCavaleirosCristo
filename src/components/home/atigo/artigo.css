@@ -1,0 +1,36 @@
+.divmain{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.mainimg{
+    width: 80%;
+    height: 27%;
+    background-image: url('../../../assets/img/test.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.thetext{
+    height: 100%;
+    width: 78%;
+    margin-top: 3%;
+    overflow: auto;
+}
+
+.titulimg{
+    font-style: italic;
+}
+.txtinside{
+    font-size: medium;
+    text-align: center;
+
+}

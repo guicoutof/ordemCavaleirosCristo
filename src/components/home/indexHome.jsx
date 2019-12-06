@@ -8,6 +8,9 @@ import UserReviews from './reviews/userReviews'
 import Courses from './courses/courses'
 import Article from './articlespreview/articlespreview'
 import Donate from './donate/donate'
+import Contacts from './contato/contato'
+import Blog  from './blog/blog'
+import Artigo from './atigo/artigo'
 
 import Image from '../../assets/img/test.png'
 
@@ -43,6 +46,9 @@ export default function index(){
                         />
             <Courses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
+            <Artigo/>
+            <Blog/>
+            <Contacts/>
             <Footer/>
                 
         </div>

@@ -3,7 +3,7 @@ import './contato.css'
 
 export default function contato() {
     return(
-        <div>
+        <div className="backimg">
             <form action="" className='formulario'>
                 <div className='contato'>
                     <h1 className='contatoTitulo'>CONTATO</h1>
