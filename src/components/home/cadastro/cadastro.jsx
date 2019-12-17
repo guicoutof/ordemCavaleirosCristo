@@ -3,8 +3,8 @@ import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import './cadastro.css';
 
-// import MdPersonFree from 'react-ionicons/lib/MdPerson'
-// import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
+import MdPersonFree from 'react-ionicons/lib/MdPerson'
+import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
 
 class CadScreen extends Component {
   state = {
