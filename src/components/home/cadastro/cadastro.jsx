@@ -24,7 +24,7 @@ class CadScreen extends Component {
       <div className="App">
         
         <div className="wrapper">
-          <Navbar />
+
           <div className="cad-container">
             <form className="cad-form">
               <div className="cad-input-group">
@@ -60,8 +60,12 @@ class CadScreen extends Component {
                 <div className="cad-option">
                   <ul style={{ display: "inline" }}>
                     <li>
-                      <span className="icon-free"><MdPersonFree color="#000000" fontSize="3.1em" /></span>
-                      <span className="icon-premium"><MdPersonPremium color="#000000" fontSize="3.1em" /></span>
+                      <span className="icon-free">
+                        {/* <MdPersonFree color="#000000" fontSize="3.1em" /> */}
+                        </span>
+                      <span className="icon-premium">
+                        {/* <MdPersonPremium color="#000000" fontSize="3.1em" /> */}
+                        </span>
                       <span className="cad-option-view-header">Vantagens:</span>
                     </li>
                     <li>
@@ -110,7 +114,7 @@ class CadScreen extends Component {
               <button type="submit" className="cad-btn">Concluir</button>
             </form>
           </div>
-          <Footer />
+
         </div>
         
       </div>
