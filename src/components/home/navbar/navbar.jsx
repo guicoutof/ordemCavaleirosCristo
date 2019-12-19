@@ -36,9 +36,10 @@ export default class navbar extends React.Component {
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/cadastro" className="itemMenu"><li>CADASTRO</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
+            <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
-            <div className="itemMenu"><li>LOJA</li></div>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
+            <div className="itemMenu"><li>LOJA</li></div>
 
             <div className="itemMenuDireita" onClick={()=>this.openModalLogin()} ><li>ENTRAR</li></div>
         </div>
@@ -53,6 +54,7 @@ export default class navbar extends React.Component {
 
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
+            <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <div className="itemMenu"><li>BLOG</li></div>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
@@ -72,6 +74,7 @@ export default class navbar extends React.Component {
             <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
             <div className="itemMenu"><li>USUÁRIOS</li></div>
             <div className="itemMenu"><li>CURSOS</li></div>
+            <div className="itemMenu"><li>SERVIÇOS</li></div>
             <div className="itemMenu"><li>BLOG</li></div>
             <div className="itemMenuDireita"><li>SAIR</li></div>
         </div>

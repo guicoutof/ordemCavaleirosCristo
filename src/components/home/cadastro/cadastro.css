@@ -15,16 +15,16 @@ input {
     height: 100%;
     /* width: 100vw; */
     /* height: 100vh; */
-    max-width: 100%;
     font-family: 'Times New Roman', Times, serif;
     /* flex-direction: column; */
     /* align-items: center; */
     /* justify-content: center; */
     background-image: url('../../../assets/img/background.png');
-    /* background-attachment: fixed; */
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent !important;
 }
 
 .cad-container {

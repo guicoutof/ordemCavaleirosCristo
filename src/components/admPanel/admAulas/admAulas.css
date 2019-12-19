@@ -1,0 +1,124 @@
+.principalAulas{
+    min-height: 75%;
+    width: 100%;
+    
+    background-image: url('../../../assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerCURSO{
+    width: 100%;
+    height: 100%;  
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.headerCursos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem 0 2rem;
+}
+
+.botaoCriarCurso{
+    background-color: rgb(76, 246, 70);
+    border-radius: 7px;
+    /* height: 1.75rem; */
+    width: auto;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+.pesquisarCurso{
+    border-radius: 5px;
+    border-style: none;
+    padding-left: 0.25rem;
+}
+
+.tabelaCursos{
+    width: 100%;
+    padding: 1rem 5rem 0 5rem;
+}
+
+.divCursos{
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.imgCurso{
+    width: 20%;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.infoCurso{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+}
+
+.infoTexto > .nomeCurso{
+    text-align: left;
+    font-size: 1.25rem;
+}
+
+.precoCurso{
+    margin-right: 2rem;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.botoesCurso{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.botaoEditarCurso{
+    background-color: #4673F6;
+    border-radius: 7px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.botaoRemoverCurso{
+    background-color: #F64646;
+    border-radius: 7px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.iconeYoutube{
+    padding: 2rem;
+}
+
+.duracaoAula{
+    display: flex;
+    align-items: center;
+}
+
+.linkYoutube{
+    color: red;
+}
