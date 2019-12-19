@@ -4,6 +4,7 @@ import Footer from '../home/footer/footer'
 
 import Cursos from '../admCursos/panelCursos'
 import Aulas from './admAulas/admAulas'
+import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 
 import './panelAdm.css'
 
@@ -19,6 +20,7 @@ export default (props)=>{
             <Navbar controle={1}></Navbar>
             {/* <Cursos></Cursos> */}
             <Aulas></Aulas>
+            <CadastrarArtigoBlog></CadastrarArtigoBlog>
             {/* <div className='containerADM'>
                 {
                 modulos.map((modulo) =>
