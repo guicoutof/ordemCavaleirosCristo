@@ -1,0 +1,141 @@
+.panelUser-principal{
+    width: 100%;
+    height: 100vh;  
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('../../../assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panelUser-container{
+    width: 100%;
+    height: 100%;  
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.panelUser-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem 0 2rem;
+}
+
+.panelUserCreate-user-btn{
+    width: 150px;
+    height: 40px;
+    margin-top: 16px;
+    font-size: 1.1em;
+    border: 3px #808080;
+    background-color: rgb(76, 246, 70);
+    border-radius: 7px;
+    /* height: 1.75rem; */
+    width: auto;
+    border: none;
+    font-weight: bold;
+    color: #808080;
+    cursor: pointer;
+    outline: none;
+}
+
+.panelUser-h2{
+    text-align: left;
+    font-size: 1.25rem;
+}
+
+.panelUser-input{
+    width: 200px;
+    height: 30px;
+    margin-top: 16px;
+    border-radius: 5px;
+    border-style: none;
+    padding-left: 0.25rem;
+}
+
+.panelUser-table{
+    width: 100%;
+    padding: 1rem 5rem 0 5rem;
+}
+
+/*
+.panelUser-table-container{
+    height: fit-content;
+    width: fit-content;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem 5rem 0 5rem;
+    background-color: #fafafa;
+    border: 2px rgb(0, 0, 0);
+    border-radius: 6px;
+    box-shadow: 1.2px 1.0px 1.0px 1.0px rgb(0, 0, 0);
+} */
+
+.panelUser-div-users{
+    background-color: #fafafa;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+    text-align: center;
+    box-shadow: 1.2px 1.0px 1.2px 1.0px rgb(0, 0, 0);
+    align-content: center !important;
+}
+
+.panelUser-info-curso{
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+}
+
+.panelUser-contents{
+    text-align: center !important;
+    align-items: center !important;
+    align-content: center !important;
+}
+
+.panelUser-p{
+    font-size: 1.20rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center !important;
+    align-items: center !important;
+    align-content: center !important;
+}
+
+.panelUser-btn-group{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.panelUser-edit-btn{
+    width: auto;
+    height: auto;
+    margin-right: 5px;
+    background-color: #4673F6;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.panelUser-remove-btn{
+    width: auto;
+    height: auto;
+    margin-left: 5px;
+    background-color: #F64646;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

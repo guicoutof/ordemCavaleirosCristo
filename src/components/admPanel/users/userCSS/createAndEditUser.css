@@ -1,0 +1,402 @@
+/* Pagina do criar usuario/editar usuario */
+.panelCreateAndEditUser-container{
+    width: 100%;
+    height: 100%;  
+    display: block;
+}
+
+.panelCreateAndEditUser-form{
+    width: fit-content; 
+    display: inline-block;
+    margin-left: 28.5%;
+    margin-top: 10%;
+}
+
+.panelCreateAndEditUser-user-input-group{
+    width: 100%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+}
+
+.panelCreateAndEditUser-form-header-div{
+    padding-top: 0%;
+    text-align: center;
+    box-shadow: 0px 1.1px 0px 0px rgb(0, 0, 0);
+    width: 20%;
+    margin: 0 auto;
+}
+
+.panelCreateAndEditUser-form-header{
+    margin-top: 0%;
+    padding-top: 35%;
+    font-size: 2.6em;
+}
+
+.panelCreateAndEditUser-inputs{
+    margin-right: 5%;
+    font-size: 1.25rem;
+    width: 275px;
+    height: 30px;
+    margin-top: 16px;
+    border-radius: 5px;
+    border-style: none;
+    box-shadow: 1.2px 1px 1.2px 1px #808080;
+    padding-left: 0.25rem;
+    outline: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.panelCreateAndEditUser-footer-group{
+    display: flex;
+    flex-direction: column;
+}
+
+.panelCreateAndEditUser-ul-div{
+    display: block;
+}
+
+.panelCreateAndEditUser-ul{
+    list-style-type: none;
+    display: inline;
+}
+
+.panelCreateAndEditUser-free{
+    font-size: 1.3rem;
+    padding-right: 15px;
+}
+
+.panelCreateAndEditUser-premium{
+    font-size: 1.3rem;
+    padding-left: 15px;
+}
+
+.panelCreateAndEditUser-checkboxe {
+    cursor: pointer;
+    /* position: absolute; */
+    width: 20px;
+    height: 20px;
+    margin-top: 5%;
+    margin-right: 10%;
+    margin-left: 2.1%;
+    /* top: 0; */
+    /* border-radius: 4px; */
+}
+
+
+.panelCreateAndEditUser-submit-btn{
+    width: 120px;
+    height: 40px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: #fafafa;
+    border: 4px solid rgb(238, 191, 104);
+    box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    margin: 35px auto;
+    font-family: 'Times New Roman', Times, serif;   
+}
+
+.panelCreateAndEditUser-back-btn{
+    margin-left: 5%;
+}
+
+.panelCreateAndEditUser-back-btn{
+    width: 120px;
+    height: 40px;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    display: block;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@media only screen and (max-width: 1800px){
+    .panelCreateAndEditUser-container{
+        width: 100%;
+        height: fit-content;  
+        display: block;
+    
+    }
+    
+    .panelCreateAndEditUser-form{
+        width: fit-content; 
+        display: inline-block;
+        margin-left: 24%;
+        margin-top: 2%;
+    }
+    
+    .panelCreateAndEditUser-user-input-group{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .panelCreateAndEditUser-form-header-div{
+        padding-top: 0%;
+        text-align: center;
+        box-shadow: 0px 1.2px 0px 0px rgb(0, 0, 0);
+        width: 23%;
+        margin: 0 auto;
+    }
+    
+    .panelCreateAndEditUser-form-header{
+        margin-top: 0%;
+        padding-top: 0%;
+        font-size: 2.6em;
+    }
+    
+    .panelCreateAndEditUser-inputs{
+        margin-right: 5%;
+        font-size: 1.25rem;
+        width: 275px;
+        height: 30px;
+        margin-top: 16px;
+        border-radius: 5px;
+        border-style: none;
+        padding-left: 0.25rem;
+        outline: none;
+    }
+    
+    .panelCreateAndEditUser-footer-group{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .panelCreateAndEditUser-ul-div{
+        display: block;
+    }
+    
+    .panelCreateAndEditUser-ul{
+        list-style-type: none;
+        display: inline;
+    }
+    
+    .panelCreateAndEditUser-free{
+        font-size: 1.3rem;
+        padding-right: 15px;
+    }
+    
+    .panelCreateAndEditUser-premium{
+        font-size: 1.3rem;
+        padding-left: 15px;
+    }
+    
+    .panelCreateAndEditUser-checkboxe {
+        cursor: pointer;
+        /* position: absolute; */
+        width: 20px;
+        height: 20px;
+        margin-top: 5%;
+        margin-right: 10%;
+        margin-left: 2.1%;
+        /* top: 0; */
+        /* border-radius: 4px; */
+    }
+    
+    
+    .panelCreateAndEditUser-submit-btn{
+        width: 120px;
+        height: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: #fafafa;
+        border: 4px solid rgb(238, 191, 104);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        margin: 35px auto;
+    }
+    
+    .panelCreateAndEditUser-back-btn{
+        margin-left: 5%;
+    }
+    
+    .panelCreateAndEditUser-back-btn{
+        width: 120px;
+        height: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .panelCreateAndEditUser-form{
+        width: fit-content; 
+        display: inline-block;
+        margin-left: 10%;
+        margin-top: 5%;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .panelCreateAndEditUser-form{
+        width: fit-content; 
+        display: inline-block;
+        margin-left: 32.5%;
+    }
+
+    .panelCreateAndEditUser-user-input-group{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column
+    }
+
+    .panelCreateAndEditUser-footer-group{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .panelCreateAndEditUser-ul-div{
+        display: row;
+    }
+    
+    .panelCreateAndEditUser-ul{
+        list-style-type: none;
+        display: inline;
+    }
+    
+    .panelCreateAndEditUser-free{
+        font-size: 1.3rem;
+        padding-right: 15px;
+    }
+    
+    .panelCreateAndEditUser-premium{
+        font-size: 1.3rem;
+        padding-left: 15px;
+    }
+    
+    .panelCreateAndEditUser-checkboxe {
+        cursor: pointer;
+        /* position: absolute; */
+        width: 20px;
+        height: 20px;
+        margin-top: 5%;
+        margin-right: 38%;
+        margin-left: 2.1%;
+        /* top: 0; */
+        /* border-radius: 4px; */
+    }
+
+    .panelCreateAndEditUser-submit-btn{
+        width: 120px;
+        height: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: #fafafa;
+        border: 4px solid rgb(238, 191, 104);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        margin: 0px auto;
+        font-family: 'Times New Roman', Times, serif;   
+    }
+}
+
+@media only screen and (max-width: 525px){
+    .panelCreateAndEditUser-form{
+        width: fit-content; 
+        display: inline-block;
+        margin-left: 22.5%;
+    }
+
+    .panelCreateAndEditUser-user-input-group{
+        width: 100%;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: column
+    }
+
+    .panelCreateAndEditUser-form-header{
+        margin-top: 0%;
+        padding-top: 0%;
+        font-size: 2.25em;
+    }
+
+    .panelCreateAndEditUser-inputs{
+        margin-right: 5%;
+        font-size: 1.25rem;
+        width: 175px;
+        height: 30px;
+        margin-top: 16px;
+        border-radius: 5px;
+        border-style: none;
+        box-shadow: 1.2px 1px 1.2px 1px #808080;
+        padding-left: 0.25rem;
+        outline: none;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .panelCreateAndEditUser-footer-group{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .panelCreateAndEditUser-ul-div{
+        display: row;
+    }
+    
+    .panelCreateAndEditUser-ul{
+        list-style-type: none;
+        display: inline;
+    }
+    
+    .panelCreateAndEditUser-free{
+        font-size: 1.3rem;
+        padding-right: 5px;
+    }
+    
+    .panelCreateAndEditUser-premium{
+        font-size: 1.3rem;
+        padding-left: 5px;
+    }
+    
+    .panelCreateAndEditUser-checkboxe {
+        cursor: pointer;
+        /* position: absolute; */
+        width: 20px;
+        height: 20px;
+        margin-top: 5%;
+        margin-right: 31%;
+        margin-left: 2.1%;
+        /* top: 0; */
+        /* border-radius: 4px; */
+    }
+
+    .panelCreateAndEditUser-submit-btn{
+        width: 120px;
+        height: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+        background-color: #fafafa;
+        border: 4px solid rgb(238, 191, 104);
+        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
+        border-radius: 6px;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        margin: 0px auto;
+        font-family: 'Times New Roman', Times, serif;   
+    }
+}
