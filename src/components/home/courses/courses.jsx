@@ -5,7 +5,7 @@ export default function courses(props){
     return(
         <div className="courses">
             <div className='title'>
-                <h1>CURSOS</h1>
+                <h1>{props.title}</h1>
             </div>
             <div className="cards">
                 {props.courses.map((c)=>

@@ -102,7 +102,7 @@ export function indexCourses(){
     return(
         <div className='index'>
             <Navbar controle={-1}/>
-            <Courses courses={courses}/>
+            <Courses title={'CURSOS'} courses={courses}/>
             <Footer/>
         </div>
     )
@@ -117,7 +117,7 @@ export function indexServices(){
     return(
         <div className='index'>
             <Navbar controle={-1}/>
-            <Courses courses={services}/>
+            <Courses title={'SERVIÇOS'}courses={services}/>
             <Footer/>
         </div>
     )
