@@ -11,7 +11,7 @@ export class Curso extends Component {
             moduleTitle: "Estudo Judaico",
             moduleID: 0,
             courseTitle: "Teste",
-            classes: ["Aula ","Aula ","Aula ","Aula ","Aula ",],
+            classes: ["Aula ","Aula ","Aula ","Aula ","Aula ","Aula ",],
             iframeLink: "https://www.youtube.com/embed/w-IXajuNAP8",
         }
     }
