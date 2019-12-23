@@ -52,11 +52,11 @@ export default class navbar extends React.Component {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/user" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
-            <div className="itemMenu"><li>BLOG</li></div>
+            <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
             <div className="itemMenu"><li>CONTA</li></div>
             <div className="itemMenuDireita" ><li>SAIR</li></div>

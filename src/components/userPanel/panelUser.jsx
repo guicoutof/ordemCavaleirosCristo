@@ -3,6 +3,7 @@ import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
 import Curso from './curso/curso'
+import Blog from './blog/blog'
 
 import './panelUser.css'
 
@@ -17,3 +18,15 @@ export default function PanelUser(){
         </div>
     )
 } 
+
+export function UserBlog(){
+    return(
+        <div className='principalUSR'>
+            <Navbar controle={0}></Navbar>
+            <div className="containerUSR">
+            <Blog></Blog>
+            </div>
+            <Footer></Footer>
+        </div>
+    )
+}

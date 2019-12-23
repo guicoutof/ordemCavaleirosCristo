@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
 import PanelAdm from './components/admPanel/panelAdm'
-import PanelUser from './components/userPanel/panelUser'
+import PanelUser, {UserBlog} from './components/userPanel/panelUser'
 
 export default function routes() {
     return (
@@ -22,6 +22,7 @@ export default function routes() {
 
             {/* User */}
             <Route exact path="/user" component={PanelUser} />
+            <Route exact path="/blog" component={UserBlog} />
 
             <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
