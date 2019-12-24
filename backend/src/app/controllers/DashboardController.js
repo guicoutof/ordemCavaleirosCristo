@@ -21,10 +21,13 @@ class DashboardController {
 
     const admin = await Admin.findOne({ where: { email } });
 
+    if (!admin)
+      return res.status(400).json({ error: 'This admin does not exist!' });
+
     const validPassword = await admin.checkPassword(password);
 
     if (!validPassword)
-      return res.status(401).json('Invalid email and password!');
+      return res.status(401).json({ error: 'Invalid email and password!' });
 
     const { id } = admin;
 
