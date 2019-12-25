@@ -1,16 +1,27 @@
+/* eslint-disable no-await-in-loop */
 import * as Yup from 'yup';
 import Module from '../models/Module';
+import Course from '../models/Course';
 
 class ModuleController {
   async index(req, res) {
     const modules = await Module.findAll();
-    return res.json(modules);
+    const response = [];
+    for (let i = 0; i < modules.length; i += 1) {
+      const m = modules[i].get();
+      const courses = await Course.findAll({ where: { module_id: m.id } });
+      response.push({
+        module: m,
+        courses,
+      });
+    }
+    return res.json(response);
   }
 
   async show(req, res) {
     const m = await Module.findByPk(req.params.id);
-
-    return res.json(m);
+    const courses = await Course.findAll({ where: { module_id: m.id } });
+    return res.json({ module: m, courses });
   }
 
   async store(req, res) {
