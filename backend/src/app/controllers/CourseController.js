@@ -3,6 +3,7 @@ import fs from 'fs';
 import { promisify } from 'util';
 import { resolve } from 'path';
 import Course from '../models/Course';
+import Module from '../models/Module';
 
 const unlinkAsync = promisify(fs.unlink);
 
@@ -10,7 +11,7 @@ class CourseController {
   async index(req, res) {
     const { page = 1 } = req.query;
     const courses = await Course.findAll({
-      where: { module: req.params.id },
+      where: { module_id: req.params.id },
       limit: 3,
       offset: (page - 1) * 3,
       order: [['createdAt', 'ASC']],
@@ -32,7 +33,7 @@ class CourseController {
       book: Yup.string().required(),
       assistance: Yup.string().required(),
       price: Yup.number().required(),
-      module: Yup.number().required(),
+      module_id: Yup.number().required(),
       highlight: Yup.boolean().required(),
     });
 
@@ -49,6 +50,14 @@ class CourseController {
         .json({ error: 'This course already exists, try updating it!' });
 
     const { filename: path } = req.file;
+
+    const m = await Module.findByPk(req.body.module_id);
+
+    if (!m) {
+      return res.status(400).json({ error: 'This module does not exist!' });
+    }
+
+    await m.update({ courses_quantity: m.courses_quantity + 1 });
 
     const course = await Course.create({
       ...req.body,
@@ -67,7 +76,7 @@ class CourseController {
       book: Yup.string(),
       assistance: Yup.string(),
       price: Yup.number(),
-      module: Yup.number(),
+      module_id: Yup.number(),
       highlight: Yup.boolean(),
     });
 
@@ -92,6 +101,10 @@ class CourseController {
 
   async delete(req, res) {
     const course = await Course.findByPk(req.params.id);
+
+    const m = await Module.findByPk(course.module_id);
+
+    await m.update({ courses_quantity: m.courses_quantity - 1 });
 
     await unlinkAsync(
       resolve(__dirname, '..', '..', 'temp', 'uploads', course.path)

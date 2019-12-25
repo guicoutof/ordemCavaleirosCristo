@@ -5,6 +5,7 @@ import SessionController from './app/controllers/SessionController';
 import DashboardController from './app/controllers/DashboardController';
 import AdminController from './app/controllers/AdminController';
 
+import ModuleController from './app/controllers/ModuleController';
 import CourseController from './app/controllers/CourseController';
 import ClassController from './app/controllers/ClassController';
 
@@ -25,6 +26,12 @@ routes.get('/admins/:id', authAdminMiddleware, AdminController.show);
 routes.post('/admins', authAdminMiddleware, AdminController.store);
 routes.put('/admins', authAdminMiddleware, AdminController.update);
 routes.delete('/admins', authAdminMiddleware, AdminController.delete);
+
+routes.get('/modules', ModuleController.index);
+routes.get('/modules/:id', ModuleController.show);
+routes.post('/modules', authAdminMiddleware, ModuleController.store);
+routes.put('/modules', authAdminMiddleware, ModuleController.update);
+routes.delete('/modules/:id', authAdminMiddleware, ModuleController.delete);
 
 routes.get('/courses/module/:id', CourseController.index);
 routes.get('/courses/:id', CourseController.show);

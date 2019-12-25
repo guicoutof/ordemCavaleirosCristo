@@ -17,13 +17,16 @@ class Course extends Model {
         book: Sequelize.STRING,
         assistance: Sequelize.STRING,
         price: Sequelize.DOUBLE,
-        module: Sequelize.INTEGER,
         highlight: Sequelize.BOOLEAN,
       },
       {
         sequelize,
       }
     );
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Course, { foreignKey: 'module_id', as: 'module' });
   }
 }
 
