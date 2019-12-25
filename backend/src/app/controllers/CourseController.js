@@ -8,7 +8,13 @@ const unlinkAsync = promisify(fs.unlink);
 
 class CourseController {
   async index(req, res) {
-    const courses = await Course.findAll();
+    const { page = 1 } = req.query;
+    const courses = await Course.findAll({
+      where: { module: req.params.id },
+      limit: 3,
+      offset: (page - 1) * 3,
+      order: [['createdAt', 'ASC']],
+    });
     return res.json(courses);
   }
 
@@ -54,6 +60,7 @@ class CourseController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
+      id: Yup.number().required(),
       name: Yup.string(),
       description: Yup.string(),
       hours: Yup.number(),
@@ -67,7 +74,7 @@ class CourseController {
     if (!(await schema.isValid(req.body)))
       return res.status(400).json({ error: 'Invalid data!' });
 
-    const course = await Course.findOne({ where: { name: req.body.name } });
+    const course = await Course.findByPk(req.body.id);
 
     if (!course)
       return res.status(400).json({ error: 'This course does not exist!' });
@@ -80,7 +87,7 @@ class CourseController {
 
     await course.update({ ...req.body, path });
 
-    return res.json({ msg: 'Course was updated!' });
+    return res.json(course);
   }
 
   async delete(req, res) {

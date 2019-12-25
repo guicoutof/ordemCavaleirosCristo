@@ -6,6 +6,7 @@ import DashboardController from './app/controllers/DashboardController';
 import AdminController from './app/controllers/AdminController';
 
 import CourseController from './app/controllers/CourseController';
+import ClassController from './app/controllers/ClassController';
 
 import authUserMiddleware from './app/middlewares/authUser';
 import authAdminMiddleware from './app/middlewares/authAdmin';
@@ -25,19 +26,26 @@ routes.post('/admins', authAdminMiddleware, AdminController.store);
 routes.put('/admins', authAdminMiddleware, AdminController.update);
 routes.delete('/admins', authAdminMiddleware, AdminController.delete);
 
-routes.get('/courses', CourseController.index);
+routes.get('/courses/module/:id', CourseController.index);
 routes.get('/courses/:id', CourseController.show);
 routes.post(
   '/courses',
   [upload.single('file'), authAdminMiddleware],
   CourseController.store
 );
+
 routes.put(
   '/courses',
   [upload.single('file'), authAdminMiddleware],
   CourseController.update
 );
-routes.delete('/courses/:id', CourseController.delete);
+routes.delete('/courses/:id', authAdminMiddleware, CourseController.delete);
+
+routes.get('/classes/course/:id', ClassController.index);
+routes.get('/classes/:id', ClassController.show);
+routes.post('/classes', authAdminMiddleware, ClassController.store);
+routes.put('/classes', authAdminMiddleware, ClassController.update);
+routes.delete('/classes/:id', authAdminMiddleware, ClassController.delete);
 
 routes.get('/getUsers', authAdminMiddleware, UserController.index);
 routes.post('/users', UserController.store);
