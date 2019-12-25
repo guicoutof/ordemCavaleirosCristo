@@ -9,6 +9,8 @@ import ModuleController from './app/controllers/ModuleController';
 import CourseController from './app/controllers/CourseController';
 import ClassController from './app/controllers/ClassController';
 
+import PublicationController from './app/controllers/PublicationController';
+
 import authUserMiddleware from './app/middlewares/authUser';
 import authAdminMiddleware from './app/middlewares/authAdmin';
 
@@ -53,6 +55,25 @@ routes.get('/classes/:id', ClassController.show);
 routes.post('/classes', authAdminMiddleware, ClassController.store);
 routes.put('/classes', authAdminMiddleware, ClassController.update);
 routes.delete('/classes/:id', authAdminMiddleware, ClassController.delete);
+
+routes.get('/publications', PublicationController.index);
+routes.get('/publications/:id', PublicationController.show);
+routes.post(
+  '/publications',
+  [upload.single('file'), authAdminMiddleware],
+  PublicationController.store
+);
+
+routes.put(
+  '/publications',
+  [upload.single('file'), authAdminMiddleware],
+  PublicationController.update
+);
+routes.delete(
+  '/publications/:id',
+  authAdminMiddleware,
+  PublicationController.delete
+);
 
 routes.get('/getUsers', authAdminMiddleware, UserController.index);
 routes.post('/users', UserController.store);

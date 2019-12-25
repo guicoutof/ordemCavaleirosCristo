@@ -5,10 +5,11 @@ import Admin from '../app/models/Admin';
 import Course from '../app/models/Course';
 import Class from '../app/models/Class';
 import Module from '../app/models/Module';
+import Publication from '../app/models/Publication';
 
 import DataBaseConfig from '../config/database';
 
-const models = [User, Admin, Course, Class, Module];
+const models = [User, Admin, Course, Class, Module, Publication];
 
 class Database {
   constructor() {
