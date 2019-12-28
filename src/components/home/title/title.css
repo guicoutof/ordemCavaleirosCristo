@@ -17,17 +17,15 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    width: 80%;
 }
 
 .divLogo{
-    /* display: flex; */
-    /* justify-content: center; */
+    text-align: center;
 }
 
 .imagemLogo{
-    align-self: center;
-    flex-basis: auto;
-    flex-shrink: 3;
+    width: 20vw;
 }
 
 
@@ -35,6 +33,7 @@
     color: black;
     align-self: center;
     font-size: 1.2rem;
+    text-align: center;
 }
 
 .titulo > h1{
@@ -49,4 +48,13 @@
 
 .subtitulo > h4{
     text-shadow: 0px 0px 20px #696969;
+}
+
+@media only screen and (max-width: 600px) {
+    .imagemLogo{
+        width: 30vh;
+    }
+    .titulo{
+        font-size: 0.8rem;
+    }
 }

@@ -5,13 +5,13 @@ export default function courses(props){
     return(
         <div className="courses">
             <div className='title'>
-                <h1>CURSOS</h1>
+                <h1>{props.title}</h1>
             </div>
             <div className="cards">
                 {props.courses.map((c)=>
                     <div key={c.pk} className="card">
                         <img src={c.image} alt={`Curso ${c.pk}`} />
-                        <div className="module">Modulo {c.module}</div>
+                        {c.module?<div className="module">Modulo {c.module}</div>:<div></div>}
                         <div className="title" >{c.title}</div>
                         <div className="desc">{c.desc}</div>
                         <div className="bottom">

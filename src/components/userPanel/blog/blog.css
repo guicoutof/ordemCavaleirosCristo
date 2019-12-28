@@ -1,0 +1,166 @@
+
+.backblog{
+    min-height: 100%;
+    width: 100%;
+
+}
+
+
+.blog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #696969;
+    margin-bottom: 30px;
+    color: #696969;
+    width: 40%;
+}
+.blogTitulo{
+    margin-bottom: 5px;
+}
+
+.divsblog{
+    display: flex;
+    width: 80%;
+    min-height: 100%;
+    flex-direction: column;
+    margin: auto;
+}
+
+.item1{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+.item2{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+
+
+.item3{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+
+}
+.item4{
+    height: 45%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+}
+.imagem1{
+    height: 100%;
+    width: 30%;
+    background-image: url('../../../assets/img/test.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    
+
+}
+.imagem2{
+    height: 100%;
+    width: 30%;
+    background-image: url('../../../assets/img/test.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+.imagem3{
+    height: 100%;
+    width: 30%;
+    background-image: url('../../../assets/img/test.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+.imagem4{
+    height: 100%;
+    width: 30%;
+    background-image: url('../../../assets/img/test.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+}
+
+.text1{
+    height: 100%;
+    width: 100%;
+    margin-left: 5%;
+    
+    
+}
+.tit1{
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center;
+    text-overflow: clip;
+}
+.cont1{
+    font-size: small;
+    text-align: center;
+    
+}
+
+.text2{
+    height: 100%;
+    width: 100%;
+    margin-left: 5%;
+    
+    
+}
+.tit2{
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center;
+    text-overflow: clip;
+}
+.cont2{
+    font-size: small;
+    text-align: center;
+    
+}
+
+.text3{
+    height: 100%;
+    width: 100%;
+    margin-left: 5%;
+    
+    
+}
+.tit3{
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center;
+    text-overflow: clip;
+}
+.cont3{
+    font-size: small;
+    text-align: center;
+    
+}
+.text4{
+    height: 100%;
+    width: 100%;
+    margin-left: 5%;
+    
+    
+}
+.tit4{
+    font-size: medium;
+    font-weight: bolder;
+    text-align: center;
+    text-overflow: clip;
+}
+.cont4{
+    font-size: small;
+    text-align: center;
+    
+}
