@@ -8,6 +8,8 @@ import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 
 import './panelAdm.css'
 
+import Curso from './cadCursos/cadCurso'
+
 export default (props)=>{
     var modulos = [
         {pk:0,name:'Modulo I',qtd:10},
@@ -16,25 +18,27 @@ export default (props)=>{
     ]
 
     return(
-        <div className='principalADM'>
-            <Navbar controle={1}></Navbar>
-            {/* <Cursos></Cursos> */}
-            <Aulas></Aulas>
-            <CadastrarArtigoBlog></CadastrarArtigoBlog>
-            {/* <div className='containerADM'>
-                {
-                modulos.map((modulo) =>
-                    <div key={modulo.pk}className='cardModulo'>
-                        <h3 className='nomeCurso'>{modulo.name}</h3>
-                        <p className='qtdCurso'>Cursos: {modulo.qtd}</p>
-                        <div className="botoes">
-                            <button className="abrirModulo">Abrir</button>
-                            <button className="removerModulo">Remover</button>
-                        </div>
-                    </div>
-                )
-            }</div> */}
-            <Footer></Footer>
-        </div>
+        <Curso></Curso>
+
+        // <div className='principalADM'>
+        //     <Navbar controle={1}></Navbar>
+        //     {/* <Cursos></Cursos> */}
+        //     <Aulas></Aulas>
+        //     <CadastrarArtigoBlog></CadastrarArtigoBlog>
+        //     {/* <div className='containerADM'>
+        //         {
+        //         modulos.map((modulo) =>
+        //             <div key={modulo.pk}className='cardModulo'>
+        //                 <h3 className='nomeCurso'>{modulo.name}</h3>
+        //                 <p className='qtdCurso'>Cursos: {modulo.qtd}</p>
+        //                 <div className="botoes">
+        //                     <button className="abrirModulo">Abrir</button>
+        //                     <button className="removerModulo">Remover</button>
+        //                 </div>
+        //             </div>
+        //         )
+        //     }</div> */}
+        //     <Footer></Footer>
+        // </div>
     )
 }
