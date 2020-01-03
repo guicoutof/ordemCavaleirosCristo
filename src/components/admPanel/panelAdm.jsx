@@ -3,12 +3,14 @@ import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
 import Cursos from './cursos/panelCursos'
+
 import Aulas from './admAulas/admAulas'
 import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 
 import './panelAdm.css'
 
 import Curso from './cadCursos/cadCurso'
+import Aula from   './cadAula/cadAula'
 
 export default (props)=>{
     var modulos = [
@@ -18,7 +20,7 @@ export default (props)=>{
     ]
 
     return(
-        <Curso></Curso>
+        <Aula></Aula>
 
         // <div className='principalADM'>
         //     <Navbar controle={1}></Navbar>
