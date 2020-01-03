@@ -12,8 +12,29 @@
     flex-wrap: wrap;
 }
 
+.divContainerTitulo{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.seta{
+    font-size: 1.5rem;
+}
+
+.divArrowLeft{
+    left: 0;
+}
+
+.divTitulo{
+    margin: auto;
+}
+
 .tituloPagina{
     text-align: center;
+    font-size: 2.5rem;
 }
 
 .formularioCurso{
@@ -34,16 +55,17 @@
 .nomeCurso{
     border-radius: 3px;
     height: 1.5rem;
-    width: 80%;
+    width: 70%;
     text-align: left;
     padding: 5px;
+    margin-right: 10px;
 }
 
 .moduloCurso{
     border-radius: 3px;
     margin-right: 0px;
     height: 1.5rem;
-    width: auto;
+    width: 30%;
     text-align: left;
     padding: 5px;
 }
@@ -52,7 +74,9 @@
     margin-bottom: 10px;
 
     border-radius: 3px;
-    height: 5rem;
+    height: 6.5rem;
+    width: 70%;
+    margin-right: 10px;
     text-align: left;
     padding: 5px;
     font-family: Arial, Helvetica, sans-serif;
@@ -63,6 +87,23 @@
     outline: 0;
     resize: none;
 }
+
+.divDescricao{
+    display: flex;
+}
+
+.imagem{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+}
+
+.thumb {
+    height: 5rem;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
 
 .quantidadesAulaValor{
     display: flex;
@@ -88,5 +129,21 @@
     border-radius: 4px;
     align-self: center;
     width: 6rem;
-    height: 1.5rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    background-color: rgb(76, 246, 70);
+    color: white;
+}
+
+.submitCurso:hover{
+    font-weight: bold;
+}
+
+#files{
+    display: none;
+}
+
+#labelCarregarImagem:hover{
+    font-weight: bold;
 }
