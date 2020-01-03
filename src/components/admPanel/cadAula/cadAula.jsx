@@ -25,11 +25,11 @@ export default function (props){
             </div>
             <form action="" className="formularioAula">
                 <div className="infoBasica">
-                    <input type="text" name="nomeAula" placeholder="Nome da Aula" className="nomeCurso"/>
-                    <input type="text" name="moduloAula" placeholder="Link" className="moduloCurso"/>
+                    <input type="text" name="nomeAula" placeholder="Nome da Aula" className="nomeAula"/>
+                    <input type="text" name="moduloAula" placeholder="Link" className="moduloAula"/>
                 </div>
                 <div className="divDescricao">
-                    <textarea name="nomeCurso" placeholder="Descrição da Aula" className="descricaoAula"></textarea>
+                    <textarea name="nomeAula" placeholder="Descrição da Aula" className="descricaoAula"></textarea>
                 </div>
                 <div className="divSubmit">
                     <input type="submit" value="Salvar Aula"  className="submitAula"/>
