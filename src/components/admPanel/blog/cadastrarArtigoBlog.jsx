@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-//import Navbar from '../../home/navbar/navbar';
-//import Footer from '../../home/footer/footer';
 import './casdastrarArtigoBlog.css';
 
 export class CadastrarArtigoBlog extends Component {
