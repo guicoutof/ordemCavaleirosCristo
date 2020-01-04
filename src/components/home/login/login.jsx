@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 // import MdClose from 'react-ionicons/lib/MdClose'
 
 import './login.css'
+import { login } from "../../../services/auth";
 
 const customStyles = {
   content: {
@@ -19,7 +20,7 @@ const customStyles = {
 };
 
 class Login extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
@@ -51,9 +52,8 @@ class Login extends React.Component {
       try{
         // const response = await applicationCache.post("/session",{loginEmail,loginPassword});
         // login(response.data.token)//token 
-        this.props.history.push("/admin");
-        // window.location.reload();
-        console.log("logou")
+        this.props.history.push("/home");
+        window.location.reload();
       }catch(err){
         this.setState({
           loginErrorMessage:
@@ -66,11 +66,10 @@ class Login extends React.Component {
   LoginForm() {
     return (
       <form id="login-form" >
-        {/* <div className="logo-img"></div> */}
         <div className="logo-img">
           <img  src={require('../../../assets/img/logo.png')} alt="Logo"/>
         </div>
-        {this.state.loginErrorMessage && <p>{this.state.loginErrorMessage}</p>}
+        <p>{this.state.loginErrorMessage}</p>
         <div className="input-group">
           <div className="login-input-email">
             <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({loginEmail:e.target.value})}></input>
@@ -80,7 +79,7 @@ class Login extends React.Component {
           </div>
         </div>
         <div className="button-group">
-          <button id="login" className="login-btn" onClick={e=>console.log("logar")}>Entrar</button>
+          <button id="login" className="login-btn" onClick={this.handleSignIn}>Entrar</button>
         </div>
         <a className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</a>
       </form>
@@ -111,7 +110,7 @@ class Login extends React.Component {
         <Modal
           isOpen={this.props.open}
           onAfterOpen={this.afterOpenModal}
-          onRequestClose={this.props.close}
+          onClose={this.props.close}
           style={customStyles}
           contentLabel="login-modal"
           ariaHideApp={false}

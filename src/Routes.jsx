@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
+// import { isAuthenticated } from "./services/auth";
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
 import PanelAdm from './components/admPanel/panelAdm'
 import PanelUser, {UserBlog} from './components/userPanel/panelUser'
@@ -26,6 +27,9 @@ export default function routes() {
     return (
         <BrowserRouter>
             <Switch>
+
+
+
             <Route exact path="/" component={indexHome} />
             <Route exact path="/cursos" component={indexCourses} />
             <Route exact path="/doacoes" component={indexDonate} />
@@ -38,7 +42,7 @@ export default function routes() {
 
 
             {/* User */}
-            <PrivateRoute exact path="/" component={PanelUser} />
+            <PrivateRoute exact path="/home" component={PanelUser} />
             <PrivateRoute exact path="/blog" component={UserBlog} />
 
             <Route path="*" component={() => <h1>Page not found</h1>} />
