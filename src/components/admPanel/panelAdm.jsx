@@ -3,6 +3,7 @@ import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
 import Cursos from './cursos/panelCursos'
+
 import Aulas from './admAulas/admAulas'
 import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 import AdmArtigos from './admarticles/admarticles'
@@ -11,6 +12,9 @@ import PainelCurso from './cursos/panelCursos'
 import AdmAulas from './admAulas/admAulas'
 
 import './panelAdm.css'
+
+import Curso from './cadCursos/cadCurso'
+import Aula from   './cadAula/cadAula'
 
 export default (props)=>{
     var modulos = [
@@ -47,5 +51,6 @@ export default (props)=>{
             }</div> */}
             <Footer></Footer>
         </div>
+        <Aula></Aula>
     )
 }

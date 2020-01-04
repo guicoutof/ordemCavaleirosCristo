@@ -1,0 +1,149 @@
+.divPrincipal{
+    width: 100%;
+    height: 100%;
+
+    background-image: url('../../../assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.divContainerTitulo{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.seta{
+    font-size: 1.5rem;
+}
+
+.divArrowLeft{
+    left: 0;
+}
+
+.divTitulo{
+    margin: auto;
+}
+
+.tituloPagina{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.formularioCurso{
+    display: flex;
+    flex-direction: column;
+
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.infoBasica{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.nomeCurso{
+    border-radius: 3px;
+    height: 1.5rem;
+    width: 70%;
+    text-align: left;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.moduloCurso{
+    border-radius: 3px;
+    margin-right: 0px;
+    height: 1.5rem;
+    width: 30%;
+    text-align: left;
+    padding: 5px;
+}
+
+.descricaoCurso{
+    margin-bottom: 10px;
+
+    border-radius: 3px;
+    height: 6.5rem;
+    width: 70%;
+    margin-right: 10px;
+    text-align: left;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: 0;
+    resize: none;
+}
+
+.divDescricao{
+    display: flex;
+}
+
+.imagem{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+}
+
+.thumb {
+    height: 5rem;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+
+.quantidadesAulaValor{
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.valorCurso{
+    border-radius: 3px;
+    height: 1.5rem;
+    text-align: left;
+    padding: 5px;
+}
+
+.aulasCurso{
+    border-radius: 3px;
+    height: 1.5rem;
+    text-align: left;
+    padding: 5px;
+}
+
+.submitCurso{
+    border-radius: 4px;
+    align-self: center;
+    width: 6rem;
+    height: 2rem;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    background-color: rgb(76, 246, 70);
+    color: white;
+}
+
+.submitCurso:hover{
+    font-weight: bold;
+}
+
+#files{
+    display: none;
+}
+
+#labelCarregarImagem:hover{
+    font-weight: bold;
+}
