@@ -25,14 +25,14 @@ export default (props)=>{
 
     return(
         <div className='principalADM'>
-            <Navbar controle={1}></Navbar>
             {/* <Cursos></Cursos> */}
             {/* <Aulas></Aulas> */}
             {/* <CadastrarArtigoBlog></CadastrarArtigoBlog> */}
             {/* <AdmArtigos/> */}
             {/* <PainelUsuarios /> */}
             {/* <PainelCurso/> */}
-            <AdmAulas/>
+            {/* <AdmAulas/> */}
+            <Aula></Aula>
 
 
 
@@ -49,8 +49,6 @@ export default (props)=>{
                     </div>
                 )
             }</div> */}
-            <Footer></Footer>
         </div>
-        <Aula></Aula>
     )
 }

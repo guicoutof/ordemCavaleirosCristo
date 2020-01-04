@@ -19,7 +19,7 @@ const customStyles = {
 };
 
 class Login extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -42,23 +42,45 @@ class Login extends React.Component {
     this.setState({ isForgotPSWDOpen: true, isLoginOpen: false })
   }
   
+  handleSignIn = async e=>{
+    e.preventDefault();
+    const {loginEmail,loginPassword} = this.state;
+    if(!loginEmail || !loginPassword ){
+      this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
+    }else{
+      try{
+        // const response = await applicationCache.post("/session",{loginEmail,loginPassword});
+        // login(response.data.token)//token 
+        this.props.history.push("/admin");
+        // window.location.reload();
+        console.log("logou")
+      }catch(err){
+        this.setState({
+          loginErrorMessage:
+            "Houve um problema com o login, verifique suas credenciais."
+        });
+      }
+    }
+  }
+
   LoginForm() {
     return (
-      <form id="login-form">
+      <form id="login-form" >
         {/* <div className="logo-img"></div> */}
         <div className="logo-img">
           <img  src={require('../../../assets/img/logo.png')} alt="Logo"/>
         </div>
+        {this.state.loginErrorMessage && <p>{this.state.loginErrorMessage}</p>}
         <div className="input-group">
           <div className="login-input-email">
-            <input id="login-email" className="login-input" type="text" name="email" placeholder="Email"></input>
+            <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({loginEmail:e.target.value})}></input>
           </div>
           <div className="login-input-password">
-            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha"></input>
+            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha" onChange={e=> this.setState({loginPassword:e.target.value})}></input>
           </div>
         </div>
         <div className="button-group">
-          <button id="login" className="login-btn">Entrar</button>
+          <button id="login" className="login-btn" onClick={e=>console.log("logar")}>Entrar</button>
         </div>
         <a className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</a>
       </form>
@@ -94,9 +116,9 @@ class Login extends React.Component {
           contentLabel="login-modal"
           ariaHideApp={false}
         >
-          <button className="close-btn" onClick={this.closeModal}>
-            {/* <MdClose /> */}
-          </button>
+          {/* <button className="close-btn" onClick={this.closeModal}>
+            <MdClose />
+          </button> */}
           
           {this.state.isLoginOpen ? this.LoginForm() : "" }
           {this.state.isForgotPSWDOpen ? this.ForgotPasswordForm() : "" }

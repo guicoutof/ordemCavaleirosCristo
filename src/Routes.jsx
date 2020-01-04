@@ -1,9 +1,26 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
 import PanelAdm from './components/admPanel/panelAdm'
 import PanelUser, {UserBlog} from './components/userPanel/panelUser'
+
+function isAuthenticated(){
+    return true;
+}
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        )
+      }
+    />
+  );
 
 export default function routes() {
     return (
@@ -17,12 +34,12 @@ export default function routes() {
             <Route exact path="/servicos" component={indexServices}/>
 
             {/* Admin */}
-            <Route exact path="/admin" component={PanelAdm} />
+            <PrivateRoute exact path="/admin" component={PanelAdm} />
 
 
             {/* User */}
-            <Route exact path="/user" component={PanelUser} />
-            <Route exact path="/blog" component={UserBlog} />
+            <PrivateRoute exact path="/" component={PanelUser} />
+            <PrivateRoute exact path="/blog" component={UserBlog} />
 
             <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
