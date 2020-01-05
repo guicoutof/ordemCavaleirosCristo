@@ -11,6 +11,7 @@ import AdmArtigos from './admarticles/admarticles'
 import PainelUsuarios from './users/painelUsuarios'
 import PainelCurso from './cursos/panelCursos'
 import AdmAulas from './admAulas/admAulas'
+import AdmServicos from './admServicos/admServicos'
 
 import './panelAdm.css'
 
@@ -22,6 +23,7 @@ export default (props)=>{
     const nome = "SOKOMO KUDIOMI DADH DAKHDSAD HAKHD AKDWH DUKWA DHAUKWDH AWKUD HAKU"
     return(
         <div className='principalADM'>
+            <AdmServicos></AdmServicos>
             {/* <Cursos></Cursos> */}
             {/* <Aulas></Aulas> */}
             {/* <CadastrarArtigoBlog></CadastrarArtigoBlog> */}
