@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
+import Title from '../home/title/title'
 
 import Cursos from './cursos/panelCursos'
 
@@ -17,12 +18,8 @@ import Curso from './cadCursos/cadCurso'
 import Aula from   './cadAula/cadAula'
 
 export default (props)=>{
-    var modulos = [
-        {pk:0,name:'Modulo I',qtd:10},
-        {pk:1,name:'Modulo II',qtd:8},
-        {pk:2,name:'Modulo III',qtd:5},
-    ]
-
+    
+    const nome = "SOKOMO KUDIOMI DADH DAKHDSAD HAKHD AKDWH DUKWA DHAUKWDH AWKUD HAKU"
     return(
         <div className='principalADM'>
             {/* <Cursos></Cursos> */}
@@ -32,12 +29,13 @@ export default (props)=>{
             {/* <PainelUsuarios /> */}
             {/* <PainelCurso/> */}
             {/* <AdmAulas/> */}
-            <Aula></Aula>
+            {/* <Aula></Aula> */}
 
 
-
-            {/* <div className='containerADM'>
-                {
+            <Navbar controle={1}></Navbar>
+            <div className='containerADM'>
+            <Title titulo={`Bem vindo Administrador`}  subtitulo={nome}/>
+                {/* {
                 modulos.map((modulo) =>
                     <div key={modulo.pk}className='cardModulo'>
                         <h3 className='nomeCurso'>{modulo.name}</h3>
@@ -48,7 +46,9 @@ export default (props)=>{
                         </div>
                     </div>
                 )
-            }</div> */}
+            } */}
+            </div>
+            <Footer />
         </div>
     )
 }

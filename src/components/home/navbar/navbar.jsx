@@ -51,7 +51,8 @@ export default class navbar extends React.Component {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <NavLink to="/user" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/home" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/biblioteca" className="itemMenu"><li>BIBLIOTECA</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
@@ -70,7 +71,7 @@ export default class navbar extends React.Component {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/admin" className="itemMenu"><li>INÍCIO</li></NavLink>
             <div className="itemMenu"><li>USUÁRIOS</li></div>
             <div className="itemMenu"><li>CURSOS</li></div>
             <div className="itemMenu"><li>SERVIÇOS</li></div>
