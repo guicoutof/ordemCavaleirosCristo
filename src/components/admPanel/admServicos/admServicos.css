@@ -1,0 +1,115 @@
+.divPrincipalServicos{
+    height: 100%;
+    width: 100%;
+    
+    background-image: url('../../../../src/assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerServico{
+    width: 100%;
+    height: 100%;  
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.headerServicos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 2rem 0 2rem;
+}
+
+.botaoCriarServico{
+    background-color: rgb(76, 246, 70);
+    border-radius: 7px;
+    height: 2rem;
+    width: auto;
+    border: none;
+    font-weight: bold;
+    color: white;
+}
+
+.pesquisarServico{
+    border-radius: 5px;
+    border-style: none;
+    padding-left: 0.25rem;
+}
+
+.tabelaServicos{
+    width: 100%;
+    padding: 1rem 5rem 0 5rem;
+}
+
+.divServicos{
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.imgServico{
+    width: 20%;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.infoServico{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+}
+
+.precoServico{
+    margin-right: 2rem;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.botoesServico{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 1rem;
+}
+
+.botaoEditarServico{
+    background-color: #4673F6;
+    border-radius: 7px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    Servicor: pointer;
+    outline: none;
+}
+
+.botaoRemoverServico{
+    background-color: #F64646;
+    border-radius: 7px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    Servicor: pointer;
+    outline: none;
+}
+
+.duracaoAula{
+    display: flex;
+    align-items: center;
+}
+
+.imgServico{
+    width: 5rem;
+}

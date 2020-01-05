@@ -10,6 +10,7 @@ import AdmArtigos from './admarticles/admarticles'
 import PainelUsuarios from './users/painelUsuarios'
 import PainelCurso from './cursos/panelCursos'
 import AdmAulas from './admAulas/admAulas'
+import AdmServicos from './admServicos/admServicos'
 
 import './panelAdm.css'
 
@@ -25,6 +26,7 @@ export default (props)=>{
 
     return(
         <div className='principalADM'>
+            <AdmServicos></AdmServicos>
             {/* <Cursos></Cursos> */}
             {/* <Aulas></Aulas> */}
             {/* <CadastrarArtigoBlog></CadastrarArtigoBlog> */}
@@ -32,7 +34,7 @@ export default (props)=>{
             {/* <PainelUsuarios /> */}
             {/* <PainelCurso/> */}
             {/* <AdmAulas/> */}
-            <Aula></Aula>
+            {/* <Aula></Aula> */}
 
 
 
