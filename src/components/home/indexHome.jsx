@@ -46,6 +46,7 @@ export default function index(){
                         />
             <FeaturedCourses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
+            <Contacts/>
             <Footer/>
                 
         </div>
@@ -102,7 +103,22 @@ export function indexCourses(){
     return(
         <div className='index'>
             <Navbar controle={-1}/>
-            <Courses courses={courses}/>
+            <Courses title={'CURSOS'} courses={courses}/>
+            <Footer/>
+        </div>
+    )
+}
+export function indexServices(){
+    const services = [
+        {pk:0,title:'Mapa Astral Judaico',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:1,title:'Mapa Astral Chines',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:2,title:'Mapa Astral Chines',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+        {pk:3,title:'Mapa Astral Chines',image:Image,desc:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem nisi, exercitationem autem animi eos eveniet nobis ipsum officiis consequatur accusantium necessitatibus',price:50.00},
+            ];
+    return(
+        <div className='index'>
+            <Navbar controle={-1}/>
+            <Courses title={'SERVIÇOS'}courses={services}/>
             <Footer/>
         </div>
     )

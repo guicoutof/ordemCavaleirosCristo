@@ -47,6 +47,7 @@ p{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 
 .footer-container > .row > .infoRow > li{
@@ -54,11 +55,14 @@ p{
     list-style-type: none;
     margin-top: 0.2rem;
 }
-.footer-container > .row > .infoRow > a{
+.footer-container > .row > .infoRow > #wpp{
     cursor: pointer;
     text-decoration: none;
     color: rgb(9, 148, 9);
     margin-top: 0.2rem;
+}
+.footer-container > .row > .infoRow > #mail{
+    color: black;
 }
 .footer-container > .row > .infoRow > #fb{
     color: blue;
