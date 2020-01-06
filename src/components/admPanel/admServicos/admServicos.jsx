@@ -1,14 +1,9 @@
 import React from 'react'
-import Navbar from '../../home/navbar/navbar'
-import Footer from '../../home/footer/footer'
 
 import './admServicos.css'
 
 export default function(props) {
     return(
-        <div className='divPrincipalServicos'>
-            <Navbar></Navbar>
-
             <div className="principalAulas">
             <div className="containerServico">
                 <div className="headerServicos">
@@ -35,10 +30,6 @@ export default function(props) {
                     </div>    
                 </div>                
             </div>
-        </div>
-
-
-            <Footer></Footer>
         </div>
     )
 }

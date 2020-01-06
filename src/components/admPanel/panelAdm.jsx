@@ -18,26 +18,41 @@ import './panelAdm.css'
 import Curso from './cadCursos/cadCurso'
 import Aula from   './cadAula/cadAula'
 
-export default (props)=>{
-    
-    const nome = "SOKOMO KUDIOMI DADH DAKHDSAD HAKHD AKDWH DUKWA DHAUKWDH AWKUD HAKU"
+export default function panelAdm(){
     return(
         <div className='principalADM'>
-            <AdmServicos></AdmServicos>
-            {/* <Cursos></Cursos> */}
-            {/* <Aulas></Aulas> */}
+            <Navbar/>
+            <div className='containerADM'>
+            <Title titulo={`Bem vindo Administrador`}/>
             {/* <CadastrarArtigoBlog></CadastrarArtigoBlog> */}
             {/* <AdmArtigos/> */}
             {/* <PainelUsuarios /> */}
             {/* <PainelCurso/> */}
             {/* <AdmAulas/> */}
             {/* <Aula></Aula> */}
-
-
-            <Navbar controle={1}></Navbar>
+            </div>
+            <Footer />
+        </div>
+    )
+}
+export function AdmUser(){
+    return(
+        <div className='principalADM'>
+            <Navbar/>
             <div className='containerADM'>
-            <Title titulo={`Bem vindo Administrador`}  subtitulo={nome}/>
-                {/* {
+                <PainelUsuarios/>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+export function AdmModule(){
+    const modulos = []
+    return(
+        <div className='principalADM'>
+            <Navbar/>
+            <div className='containerADM'>
+                {
                 modulos.map((modulo) =>
                     <div key={modulo.pk}className='cardModulo'>
                         <h3 className='nomeCurso'>{modulo.name}</h3>
@@ -48,9 +63,31 @@ export default (props)=>{
                         </div>
                     </div>
                 )
-            } */}
+                }
             </div>
-            <Footer />
+            <Footer/>
+        </div>
+    )
+}
+export function AdmService(){
+    return(
+        <div className='principalADM'>
+            <Navbar/>
+            <div className='containerADM'>
+                <AdmServicos/>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+export function AdmBlog(){
+    return(
+        <div className='principalADM'>
+            <Navbar/>
+            <div className='containerADM'>
+                <AdmArtigos/>
+            </div>
+            <Footer/>
         </div>
     )
 }

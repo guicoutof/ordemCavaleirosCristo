@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom'
 
 import './login.css'
 import api from "../../../services/api";
-import { login } from "../../../services/auth";
+import { login, loginAdm } from "../../../services/auth";
 
 const customStyles = {
   content: {
@@ -52,16 +52,23 @@ class Login extends React.Component {
       this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
     }else{
       try{
-        const response = await api.post("/sessions",{email,password});
-        login(response.data.token);
-        this.props.history.push("/home");
+        const response = await api.post("/dashboard",{email,password});
+        loginAdm(response.data.token);
+        this.props.history.push("/admin");
         window.location.reload();
       }catch(err){
-        console.log(err)
-        this.setState({
-          loginErrorMessage:
-            "Houve um problema com o login, verifique suas credenciais."
-        });
+        try{
+          const response = await api.post("/sessions",{email,password});
+          console.log(response);
+          login(response.data.token,response.data.user.name);
+          this.props.history.push("/home");
+          window.location.reload();
+        }catch(err){
+          this.setState({
+            loginErrorMessage:
+              "Houve um problema com o login, verifique suas credenciais."
+          });
+        }
       }
     }
   }
