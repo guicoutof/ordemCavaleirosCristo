@@ -4,6 +4,7 @@ import Footer from '../home/footer/footer'
 
 import Curso from './curso/curso'
 import Blog from './blog/blog'
+import Artigo from './artigo/artigo'
 
 import './panelUser.css'
 
@@ -12,7 +13,10 @@ export default function PanelUser(){
         <div className='principalUSR'>
             <Navbar controle={0}></Navbar>
             <div className="containerUSR">
-            <Curso></Curso>
+            {/* <Curso></Curso> */}
+            {/* <Artigo/> */}
+            {/* <Blog/> */}
+            
             </div>
             <Footer></Footer>
         </div>

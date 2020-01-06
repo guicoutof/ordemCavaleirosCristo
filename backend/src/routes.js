@@ -5,6 +5,8 @@ import SessionController from './app/controllers/SessionController';
 import DashboardController from './app/controllers/DashboardController';
 import AdminController from './app/controllers/AdminController';
 
+import ContactController from './app/controllers/ContactController';
+
 import ModuleController from './app/controllers/ModuleController';
 import CourseController from './app/controllers/CourseController';
 import ClassController from './app/controllers/ClassController';
@@ -22,6 +24,8 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 
 routes.post('/dashboard', DashboardController.store);
+
+routes.post('/contact', ContactController.store);
 
 routes.get('/admins', authAdminMiddleware, AdminController.index);
 routes.get('/admins/:id', authAdminMiddleware, AdminController.show);

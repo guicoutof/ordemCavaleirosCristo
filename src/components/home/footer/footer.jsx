@@ -21,7 +21,7 @@ export default function footer() {
                     </div>
                 </div>
                 <div className='row'>
-                    <li>DÚVIDAS? FALE CONOSCO</li>
+                    <li className="duvidas">DÚVIDAS? FALE CONOSCO</li>
                     <div className="infoRow">
                         <a href="https://wa.me/5514996903532" target='_blank' rel="noopener noreferrer" className="liInfo" id="wpp">
                             <FontAwesomeIcon icon={faWhatsapp} size="2x"/>

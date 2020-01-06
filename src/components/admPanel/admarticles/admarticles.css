@@ -1,0 +1,297 @@
+.container1{
+width:90%;
+height:100%;
+display: flex;
+flex-direction: column;
+
+}
+
+.containerbuttons{
+width: 100%;
+height: 6%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-image: url('../../../assets/img/iconsearch.png');
+background-repeat: no-repeat;
+background-position: left;
+background-position-x: 90%;
+background-size: 3%;
+}
+
+.addart{
+display: flex;
+width: 13%;
+height: 100%;
+border-radius: 30px 30px 30px 30px;
+border-style: groove;
+background-color: #82EF44;
+border-color: #707070;
+border-width: 1px;
+color: #707070;
+align-content: center;
+justify-content: center;
+
+}
+
+
+.search1{
+    display: flex;
+    width: 13%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 30px 30px 30px 30px;
+    border-width: 1px;
+    border-style: groove;
+    text-align: center;
+    border-color: #707070;
+
+    
+}
+
+.containerarticles{
+
+display: flex;
+flex-direction: column;
+margin-top: 10px;
+width: 100%;
+height: 80%;
+background-color: white;
+border-radius: 8px 8px 8px 8px;
+border-color: gray;
+border-style: solid;
+border-width: thin;
+overflow: auto;
+}
+
+.divforbutt0{
+display: flex;
+flex-direction: row;
+width: 15%;
+height: 100%;
+float: right;
+justify-content: center;
+align-items: center;
+
+}
+
+.artname0{
+margin-left: 40%;
+
+}
+.art0{
+display: flex;
+flex-direction: row;
+width: 100%;
+height: 33%;
+background-image: url('../../../assets/img/soldier.jpg');
+background-repeat: no-repeat;
+background-size: 10%;
+background-position-y: center;
+background-position-x:2%;
+align-items: center;
+justify-content:space-between;
+text-align: center;
+border-bottom-style: solid;
+border-bottom-width: 1px;
+border-bottom-color: #707070;
+color: #707070;
+}
+
+
+.editart0{
+display: flex;
+width: 50%;
+height: 30%;
+border-radius: 30px 30px 30px 30px;
+border-style: groove;
+background-color: #649FE2;
+border-color: #707070;
+border-width: 1px;
+color: #707070;
+align-items: center;
+justify-content: center;
+
+
+}
+
+.removeart0{
+display: flex;
+width: 50%;
+height: 30%;
+border-radius: 30px 30px 30px 30px;
+border-style: groove;
+background-color:#F15E5E ;
+border-color: #707070;
+border-width: 1px;
+color: #707070;
+align-items: center;
+justify-content: center;
+margin-left: 10px;
+margin-right: 10px;
+}
+.art1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 33%;
+    background-image: url('../../../assets/img/soldier.jpg');
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-y: center;
+    background-position-x:2%;
+    align-items: center;
+    justify-content:space-between;
+    text-align: center;
+    color: #707070;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #707070;
+}
+
+.divforbutt1{
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    height: 100%;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    
+    }
+    
+    .artname1{
+    margin-left: 40%;
+    }
+
+    .editart1{
+        display: flex;
+        width: 50%;
+        height: 30%;
+        border-radius: 30px 30px 30px 30px;
+        border-style: groove;
+        background-color: #649FE2;
+        border-color: #707070;
+        border-width: 1px;
+        color: #707070;
+        align-items: center;
+        justify-content: center;
+        
+        
+        }
+        
+        .removeart1{
+        display: flex;
+        width: 50%;
+        height: 30%;
+        border-radius: 30px 30px 30px 30px;
+        border-style: groove;
+        background-color:#F15E5E ;
+        border-color: #707070;
+        border-width: 1px;
+        color: #707070;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        }
+
+
+.art2{display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 33%;
+    background-image: url('../../../assets/img/soldier.jpg');
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-y: center;
+    background-position-x:2%;
+    align-items: center;
+    justify-content:space-between;
+    text-align: center;
+    color: #707070;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #707070;
+}
+
+.divforbutt2{
+    display: flex;
+    flex-direction: row;
+    width: 15%;
+    height: 100%;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    
+    }
+    
+    .artname2{
+    margin-left: 40%;
+    }
+
+    .editart2{
+        display: flex;
+        width: 50%;
+        height: 30%;
+        border-radius: 30px 30px 30px 30px;
+        border-style: groove;
+        background-color: #649FE2;
+        border-color: #707070;
+        border-width: 1px;
+        color: #707070;
+        align-items: center;
+        justify-content: center;
+        
+        
+        }
+        
+        .removeart2{
+        display: flex;
+        width: 50%;
+        height: 30%;
+        border-radius: 30px 30px 30px 30px;
+        border-style: groove;
+        background-color:#F15E5E ;
+        border-color: #707070;
+        border-width: 1px;
+        color: #707070;
+        align-items: center;
+        justify-content: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        }
+
+        .containerbuttons2{
+            width: 100%;
+            height: 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+.getback{
+display: flex;
+width: 13%;
+height: 100%;
+border: none;
+color: #707070;
+background-image: url('../../../assets/img/back.png');
+background-repeat: no-repeat;
+background-position: left;
+background-position-x: 2%;
+background-size: 15%;
+background-color: transparent;
+align-content: center;
+justify-content: center;
+    
+}
+
+.saveart{
+    height: 100%;
+    width: 8%;
+    border-radius: 30px 30px 30px 30px;
+    border-style: groove;
+    background-color: transparent;
+}

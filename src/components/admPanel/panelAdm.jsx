@@ -3,10 +3,19 @@ import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 
 import Cursos from './cursos/panelCursos'
+
 import Aulas from './admAulas/admAulas'
 import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
+import AdmArtigos from './admarticles/admarticles'
+import PainelUsuarios from './users/painelUsuarios'
+import PainelCurso from './cursos/panelCursos'
+import AdmAulas from './admAulas/admAulas'
+import AdmServicos from './admServicos/admServicos'
 
 import './panelAdm.css'
+
+import Curso from './cadCursos/cadCurso'
+import Aula from   './cadAula/cadAula'
 
 export default (props)=>{
     var modulos = [
@@ -17,10 +26,18 @@ export default (props)=>{
 
     return(
         <div className='principalADM'>
-            <Navbar controle={1}></Navbar>
+            <AdmServicos></AdmServicos>
             {/* <Cursos></Cursos> */}
-            <Aulas></Aulas>
-            <CadastrarArtigoBlog></CadastrarArtigoBlog>
+            {/* <Aulas></Aulas> */}
+            {/* <CadastrarArtigoBlog></CadastrarArtigoBlog> */}
+            {/* <AdmArtigos/> */}
+            {/* <PainelUsuarios /> */}
+            {/* <PainelCurso/> */}
+            {/* <AdmAulas/> */}
+            {/* <Aula></Aula> */}
+
+
+
             {/* <div className='containerADM'>
                 {
                 modulos.map((modulo) =>
@@ -34,7 +51,6 @@ export default (props)=>{
                     </div>
                 )
             }</div> */}
-            <Footer></Footer>
         </div>
     )
 }

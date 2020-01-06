@@ -11,6 +11,7 @@ import Donate from './donate/donate'
 import Contacts from './contato/contato'
 import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
+import AdmArticle from '../admPanel/admarticles/admarticles'
 
 import Image from '../../assets/img/test.png'
 
@@ -46,7 +47,6 @@ export default function index(){
                         />
             <FeaturedCourses cards={courses} />
             <UserReviews feedbacks={feedbacks} />
-            <Contacts/>
             <Footer/>
                 
         </div>
