@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import './navbar.css'
+import { isAuthenticated, isAdm, logout, logoutAdm } from "../../../services/auth";
 
 import Login from '../login/login'
 
 export default class navbar extends React.Component {
-    constructor(props){
+    constructor(){
         super();
 
         this.state = {
-            varControle: props.controle,
+            varControle: isAdm()? 1 : isAuthenticated()? 0 : -1,
             modalLogin: false,
         }
         this.closeModalLogin = this.closeModalLogin.bind(this);
@@ -51,14 +52,15 @@ export default class navbar extends React.Component {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <NavLink to="/user" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/home" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/biblioteca" className="itemMenu"><li>BIBLIOTECA</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
             <div className="itemMenu"><li>CONTA</li></div>
-            <div className="itemMenuDireita" ><li>SAIR</li></div>
+            <div className="itemMenuDireita" onClick={()=>logout()}><li>SAIR</li></div>
         </div>            
         )
     } 
@@ -70,12 +72,12 @@ export default class navbar extends React.Component {
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
 
-            <NavLink to="/" className="itemMenu"><li>INÍCIO</li></NavLink>
-            <div className="itemMenu"><li>USUÁRIOS</li></div>
-            <div className="itemMenu"><li>CURSOS</li></div>
-            <div className="itemMenu"><li>SERVIÇOS</li></div>
-            <div className="itemMenu"><li>BLOG</li></div>
-            <div className="itemMenuDireita"><li>SAIR</li></div>
+            <NavLink to="/admin" className="itemMenu"><li>INÍCIO</li></NavLink>
+            <NavLink to="/user" className="itemMenu"><li>USUÁRIOS</li></NavLink>
+            <NavLink to="/modules" className="itemMenu"><li>CURSOS</li></NavLink>
+            <NavLink to="/services" className="itemMenu"><li>SERVIÇOS</li></NavLink>
+            <NavLink to="/articles" className="itemMenu"><li>BLOG</li></NavLink>
+            <div className="itemMenuDireita" onClick={()=>logoutAdm()}><li>SAIR</li></div>
         </div>
         )
 

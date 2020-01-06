@@ -1,9 +1,11 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { withRouter } from 'react-router-dom'
 // import MdClose from 'react-ionicons/lib/MdClose'
 
 import './login.css'
-import { login } from "../../../services/auth";
+import api from "../../../services/api";
+import { login, loginAdm } from "../../../services/auth";
 
 const customStyles = {
   content: {
@@ -21,14 +23,14 @@ const customStyles = {
 
 class Login extends React.Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       isForgotPSWDOpen: false,
       isLoginOpen: true,
 
-      loginEmail: "",
-      loginPassword: "",
+      email: "",
+      password: "",
       loginErrorMessage: [],
 
     };
@@ -45,20 +47,28 @@ class Login extends React.Component {
   
   handleSignIn = async e=>{
     e.preventDefault();
-    const {loginEmail,loginPassword} = this.state;
-    if(!loginEmail || !loginPassword ){
+    const {email,password} = this.state;
+    if(!email || !password ){
       this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
     }else{
       try{
-        // const response = await applicationCache.post("/session",{loginEmail,loginPassword});
-        // login(response.data.token)//token 
-        this.props.history.push("/home");
+        const response = await api.post("/dashboard",{email,password});
+        loginAdm(response.data.token);
+        this.props.history.push("/admin");
         window.location.reload();
       }catch(err){
-        this.setState({
-          loginErrorMessage:
-            "Houve um problema com o login, verifique suas credenciais."
-        });
+        try{
+          const response = await api.post("/sessions",{email,password});
+          console.log(response);
+          login(response.data.token,response.data.user.name);
+          this.props.history.push("/home");
+          window.location.reload();
+        }catch(err){
+          this.setState({
+            loginErrorMessage:
+              "Houve um problema com o login, verifique suas credenciais."
+          });
+        }
       }
     }
   }
@@ -72,10 +82,10 @@ class Login extends React.Component {
         <p>{this.state.loginErrorMessage}</p>
         <div className="input-group">
           <div className="login-input-email">
-            <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({loginEmail:e.target.value})}></input>
+            <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({email:e.target.value})}></input>
           </div>
           <div className="login-input-password">
-            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha" onChange={e=> this.setState({loginPassword:e.target.value})}></input>
+            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha" onChange={e=> this.setState({password:e.target.value})}></input>
           </div>
         </div>
         <div className="button-group">
@@ -110,7 +120,7 @@ class Login extends React.Component {
         <Modal
           isOpen={this.props.open}
           onAfterOpen={this.afterOpenModal}
-          onClose={this.props.close}
+          onRequestClose={this.props.close}
           style={customStyles}
           contentLabel="login-modal"
           ariaHideApp={false}
@@ -127,4 +137,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
