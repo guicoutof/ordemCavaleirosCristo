@@ -12,7 +12,6 @@ export default class navbar extends React.Component {
             varControle: props.controle,
             modalLogin: false,
         }
-        this.openModalLogin = this.openModalLogin.bind(this);
         this.closeModalLogin = this.closeModalLogin.bind(this);
 
     }
