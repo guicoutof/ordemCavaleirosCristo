@@ -11,34 +11,7 @@ export class panelUsuarios extends Component {
         super(props);
 
         this.state = {
-            userOBJ: [{
-                userID: "0",
-                userName: "Default",
-                userEmail: "default@email.com",
-                userPhone: "-1",
-                userCity: "-1",
-                userEstate: "-1",
-                userCountry: "-1",
-                userAccountType: "free",
-            },{
-                userID: "1",
-                userName: "John Carvalho Silva",
-                userEmail: "johncarvalho@email.com",
-                userPhone: "00000000",
-                userCity: "São Paulo",
-                userEstate: "São Paulo",
-                userCountry: "Brasil",
-                userAccountType: "free",
-            },{
-                userID: "2",
-                userName: "Pedro Almeida Silva",
-                userEmail: "pedroca@email.com",
-                userPhone: "11111111",
-                userCity: "Presidente Prudente",
-                userEstate: "São Paulo",
-                userCountry: "Brasil",
-                userAccountType: "premium",
-            },],
+            userOBJ: props.users,
             userCount: 0,
             idController: "",
             enableEditUser: false,

@@ -1,26 +1,24 @@
-import React from 'react'
+import React, {Component} from 'react'
+import './panelAdm.css'
+import api from '../../services/api'
+
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 import Title from '../home/title/title'
-
-import Cursos from './cursos/panelCursos'
-
-import Aulas from './admAulas/admAulas'
-import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 import AdmArtigos from './admarticles/admarticles'
-import PainelUsuarios from './users/painelUsuarios'
-import PainelCurso from './cursos/panelCursos'
-import AdmAulas from './admAulas/admAulas'
+import PainelUsuarios from './users/users'
+
 import AdmServicos from './admServicos/admServicos'
+import { render } from 'react-dom'
 
-import './panelAdm.css'
 
-import Curso from './cadCursos/cadCurso'
-import Aula from   './cadAula/cadAula'
 
-export default function panelAdm(){
-    return(
-        <div className='principalADM'>
+export default class panelAdm extends Component{
+    
+    render(){
+
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
             <Title titulo={`Bem vindo Administrador`}/>
@@ -31,32 +29,60 @@ export default function panelAdm(){
             {/* <AdmAulas/> */}
             {/* <Aula></Aula> */}
             </div>
-            <Footer />
         </div>
-    )
+        )
+    }
 }
-export function AdmUser(){
-    return(
-        <div className='principalADM'>
+export class AdmUser extends Component{
+    state={
+        users:[]
+    }
+    
+    componentDidMount = async ()=>{
+        await api.get("/getUsers")
+            .then(
+                res=>{
+                    this.setState({users:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
-                <PainelUsuarios/>
+                <PainelUsuarios users={this.state.users}/>
             </div>
-            <Footer/>
         </div>
-    )
+        )
+    }
 }
-export function AdmModule(){
-    const modulos = []
-    return(
-        <div className='principalADM'>
+export class AdmModule extends Component{
+    state={
+        modulos:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/modules")
+            .then(
+                res=>{
+                    console.log(res)
+                    this.setState({modulos:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
                 {
-                modulos.map((modulo) =>
-                    <div key={modulo.pk}className='cardModulo'>
-                        <h3 className='nomeCurso'>{modulo.name}</h3>
-                        <p className='qtdCurso'>Cursos: {modulo.qtd}</p>
+                    this.state.modulos.map((m) =>
+                    <div key={m.module.id}className='cardModulo'>
+                        <h3 className='nomeCurso'>{m.module.name}</h3>
+                        <p className='qtdCurso'>Cursos: {m.module.courses_quantity}</p>
                         <div className="botoes">
                             <button className="abrirModulo">Abrir</button>
                             <button className="removerModulo">Remover</button>
@@ -65,10 +91,11 @@ export function AdmModule(){
                 )
                 }
             </div>
-            <Footer/>
         </div>
-    )
+        )
+    }
 }
+
 export function AdmService(){
     return(
         <div className='principalADM'>
@@ -76,18 +103,31 @@ export function AdmService(){
             <div className='containerADM'>
                 <AdmServicos/>
             </div>
-            <Footer/>
         </div>
     )
 }
-export function AdmBlog(){
-    return(
-        <div className='principalADM'>
+export class AdmBlog extends Component{
+    state={
+        publications:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/publications")
+            .then(
+                res=>{
+                    this.setState({publications:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
-                <AdmArtigos/>
+                <AdmArtigos publications={this.state.publications}/>
             </div>
-            <Footer/>
         </div>
-    )
+        )
+    }
 }
