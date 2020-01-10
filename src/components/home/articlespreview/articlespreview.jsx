@@ -7,14 +7,14 @@ export default (props) => {
         
         <div className="mainToBackGND">
             <div className="articleTitle"> 
-                <h1 className="Titlee">{props.title}</h1> 
+                <h1 className="Titlee">{props.publication.title}</h1> 
             </div>
             <div className="articleContent">
-                <p className="Text">{props.text}</p>
+                <p className="Text">{props.publication.text}</p>
             </div>
-            <div className="Ref">
+            {/* <div className="Ref">
                 <p className="refText">{props.references}</p>
-            </div>
+            </div> */}
             <button>VER MAIS</button>
         </div>
     

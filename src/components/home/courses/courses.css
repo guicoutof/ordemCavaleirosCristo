@@ -82,7 +82,8 @@
     border-radius: 5px;
     outline: none;
     font-size: 1rem;
-    background: rgb(249, 209, 23);
+    /* background: rgb(249, 209, 23); */
+    background: rgb(135, 159, 243);
     /* color: white; */
     /* margin-left: auto; */
 }
