@@ -1,16 +1,10 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
-import {courses, services} from '../../services/api'
+import api from '../../services/api'
 import {getNome} from '../../services/auth'
-
-import Curso from './curso/curso'
 import Blog from './blog/blog'
-import Artigo from './artigo/artigo'
 import Title from '../home/title/title'
-import Cursos from '../home/courses/courses'
-import Donate from '../home/donate/donate'
-import Contato from '../home/contato/contato'
 
 import './panelUser.css'
 
@@ -26,14 +20,29 @@ export default function PanelUser(){
     )
 } 
 
-export function UserBlog(){
-    return(
+export class UserBlog extends Component{
+    state={
+        publications:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/publications")
+            .then(
+                res=>{
+                    this.setState({publications:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Blog/>
+            <Blog publications={this.state.publications}/>
             </div>
             <Footer/>
         </div>
-    )
+        )
+    }
 }

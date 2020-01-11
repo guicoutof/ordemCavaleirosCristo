@@ -5,7 +5,7 @@
 
 .containerADM{
     width: 100%;
-    min-height: 75%;
+    min-height: 90%;
 
     background-image: url('../../../src/assets/img/background.png');
     background-attachment: fixed;
