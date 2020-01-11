@@ -59,8 +59,7 @@ class Login extends React.Component {
       }catch(err){
         try{
           const response = await api.post("/sessions",{email,password});
-          console.log(response);
-          login(response.data.token,response.data.user.name);
+          login(response.data.token,response.data.user);
           this.props.history.push("/home");
           window.location.reload();
         }catch(err){

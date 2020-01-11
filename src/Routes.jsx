@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { isAuthenticated, isAdm } from "./services/auth";
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
 import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService} from './components/admPanel/panelAdm'
-import PanelUser, { UserBlog, UserCursos, UserServices, UserDonation, UserContato } from './components/userPanel/panelUser'
+import PanelUser, { UserBlog, UserConta } from './components/userPanel/panelUser'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -46,6 +46,7 @@ export default function routes() {
             {/* User */}
             <PrivateRoute exact path="/home" component={PanelUser} />
             <PrivateRoute exact path="/blog" component={UserBlog} />
+            <PrivateRoute exact path="/conta" component={UserConta} />
             {/* <PrivateRoute exact path="/cursos" component={UserCursos} />
             <PrivateRoute exact path="/servicos" component={UserServices}/>
             <PrivateRoute exact path="/doacoes" component={UserDonation} />

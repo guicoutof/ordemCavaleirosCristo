@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
 import api from '../../services/api'
-import {getNome} from '../../services/auth'
+import {getInfo} from '../../services/auth'
 import Blog from './blog/blog'
 import Title from '../home/title/title'
+import Account from './account/account'
 
 import './panelUser.css'
 
@@ -13,7 +14,7 @@ export default function PanelUser(){
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Title titulo={`Bem vindo`}  subtitulo={getNome()}/>       
+            <Title titulo={`Bem vindo`}  subtitulo={getInfo().name}/>       
             </div>
             <Footer/>
         </div>
@@ -45,4 +46,17 @@ export class UserBlog extends Component{
         </div>
         )
     }
+}
+
+export function UserConta(){
+
+        return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Account user={getInfo()}/>
+            </div>
+            <Footer/>
+        </div>
+        )
 }

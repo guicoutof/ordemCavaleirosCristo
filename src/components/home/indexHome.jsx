@@ -30,7 +30,6 @@ export default class index extends Component{
         await api.get("/modules")
             .then(
                 res=>{
-                    console.log(res.data)
                     this.setState(()=>{
                         const coursesSpotlight = res.data[0].courses.filter((course)=>{
                             if(course.highlight) return course
