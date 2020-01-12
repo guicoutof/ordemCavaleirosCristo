@@ -1,64 +1,63 @@
-import React from 'react'
-
+import React, {Component} from 'react'
 import './panelCurso.css'
+import api from '../../../services/api'
+import Navbar from '../../home/navbar/navbar'
+import { NavLink } from 'react-router-dom'
 
-export default function panelCurso (props){
-    return(
-        <div className="principalCursos">
+export default class panelCurso extends Component{
+    state={
+        courses:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get(`/courses/module/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    this.setState({courses:res.data})
+                }
+            )
+    }
+    
+    render(){
+        return(
+            <div className="principalCursos">
+            <Navbar/>
             <div className="containerCURSO">
                 <div className="headerCursos">
                     <button className="botaoCriarCurso">Novo Curso</button>
-                    <h2 className="nomeCurso">Nome do Curso</h2>
+                        <h2 className="nomeCurso">Modulo {this.props.match.params.id}</h2>
                     <input className="pesquisarCurso" placeholder='Nome do Curso' type="text"/>
                 </div>
 
                 <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <img src={require("../../../assets/img/soldier.jpg")} className="imgCurso"/>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">ABC do Amor</h5>
-                                <p className="descricaoCurso">Principais conselhos e dicas para arrasar na paquera.</p>
+                    {
+                        this.state.courses.map(course=>
+                            <div key={course.id} className="divCursos">
+                                <div className="infoCurso">
+                                    <img src={course.url} alt={course.path}className="imgCurso"/>
+                                    <div className="infoTexto">
+                                        <h5 className="nomeCurso">{course.name}</h5>
+                                        <p className="descricaoCurso">{course.description}</p>
+                                        <p className="descricaoCurso">{course.hours}</p>
+                                        <p className="descricaoCurso">{course.assistance}</p>
+                                        <p className="descricaoCurso">{course.highlight}</p>
+                                        <p className="descricaoCurso">{course.id}</p>
+                                        <p className="descricaoCurso">{course.module_id}</p>
+                                    </div>
+                                </div>
+                                <h4 className="precoCurso">{course.price}</h4>
+                                <div className="botoesCurso">
+                                    <NavLink to={`/course/${course.id}`}><button className="botaoEditarCurso">Abrir</button></NavLink>
+                                    <button className="botaoEditarCurso">Editar</button>
+                                    <button className="botaoRemoverCurso">Remover</button>
+                                </div>
                             </div>
-                        </div>
-                        <h4 className="precoCurso">R$ 0,00</h4>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>
-                    
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <img src={require("../../../assets/img/soldier.jpg")} className="imgCurso"/>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">ABC do Amor</h5>
-                                <p className="descricaoCurso">Principais conselhos e dicas para arrasar na paquera.</p>
-                            </div>
-                        </div>
-                        <h4 className="precoCurso">R$ 0,00</h4>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <img src={require("../../../assets/img/soldier.jpg")} className="imgCurso"/>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">ABC do Amor</h5>
-                                <p className="descricaoCurso">Principais conselhos e dicas para arrasar na paquera.</p>
-                            </div>
-                        </div>
-                        <h4 className="precoCurso">R$ 0,00</h4>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>
+                        )    
+                    }
                 </div>
                 
             </div>
         </div>
-    )
+        )
+    }
 }

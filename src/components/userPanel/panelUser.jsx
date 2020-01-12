@@ -6,6 +6,8 @@ import {getInfo} from '../../services/auth'
 import Blog from './blog/blog'
 import Title from '../home/title/title'
 import Account from './account/account'
+import Library from './library/library'
+import Curso from './curso/curso'
 
 import './panelUser.css'
 
@@ -59,4 +61,43 @@ export function UserConta(){
             <Footer/>
         </div>
         )
+}
+
+export class UserBiblioteca extends Component{
+    state={
+        courses:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/courses/module/1")
+            .then(
+                res=>{
+                    this.setState({courses:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='principalUSR'>
+                <Navbar/>
+                <div className="containerUSR">
+                <Library title="MEUS CURSOS" courses={this.state.courses}/>
+                </div>
+                <Footer/>
+            </div>
+            )
+        }
+}
+
+export function UserCurso(){
+    return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Curso />
+            </div>
+            <Footer/>
+        </div>
+    )
 }

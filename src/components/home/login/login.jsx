@@ -52,15 +52,15 @@ class Login extends React.Component {
       this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
     }else{
       try{
-        const response = await api.post("/dashboard",{email,password});
-        loginAdm(response.data.token);
-        this.props.history.push("/admin");
+        const response = await api.post("/sessions",{email,password});
+        login(response.data.token,response.data.user);
+        this.props.history.push("/home");
         window.location.reload();
       }catch(err){
         try{
-          const response = await api.post("/sessions",{email,password});
-          login(response.data.token,response.data.user);
-          this.props.history.push("/home");
+          const response = await api.post("/dashboard",{email,password});
+          loginAdm(response.data.token);
+          this.props.history.push("/admin");
           window.location.reload();
         }catch(err){
           this.setState({

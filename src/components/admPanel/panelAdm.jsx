@@ -3,13 +3,11 @@ import './panelAdm.css'
 import api from '../../services/api'
 
 import Navbar from '../home/navbar/navbar'
-import Footer from '../home/footer/footer'
 import Title from '../home/title/title'
 import AdmArtigos from './admarticles/admarticles'
 import PainelUsuarios from './users/users'
-
+import AdmModulos from './modules/modules'
 import AdmServicos from './admServicos/admServicos'
-import { render } from 'react-dom'
 
 
 
@@ -67,7 +65,6 @@ export class AdmModule extends Component{
         await api.get("/modules")
             .then(
                 res=>{
-                    console.log(res)
                     this.setState({modulos:res.data})
                 }
             )
@@ -78,18 +75,7 @@ export class AdmModule extends Component{
             <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
-                {
-                    this.state.modulos.map((m) =>
-                    <div key={m.module.id}className='cardModulo'>
-                        <h3 className='nomeCurso'>{m.module.name}</h3>
-                        <p className='qtdCurso'>Cursos: {m.module.courses_quantity}</p>
-                        <div className="botoes">
-                            <button className="abrirModulo">Abrir</button>
-                            <button className="removerModulo">Remover</button>
-                        </div>
-                    </div>
-                )
-                }
+                <AdmModulos modulos={this.state.modulos}/>
             </div>
         </div>
         )
