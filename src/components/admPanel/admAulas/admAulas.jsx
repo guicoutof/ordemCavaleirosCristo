@@ -2,33 +2,52 @@ import React,{Component} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import api from '../../../services/api'
-import Narbar from '../../home/navbar/navbar'
-
+import Navbar from '../../home/navbar/navbar'
+import { NavLink } from 'react-router-dom'
+import Confirm from '../confirm/confirm'
 import './admAulas.css'
 
 export default class AdmClass extends Component{
-    state={
-        classes:[{course:{name:''}}]
+    constructor(){
+        super()
+        this.state={
+            classes:[],
+            modal:false,
+            classId:0
+        }
+
+        this.close = this.close.bind(this);
+        this.confirm = this.confirm.bind(this);
     }
 
     componentDidMount = async ()=>{
-        await api.get(`/classes/${this.props.match.params.id}`)
+        await api.get(`/classes/course/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    typeof res.data === "object"?this.setState({classes:[res.data]}):this.setState({classes:res.data})
+                    this.setState({classes:res.data})
                 }
             )
+    }
+
+    close(){
+        this.setState({modal:false});
+    }
+
+    async confirm(){
+        this.setState({modal:false})
+        await api.delete(`/classes/${this.state.classId}`);
+        window.location.reload();
     }
 
     render(){
 
         return(
             <div className="principalAulas">
-                <Narbar />
+                <Navbar />
             <div className="containerCURSO">
                 <div className="headerCursos">
-                    <button className="botaoCriarCurso">Nova Aula</button>  {/*sera editavel*/}
-                    <h2 className="nomeCurso">{this.state.classes[0].course.name}</h2>
+                    <NavLink to={`/course/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Nova Aula</button> </NavLink> 
+                    <h2 className="nomeCurso">{this.state.classes.length>0?this.state.classes[0].course.name:'Nenhuma Aula'}</h2>
                     <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/>
                 </div>
             {
@@ -47,8 +66,9 @@ export default class AdmClass extends Component{
                                 </div>
                             </div>
                             <div className="botoesCurso">
-                                <button className="botaoEditarCurso">Editar</button>
-                                <button className="botaoRemoverCurso">Remover</button>
+                                <NavLink to={`/course/${this.props.match.params.id}/class/${c.id}/edit`}><button className="botaoEditarCurso">Editar</button></NavLink> 
+                                <button className="botaoRemoverCurso" onClick={()=>this.setState({modal:true,classId:c.id})}>Remover</button>
+                                <Confirm open={this.state.modal}  title={'Deseja realmente excluir esta aula ? '} close={this.close} confirm={this.confirm}/> 
                             </div>
                         </div>    
                     </div>

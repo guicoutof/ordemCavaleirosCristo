@@ -13,22 +13,40 @@ export default class CreateCurso extends Component {
         name:'',
         module_id:this.props.match.params.id,
         description:'',
-        hours:'',
+        hours:0,
         price:'',
         file:'',
         book:'',
         assistance:'',
         highlight:false,
+
+        msg:''
     }
 
      submitCourse = async e =>{
-        e.preventDefault();
-        const {name,module_id,description,hours,price,file,book,assistance,highlight} = this.state
-        await api.post("/courses",{name,module_id,description,hours,price,file,book,assistance,highlight})
-        .then(res=>{
-            console.log(res)
+        var data = new FormData();
+        data.append("file",this.state.file);
+        data.append("name",this.state.name);
+        data.append("module_id",this.state.module_id);
+        data.append("description",this.state.description);
+        data.append("hours",this.state.hours);
+        data.append("price",this.state.price);
+        data.append("book",this.state.book);
+        data.append("assistance",this.state.assistance);
+        data.append("highlight",this.state.highlight);
 
-        })
+        const {name,module_id,description,hours,price,file,book,assistance,highlight} = this.state
+        try{
+
+            await api.post("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
+            .then(res=>{
+                console.log(res)
+                this.setState({msg:'Curso criado com sucesso'})
+            })
+        }catch(err){
+            console.log(err)
+            this.setState({msg:'Problema ao criar o curso'})
+        }
 
     }
     
@@ -64,12 +82,13 @@ export default class CreateCurso extends Component {
     render(){
         return(
             <div className="divPrincipal">
-                <Navbar />{console.log(this)}
+                <Navbar />
                 <div className="divContainerTitulo">
                     <div className="divArrowLeft">
                     <NavLink to={`/module/${this.props.match.params.id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
                     </div>
                     <div className="divTitulo">
+                        {this.state.msg}
                         <h1 className="tituloPagina">Cadastro de Curso</h1>
                     </div>
                 </div>
