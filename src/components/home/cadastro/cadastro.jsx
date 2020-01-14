@@ -21,7 +21,6 @@ class CadScreen extends Component {
   };
   handleSubmit = async e => {
     e.preventDefault();
-    console.log(this.state);
     const{email,password,confsenha,name,city,state,country,phone_number,type,birth_date} = this.state;
     if(!email || !password ||  !confsenha || !name || !(type == 0 || type == 2)){
       this.setState({error: "Preencha todos os campos para continuar!"})
@@ -30,10 +29,21 @@ class CadScreen extends Component {
         this.setState({error: "Senhas não conferem!"})
       }else{
         try{
-          console.log(this.state);
-          const response = await api.post("/users",{email,password,name,state,country,phone_number,type,module:1});
-          console.log(response)
-          this.setState({error:"Criado com sucesso"});
+          const response = await api.post("/users",{email,password,name,city,birth_date,state,country,phone_number,type,module:1});
+          // alert('Criado com sucesso');
+          this.setState({
+            error:"Criado com sucesso",
+            name: "",
+            birth_date: "",
+            email: "",
+            password: "",
+            confsenha:"",
+            city: "",
+            state: "",
+            country: "",
+            phone_number: "",
+            type: "",
+          });
         }catch(err){
           console.log(err)
         }
@@ -135,7 +145,7 @@ class CadScreen extends Component {
                     </li>
                     <li>
                       <input id="cad-free" className="checkboxe" type="radio" name="accountType" onClick={e => this.setState({type:0})}/>
-                      <input id="cad-free" className="checkboxe" type="radio" name="accountType" onClick={e => this.setState({type:2})}/>
+                      <input id="cad-afiliado" className="checkboxe" type="radio" name="accountType" onClick={e => this.setState({type:2})}/>
 
                     </li>
                   </ul>

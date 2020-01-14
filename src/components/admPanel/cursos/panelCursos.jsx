@@ -24,7 +24,7 @@ export default class panelCurso extends Component{
             <Navbar/>
             <div className="containerCURSO">
                 <div className="headerCursos">
-                    <button className="botaoCriarCurso">Novo Curso</button>
+                    <NavLink to={`/module/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Novo Curso</button></NavLink>
                         <h2 className="nomeCurso">Modulo {this.props.match.params.id}</h2>
                     <input className="pesquisarCurso" placeholder='Nome do Curso' type="text"/>
                 </div>

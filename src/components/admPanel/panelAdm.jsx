@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import './panelAdm.css'
 import api from '../../services/api'
-
 import Navbar from '../home/navbar/navbar'
 import Title from '../home/title/title'
 import AdmArtigos from './admarticles/admarticles'
-import PainelUsuarios from './users/users'
+// import PainelUsuarios from './users/users'
+import PainelUsuarios from './users/painelUsuarios'
 import AdmModulos from './modules/modules'
 import AdmServicos from './admServicos/admServicos'
 
@@ -31,30 +31,15 @@ export default class panelAdm extends Component{
         )
     }
 }
-export class AdmUser extends Component{
-    state={
-        users:[]
-    }
-    
-    componentDidMount = async ()=>{
-        await api.get("/getUsers")
-            .then(
-                res=>{
-                    this.setState({users:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='principalADM'>
-            <Navbar/>
-            <div className='containerADM'>
-                <PainelUsuarios users={this.state.users}/>
-            </div>
+export function AdmUser(){
+    return(
+        <div className='principalADM'>
+        <Navbar/>
+        <div className='containerADM'>
+            <PainelUsuarios />
         </div>
-        )
-    }
+    </div>
+    )
 }
 export class AdmModule extends Component{
     state={

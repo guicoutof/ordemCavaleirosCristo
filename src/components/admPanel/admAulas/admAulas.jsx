@@ -1,176 +1,62 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
+import api from '../../../services/api'
+import Narbar from '../../home/navbar/navbar'
 
 import './admAulas.css'
 
-export default (props) =>{
-    return(
-        <div className="principalAulas">
+export default class AdmClass extends Component{
+    state={
+        classes:[{course:{name:''}}]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get(`/classes/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    typeof res.data === "object"?this.setState({classes:[res.data]}):this.setState({classes:res.data})
+                }
+            )
+    }
+
+    render(){
+
+        return(
+            <div className="principalAulas">
+                <Narbar />
             <div className="containerCURSO">
                 <div className="headerCursos">
                     <button className="botaoCriarCurso">Nova Aula</button>  {/*sera editavel*/}
-                    <h2 className="nomeCurso">Nome do Curso</h2>
-                    <input className="pesquisarCurso" placeholder='Nome da Aula' type="text"/>
+                    <h2 className="nomeCurso">{this.state.classes[0].course.name}</h2>
+                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/>
                 </div>
-
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" target="_blanck" href="http://youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
+            {
+                this.state.classes.map((c)=>
+                    <div key={c.id} className="tabelaCursos">
+                        <div className="divCursos">
+                            <div className="infoCurso">
+                                <div className="iconeYoutube">
+                                    <a className="linkYoutube" target="_blanck" href={c.link}>
+                                        <FontAwesomeIcon icon={faYoutube} size="2x"/>
+                                    </a>
+                                </div>
+                                <div className="infoTexto">
+                                    <h5 className="nomeCurso">{c.name}</h5>
+                                    <p className="descricaoCurso">{c.description}</p>
+                                </div>
                             </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
+                            <div className="botoesCurso">
+                                <button className="botaoEditarCurso">Editar</button>
+                                <button className="botaoRemoverCurso">Remover</button>
                             </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                
+                        </div>    
+                    </div>
+                    )
+            }
+                  
             </div>
-        </div>
-    )
+            </div>
+        )
+    }
 }
