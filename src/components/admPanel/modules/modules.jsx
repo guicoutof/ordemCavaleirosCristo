@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
-import './modules.css'
 import { NavLink } from 'react-router-dom'
 import Modal from 'react-modal';
 import api from '../../../services/api'
 import Confirm from '../confirm/confirm'
+import './modules.css'
 
 export default class AdmModules extends Component{
     constructor(){
@@ -47,29 +47,31 @@ export default class AdmModules extends Component{
 render(){
 
     return(
-        <div className='containerADM'>
-            <Modal isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} className={'modalModulo'} ariaHideApp={false} >
-                <div>Criar Modulo</div>
-                <div>
-                    Name: 
-                    <input value={this.state.name} onChange={e=>this.setState({name:e.target.value})} />
-                </div>
-                <button onClick={()=>this.submitModule()}>Criar</button>
-            </Modal>
-            <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este modulo ? '} close={this.close} confirm={this.confirm}/> 
-            <button onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
-        {
-            this.props.modulos.map((modulo) =>
-            <div key={modulo.module.id}className='cardModulo'>
-                    <h3 className='nomeCurso'>{modulo.module.name}</h3>
-                    <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>
-                    <div className="botoes">
-                        <NavLink to={`/module/${modulo.module.id}`}><button className="abrirModulo">Abrir</button></NavLink>
-                        <button className="removerModulo" onClick={()=>this.removeModule(modulo.module.id)} >Remover</button>
+        <div className='principalModulo'>
+            <button className='criarModulo' onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
+        
+            <div className='containerADM'>
+                <Modal className="modalTamanho" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
+                    <h1 className="tituloCriarModulo">Criar Módulo</h1>
+                    <div className="modalModulo">
+                        <input className='inputNomeModulo' value={this.state.name} placeholder={'Nome do Módulo'} onChange={e=>this.setState({name:e.target.value})} />
+                        <button className={'abrirModulo'} onClick={()=>this.submitModule()}>Criar</button>
                     </div>
-                </div>
-            )
-        }
+                </Modal>
+                <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este modulo?'} close={this.close} confirm={this.confirm}/> 
+            {
+                this.props.modulos.map((modulo) =>
+                <div key={modulo.module.id}className='cardModulo'>
+                        <h3 className='nomeCurso'>{modulo.module.name}</h3>
+                        <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>
+                        <div className="botoes">
+                            <NavLink to={`/module/${modulo.module.id}`}><button className="abrirModulo">Abrir</button></NavLink>
+                            <button className="removerModulo" onClick={()=>this.removeModule(modulo.module.id)} >Remover</button>
+                        </div>
+                    </div>
+                )
+            }
+            </div>
         </div>
         )
     }

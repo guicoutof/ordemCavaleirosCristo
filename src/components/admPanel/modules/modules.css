@@ -1,7 +1,11 @@
-.containerADM{
+.principalModulo{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    min-height: 75%;
+    min-height: 100%;
+}
 
+.containerADM{
     background-image: url('../../../../src/assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
@@ -67,4 +71,58 @@
 .removerModulo:hover{
     background-color: #CC0D0D;
     font-weight: bold;
+}
+
+.criarModulo{
+    border:none;
+    border-radius: 4px;
+    width: 7rem;
+    height: 2rem;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    background-color: #3667FC;
+    color: white;
+}
+
+.criarModulo:hover{
+    font-weight: bold;
+}
+
+.modalModulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tituloCriarModulo{text-align: center}
+
+.inputNomeModulo{
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+}
+
+.modalTamanho{
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5rem;
+
+
+    height: 50%;
+    width: 50%;
+
+    border-radius: 30px;
+
+    outline: 0;
+
+    background-image: url('../../../../src/assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    justify-content: center;
 }
