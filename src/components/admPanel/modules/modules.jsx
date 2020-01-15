@@ -13,33 +13,41 @@ export default class AdmModules extends Component{
             modalC:false,
             name:'',
             confirm:false,
-            removeId:'',
+            id:'',
+            modalE:false
         }
         this.confirm = this.confirm.bind(this);
         this.close = this.close.bind(this);
     }
 
     async confirm(){
-        const {removeId} = this.state
+        const {id} = this.state
         this.setState({modalC:false,confirm:true})
-        const response = await api.delete('/modules/',{removeId})
-        console.log(response)
+        await api.delete(`/modules/${id}`)
+        window.location.reload();
     }
-
+    
     close(){
-        this.setState({modalC:false});
+        this.setState({modalC:false,modalE:false});
     }
-
+    
     async submitModule(){
         const {name} = this.state
         await api.post("/modules",{name})
         this.setState({modal:false})
         window.location.reload();
     }
-
+    
     removeModule(id){
-        this.setState({modalC:true,removeId:id})
+        this.setState({modalC:true,id:id})
+        
+    }
 
+    async updateModule(){
+        const {id,name} = this.state
+        this.setState({modalE:false})
+        await api.put('/modules',{id,name})
+        window.location.reload()
     }
 
 
@@ -66,6 +74,16 @@ render(){
                         <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>
                         <div className="botoes">
                             <NavLink to={`/module/${modulo.module.id}`}><button className="abrirModulo">Abrir</button></NavLink>
+                            <button onClick={()=>this.setState({modalE:true,id:modulo.module.id})}>Editar</button>
+
+                            <Modal className="modalTamanho" isOpen={this.state.modalE} onRequestClose={()=>this.setState({modalE:false})} ariaHideApp={false} >
+                                <h1 className="tituloCriarModulo">Editar Módulo</h1>
+                                <div className="modalModulo">
+                                    <input className='inputNomeModulo' value={this.state.name} placeholder={'Nome do Módulo'} onChange={e=>this.setState({name:e.target.value})} />
+                                    <button className={'abrirModulo'} onClick={()=>this.updateModule()}>Salvar</button>
+                                </div>
+                            </Modal>
+
                             <button className="removerModulo" onClick={()=>this.removeModule(modulo.module.id)} >Remover</button>
                         </div>
                     </div>

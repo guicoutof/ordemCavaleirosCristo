@@ -52,8 +52,8 @@ export default class CadAulas extends Component{
                     <NavLink to={`/course/${this.props.match.params.id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
                     </div>
                     <div className="divTitulo">
-                        {this.state.msg}
                         <h1 className="tituloPagina">Cadastro de Aulas</h1>
+                        {this.state.msg}
                     </div>
                 </div>
                 <div className="divModulo">
