@@ -1,8 +1,8 @@
-import nodemailer from 'nodemailer';
-import { resolve } from 'path';
-import exphbs from 'express-handlebars';
-import nodemailerhbs from 'nodemailer-express-handlebars';
-import mailConfig from '../config/mail';
+const nodemailer = require('nodemailer');
+const { resolve } = require('path');
+const exphbs = require('express-handlebars');
+const nodemailerhbs = require('nodemailer-express-handlebars');
+const mailConfig = require('../config/mail');
 
 class Mail {
   constructor() {
@@ -43,4 +43,4 @@ class Mail {
   }
 }
 
-export default new Mail();
+module.exports = new Mail();

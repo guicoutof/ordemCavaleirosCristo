@@ -1,5 +1,5 @@
-import * as Yup from 'yup';
-import User from '../models/User';
+const Yup = require('yup');
+const User = require('../models/User');
 
 class UserController {
   async index(req, res) {
@@ -125,4 +125,4 @@ class UserController {
   }
 }
 
-export default new UserController();
+module.exports = new UserController();

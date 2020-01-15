@@ -1,13 +1,13 @@
-import Sequelize from 'sequelize';
+const Sequelize = require('sequelize');
 
-import User from '../app/models/User';
-import Admin from '../app/models/Admin';
-import Course from '../app/models/Course';
-import Class from '../app/models/Class';
-import Module from '../app/models/Module';
-import Publication from '../app/models/Publication';
+const User = require('../app/models/User');
+const Admin = require('../app/models/Admin');
+const Course = require('../app/models/Course');
+const Class = require('../app/models/Class');
+const Module = require('../app/models/Module');
+const Publication = require('../app/models/Publication');
 
-import DataBaseConfig from '../config/database';
+const DataBaseConfig = require('../config/database');
 
 const models = [User, Admin, Course, Class, Module, Publication];
 
@@ -26,4 +26,4 @@ class Database {
   }
 }
 
-export default new Database();
+module.exports = new Database();

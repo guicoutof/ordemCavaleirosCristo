@@ -1,8 +1,8 @@
-import * as Yup from 'yup';
-import fs from 'fs';
-import { promisify } from 'util';
-import { resolve } from 'path';
-import Publication from '../models/Publication';
+const Yup = require('yup');
+const fs = require('fs');
+const { promisify } = require('util');
+const { resolve } = require('path');
+const Publication = require('../models/Publication');
 
 const unlinkAsync = promisify(fs.unlink);
 
@@ -85,4 +85,4 @@ class PublicationController {
   }
 }
 
-export default new PublicationController();
+module.exports = new PublicationController();

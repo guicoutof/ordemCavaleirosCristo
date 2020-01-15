@@ -1,5 +1,5 @@
-import * as Yup from 'yup';
-import Admin from '../models/Admin';
+const Yup = require('yup');
+const Admin = require('../models/Admin');
 
 class AdminController {
   async index(req, res) {
@@ -90,4 +90,4 @@ class AdminController {
   }
 }
 
-export default new AdminController();
+module.exports = new AdminController();
