@@ -119,26 +119,24 @@
     padding-right: 1rem;
 }
 
-.panelUser-edit-btn{
+.panelUser-btn{
     width: auto;
     height: auto;
     margin-right: 5px;
-    background-color: #4673F6;
+    background-color: #fafafa;
     border-radius: 15px;
     border: none;
     cursor: pointer;
+
     outline: none;
 }
 
-.panelUser-remove-btn{
-    width: auto;
-    height: auto;
-    margin-left: 5px;
-    background-color: #F64646;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    outline: none;
+.btn-excluir{    
+    color: #DE2626;
+}
+
+.btn-editar{
+    color: #266CDE;
 }
 
 .divInfo{

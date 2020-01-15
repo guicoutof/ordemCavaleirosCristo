@@ -7,6 +7,9 @@ import './painelUsuarios.css'
 import './userCSS/createAndEditUser.css'
 import Confirm from '../confirm/confirm'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTrash, faUserEdit} from '@fortawesome/free-solid-svg-icons';
+
 export class panelUsuarios extends Component {
 
     constructor() {
@@ -270,7 +273,6 @@ export class panelUsuarios extends Component {
                                         <b>Data de Nascimento:</b> {element.birth_date}
                                     </div>
                                 </div>
-                                
                                 <div className="divInfo">
                                     <div className="panelUser-contents">
                                         <b>Cidade:</b> {element.city}
@@ -293,8 +295,12 @@ export class panelUsuarios extends Component {
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                <button className="panelUser-edit-btn" onClick={this.openEditUser.bind(this,i)}><MDEdit fontSize="50px" color="#808080" /></button>
-                                <button className="panelUser-remove-btn" onClick={()=>this.removeUser(i)}><MDTrashCan fontSize="50px" color="#808080" /></button>
+                                <button className="panelUser-btn btn-editar" onClick={this.openEditUser.bind(this,i)}>
+                                    <FontAwesomeIcon className="icon" icon={faUserEdit} size="3x"/>
+                                </button>
+                                <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
+                                    <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
+                                </button>
                                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este usuario?'} close={this.close} confirm={this.confirm}/> 
                             </div>
                         </div>
