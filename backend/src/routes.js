@@ -4,6 +4,7 @@ const UserController = require('./app/controllers/UserController');
 const SessionController = require('./app/controllers/SessionController');
 const DashboardController = require('./app/controllers/DashboardController');
 const AdminController = require('./app/controllers/AdminController');
+const ApproveStudentController = require('./app/controllers/ApproveStudentController');
 
 const ContactController = require('./app/controllers/ContactController');
 
@@ -82,6 +83,16 @@ routes.delete(
 
 routes.get('/getUsers', authAdminMiddleware, UserController.index);
 routes.post('/users', UserController.store);
+routes.get(
+  '/pendingStudents',
+  authAdminMiddleware,
+  ApproveStudentController.index
+);
+routes.post(
+  '/approveStudent/:id',
+  authAdminMiddleware,
+  ApproveStudentController.store
+);
 
 routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
