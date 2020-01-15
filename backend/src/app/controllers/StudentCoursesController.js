@@ -18,8 +18,7 @@ class StudentCoursesController {
         },
         {
           model: Course,
-          as: 'course',
-          attributes: ['name']
+          as: 'course'
         }
       ],
       limit: 3,
