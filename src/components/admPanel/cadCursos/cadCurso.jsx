@@ -25,7 +25,8 @@ export default class CreateCurso extends Component {
 
      submitCourse = async e =>{
         var data = new FormData();
-        data.append("file",this.state.file);
+
+        data.append("file",this.state.file,this.state.name);
         data.append("name",this.state.name);
         data.append("module_id",this.state.module_id);
         data.append("description",this.state.description);
@@ -35,13 +36,12 @@ export default class CreateCurso extends Component {
         data.append("assistance",this.state.assistance);
         data.append("highlight",this.state.highlight);
 
-        const {name,module_id,description,hours,price,file,book,assistance,highlight} = this.state
         try{
 
             await api.post("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
-                console.log(res)
-                this.setState({msg:'Curso criado com sucesso'})
+                this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso criado com sucesso'})
+                document.getElementById("list").innerHTML = "";
             })
         }catch(err){
             console.log(err)
@@ -76,7 +76,7 @@ export default class CreateCurso extends Component {
           // Lê a imagem como URL
           reader.readAsDataURL(f);
         }
-        this.setState({file:files[0].name})
+        this.setState({file:files[0]})
     }
 
     render(){
@@ -92,7 +92,7 @@ export default class CreateCurso extends Component {
                         <h1 className="tituloPagina">Cadastro de Curso</h1>
                     </div>
                 </div>
-                {/* <form action="" className="formularioCurso"> */}
+                <div className="formularioCurso">
                     <div className="infoBasica">
                         <input type="text" name="nomeCurso" placeholder="Nome do Curso" className="nomeCurso" value={this.state.name} onChange={e=>this.setState({name:e.target.value})}/>
                         Modulo: {this.state.module_id}
@@ -106,7 +106,7 @@ export default class CreateCurso extends Component {
                         </div>
                     </div>
                     <div className="quantidadesAulaValor">
-                        <input type="text" className="aulasCurso" name="horasCurso" placeholder="Horas" value={this.state.hours} onChange={e=>this.setState({hours:e.target.value})}/>
+                        <input type="number" className="aulasCurso" name="horasCurso" placeholder="Horas" value={this.state.hours} onChange={e=>this.setState({hours:e.target.value})}/>
                         <input type="text" className="valorCurso" name="assistenciaCurso" placeholder="Assistencia" value={this.state.assistance} onChange={e=>this.setState({assistance:e.target.value})}/>
                         <input type="text" className="valorCurso" name="bookCurso" placeholder="Livro" value={this.state.book} onChange={e=>this.setState({book:e.target.value})}/>
                         <input type="text" className="valorCurso" name="valorCurso" placeholder="Valor" value={this.state.price} onChange={e=>this.setState({price:e.target.value})}/>
@@ -116,7 +116,7 @@ export default class CreateCurso extends Component {
                         <button className="submitCurso" onClick={this.submitCourse}>Salvar</button>
 
                     </div>
-                {/* </form> */}
+                </div>
 
             </div>
         )

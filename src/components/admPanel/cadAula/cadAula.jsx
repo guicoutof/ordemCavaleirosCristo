@@ -59,7 +59,7 @@ export default class CadAulas extends Component{
                 <div className="divModulo">
                     <h3 className="tituloModulo">Curso: {this.state.course.name}</h3>
                 </div>
-                <form action="" className="formularioAula">
+                <div action="" className="formularioAula">
                     <div className="infoBasica">
                         <input type="text" name="nomeAula" placeholder="Nome da Aula" className="nomeAula" value={this.state.name} onChange={e=>this.setState({name:e.target.value})}/>
                         <input type="text" name="moduloAula" placeholder="Link" className="moduloAula" value={this.state.link} onChange={e=>this.setState({link:e.target.value})}/>
@@ -70,7 +70,7 @@ export default class CadAulas extends Component{
                     <div className="divSubmit">
                         <button className="submitAula" onClick={this.submitClass}>Salvar</button>
                     </div>
-                </form>
+                </div>
 
             </div>
         )

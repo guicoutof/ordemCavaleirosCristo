@@ -6,13 +6,16 @@ import { NavLink } from 'react-router-dom'
 
 export default class panelCurso extends Component{
     state={
-        courses:[]
+        courses:[],
     }
 
     componentDidMount = async ()=>{
-        await api.get(`/courses/module/${this.props.match.params.id}`)
+        const params = {
+            page:1
+        }
+        await api.get(`/courses/module/${this.props.match.params.id}`,{params})
             .then(
-                res=>{
+                res=>{console.log(res)
                     this.setState({courses:res.data})
                 }
             )
@@ -54,6 +57,7 @@ export default class panelCurso extends Component{
                             </div>
                         )    
                     }
+                    <NavLink to={`/modules`}><button>Voltar</button></NavLink>
                 </div>
                 
             </div>

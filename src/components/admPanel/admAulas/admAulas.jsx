@@ -74,7 +74,7 @@ export default class AdmClass extends Component{
                     </div>
                     )
             }
-                  
+            <NavLink to={`/modules`}><button>Voltar</button></NavLink> 
             </div>
             </div>
         )
