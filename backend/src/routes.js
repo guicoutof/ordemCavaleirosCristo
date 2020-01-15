@@ -9,6 +9,7 @@ const ContactController = require('./app/controllers/ContactController');
 
 const ModuleController = require('./app/controllers/ModuleController');
 const CourseController = require('./app/controllers/CourseController');
+const StudentCoursesController = require('./app/controllers/StudentCoursesController');
 const ClassController = require('./app/controllers/ClassController');
 
 const PublicationController = require('./app/controllers/PublicationController');
@@ -86,5 +87,8 @@ routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
 routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
+
+routes.get('/student_courses/:id', StudentCoursesController.show);
+routes.post('/student_courses', StudentCoursesController.store);
 
 module.exports = routes;
