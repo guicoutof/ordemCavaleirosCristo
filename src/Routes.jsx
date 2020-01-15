@@ -7,7 +7,7 @@ import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService} from './components/a
 import AdmCourses from './components/admPanel/cursos/panelCursos'
 import AdmClass from './components/admPanel/admAulas/admAulas'
 import PanelUser, { UserBlog, UserConta, UserBiblioteca, UserCurso } from './components/userPanel/panelUser'
-import CadCurso from './components/admPanel/cadCursos/cadCurso'
+import CadCurso, {EditCurso} from './components/admPanel/cadCursos/cadCurso'
 import CadClass, {CadClassEdit} from './components/admPanel/cadAula/cadAula'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -47,6 +47,7 @@ export default function routes() {
             <AdmRoute exact path="/services" component={AdmService} />
             <AdmRoute exact path="/module/:id" component={AdmCourses} />
             <AdmRoute exact path="/course/:id" component={AdmClass} />
+            <AdmRoute exact path="/course/:id/edit" component={EditCurso} />
             <AdmRoute exact path="/module/:id/create" component={CadCurso} />
             <AdmRoute exact path="/course/:id/create" component={CadClass} />
             <AdmRoute exact path="/course/:idClass/class/:id/edit" component={CadClassEdit} />

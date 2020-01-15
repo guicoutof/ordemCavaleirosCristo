@@ -6,6 +6,7 @@ import Navbar from '../../home/navbar/navbar'
 import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 import './admAulas.css'
+import { render } from 'react-dom'
 
 export default class AdmClass extends Component{
     constructor(){
