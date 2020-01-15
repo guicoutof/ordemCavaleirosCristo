@@ -203,35 +203,40 @@ export class panelUsuarios extends Component {
                     <div key={element.id} className="panelUser-table">
                         <div className="panelUser-div-users">
                             <div className="panelUser-info-curso">
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">ID: {element.id}</p>
+                                <div className="divInfo">
+                                    <div className="panelUser-contents">
+                                        <b>Nome:</b> {element.name}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>Email:</b> {element.email}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>Telefone:</b> {element.phone_number}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>Data de Nascimento:</b> {element.birth_date}
+                                    </div>
                                 </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Nome: {element.name}</p>
+                                
+                                <div className="divInfo">
+                                    <div className="panelUser-contents">
+                                        <b>Cidade:</b> {element.city}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>Estado:</b> {element.state}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>País:</b> {element.country}
+                                    </div>
                                 </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Email: {element.email}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Telefone: {element.phone_number}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Data de Nascimento: {element.birth_date}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Cidade: {element.city}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p"> Estado: {element.state}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">País: {element.country}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Modulo Pertencente: {element.module}</p>
-                                </div>
-                                <div className="panelUser-contents">
-                                    <p className="panelUser-p">Tipo de usuario: {element.type}</p>
+                                
+                                <div className="divInfo">
+                                    <div className="panelUser-contents">
+                                        <b>Modulo Pertencente:</b> {element.module}
+                                    </div>
+                                    <div className="panelUser-contents">
+                                        <b>Tipo de usuario:</b> {element.type}
+                                    </div>
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
