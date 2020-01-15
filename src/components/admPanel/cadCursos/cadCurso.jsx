@@ -26,7 +26,7 @@ export default class CreateCurso extends Component {
      submitCourse = async e =>{
         var data = new FormData();
 
-        data.append("file",this.state.file,this.state.name);
+        data.append("file",this.state.file,this.state.file.name);
         data.append("name",this.state.name);
         data.append("module_id",this.state.module_id);
         data.append("description",this.state.description);

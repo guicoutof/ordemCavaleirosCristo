@@ -1,97 +1,246 @@
 import React, { Component } from 'react';
 import './casdastrarArtigoBlog.css';
+import Navbar from '../../home/navbar/navbar'
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import api from '../../../services/api'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { NavLink } from 'react-router-dom'
 
-export class CadastrarArtigoBlog extends Component {
+export default class CadastrarArtigoBlog extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             title: "",
-            image: null,
-            artigo: "",
-            time: "",
-            errorMsg: "",
+            text:"",
+            file: null,
+            msg: "",
         }
     }
 
-    // Da handle no forms e atualiza o state
-    handleFieldChange = event => {
-        //const { title, image, artigo, time } = event.target;
-    };
+    async submitPost(){
+        var data = new FormData();
 
-    // Handler do submit do forms
-    onSubmit(e) {
-        // previne de submeter o 'default'
-        e.preventDefault();
+        data.append("file",this.state.file,this.state.file.name);
+        data.append("title",this.state.title);
+        data.append("text",this.state.text);
 
-        if (!this.isFormValid()) {
-            this.setState({ errorMsg: "É necessário prencher todos os campos!!!" });
-            return;
-        }
+        try{
 
-        // arruma o loading status e seta o error pra vazio depois
-        this.setState({ errorMsg: ""});
-
-        let { artigoPost } = this.state;
-        fetch("http://localhost:3000/", {
-            method: "post",
-            body: JSON.stringify(artigoPost)
-        })
-            .then(res => res.json())
-            .then(res => {
-                if (res.errorMsg) { // caso tenha mensagem de erro
-                    this.setState({ loading: false, error: res.error });
-                } else {
-                    // add time return from api and push artigoPost to parent state
-                    artigoPost.time = res.time;
-                    this.props.addartigo(artigoPost);
-
-                    // clear the message box
-                    this.setState({
-                        artigoPost: { ...artigoPost, artigo: "" }
-                    });
-                }
+            await api.post("/publications",data,{headers:{'Content-Type': 'multipart/form-data'}})
+            .then(res=>{
+                this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
+                document.getElementById("list").innerHTML = "";
             })
-            .catch(err => {
-                this.setState({
-                    error: "Algo deu errado ao tentar enviar o formulario.",
-                    loading: false
-                });
-            });
+        }catch(err){
+            console.log(err)
+            this.setState({msg:'Problema ao criar o artigo'})
+        }
+
     }
 
-    // Validando form.
-    isFormValid() {
-        return this.state.artigoPost.title !== "" && this.state.artigoPost.artigo !== "";
+    handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+        
+        for (var i = 0, f; f = files[i]; i++) {
+          // Fazendo apenas imagens serem processadas
+          if (!f.type.match('image.*')) {
+            continue;
+          }
+    
+          var reader = new FileReader();
+    
+          reader.onload = (function(theFile) {
+            return function(e) {
+                // renderizando imagem.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                '" title="', escape(theFile.name), '"/>'].join('');
+                document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
+                document.getElementById('list').insertBefore(span, null);
+                
+            };
+          })(f);
+    
+          // Lê a imagem como URL
+          reader.readAsDataURL(f);
+        }
+        this.setState({file:files[0]})
     }
 
     render() {
         return (
             <div className="cad-blog-container">
-                {/* <Navbar/> */}
-                <form className="cad-blog-box">
+                <Navbar/>
+                <div className="cad-blog-box">
+                    <NavLink to={`/articles`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
+                    <h1>Cadastro de Artigo</h1>
+                    {this.state.msg}
                     <div className="cad-blog-title-input-container">
                         <label className="cad-blog-label-input">Título: </label>
-                        <input id="titulo" className="cad-blog-title-input" type="text" />
+                        <input id="titulo" className="cad-blog-title-input" type="text" value={this.state.title} onChange={e=>this.setState({title:e.target.value})}/>
                     </div>
-                    <div className="cad-blog-bgd-container">
-                        <label className="cad-blog-label-bgd">Imagem de Capa</label>
-                        <div className="cad-blog-image-header">
-                            <button className="cad-blog-load-image-btn">Upload</button>
-                        </div>
+                    <div className="imagem">
+                        <label htmlFor='files' id='labelCarregarImagem'>Carregar imagem de capa</label>
+                        <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
+                        <output id="list"></output>
                     </div>
                     <div className="cad-blog-textarea-container">
                         <label htmlFor="story"  className="cad-blog-label">Escreve abaixo o artigo do blog:</label>
-                        <textarea id="story" className="cad-blog-textarea" name="story"
-                            rows="5" cols="33">
-                        </textarea>
-                        <button className="cad-blog-submit-btn">Publicar</button>
+                        <CKEditor
+                            editor={ ClassicEditor }
+                            data={this.state.text}
+                            onInit={ editor => {
+                                // You can store the "editor" and use when it is needed.
+                                // console.log( 'Editor is ready to use!', editor );
+                            } }
+                            onChange={ ( event, editor ) => {
+                                const data = editor.getData();
+                                this.setState({text:data})
+                                // console.log( { event, editor, data } );
+                            } }
+                            onBlur={ ( event, editor ) => {
+                                // console.log( 'Blur.', editor );
+                            } }
+                            onFocus={ ( event, editor ) => {
+                                // console.log( 'Focus.', editor );
+                            } }
+                        />
+                        <button className="cad-blog-submit-btn" onClick={()=>this.submitPost()}>Publicar</button>
                     </div>
-                </form>
-                {/* <Footer/> */}
+                </div>
+
             </div>
         );
     }
 }
+export class CadBlogEdit extends Component {
+    constructor(props) {
+        super(props);
 
-export default CadastrarArtigoBlog;
+        this.state = {
+            title: "",
+            text:"",
+            file: null,
+            msg: "",
+        }
+    }
+
+    componentDidMount = async ()=>{
+        await api.get(`/publications/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    console.log(res.data)
+                    this.setState({
+                        title:res.data.title,
+                        text:res.data.text,
+                    })
+
+                        var span = document.createElement('span');
+                        span.innerHTML = ['<img class="thumb" src="', res.data.url,
+                                        '" title="', escape(res.data.path), '"/>'].join('');
+                        document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
+                        document.getElementById('list').insertBefore(span, null);
+                }
+            )
+    }
+
+    async submitPost(){
+        var data = new FormData();
+
+        data.append("file",this.state.file,this.state.file.name);
+        data.append("title",this.state.title);
+        data.append("id",this.props.match.params.id);
+        data.append("text",this.state.text);
+
+        try{
+
+            await api.put("/publications",data,{headers:{'Content-Type': 'multipart/form-data'}})
+            .then(res=>{
+                this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
+                document.getElementById("list").innerHTML = "";
+            })
+        }catch(err){
+            console.log(err)
+            this.setState({msg:'Problema ao criar o artigo'})
+        }
+
+    }
+
+    handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+        
+        for (var i = 0, f; f = files[i]; i++) {
+          // Fazendo apenas imagens serem processadas
+          if (!f.type.match('image.*')) {
+            continue;
+          }
+    
+          var reader = new FileReader();
+    
+          reader.onload = (function(theFile) {
+            return function(e) {
+                // renderizando imagem.
+                var span = document.createElement('span');
+                span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                                '" title="', escape(theFile.name), '"/>'].join('');
+                document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
+                document.getElementById('list').insertBefore(span, null);
+                
+            };
+          })(f);
+    
+          // Lê a imagem como URL
+          reader.readAsDataURL(f);
+        }
+        this.setState({file:files[0]})
+    }
+
+    render() {
+        return (
+            <div className="cad-blog-container">
+                <Navbar/>
+                <div className="cad-blog-box">
+                    <NavLink to={`/articles`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
+                    <h1>Editar Artigo</h1>
+                    {this.state.msg}
+                    <div className="cad-blog-title-input-container">
+                        <label className="cad-blog-label-input">Título: </label>
+                        <input id="titulo" className="cad-blog-title-input" type="text" value={this.state.title} onChange={e=>this.setState({title:e.target.value})}/>
+                    </div>
+                    <div className="imagem">
+                        <label htmlFor='files' id='labelCarregarImagem'>Carregar imagem de capa</label>
+                        <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
+                        <output id="list"></output>
+                    </div>
+                    <div className="cad-blog-textarea-container">
+                        <label htmlFor="story"  className="cad-blog-label">Escreve abaixo o artigo do blog:</label>
+                        <CKEditor
+                            editor={ ClassicEditor }
+                            data={this.state.text}
+                            onInit={ editor => {
+                                // You can store the "editor" and use when it is needed.
+                                // console.log( 'Editor is ready to use!', editor );
+                            } }
+                            onChange={ ( event, editor ) => {
+                                const data = editor.getData();
+                                this.setState({text:data})
+                                // console.log( { event, editor, data } );
+                            } }
+                            onBlur={ ( event, editor ) => {
+                                // console.log( 'Blur.', editor );
+                            } }
+                            onFocus={ ( event, editor ) => {
+                                // console.log( 'Focus.', editor );
+                            } }
+                        />
+                        <button className="cad-blog-submit-btn" onClick={()=>this.submitPost()}>Atualizar</button>
+                    </div>
+                </div>
+
+            </div>
+        );
+    }
+}
