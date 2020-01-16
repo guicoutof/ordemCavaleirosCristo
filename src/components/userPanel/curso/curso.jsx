@@ -14,7 +14,7 @@ export class  Curso extends Component {
 
         classDescription:'',
         className:'',
-        iframeLink: "https://www.youtube.com/embed/w-IXajuNAP8",
+        iframeLink: "",
 
         course:{},
         class:[],
@@ -26,7 +26,7 @@ export class  Curso extends Component {
             .then(
                 res=>{
                     console.log(res.data)
-                    this.setState({class:res.data,course:res.data[0].course,className:res.data[0].name,classDescription:res.data[0].description})
+                    this.setState({class:res.data,course:res.data[0].course,className:res.data[0].name,classDescription:res.data[0].description,iframeLink:res.data[0].link})
                 }
             )
     }
@@ -41,7 +41,6 @@ export class  Curso extends Component {
                 <div key={this.state.courseID} className="curso-container">
                     <div className="curso-button-content">
                         <div className="curso-module">
-                            {/* <div className="curso-image-header"></div> */}
                             <img src={this.state.course.url} alt={this.state.course.name}/>
                             <h2 className="curso-h2">{ this.state.course.name }</h2>
                             <p className="curso-module-name">{this.state.course.description}</p>
