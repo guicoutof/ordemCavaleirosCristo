@@ -132,17 +132,12 @@ export class CadBlogEdit extends Component {
         await api.get(`/publications/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    console.log(res.data)
                     this.setState({
                         title:res.data.title,
                         text:res.data.text,
                     })
 
-                        var span = document.createElement('span');
-                        span.innerHTML = ['<img class="thumb" src="', res.data.url,
-                                        '" title="', escape(res.data.path), '"/>'].join('');
-                        document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
-                        document.getElementById('list').insertBefore(span, null);
+                    document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
                 }
             )
     }

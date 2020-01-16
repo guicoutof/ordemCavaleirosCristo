@@ -143,7 +143,6 @@ export class EditCurso extends Component {
         await api.get(`/courses/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    console.log(res.data)
                     this.setState({
                         id:res.data.id,
                         name:res.data.name,
@@ -156,25 +155,26 @@ export class EditCurso extends Component {
                         module_id:res.data.module_id,
                         highlight:res.data.highlight})
 
+                        document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
 
-                        var span = document.createElement('span');
-                        span.innerHTML = ['<img class="thumb" src="', res.data.url,
-                                        '" title="', escape(res.data.path), '"/>'].join('');
-                        document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
-                        document.getElementById('list').insertBefore(span, null);
+                        // var span = document.createElement('span');
+                        // span.innerHTML = ['<img class="thumb" src="', res.data.url,
+                        //                 '" title="', escape(res.data.path), '"/>'].join('');
+                        // document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
+                        // document.getElementById('list').insertBefore(span, null);
                 }
             )
-            await api.get(this.state.file)
-                .then(res=>{
-                    this.setState({file:res.data})
-                })
-console.log(this.state)
+            // await api.get(this.state.file)
+            //     .then(res=>{
+            //         this.setState({file:res.data})
+            //     })
+            // console.log(this.state)
     }
 
      updateCourse = async e =>{
         var data = new FormData();
 
-        if(this.state.file){data.append("file",this.state.file,this.state.file.name);console.log('trocou')}
+        if(this.state.file){data.append("file",this.state.file,this.state.file.name);alert('trocou')}
         data.append("id",this.state.id);
         data.append("name",this.state.name);
         data.append("module_id",this.state.module_id);

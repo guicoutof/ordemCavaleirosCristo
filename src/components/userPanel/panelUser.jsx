@@ -56,7 +56,7 @@ export function UserConta(){
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Account user={getInfo()}/>
+            <Account />
             </div>
             <Footer/>
         </div>
@@ -64,12 +64,14 @@ export function UserConta(){
 }
 
 export class UserBiblioteca extends Component{
+
     state={
         courses:[]
     }
 
     componentDidMount = async ()=>{
-        await api.get("/courses/module/15")
+        console.log(getInfo())
+        await api.get(`/courses/module/${getInfo().module}`)
             .then(
                 res=>{
                     this.setState({courses:res.data})
