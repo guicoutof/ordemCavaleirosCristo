@@ -13,7 +13,7 @@ export default function courses(props){
                         <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
-                        <div className="divInfoCurso">{c.description}</div>
+                        <div className="divInfoCurso">{cortar(c.description)}</div>
                         <div>
                             <div className="divInfoCurso">Duração: {c.hours} horas</div>
                             <div className="divInfoCurso">Assistencia: {c.assistance}</div>
@@ -28,4 +28,10 @@ export default function courses(props){
             </div>
         </div>
     )
+}
+
+function cortar(minhaString){
+    if (minhaString.length > 40) 
+        return minhaString.slice(0, 40)+'...' 
+    else return minhaString
 }
