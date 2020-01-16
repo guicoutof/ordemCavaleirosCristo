@@ -1,12 +1,14 @@
 import React, {Component} from 'react'
 import './account.css'
 import api from "../../../services/api";
-import {login,getInfo} from '../../../services/auth'
+import {login,getInfo,logout} from '../../../services/auth'
+import Confirm from '../../admPanel/confirm/confirm'
 
 export default class Account extends Component{
     constructor(){
         super()
         this.state={
+            id:0,
             name:'',
             email:'',
             oldPassword:'',
@@ -18,8 +20,28 @@ export default class Account extends Component{
             state:'',
             country:'',
             type:0,
+            modalC:false,
             msg:''
         }
+
+        this.close = this.close.bind(this)
+        this.confirm = this.confirm.bind(this)
+    }
+    
+    componentDidMount(){
+        const res = getInfo();
+
+        this.setState({
+            id:res.id,
+            name:res.name,
+            email:res.email,
+            phone_number:res.phone_number,
+            birth_date:res.birth_date,
+            city:res.city,
+            state:res.state,
+            country:res.country,
+            type:res.type,
+        })
     }
 
     async submitUser(){
@@ -39,29 +61,23 @@ export default class Account extends Component{
                     this.setState({msg:'As senhas não conferem'})
                 }
             }catch(err){
-                console.log(err)
+                // console.log(err)
                 this.setState({msg:'Usuário não pode ser atualizado'})
             }  
           }
     }
 
-    componentDidMount(){
-        const res = getInfo();
+    close(){
+        this.setState({modalC:false})
+    }
 
-        this.setState({
-            name:res.name,
-            email:res.email,
-            phone_number:res.phone_number,
-            birth_date:res.birth_date,
-            city:res.city,
-            state:res.state,
-            country:res.country,
-            type:res.type,
-        })
+    async confirm(){
+        this.setState({modalC:false})
+        await api.delete(`/users`)
+        logout()
     }
 
     render(){
-
         return(
             <div>
                 <div>{this.state.msg}
@@ -89,10 +105,11 @@ export default class Account extends Component{
                     <div>{this.state.type?this.state.type==2?'Afiliado':'Pendente':'Gratuito'}</div>                      
 
                     <button onClick={()=>this.submitUser()}>Salvar</button>
-                    <button onClick={()=>console.log("Excluir")}>Excluir</button>
+                    <button onClick={()=>this.setState({modalC:true})}>EXCLUIR CONTA</button>
+                    <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perdera todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>
                 <div><p>Texto que mostra as vantagens de ser afiliado</p>
-                    {!this.state.type?<button onClick={()=>console.log("Upgrade")}>Upgrade para afiliado</button>:<div></div>}
+                    {!this.state.type?<button onClick={()=>console.log('Upgrade')}>Upgrade para afiliado</button>:<div></div>}
                 </div>
             </div>
         )
