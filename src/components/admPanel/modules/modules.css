@@ -55,12 +55,19 @@
     border: none
 }
 
+.editarModulo{
+    background-color: #3667FC;
+    border-radius: 7px;
+    height: 1.75rem;
+    width: 5rem;
+    border: none
+}
+
 .removerModulo{
     background-color: red;
     border-radius: 7px;
     height: 1.75rem;
     width: 5rem;
-    margin-left: 4px;
     border: none
 }
 

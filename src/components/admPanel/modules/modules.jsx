@@ -74,7 +74,7 @@ render(){
                         <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>
                         <div className="botoes">
                             <NavLink to={`/module/${modulo.module.id}`}><button className="abrirModulo">Abrir</button></NavLink>
-                            <button onClick={()=>this.setState({modalE:true,id:modulo.module.id})}>Editar</button>
+                            <button className="editarModulo" onClick={()=>this.setState({modalE:true,id:modulo.module.id})}>Editar</button>
 
                             <Modal className="modalTamanho" isOpen={this.state.modalE} onRequestClose={()=>this.setState({modalE:false})} ariaHideApp={false} >
                                 <h1 className="tituloCriarModulo">Editar Módulo</h1>
