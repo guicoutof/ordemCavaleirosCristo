@@ -152,7 +152,9 @@ export class EditCurso extends Component {
                         assistance:res.data.assistance,
                         book:res.data.book,
                         price:res.data.price,
+                        file:res.data.url,
                         highlight:res.data.highlight})
+
 
                         var span = document.createElement('span');
                         span.innerHTML = ['<img class="thumb" src="', res.data.url,
@@ -161,6 +163,11 @@ export class EditCurso extends Component {
                         document.getElementById('list').insertBefore(span, null);
                 }
             )
+            await api.get(this.state.file)
+                .then(res=>{
+                    this.setState({file:res.data})
+                })
+console.log(this.state)
     }
 
      updateCourse = async e =>{

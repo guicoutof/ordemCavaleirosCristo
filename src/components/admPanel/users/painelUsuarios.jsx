@@ -16,7 +16,8 @@ export class panelUsuarios extends Component {
         super();
         this.state = {
             users: [],
-            userCount: 0,
+            search:'',
+            filter:'',
             id: "",
             enableEditUser: false,
             enableCreateUser: false,
@@ -37,6 +38,7 @@ export class panelUsuarios extends Component {
 
         this.close = this.close.bind(this)
         this.confirm = this.confirm.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount = async ()=>{
@@ -246,18 +248,33 @@ export class panelUsuarios extends Component {
             </div>
         );
     }
-
+    handleChange(event){
+        this.setState({filter:event.target.value})
+    }
     showUsersList() {
         return (
             <div className="panelUser-container">
                 <div className="panelUser-header">
                     {/* <button className="panelUserCreate-user-btn" onClick={this.openCreateUser.bind(this)}>Criar Usuário</button> */}
+                    <select value={this.state.filter}onChange={this.handleChange}>
+                        <option value={''}>Tipo de Usuário</option>
+                        <option value={0}>Gratuito</option>
+                        <option value={1}>Pendente</option>
+                        <option value={2}>Afiliado</option>
+                    </select>
                     <h2 className="panelUser-h2">Usuários</h2>
-                    <input className="panelUser-input" placeholder="Id do usuário" type="text" />
+                    <input className="panelUser-input" placeholder="Pesquisar" type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
                 {this.state.users.map((element,i) =>
                     <div key={element.id} className="panelUser-table">
-                        <div className="panelUser-div-users">
+                    {( ((element.name.indexOf(this.state.search)!==-1)
+                    ||(element.email.indexOf(this.state.search)!== -1)
+                    // ||(element.city.indexOf(this.state.search)!== -1)
+                    // ||(element.state.indexOf(this.state.search)!== -1)
+                    // ||(element.country.indexOf(this.state.country)!== -1)
+                    )
+                     && (this.state.filter==='' || element.type=== +this.state.filter) )?
+                        <div className="panelUser-div-users">{console.log(this.state.filter)}
                             <div className="panelUser-info-curso">
                                 <div className="divInfo">
                                     <div className="panelUser-contents">
@@ -304,6 +321,8 @@ export class panelUsuarios extends Component {
                                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este usuario?'} close={this.close} confirm={this.confirm}/> 
                             </div>
                         </div>
+                    :<div></div>}
+
                     </div>
                 )}
             </div>
