@@ -10,13 +10,13 @@ export default function courses(props){
             <div className="cards">
                 {props.courses.map((c)=>
                     <div key={c.id} className="card">
-                        <img src={c.url} alt={`Curso ${c.id}`} />
+                        <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
-                        <div className="desc">{c.description}</div>
+                        <div className="divInfoCurso">{c.description}</div>
                         <div>
-                            <div>Duração: {c.hours} horas</div>
-                            <div>Assistencia: {c.assistance}</div>
+                            <div className="divInfoCurso">Duração: {c.hours} horas</div>
+                            <div className="divInfoCurso">Assistencia: {c.assistance}</div>
                         </div>
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">

@@ -44,7 +44,8 @@
 .courses > .cards >.card > img{
     border-radius: 2%;
     border-bottom: 1px solid black;
-    width: 100%;
+    height: 40%;
+    width: auto;
     
 }
 .courses > .cards >.card > .module{
@@ -96,6 +97,9 @@
 .courses > .cards >.card > .bottom > .price{
     font-size: large;
     font-weight: bold;
-    align-self: center;
-    
+    align-self: center;   
+}
+
+.divInfoCurso{
+    padding-left: 10px;
 }
