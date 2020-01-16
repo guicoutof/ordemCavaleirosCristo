@@ -269,7 +269,7 @@ export class panelUsuarios extends Component {
             <div className="panelUser-container">
                 <div className="panelUser-header">
                     {/* <button className="panelUserCreate-user-btn" onClick={this.openCreateUser.bind(this)}>Criar Usuário</button> */}
-                    <select value={this.state.filter}onChange={this.handleChange}>
+                    <select className="selectTipoUsuario" value={this.state.filter}onChange={this.handleChange}>
                         <option value={''}>Tipo de Usuário</option>
                         <option value={0}>Gratuito</option>
                         <option value={1}>Pendente</option>
