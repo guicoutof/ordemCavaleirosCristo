@@ -30,7 +30,8 @@ export default class CadAulas extends Component{
     }
 
     submitClass = async e=>{
-        const {name,link,description,course_id} = this.state;
+        let {name,link,description,course_id} = this.state;
+        link = link.replace("watch?v=","embed/")
         try{
             await api.post("/classes",{name,link,description,course_id})
             .then(res=>{
@@ -98,7 +99,8 @@ export class CadClassEdit extends Component{
     }
 
     updateClass = async e=>{
-        const {id,name,link,description,course_id} = this.state;
+        let {id,name,link,description,course_id} = this.state;
+        link = link.replace("watch?v=","embed/")
         try{
             await api.put("/classes",{id,name,link,description,course_id})
             .then(res=>{
@@ -121,7 +123,7 @@ export class CadClassEdit extends Component{
                     </div>
                     <div className="divTitulo">
                         {this.state.msg}
-                        <h1 className="tituloPagina">Cadastro de Aulas</h1>
+                        <h1 className="tituloPagina">Editar Aula</h1>
                     </div>
                 </div>
                 <div className="divModulo">

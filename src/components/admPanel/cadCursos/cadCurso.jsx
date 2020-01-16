@@ -126,7 +126,7 @@ export class EditCurso extends Component {
 
     state={
         name:'',
-        module_id:this.props.match.params.id,
+        module_id:0,
         description:'',
         hours:0,
         price:'',
@@ -153,6 +153,7 @@ export class EditCurso extends Component {
                         book:res.data.book,
                         price:res.data.price,
                         file:res.data.url,
+                        module_id:res.data.module_id,
                         highlight:res.data.highlight})
 
 
@@ -233,10 +234,10 @@ console.log(this.state)
                 <Navbar />
                 <div className="divContainerTitulo">
                     <div className="divArrowLeft">
-                    <NavLink to={`/module/${this.props.match.params.id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
+                    <NavLink to={`/module/${this.state.module_id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
                     </div>
                     <div className="divTitulo">
-                        <h1 className="tituloPagina">Cadastro de Curso</h1>
+                        <h1 className="tituloPagina">Editar Curso</h1>
                         {this.state.msg}
                     </div>
                 </div>

@@ -287,7 +287,7 @@ export class panelUsuarios extends Component {
                     // ||(element.country.indexOf(this.state.country)!== -1)
                     )
                      && (this.state.filter==='' || element.type=== +this.state.filter) )?
-                        <div className="panelUser-div-users">{console.log(this.state.filter)}
+                        <div className="panelUser-div-users">
                             <div className="panelUser-info-curso">
                                 <div className="divInfo">
                                     <div className="panelUser-contents">
@@ -325,9 +325,9 @@ export class panelUsuarios extends Component {
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                <button className="panelUser-btn btn-editar" onClick={this.openEditUser.bind(this,i)}>
+                                {/* <button className="panelUser-btn btn-editar" onClick={this.openEditUser.bind(this,i)}>
                                     <FontAwesomeIcon className="icon" icon={faUserEdit} size="3x"/>
-                                </button>
+                                </button> */}
                                 <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
                                     <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
                                 </button>
@@ -347,7 +347,7 @@ export class panelUsuarios extends Component {
             <div className="panelUser-principal">
                     {this.state.enableUserList && this.showUsersList() }
                     {/* {this.state.enableCreateUser && this.showCreateUser()  } */}
-                    {this.state.enableEditUser && this.showEditUser(this.state.id)  }
+                    {/* {this.state.enableEditUser && this.showEditUser(this.state.id)  } */}
             </div>
         );
     }
