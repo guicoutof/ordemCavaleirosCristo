@@ -4,7 +4,12 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { isAuthenticated, isAdm } from "./services/auth";
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
 import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService} from './components/admPanel/panelAdm'
-import PanelUser, { UserBlog, UserCursos, UserServices, UserDonation, UserContato } from './components/userPanel/panelUser'
+import AdmCourses from './components/admPanel/cursos/panelCursos'
+import AdmClass from './components/admPanel/admAulas/admAulas'
+import PanelUser, { UserBlog, UserConta, UserBiblioteca, UserCurso } from './components/userPanel/panelUser'
+import CadCurso, {EditCurso} from './components/admPanel/cadCursos/cadCurso'
+import CadClass, {CadClassEdit} from './components/admPanel/cadAula/cadAula'
+import CadBlog, {CadBlogEdit} from './components/admPanel/blog/cadastrarArtigoBlog'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -41,11 +46,22 @@ export default function routes() {
             <AdmRoute exact path="/articles" component={AdmBlog} />
             <AdmRoute exact path="/modules" component={AdmModule} />
             <AdmRoute exact path="/services" component={AdmService} />
+            <AdmRoute exact path="/module/:id" component={AdmCourses} />
+            <AdmRoute exact path="/course/:id" component={AdmClass} />
+            <AdmRoute exact path="/course/:id/edit" component={EditCurso} />
+            <AdmRoute exact path="/module/:id/create" component={CadCurso} />
+            <AdmRoute exact path="/course/:id/create" component={CadClass} />
+            <AdmRoute exact path="/course/:idClass/class/:id/edit" component={CadClassEdit} />
+            <AdmRoute exact path="/post/create" component={CadBlog} />
+            <AdmRoute exact path="/post/:id/edit" component={CadBlogEdit} />
 
 
             {/* User */}
             <PrivateRoute exact path="/home" component={PanelUser} />
             <PrivateRoute exact path="/blog" component={UserBlog} />
+            <PrivateRoute exact path="/conta" component={UserConta} />
+            <PrivateRoute exact path="/biblioteca" component={UserBiblioteca} />
+            <PrivateRoute exact path="/curso/:id" component={UserCurso} />
             {/* <PrivateRoute exact path="/cursos" component={UserCursos} />
             <PrivateRoute exact path="/servicos" component={UserServices}/>
             <PrivateRoute exact path="/doacoes" component={UserDonation} />

@@ -1,26 +1,22 @@
-import React from 'react'
+import React, {Component} from 'react'
+import './panelAdm.css'
+import api from '../../services/api'
 import Navbar from '../home/navbar/navbar'
-import Footer from '../home/footer/footer'
 import Title from '../home/title/title'
-
-import Cursos from './cursos/panelCursos'
-
-import Aulas from './admAulas/admAulas'
-import CadastrarArtigoBlog from './blog/cadastrarArtigoBlog';
 import AdmArtigos from './admarticles/admarticles'
+// import PainelUsuarios from './users/users'
 import PainelUsuarios from './users/painelUsuarios'
-import PainelCurso from './cursos/panelCursos'
-import AdmAulas from './admAulas/admAulas'
+import AdmModulos from './modules/modules'
 import AdmServicos from './admServicos/admServicos'
 
-import './panelAdm.css'
 
-import Curso from './cadCursos/cadCurso'
-import Aula from   './cadAula/cadAula'
 
-export default function panelAdm(){
-    return(
-        <div className='principalADM'>
+export default class panelAdm extends Component{
+    
+    render(){
+
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
             <Title titulo={`Bem vindo Administrador`}/>
@@ -31,44 +27,31 @@ export default function panelAdm(){
             {/* <AdmAulas/> */}
             {/* <Aula></Aula> */}
             </div>
-            <Footer />
         </div>
-    )
+        )
+    }
 }
 export function AdmUser(){
     return(
         <div className='principalADM'>
-            <Navbar/>
-            <div className='containerADM'>
-                <PainelUsuarios/>
-            </div>
-            <Footer/>
+        <Navbar/>
+        <div className='containerADM'>
+            <PainelUsuarios />
         </div>
+    </div>
     )
 }
 export function AdmModule(){
-    const modulos = []
     return(
         <div className='principalADM'>
-            <Navbar/>
-            <div className='containerADM'>
-                {
-                modulos.map((modulo) =>
-                    <div key={modulo.pk}className='cardModulo'>
-                        <h3 className='nomeCurso'>{modulo.name}</h3>
-                        <p className='qtdCurso'>Cursos: {modulo.qtd}</p>
-                        <div className="botoes">
-                            <button className="abrirModulo">Abrir</button>
-                            <button className="removerModulo">Remover</button>
-                        </div>
-                    </div>
-                )
-                }
-            </div>
-            <Footer/>
+        <Navbar/>
+        <div className='containerADM'>
+            <AdmModulos />
         </div>
+    </div>
     )
 }
+
 export function AdmService(){
     return(
         <div className='principalADM'>
@@ -76,18 +59,31 @@ export function AdmService(){
             <div className='containerADM'>
                 <AdmServicos/>
             </div>
-            <Footer/>
         </div>
     )
 }
-export function AdmBlog(){
-    return(
-        <div className='principalADM'>
+export class AdmBlog extends Component{
+    state={
+        publications:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/publications")
+            .then(
+                res=>{
+                    this.setState({publications:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='principalADM'>
             <Navbar/>
             <div className='containerADM'>
-                <AdmArtigos/>
+                <AdmArtigos publications={this.state.publications}/>
             </div>
-            <Footer/>
         </div>
-    )
+        )
+    }
 }

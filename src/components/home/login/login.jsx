@@ -48,20 +48,26 @@ class Login extends React.Component {
   handleSignIn = async e=>{
     e.preventDefault();
     const {email,password} = this.state;
+    this.setState({loginErrorMessage:''})
     if(!email || !password ){
       this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
     }else{
       try{
-        const response = await api.post("/dashboard",{email,password});
-        loginAdm(response.data.token);
-        this.props.history.push("/admin");
+        const response = await api.post("/sessions",{email,password});
+        const info = {
+          id:response.data.user.id,
+          name:response.data.user.name,
+          module:response.data.user.module,
+          type:response.data.user.type
+        }
+        login(response.data.token,info);
+        this.props.history.push("/home");
         window.location.reload();
       }catch(err){
         try{
-          const response = await api.post("/sessions",{email,password});
-          console.log(response);
-          login(response.data.token,response.data.user.name);
-          this.props.history.push("/home");
+          const response = await api.post("/dashboard",{email,password});
+          loginAdm(response.data.token);
+          this.props.history.push("/admin");
           window.location.reload();
         }catch(err){
           this.setState({

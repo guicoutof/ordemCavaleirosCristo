@@ -1,176 +1,84 @@
-import React from 'react'
+import React,{Component} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
-
+import api from '../../../services/api'
+import Navbar from '../../home/navbar/navbar'
+import { NavLink } from 'react-router-dom'
+import Confirm from '../confirm/confirm'
 import './admAulas.css'
+import { render } from 'react-dom'
 
-export default (props) =>{
-    return(
-        <div className="principalAulas">
+export default class AdmClass extends Component{
+    constructor(){
+        super()
+        this.state={
+            classes:[],
+            modal:false,
+            classId:0
+        }
+
+        this.close = this.close.bind(this);
+        this.confirm = this.confirm.bind(this);
+    }
+
+    componentDidMount = async ()=>{
+        await api.get(`/classes/course/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    console.log(res.data)
+                    this.setState({classes:res.data})
+                }
+            )
+    }
+
+    close(){
+        this.setState({modal:false});
+    }
+
+    async confirm(){
+        this.setState({modal:false})
+        await api.delete(`/classes/${this.state.classId}`);
+        window.location.reload();
+    }
+
+    render(){
+
+        return(
+            <div className="principalAulas">
+                <Navbar />
             <div className="containerCURSO">
                 <div className="headerCursos">
-                    <button className="botaoCriarCurso">Nova Aula</button>  {/*sera editavel*/}
-                    <h2 className="nomeCurso">Nome do Curso</h2>
-                    <input className="pesquisarCurso" placeholder='Nome da Aula' type="text"/>
+                    <NavLink to={`/course/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Nova Aula</button> </NavLink> 
+                    <h2 className="nomeCurso">{this.state.classes.length>0?this.state.classes[0].course.name:'Nenhuma Aula'}</h2>
+                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/>
                 </div>
-
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" target="_blanck" href="http://youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
+            {
+                this.state.classes.map((c)=>
+                    <div key={c.id} className="tabelaCursos">
+                        <div className="divCursos">
+                            <div className="infoCurso">
+                                <div className="iconeYoutube">
+                                    <a className="linkYoutube" target="_blanck" href={c.link}>
+                                        <FontAwesomeIcon icon={faYoutube} size="2x"/>
+                                    </a>
+                                </div>
+                                <div className="infoTexto">
+                                    <h5 className="nomeCurso">{c.name}</h5>
+                                    <p className="descricaoCurso">{c.description}</p>
+                                </div>
                             </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
+                            <div className="botoesCurso">
+                                <NavLink to={`/course/${this.props.match.params.id}/class/${c.id}/edit`}><button className="botaoEditarCurso">Editar</button></NavLink> 
+                                <button className="botaoRemoverCurso" onClick={()=>this.setState({modal:true,classId:c.id})}>Remover</button>
+                                <Confirm open={this.state.modal}  title={'Deseja realmente excluir esta aula ? '} close={this.close} confirm={this.confirm}/> 
                             </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                <div className="tabelaCursos">
-                    <div className="divCursos">
-                        <div className="infoCurso">
-                            <div className="iconeYoutube">
-                                <a className="linkYoutube" href="youtube.com">
-                                    <FontAwesomeIcon icon={faYoutube} size="2x"/>
-                                </a>
-                            </div>
-                            <div className="infoTexto">
-                                <h5 className="nomeCurso">Nome da Aula</h5>
-                                <p className="descricaoCurso">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia minus ab facilis praesentium ratione totam consequatur animi nisi perferendis odio! Obcaecati non earum doloribus quo natus optio iure facilis dignissimos.</p>
-                            </div>
-                        </div>
-                        <div className="duracaoAula">
-                            <h3>Duração: 5h</h3>
-                        </div>
-                        <div className="botoesCurso">
-                            <button className="botaoEditarCurso">Editar</button>
-                            <button className="botaoRemoverCurso">Remover</button>
-                        </div>
-                    </div>    
-                </div>
-                
+                        </div>    
+                    </div>
+                    )
+            }
+            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button>Voltar</button></NavLink> 
             </div>
-        </div>
-    )
+            </div>
+        )
+    }
 }

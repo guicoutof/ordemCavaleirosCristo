@@ -1,16 +1,13 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
-import {courses, services} from '../../services/api'
-import {getNome} from '../../services/auth'
-
-import Curso from './curso/curso'
+import api from '../../services/api'
+import {getInfo} from '../../services/auth'
 import Blog from './blog/blog'
-import Artigo from './artigo/artigo'
 import Title from '../home/title/title'
-import Cursos from '../home/courses/courses'
-import Donate from '../home/donate/donate'
-import Contato from '../home/contato/contato'
+import Account from './account/account'
+import Library from './library/library'
+import Curso from './curso/curso'
 
 import './panelUser.css'
 
@@ -19,19 +16,71 @@ export default function PanelUser(){
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Title titulo={`Bem vindo`}  subtitulo={getNome()}/>       
+            <Title titulo={`Bem vindo`}  subtitulo={getInfo().name}/>       
             </div>
             <Footer/>
         </div>
     )
 } 
 
-export function UserBlog(){
+export class UserBlog extends Component{
+    state={
+        publications:[]
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/publications")
+            .then(
+                res=>{
+                    this.setState({publications:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Blog publications={this.state.publications}/>
+            </div>
+            <Footer/>
+        </div>
+        )
+    }
+}
+
+export function UserConta(){
+
+        return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Account />
+            </div>
+            <Footer/>
+        </div>
+        )
+}
+
+export function UserBiblioteca (){
     return(
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Blog/>
+            <Library  />
+            </div>
+            <Footer/>
+        </div>
+        )    
+}
+
+export function UserCurso(){
+    return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Curso />
             </div>
             <Footer/>
         </div>

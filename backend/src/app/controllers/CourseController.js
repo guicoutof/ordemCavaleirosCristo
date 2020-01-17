@@ -1,9 +1,9 @@
-import * as Yup from 'yup';
-import fs from 'fs';
-import { promisify } from 'util';
-import { resolve } from 'path';
-import Course from '../models/Course';
-import Module from '../models/Module';
+const Yup = require('yup');
+const fs = require('fs');
+const { promisify } = require('util');
+const { resolve } = require('path');
+const Course = require('../models/Course');
+const Module = require('../models/Module');
 
 const unlinkAsync = promisify(fs.unlink);
 
@@ -118,4 +118,4 @@ class CourseController {
   }
 }
 
-export default new CourseController();
+module.exports = new CourseController();

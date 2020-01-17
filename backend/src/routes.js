@@ -1,22 +1,24 @@
-import { Router } from 'express';
-import multer from 'multer';
-import UserController from './app/controllers/UserController';
-import SessionController from './app/controllers/SessionController';
-import DashboardController from './app/controllers/DashboardController';
-import AdminController from './app/controllers/AdminController';
+const { Router } = require('express');
+const multer = require('multer');
+const UserController = require('./app/controllers/UserController');
+const SessionController = require('./app/controllers/SessionController');
+const DashboardController = require('./app/controllers/DashboardController');
+const AdminController = require('./app/controllers/AdminController');
+const ApproveStudentController = require('./app/controllers/ApproveStudentController');
 
-import ContactController from './app/controllers/ContactController';
+const ContactController = require('./app/controllers/ContactController');
 
-import ModuleController from './app/controllers/ModuleController';
-import CourseController from './app/controllers/CourseController';
-import ClassController from './app/controllers/ClassController';
+const ModuleController = require('./app/controllers/ModuleController');
+const CourseController = require('./app/controllers/CourseController');
+const StudentCoursesController = require('./app/controllers/StudentCoursesController');
+const ClassController = require('./app/controllers/ClassController');
 
-import PublicationController from './app/controllers/PublicationController';
+const PublicationController = require('./app/controllers/PublicationController');
 
-import authUserMiddleware from './app/middlewares/authUser';
-import authAdminMiddleware from './app/middlewares/authAdmin';
+const authUserMiddleware = require('./app/middlewares/authUser');
+const authAdminMiddleware = require('./app/middlewares/authAdmin');
 
-import multerConfig from './config/multer';
+const multerConfig = require('./config/multer');
 
 const upload = multer(multerConfig);
 const routes = new Router();
@@ -81,10 +83,23 @@ routes.delete(
 
 routes.get('/getUsers', authAdminMiddleware, UserController.index);
 routes.post('/users', UserController.store);
+routes.get(
+  '/pendingStudents',
+  authAdminMiddleware,
+  ApproveStudentController.index
+);
+routes.post(
+  '/approveStudent/:id',
+  authAdminMiddleware,
+  ApproveStudentController.store
+);
 
 routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
 routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
 
-export default routes;
+routes.get('/student_courses/:id', StudentCoursesController.show);
+routes.post('/student_courses', StudentCoursesController.store);
+
+module.exports = routes;

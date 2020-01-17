@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './indexHome.css'
-import {courses, services, feedbacks} from '../../services/api'
+import api, {feedbacks} from '../../services/api'
 
 import Navbar from './navbar/navbar'
 import Title from './title/title'
@@ -13,23 +13,49 @@ import Contacts from './contato/contato'
 import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
 
-export default function index(){
-    const coursesSpotlight = courses;
-    return(
-        <div className='index'>
+export default class index extends Component{
+    state = {
+        coursesSpotlight:[],
+        feedbacks:feedbacks,
+        publication:[],
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/publications")
+            .then(
+                res=>{
+                    this.setState({publication:res.data[0]})
+                }
+            )
+        await api.get("/modules")
+            .then(
+                res=>{
+                    this.setState(()=>{
+                        const coursesSpotlight = res.data[0].courses.filter((course)=>{
+                            if(course.highlight) return course
+                            else return null
+                        })
+
+                        return {coursesSpotlight}
+                    })
+                    
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='index'>
             <Navbar/>
             <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
-            <Article title="No princípio D'us crious os Céus e a Terra"
-                        text='“[...] A teoria aceita hoje pela maioria dos cientistas é a teoria do Big Bang, apresentada em 1946 por George Gamow e que pode ser assim expressa: num dado instante, nosso Universo não existia, e no instante seguinte, passou a existir. Segundo a teoria, há 15 bilhões de anos, apareceu subitamente do nada uma colossal fonte de energia, chamada de “bola de fogo primordial”. Sabemos também, através da teoria da relatividade do físico Albert Einstein, que o espaço é curvo e se comporta como o movimento das águas, devido a força da gravidade que pressiona a matéria para baixo, de acordo com a sua massa; quanto maior a massa, menor será sua volatilidade, e vice-versa, e maior será o seu campo gravitacional e e vice-versa. Portanto, o Espírito de D’us pairava sobre a matéria escura, criou os céus (o espaço) e a terra (apesar de conter massa - matéria - é sem forma e vazia. A mesma classificação que um astrofísico faria para um buraco negro) [...]” ' 
-                        references="Trecho do livro “A Queda do Homem Celestial” de Aleph Yaakov, será lançado dia 21 de dezembro."
-                        />
-            <FeaturedCourses cards={coursesSpotlight} />
-            <UserReviews feedbacks={feedbacks} />
+            <Article publication={this.state.publication} />
+            <FeaturedCourses cards={this.state.coursesSpotlight} />
+            <UserReviews feedbacks={this.state.feedbacks} />
             <Footer/> 
         </div>
-    )
+        )
+    }
 }
-
 export function indexDonate(){
     return(
         <div className='index'>
@@ -62,22 +88,35 @@ export function indexCadastro(){
     )
 }
 export function indexCourses(){
-
     return(
         <div className='index'>
-            <Navbar/>
-            <Courses title={'CURSOS'} courses={courses}/>
-            <Footer/>
-        </div>
+        <Navbar/>
+        <Courses />
+        <Footer/>
+    </div>
     )
 }
-export function indexServices(){
+export class indexServices extends Component{
+    state = {
+        services:[]
+    }
 
-    return(
-        <div className='index'>
+    componentDidMount = async ()=>{
+        await api.get("/courses/module/1")
+            .then(
+                res=>{
+                    this.setState({services:res.data})
+                }
+            )
+    }
+
+    render(){
+        return(
+            <div className='index'>
             <Navbar/>
-            <Courses title={'SERVIÇOS'}courses={services}/>
+            <Courses title={'SERVIÇOS'}courses={this.state.services}/>
             <Footer/>
         </div>
-    )
+        )
+    }
 }

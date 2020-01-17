@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
-import * as Yup from 'yup';
-import Module from '../models/Module';
-import Course from '../models/Course';
+const Yup = require('yup');
+const Module = require('../models/Module');
+const Course = require('../models/Course');
 
 class ModuleController {
   async index(req, res) {
@@ -76,4 +76,4 @@ class ModuleController {
   }
 }
 
-export default new ModuleController();
+module.exports = new ModuleController();

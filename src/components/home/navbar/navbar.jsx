@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom'
 import './navbar.css'
 import { isAuthenticated, isAdm, logout, logoutAdm } from "../../../services/auth";
@@ -54,12 +54,12 @@ export default class navbar extends React.Component {
 
             <NavLink to="/home" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/biblioteca" className="itemMenu"><li>BIBLIOTECA</li></NavLink>
+            <NavLink to="/conta" className="itemMenu"><li>CONTA</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
-            <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
-            <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
-            <div className="itemMenu"><li>CONTA</li></div>
+            {/* <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink> */}
+            {/* <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink> */}
             <div className="itemMenuDireita" onClick={()=>logout()}><li>SAIR</li></div>
         </div>            
         )

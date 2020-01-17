@@ -1,5 +1,5 @@
-import * as Yup from 'yup';
-import ContactMail from '../jobs/ConctactMail';
+const Yup = require('yup');
+const ContactMail = require('../jobs/ConctactMail');
 
 class ClassController {
   async store(req, res) {
@@ -24,4 +24,4 @@ class ClassController {
   }
 }
 
-export default new ClassController();
+module.exports = new ClassController();

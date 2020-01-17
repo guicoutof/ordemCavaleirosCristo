@@ -1,7 +1,7 @@
-import * as Yup from 'yup';
-import jwt from 'jsonwebtoken';
-import Admin from '../models/Admin';
-import auth from '../../config/auth';
+const Yup = require('yup');
+const jwt = require('jsonwebtoken');
+const Admin = require('../models/Admin');
+const auth = require('../../config/auth');
 
 class DashboardController {
   async store(req, res) {
@@ -39,4 +39,4 @@ class DashboardController {
   }
 }
 
-export default new DashboardController();
+module.exports = new DashboardController();

@@ -1,12 +1,12 @@
 export const TOKEN_KEY = "@OCC";
-export const NOME = "@nome";
+export const INFO = "";
 export const ADM = "@adm";
 export const isAuthenticated = () => localStorage.getItem(TOKEN_KEY) !== null;
 export const getToken = () => localStorage.getItem(TOKEN_KEY);
-export const getNome = () => localStorage.getItem(NOME);
-export const login = (token,nome) => {
+export const getInfo = () => JSON.parse(localStorage.getItem(INFO));
+export const login = (token,info) => {
   localStorage.setItem(TOKEN_KEY, token);
-  localStorage.setItem(NOME, nome);
+  localStorage.setItem(INFO, JSON.stringify(info));
 };
 export const logout = () => {
   localStorage.removeItem(TOKEN_KEY);

@@ -1,6 +1,6 @@
-import { format } from 'date-fns';
-import pt from 'date-fns/locale/pt';
-import Mail from '../../lib/Mail';
+const { format } = require('date-fns');
+const pt = require('date-fns/locale/pt');
+const Mail = require('../../lib/Mail');
 
 class ContactMail {
   get key() {
@@ -25,4 +25,4 @@ class ContactMail {
   }
 }
 
-export default new ContactMail();
+module.exports = new ContactMail();
