@@ -25,6 +25,7 @@ export default class AdmClass extends Component{
         await api.get(`/classes/course/${this.props.match.params.id}`)
             .then(
                 res=>{
+                    console.log(res.data)
                     this.setState({classes:res.data})
                 }
             )
@@ -75,7 +76,7 @@ export default class AdmClass extends Component{
                     </div>
                     )
             }
-            <NavLink to={`/modules`}><button>Voltar</button></NavLink> 
+            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button>Voltar</button></NavLink> 
             </div>
             </div>
         )
