@@ -87,29 +87,14 @@ export function indexCadastro(){
         </div>
     )
 }
-export class indexCourses extends Component{
-    state = {
-        courses:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/modules")
-            .then(
-                res=>{
-                    this.setState({courses:res.data[0].courses})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='index'>
-            <Navbar/>
-            <Courses title={'CURSOS'} courses={this.state.courses}/>
-            <Footer/>
-        </div>
-        )
-    }
+export function indexCourses(){
+    return(
+        <div className='index'>
+        <Navbar/>
+        <Courses />
+        <Footer/>
+    </div>
+    )
 }
 export class indexServices extends Component{
     state = {

@@ -100,8 +100,8 @@ export class panelUsuarios extends Component {
     async confirm(){
         const {id} = this.state
         this.setState({modalC:false})
-        const response = await api.delete('/users/',{id})
-        console.log(response)
+        await api.delete(`/deleteStudent/${id}`)
+        window.location.reload();
     }
 
     // showCreateUser() {
@@ -234,9 +234,17 @@ export class panelUsuarios extends Component {
     //     );
     // }
 
+    async approveUser(id,type){
+        await api.post(`/approveStudent/${id}`,{type})
+        .then(res=>{
+            window.location.reload()
+        })
+    }
+
     handleChange(event){
         this.setState({filter:event.target.value})
     }
+
     showUsersList() {
         return (
             <div className="panelUser-container">
@@ -298,9 +306,12 @@ export class panelUsuarios extends Component {
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                {/* <button className="panelUser-btn btn-editar" onClick={this.openEditUser.bind(this,i)}>
-                                    <FontAwesomeIcon className="icon" icon={faUserEdit} size="3x"/>
-                                </button> */}
+                                {element.type==2?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,0)}>
+                                    Retornar para gratuito
+                                </button>:<div></div>}
+                                {element.type==1?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,2)}>
+                                    Aprovar Afiliação Pendente
+                                </button>:<div></div>}
                                 <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
                                     <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
                                 </button>

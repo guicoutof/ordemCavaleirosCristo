@@ -28,20 +28,22 @@ export default class Account extends Component{
         this.confirm = this.confirm.bind(this)
     }
     
-    componentDidMount(){
-        const res = getInfo();
+    async componentDidMount(){
+        await api.get('/getUser')
+            .then(res=>{
+                this.setState({
+                    id:res.data.id,
+                    name:res.data.name,
+                    email:res.data.email,
+                    phone_number:res.data.phone_number,
+                    birth_date:res.data.birth_date,
+                    city:res.data.city,
+                    state:res.data.state,
+                    country:res.data.country,
+                    type:res.data.type,
+                })
+            })
 
-        this.setState({
-            id:res.id,
-            name:res.name,
-            email:res.email,
-            phone_number:res.phone_number,
-            birth_date:res.birth_date,
-            city:res.city,
-            state:res.state,
-            country:res.country,
-            type:res.type,
-        })
     }
 
     async submitUser(){
