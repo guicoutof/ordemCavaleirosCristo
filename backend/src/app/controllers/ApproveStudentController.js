@@ -33,6 +33,13 @@ class UserController {
 
     return res.json(user);
   }
+
+  async delete(req, res) {
+    await User.destroy({
+      where: { id: req.params.id },
+    });
+    return res.json({ msg: 'User deleted.' });
+  }
 }
 
 module.exports = new UserController();

@@ -94,6 +94,12 @@ routes.post(
   ApproveStudentController.store
 );
 
+routes.delete(
+  '/deleteStudent/:id',
+  authAdminMiddleware,
+  ApproveStudentController.delete
+);
+
 routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
 routes.put('/users', UserController.update);
