@@ -12,19 +12,11 @@ export default class Library extends Component{
             page:1,
             limite:false
         }
+    }
+    
+    async componentDidMount(){
         this.exibirCursos(1)
     }
-
-    // async componentDidMount(){
-    //     const params = {
-    //         page:this.state.page,
-    //     }
-    //     await api.get(`/student_courses/${getInfo().id}`,{params})
-    //     .then(res=>{
-    //         console.log(res.data)
-    //         this.setState({courses:res.data})
-    //     })
-    // }
 
     async exibirCursos(id){
         const params = {

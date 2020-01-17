@@ -11,22 +11,28 @@ export default class panelCurso extends Component{
         this.state={
             courses:[],
             modalC:false,
-            id:0
+            id:0,
+            page:1,
+            limite:false
         }
         this.close = this.close.bind(this)
         this.confirm = this.confirm.bind(this)
+
     }
 
-    componentDidMount = async ()=>{
+    async exibirCursos(id){
         const params = {
-            page:1
+            page:id,
         }
         await api.get(`/courses/module/${this.props.match.params.id}`,{params})
-            .then(
-                res=>{
-                    this.setState({courses:res.data})
-                }
-            )
+        .then(res=>{
+            res.data.length<3?this.setState({courses:res.data,page:id,limite:true}):this.setState({courses:res.data,page:id,limite:false})
+        })
+        
+    }
+
+    componentDidMount(){
+        this.exibirCursos(1)
     }
     
     close(){
@@ -70,13 +76,17 @@ export default class panelCurso extends Component{
                                 </div>
                                 <h4 className="precoCurso">Valor: {course.price}</h4>
                                 <div className="botoesCurso">
-                                    <NavLink to={`/course/${course.id}`}><button className="botaoEditarCurso">Abrir</button></NavLink>
+                                    <NavLink to={`/course/${course.id}`}><button className="botaoAbrirCurso">Abrir</button></NavLink>
                                     <NavLink to={`/course/${course.id}/edit`}><button className="botaoEditarCurso">Editar</button></NavLink>
                                     <button className="botaoRemoverCurso" onClick={()=>this.setState({modalC:true,id:course.id})}>Remover</button>
                                 </div>
                             </div>
                         )    
                     }
+                    <div>
+                        {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                        {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                    </div>
                     <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
                 </div>
                 

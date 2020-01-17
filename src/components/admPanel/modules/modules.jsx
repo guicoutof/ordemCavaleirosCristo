@@ -9,6 +9,7 @@ export default class AdmModules extends Component{
     constructor(){
         super()
         this.state={
+            modulos:[],
             modal:false,
             modalC:false,
             name:'',
@@ -18,6 +19,15 @@ export default class AdmModules extends Component{
         }
         this.confirm = this.confirm.bind(this);
         this.close = this.close.bind(this);
+    }
+
+    componentDidMount = async ()=>{
+        await api.get("/modules")
+            .then(
+                res=>{
+                    this.setState({modulos:res.data})
+                }
+            )
     }
 
     async confirm(){
@@ -53,11 +63,9 @@ export default class AdmModules extends Component{
 
 
 render(){
-
     return(
         <div className='principalModulo'>
             <button className='criarModulo' onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
-        
             <div className='containerADM'>
                 <Modal className="modalTamanho" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
                     <h1 className="tituloCriarModulo">Criar Módulo</h1>
@@ -68,13 +76,13 @@ render(){
                 </Modal>
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este modulo?'} close={this.close} confirm={this.confirm}/> 
             {
-                this.props.modulos.map((modulo) =>
+                this.state.modulos.map((modulo) =>
                 <div key={modulo.module.id}className='cardModulo'>
                         <h3 className='nomeCurso'>{modulo.module.name}</h3>
                         <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>
                         <div className="botoes">
                             <NavLink to={`/module/${modulo.module.id}`}><button className="abrirModulo">Abrir</button></NavLink>
-                            <button className="editarModulo" onClick={()=>this.setState({modalE:true,id:modulo.module.id})}>Editar</button>
+                            <button className="editarModulo" onClick={()=>this.setState({modalE:true,id:modulo.module.id,name:modulo.module.name})}>Editar</button>
 
                             <Modal className="modalTamanho" isOpen={this.state.modalE} onRequestClose={()=>this.setState({modalE:false})} ariaHideApp={false} >
                                 <h1 className="tituloCriarModulo">Editar Módulo</h1>

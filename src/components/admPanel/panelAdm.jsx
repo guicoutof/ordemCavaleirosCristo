@@ -41,30 +41,15 @@ export function AdmUser(){
     </div>
     )
 }
-export class AdmModule extends Component{
-    state={
-        modulos:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/modules")
-            .then(
-                res=>{
-                    this.setState({modulos:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='principalADM'>
-            <Navbar/>
-            <div className='containerADM'>
-                <AdmModulos modulos={this.state.modulos}/>
-            </div>
+export function AdmModule(){
+    return(
+        <div className='principalADM'>
+        <Navbar/>
+        <div className='containerADM'>
+            <AdmModulos />
         </div>
-        )
-    }
+    </div>
+    )
 }
 
 export function AdmService(){
