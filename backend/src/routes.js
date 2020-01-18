@@ -7,6 +7,7 @@ const AdminController = require('./app/controllers/AdminController');
 const ApproveStudentController = require('./app/controllers/ApproveStudentController');
 
 const ContactController = require('./app/controllers/ContactController');
+const ForgotPasswordController = require('./app/controllers/ForgotPasswordController');
 
 const ModuleController = require('./app/controllers/ModuleController');
 const CourseController = require('./app/controllers/CourseController');
@@ -28,6 +29,8 @@ routes.post('/sessions', SessionController.store);
 routes.post('/dashboard', DashboardController.store);
 
 routes.post('/contact', ContactController.store);
+routes.post('/forgotPassword', ForgotPasswordController.store);
+routes.post('/verifyCode', ForgotPasswordController.update);
 
 routes.get('/admins', authAdminMiddleware, AdminController.index);
 routes.get('/admins/:id', authAdminMiddleware, AdminController.show);
