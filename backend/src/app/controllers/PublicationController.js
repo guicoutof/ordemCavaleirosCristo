@@ -63,7 +63,9 @@ class PublicationController {
       resolve(__dirname, '..', '..', 'temp', 'uploads', publication.path)
     );
 
-    const { filename: path } = req.file;
+    let { path } = publication;
+
+    if (req.file) path = req.file.filename;
 
     await publication.update({ ...req.body, path });
 

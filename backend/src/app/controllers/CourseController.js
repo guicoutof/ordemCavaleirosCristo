@@ -92,7 +92,9 @@ class CourseController {
       resolve(__dirname, '..', '..', 'temp', 'uploads', course.path)
     );
 
-    const { filename: path } = req.file;
+    let { path } = course;
+
+    if (req.file) path = req.file.filename;
 
     await course.update({ ...req.body, path });
 
