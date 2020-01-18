@@ -8,6 +8,7 @@ const Module = require('../app/models/Module');
 const Publication = require('../app/models/Publication');
 const StudentCourse = require('../app/models/StudentCourse');
 const Service = require('../app/models/Service');
+const Comment = require('../app/models/Comment');
 
 const DataBaseConfig = require('../config/database');
 
@@ -20,6 +21,7 @@ const models = [
   Publication,
   StudentCourse,
   Service,
+  Comment,
 ];
 
 class Database {

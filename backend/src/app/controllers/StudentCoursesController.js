@@ -4,26 +4,26 @@ const User = require('../models/User');
 const Course = require('../models/Course');
 
 class StudentCoursesController {
-  async show(req,res) {
+  async show(req, res) {
     const { page = 1 } = req.query;
     const studentCourses = await StudentCourse.findAll({
       where: {
-        user_id: req.params.id
+        user_id: req.params.id,
       },
       include: [
         {
           model: User,
           as: 'user',
-          attributes: ['email','name']
+          attributes: ['email', 'name'],
         },
         {
           model: Course,
-          as: 'course'
-        }
+          as: 'course',
+        },
       ],
       limit: 3,
       offset: (page - 1) * 3,
-    })
+    });
     return res.json(studentCourses);
   }
 
