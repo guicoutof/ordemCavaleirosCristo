@@ -8,7 +8,7 @@ import './userCSS/createAndEditUser.css'
 import Confirm from '../confirm/confirm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faTrash, faUserEdit} from '@fortawesome/free-solid-svg-icons';
+import {faTrash, faUserPlus, faUser} from '@fortawesome/free-solid-svg-icons';
 
 export class panelUsuarios extends Component {
 
@@ -306,11 +306,15 @@ export class panelUsuarios extends Component {
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                {element.type==2?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,0)}>
-                                    Retornar para gratuito
+                                {element.type==2?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,0)}>
+                                    <abbr title="Retornar para gratuito">
+                                        <FontAwesomeIcon className="icon" icon={faUser} size="3x"/>
+                                    </abbr>
                                 </button>:<div></div>}
-                                {element.type==1?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,2)}>
-                                    Aprovar Afiliação Pendente
+                                {element.type==1?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,2)}>
+                                    <abbr title="Aprovar Afiliação">
+                                        <FontAwesomeIcon className="icon" icon={faUserPlus} size="3x"/>
+                                    </abbr>
                                 </button>:<div></div>}
                                 <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
                                     <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
