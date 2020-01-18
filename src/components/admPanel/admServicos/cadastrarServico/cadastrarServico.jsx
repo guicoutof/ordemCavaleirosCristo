@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import './casdastrarArtigoBlog.css';
-import Navbar from '../../home/navbar/navbar'
+import './cadastrarServico.css';
+import Navbar from '../../../home/navbar/navbar'
 import CKEditor from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import api from '../../../services/api'
+import api from '../../../../services/api'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'

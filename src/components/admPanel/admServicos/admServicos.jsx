@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import { NavLink } from 'react-router-dom'
 import './admServicos.css'
 
 export default class Services extends Component{
@@ -17,7 +17,7 @@ export default class Services extends Component{
         <div className="principalAulas">
             <div className="containerServico">
                 <div className="headerServicos">
-                    <button className="botaoCriarServico">Novo Serviço</button>  {/*sera editavel*/}
+                    <NavLink to={"/services/create"}><button className="botaoCriarServico">Criar Serviço</button></NavLink>
                     <input className="pesquisarServico" placeholder='Nome da Aula' type="text"/>
                 </div>
 
