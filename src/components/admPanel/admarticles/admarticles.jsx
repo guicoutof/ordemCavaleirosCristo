@@ -74,14 +74,14 @@ export default class PanelBlog extends Component {
                             )
                         }
                     </div>
+                    <div>
+                        {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                        {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                    </div>
                     <div className="containerbuttons2">
                         <button className="getback">
                             <p> VOLTAR </p>
                         </button>
-                        <button className="saveart">
-                            <p> SALVAR </p>
-                        </button>
-
                     </div>
 
 
