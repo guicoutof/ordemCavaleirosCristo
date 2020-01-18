@@ -8,7 +8,9 @@ const ApproveStudentController = require('./app/controllers/ApproveStudentContro
 
 const ContactController = require('./app/controllers/ContactController');
 const ForgotPasswordController = require('./app/controllers/ForgotPasswordController');
+const ChangePasswordController = require('./app/controllers/ChangePasswordController');
 
+const ServiceController = require('./app/controllers/ServiceController');
 const ModuleController = require('./app/controllers/ModuleController');
 const CourseController = require('./app/controllers/CourseController');
 const StudentCoursesController = require('./app/controllers/StudentCoursesController');
@@ -31,12 +33,27 @@ routes.post('/dashboard', DashboardController.store);
 routes.post('/contact', ContactController.store);
 routes.post('/forgotPassword', ForgotPasswordController.store);
 routes.post('/verifyCode', ForgotPasswordController.update);
+routes.post('/changePassword/:id', ChangePasswordController.store);
 
 routes.get('/admins', authAdminMiddleware, AdminController.index);
 routes.get('/admins/:id', authAdminMiddleware, AdminController.show);
 routes.post('/admins', authAdminMiddleware, AdminController.store);
 routes.put('/admins', authAdminMiddleware, AdminController.update);
 routes.delete('/admins', authAdminMiddleware, AdminController.delete);
+
+routes.get('/services', ServiceController.index);
+routes.get('/services/:id', ServiceController.show);
+routes.post(
+  '/services',
+  [upload.single('file'), authAdminMiddleware],
+  ServiceController.store
+);
+routes.put(
+  '/services',
+  [upload.single('file'), authAdminMiddleware],
+  ServiceController.update
+);
+routes.delete('/services/:id', authAdminMiddleware, ServiceController.delete);
 
 routes.get('/modules', ModuleController.index);
 routes.get('/modules/:id', ModuleController.show);
