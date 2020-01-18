@@ -75,8 +75,8 @@ export default class PanelBlog extends Component {
                         }
                     </div>
                     <div className="containerbuttons2">
-                        {this.state.page>1?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
-                        {!this.state.limite?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                        {this.state.page>1?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}
+                        {!this.state.limite?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
                     </div>
                 </div>
             </div>
