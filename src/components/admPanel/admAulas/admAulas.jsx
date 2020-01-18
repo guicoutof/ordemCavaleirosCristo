@@ -24,7 +24,6 @@ export default class AdmClass extends Component{
         await api.get(`/classes/course/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    console.log(res.data)
                     this.setState({classes:res.data})
                 }
             )

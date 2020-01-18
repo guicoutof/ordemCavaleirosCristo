@@ -13,7 +13,8 @@ export default class PanelBlog extends Component {
             modalC:false,
             id:0,
             page:1,
-            limite:false
+            limite:false,
+            search:''
         }
 
         this.close = this.close.bind(this)
@@ -47,13 +48,13 @@ export default class PanelBlog extends Component {
     }
 
     render() {
-
+ 
         return (
             <div className="backimg">
                 <div className="container1">
                     <div className="containerbuttons">
                         <NavLink to={`/post/create`}><button className="botaoCriarArtigo">Adicionar Artigo</button></NavLink>
-                        <input className="search1" placeholder="Pesquisar">
+                        <input className="search1" placeholder="Pesquisar" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}>
                         </input>
                     </div>
                     <Confirm open={this.state.modalC} title={'Deseja realmente excluir este artigo?'} close={this.close} confirm={this.confirm} />
@@ -61,15 +62,19 @@ export default class PanelBlog extends Component {
                         {
                             this.state.posts.map(post =>
                                 <div key={post.id}>
-                                    <div className="divPost">
-                                        <h1 className="artname0">{post.title}</h1>
-                                        <img className="art0" src={post.url} alt={post.title} />
-                                        <div className="divTexto" dangerouslySetInnerHTML={{ __html: post.text }}></div>
-                                        <div className="divBotoesBlog">
-                                            <NavLink to={`/post/${post.id}/edit`}><button className="botaoEditarBlog">Editar</button></NavLink>
-                                            <button className="botaoRemoverBlog" onClick={() => this.setState({ modalC: true, id: post.id })}>Remover</button>
+                                    {
+                                        post.title.indexOf(this.state.search)!==-1?
+                                        <div className="divPost">
+                                            <h1 className="artname0">{post.title}</h1>
+                                            <img className="art0" src={post.url} alt={post.title} />
+                                            <div className="divTexto" dangerouslySetInnerHTML={{ __html: post.text }}></div>
+                                            <div className="divBotoesBlog">
+                                                <NavLink to={`/post/${post.id}/edit`}><button className="botaoEditarBlog">Editar</button></NavLink>
+                                                <button className="botaoRemoverBlog" onClick={() => this.setState({ modalC: true, id: post.id })}>Remover</button>
+                                            </div>
                                         </div>
-                                    </div>    
+                                    :<div></div>    
+                                    }
                                 </div>
                             )
                         }

@@ -44,7 +44,7 @@ export default class CreateCurso extends Component {
                 document.getElementById("list").innerHTML = "";
             })
         }catch(err){
-            console.log(err)
+            // console.log(err)
             this.setState({msg:'Problema ao criar o curso'})
         }
 
@@ -142,7 +142,8 @@ export class EditCurso extends Component {
     componentDidMount = async ()=>{
         await api.get(`/courses/${this.props.match.params.id}`)
             .then(
-                res=>{console.log(res.data)
+                res=>{
+                    // console.log(res.data)
                     this.setState({
                         id:res.data.id,
                         name:res.data.name,
@@ -191,7 +192,7 @@ export class EditCurso extends Component {
 
             await api.put("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
-                console.log(res)
+                // console.log(res)
                 this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso atualizado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
