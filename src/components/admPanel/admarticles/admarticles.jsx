@@ -11,23 +11,29 @@ export default class PanelBlog extends Component{
         this.state={
             posts:[],
             modalC:false,
-            id:0
+            id:0,
+            page:1,
+            limite:false
         }
                 
         this.close = this.close.bind(this)
         this.confirm = this.confirm.bind(this)
     }
 
-    componentDidMount = async ()=>{
+    async exibirCursos(id){
         const params = {
-            page:1
+            page:id,
         }
         await api.get(`/publications`,{params})
-            .then(
-                res=>{
-                    this.setState({posts:res.data})
-                }
-            )
+        .then(res=>{
+            console.log(res.data)
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
+        })
+        
+    }
+
+    componentDidMount(){
+        this.exibirCursos(1)
     }
 
     close(){
@@ -41,9 +47,8 @@ export default class PanelBlog extends Component{
     }
 
     render(){
-
         return(
-            <div className="backimg">
+        <div className="backimg">
             <div className="container1">
                 <div className="containerbuttons">
                 <NavLink to={`/post/create`}><button>Adicionar Artigo</button></NavLink>
@@ -66,22 +71,17 @@ export default class PanelBlog extends Component{
                         )
                     }
                 </div>
-                <div className="containerbuttons2">
-                <button className="getback">
-                        <p> VOLTAR </p>
-                    </button>
-                    <button className="saveart">
-                        <p> SALVAR </p>
-                    </button>
-
+                <div>
+                    {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                    {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
                 </div>
-                
-
-
+                <div className="containerbuttons2">
+                    <button className="getback">
+                            <p> VOLTAR </p>
+                    </button>
                 </div>
             </div>
-    
-    
+        </div>
         )
     }
 }
