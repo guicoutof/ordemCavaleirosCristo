@@ -35,7 +35,7 @@ export default class CadastrarArtigoBlog extends Component {
                 document.getElementById("list").innerHTML = "";
             })
         }catch(err){
-            console.log(err)
+            // console.log(err)
             this.setState({msg:'Problema ao criar o artigo'})
         }
 

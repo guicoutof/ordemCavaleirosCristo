@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './account.css'
 import api from "../../../services/api";
-import {login,getInfo,logout} from '../../../services/auth'
+import {login,logout} from '../../../services/auth'
 import Confirm from '../../admPanel/confirm/confirm'
 
 export default class Account extends Component{

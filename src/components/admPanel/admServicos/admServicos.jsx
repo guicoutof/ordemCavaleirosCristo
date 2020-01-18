@@ -13,7 +13,7 @@ export default function(props) {
 
                 <div className="tabelaServicos">
                     <div className="divServicos">
-                        <img src={require('../../../assets/img/curso-image-header.jpg')} className='imgServico'/>
+                        <img src={require('../../../assets/img/curso-image-header.jpg')} alt='imagem' className='imgServico'/>
                         <div className="infoServico">
                             <div className="infoTexto">
                                 <h5 className="nomeServico">Nome do Serviço</h5>
