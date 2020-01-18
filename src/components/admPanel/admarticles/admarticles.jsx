@@ -27,7 +27,6 @@ export default class PanelBlog extends Component {
         }
         await api.get(`/publications`,{params})
         .then(res=>{
-            console.log(res.data)
             res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
         })
         

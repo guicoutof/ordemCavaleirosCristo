@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './courses.css'
 import api from '../../../services/api'
 import {getInfo} from '../../../services/auth'
+import mercadopago from 'mercadopago';
 
 export default class Courses extends Component{
     constructor(){
@@ -21,17 +22,39 @@ export default class Courses extends Component{
             )
     }
 
-    async buyCourse(user_id,course_id){
-        console.log(`${user_id} compra ${course_id}`)
-        try{
-            await api.post(`student_courses`,{user_id,course_id})
-            .then(res=>{
-                console.log(res)
-            })
-        }catch(err){
-            console.log(err)
-            alert('Você já possui este curso')
-        }
+    async buyCourse(user_id,c){
+        console.log(`${user_id} compra ${c.id}`)
+        
+        mercadopago.configure({
+            access_token: 'TEST-4046680816998383-011813-502cf075c1647d97903c3bc2ca38354a-254719565'
+          });
+          let preference = {
+            items: [
+              {
+                title: c.name,
+                unit_price:c.price,
+                quantity:1,
+                description: c.description,
+              }
+            ]
+          };
+          mercadopago.preferences.create(preference)
+            .then(function(response){
+            console.log(response)// Este valor substituirá a string "$$init_point$$" no seu HTML
+            global.init_point = response.body.init_point;
+            }).catch(function(error){
+            console.log(error);
+            });
+
+    //     try{
+    //         await api.post(`student_courses`,{user_id,course_id})
+    //         .then(res=>{
+    //             console.log(res)
+    //         })
+    //     }catch(err){
+    //         console.log(err)
+    //         alert('Você já possui este curso')
+    //     }
     }
 
     render(){
@@ -54,8 +77,14 @@ export default class Courses extends Component{
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
                             <div className="price">R$ {c.price}</div>
-                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
+                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c)}>Comprar</button>
                         </div>
+                        <form action="/processar_pagamento" method="POST">
+                        <script
+                        src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
+                        data-preference-id="$$init_point$$">
+                        </script>
+                        </form>
                     </div>
                 )}
             </div>
