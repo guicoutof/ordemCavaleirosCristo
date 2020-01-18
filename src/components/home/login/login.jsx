@@ -91,7 +91,7 @@ class Login extends React.Component {
             <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({email:e.target.value})}></input>
           </div>
           <div className="login-input-password">
-            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha" onChange={e=> this.setState({password:e.target.value})}></input>
+            <input id="login-password" className="login-input" type="password" name="password" placeholder="Senha" onChange={e=> this.setState({password:e.target.value})}></input>
           </div>
         </div>
         <div className="button-group">
