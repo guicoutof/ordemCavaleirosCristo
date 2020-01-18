@@ -12,6 +12,7 @@ import Donate from './donate/donate'
 import Contacts from './contato/contato'
 import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
+import Services from './services/services'
 
 export default class index extends Component{
     state = {
@@ -99,27 +100,13 @@ export function indexCourses(){
     </div>
     )
 }
-export class indexServices extends Component{
-    state = {
-        services:[]
-    }
+export function indexServices (){
+    return(
+        <div className='index'>
+        <Navbar/>
+        <Services />
+        <Footer/>
+    </div>
+    )
 
-    componentDidMount = async ()=>{
-        await api.get("/courses/module/1")
-            .then(
-                res=>{
-                    this.setState({services:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='index'>
-            <Navbar/>
-            <Courses title={'SERVIÇOS'}courses={this.state.services}/>
-            <Footer/>
-        </div>
-        )
-    }
 }

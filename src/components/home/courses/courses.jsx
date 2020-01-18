@@ -81,14 +81,13 @@ export default class Courses extends Component{
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
                             <div className="price">R$ {c.price}</div>
-                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c)}>Comprar</button>
+<div>
+
+<a href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=237102186-12e0c26e-66dc-4d47-b812-268c84c2ea1a" target="_blank">Pagar</a>
+</div>
+
+                            {/* <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c)}>Comprar</button> */}
                         </div>
-                        <form action="/processar_pagamento" method="POST">
-                        <script
-                        src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-                        data-preference-id="$$init_point$$">
-                        </script>
-                        </form>
                     </div>
                 )}
             </div>
