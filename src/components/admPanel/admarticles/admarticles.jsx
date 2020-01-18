@@ -8,26 +8,32 @@ export default class PanelBlog extends Component {
 
     constructor() {
         super()
-        this.state = {
-            posts: [],
-            modalC: false,
-            id: 0
+        this.state={
+            posts:[],
+            modalC:false,
+            id:0,
+            page:1,
+            limite:false
         }
 
         this.close = this.close.bind(this)
         this.confirm = this.confirm.bind(this)
     }
 
-    componentDidMount = async () => {
+    async exibirCursos(id){
         const params = {
-            page: 1
+            page:id,
         }
-        await api.get(`/publications`, { params })
-            .then(
-                res => {
-                    this.setState({ posts: res.data })
-                }
-            )
+        await api.get(`/publications`,{params})
+        .then(res=>{
+            console.log(res.data)
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
+        })
+        
+    }
+
+    componentDidMount(){
+        this.exibirCursos(1)
     }
 
     close() {
