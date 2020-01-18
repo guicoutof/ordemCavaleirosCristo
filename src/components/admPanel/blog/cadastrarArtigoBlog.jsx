@@ -136,8 +136,6 @@ export class CadBlogEdit extends Component {
                         title:res.data.title,
                         text:res.data.text,
                     })
-
-                    document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
                 }
             )
     }

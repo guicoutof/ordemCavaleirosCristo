@@ -130,7 +130,7 @@ export class EditCurso extends Component {
         description:'',
         hours:0,
         price:'',
-        file:'',
+        file:null,
         book:'',
         assistance:'',
         highlight:false,
@@ -142,7 +142,7 @@ export class EditCurso extends Component {
     componentDidMount = async ()=>{
         await api.get(`/courses/${this.props.match.params.id}`)
             .then(
-                res=>{
+                res=>{console.log(res.data)
                     this.setState({
                         id:res.data.id,
                         name:res.data.name,
@@ -151,11 +151,12 @@ export class EditCurso extends Component {
                         assistance:res.data.assistance,
                         book:res.data.book,
                         price:res.data.price,
-                        file:res.data.url,
+                        // file:res.data.url,
+                        // file_name:res.data.path,
                         module_id:res.data.module_id,
                         highlight:res.data.highlight})
 
-                        document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
+                        // document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
 
                         // var span = document.createElement('span');
                         // span.innerHTML = ['<img class="thumb" src="', res.data.url,
@@ -166,6 +167,7 @@ export class EditCurso extends Component {
             )
             // await api.get(this.state.file)
             //     .then(res=>{
+            //         console.log(res.data)
             //         this.setState({file:res.data})
             //     })
             // console.log(this.state)
@@ -189,11 +191,12 @@ export class EditCurso extends Component {
 
             await api.put("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
+                console.log(res)
                 this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso atualizado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
         }catch(err){
-            console.log(err)
+            // console.log(err)
             this.setState({msg:'Problema ao atualizar o curso'})
         }
 
@@ -224,7 +227,7 @@ export class EditCurso extends Component {
     
           // Lê a imagem como URL
           reader.readAsDataURL(f);
-        }console.log(files)
+        }
         this.setState({file:files[0]})
     }
 
