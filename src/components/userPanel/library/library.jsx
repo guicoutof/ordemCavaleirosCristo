@@ -3,6 +3,8 @@ import './library.css'
 import { NavLink } from 'react-router-dom'
 import api from '../../../services/api'
 import {getInfo} from '../../../services/auth'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class Library extends Component{
     constructor(){
@@ -10,7 +12,8 @@ export default class Library extends Component{
         this.state={
             courses:[],
             page:1,
-            limite:false
+            limite:false,
+            loading:true
         }
     }
     
@@ -19,12 +22,13 @@ export default class Library extends Component{
     }
 
     async exibirCursos(id){
+        this.setState({loading:true})
         const params = {
             page:id,
         }
         await api.get(`/student_courses/${getInfo().id}`,{params})
         .then(res=>{
-            res.data.length<3?this.setState({courses:res.data,page:id,limite:true}):this.setState({courses:res.data,page:id,limite:false})
+            res.data.length<3?this.setState({courses:res.data,page:id,limite:true,loading:false}):this.setState({courses:res.data,page:id,limite:false,loading:false})
         })
 
     }
@@ -36,7 +40,8 @@ export default class Library extends Component{
                 <h1>MEUS CURSOS</h1>
             </div>
             <div className="cards">
-                {this.state.courses.map((c)=>
+                {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                :this.state.courses.map((c)=>
                     <div key={c.id} className="card">
                         <img src={c.course.url} alt={`Curso ${c.id}`} />
                         {<div className="module">Modulo {c.course.module_id}</div>}

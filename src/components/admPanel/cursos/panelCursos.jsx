@@ -4,6 +4,8 @@ import api from '../../../services/api'
 import Navbar from '../../home/navbar/navbar'
 import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class panelCurso extends Component{
     constructor(){
@@ -14,7 +16,8 @@ export default class panelCurso extends Component{
             id:0,
             page:1,
             limite:false,
-            search:''
+            search:'',
+            loading:true
         }
         this.close = this.close.bind(this)
         this.confirm = this.confirm.bind(this)
@@ -22,12 +25,13 @@ export default class panelCurso extends Component{
     }
 
     async exibirCursos(id){
+        this.setState({loading:true})
         const params = {
             page:id,
         }
         await api.get(`/courses/module/${this.props.match.params.id}`,{params})
         .then(res=>{
-            res.data.length<3?this.setState({courses:res.data,page:id,limite:true}):this.setState({courses:res.data,page:id,limite:false})
+            res.data.length<3?this.setState({courses:res.data,page:id,limite:true,loading:false}):this.setState({courses:res.data,page:id,limite:false,loading:false})
         })
         
     }
@@ -59,8 +63,8 @@ export default class panelCurso extends Component{
 
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este curso?'} close={this.close} confirm={this.confirm}/> 
                 <div className="tabelaCursos">
-                    {
-                        this.state.courses.map(course=>
+                    {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                        :this.state.courses.map(course=>
                             <div key={course.id} >
                                 {
                                     course.name.indexOf(this.state.search)!==-1?

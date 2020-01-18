@@ -1,10 +1,20 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import './admServicos.css'
 
-export default function(props) {
-    return(
-            <div className="principalAulas">
+export default class Services extends Component{
+    constructor(){
+        super()
+        this.state = {
+
+        }
+    }
+    
+    
+    
+    render(){
+        return(
+        <div className="principalAulas">
             <div className="containerServico">
                 <div className="headerServicos">
                     <button className="botaoCriarServico">Novo Serviço</button>  {/*sera editavel*/}
@@ -21,7 +31,7 @@ export default function(props) {
                             </div>
                         </div>
                         <div className="duracaoAula">
-                            <h3>Preço: {`${props}`}</h3>
+                            <h3>Preço: </h3>
                         </div>
                         <div className="botoesServico">
                             <button className="botaoEditarServico">Editar</button>
@@ -31,5 +41,6 @@ export default function(props) {
                 </div>                
             </div>
         </div>
-    )
+        )
+    }
 }

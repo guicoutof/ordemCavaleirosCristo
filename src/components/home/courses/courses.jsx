@@ -3,12 +3,15 @@ import './courses.css'
 import api from '../../../services/api'
 import {getInfo} from '../../../services/auth'
 import mercadopago from 'mercadopago';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class Courses extends Component{
     constructor(){
         super()
         this.state={
-            courses:[]
+            courses:[],
+            loading:true
         }
     }
 
@@ -17,7 +20,7 @@ export default class Courses extends Component{
         await api.get(`/courses/module/${modulo}`)
             .then(
                 res=>{
-                    this.setState({courses:res.data})
+                    this.setState({courses:res.data,loading:false})
                 }
             )
     }
@@ -64,7 +67,8 @@ export default class Courses extends Component{
                 <h1>CURSOS</h1>
             </div>
             <div className="cards">
-                {this.state.courses.map((c)=>
+                {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                    :this.state.courses.map((c)=>
                     <div key={c.id} className="card">
                         <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}

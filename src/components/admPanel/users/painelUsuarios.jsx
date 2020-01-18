@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import MDArrowBack from 'react-ionicons/lib/MdArrowBack'
-import MDTrashCan from 'react-ionicons/lib/MdTrash'
-import MDEdit from 'react-ionicons/lib/MdPaper'
 import api from '../../../services/api'
 import './painelUsuarios.css'
 import './userCSS/createAndEditUser.css'
 import Confirm from '../confirm/confirm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faTrash, faUserPlus, faUser} from '@fortawesome/free-solid-svg-icons';
+import {faTrash, faUserPlus, faUser, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export class panelUsuarios extends Component {
 
@@ -33,7 +30,7 @@ export class panelUsuarios extends Component {
                 country:'',
                 module:1,
                 type:0,
-
+            loading:true
         }
 
         this.close = this.close.bind(this)
@@ -45,7 +42,7 @@ export class panelUsuarios extends Component {
         await api.get("/getUsers")
             .then(
                 res=>{
-                    this.setState({users:res.data})
+                    this.setState({users:res.data,loading:false})
                 }
             )
     }
@@ -259,7 +256,8 @@ export class panelUsuarios extends Component {
                     <h2 className="panelUser-h2">Usuários</h2>
                     <input className="panelUser-input" placeholder="Pesquisar" type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
-                {this.state.users.map((element,i) =>
+                {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                    :this.state.users.map((element,i) =>
                     <div key={element.id} className="panelUser-table">
                     {( ((element.name.indexOf(this.state.search)!==-1)
                     ||(element.email.indexOf(this.state.search)!== -1)

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import './blog.css'
 import api from '../../../services/api'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -10,17 +12,19 @@ export default class Blog extends Component{
         this.state={
             posts:[],
             pages:1,
-            limite:false
+            limite:false,
+            loading:true
         }
     }
 
     async exibirCursos(id){
+        this.setState({loading:true})
         const params = {
             page:id,
         }
         await api.get(`/publications`,{params})
         .then(res=>{
-            res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true,loading:false}):this.setState({posts:res.data,page:id,limite:false,loading:false})
         })
         
     }
@@ -32,8 +36,8 @@ export default class Blog extends Component{
     render(){
         return(
         <div>
-            {
-                this.state.posts.map(post=>
+            {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                :this.state.posts.map(post=>
                 <div key={post.id}>
                     <img className="art0" src={post.url} alt={post.title} />
                     <h1 className="artname0">{post.title}</h1>

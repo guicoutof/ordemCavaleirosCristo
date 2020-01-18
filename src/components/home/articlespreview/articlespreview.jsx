@@ -9,7 +9,7 @@ export default function ArticlesPreview(props){
         <div className="mainToBackGND">
             <div className="articleTitle">
                 <h1 className="Titlee">{props.publication.title}</h1> 
-                <img src={props.publication.url} alt={props.publication.title} />
+                {/* <img src={props.publication.url} alt={props.publication.title} /> */}
             </div>
             <div className="articleContent">
                 {/* <p className="Text">{props.publication.text}</p> */}

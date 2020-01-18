@@ -3,6 +3,8 @@ import './admarticles.css'
 import api from '../../../services/api'
 import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class PanelBlog extends Component {
 
@@ -14,7 +16,8 @@ export default class PanelBlog extends Component {
             id:0,
             page:1,
             limite:false,
-            search:''
+            search:'',
+            loading:true
         }
 
         this.close = this.close.bind(this)
@@ -22,12 +25,13 @@ export default class PanelBlog extends Component {
     }
 
     async exibirCursos(id){
+        this.setState({loading:true})
         const params = {
             page:id,
         }
         await api.get(`/publications`,{params})
         .then(res=>{
-            res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true,loading:false}):this.setState({posts:res.data,page:id,limite:false,loading:false})
         })
         
     }
@@ -58,8 +62,8 @@ export default class PanelBlog extends Component {
                     </div>
                     <Confirm open={this.state.modalC} title={'Deseja realmente excluir este artigo?'} close={this.close} confirm={this.confirm} />
                     <div className="containerarticles">
-                        {
-                            this.state.posts.map(post =>
+                        {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                            :this.state.posts.map(post =>
                                 <div key={post.id}>
                                     {
                                         post.title.indexOf(this.state.search)!==-1?
