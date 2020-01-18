@@ -75,6 +75,7 @@ export default class navbar extends React.Component {
             <NavLink to="/admin" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/user" className="itemMenu"><li>USUÁRIOS</li></NavLink>
             <NavLink to="/modules" className="itemMenu"><li>CURSOS</li></NavLink>
+            <NavLink to="comments" className="itemMenu"><li>COMENTARIOS</li></NavLink>
             <NavLink to="/services" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/articles" className="itemMenu"><li>BLOG</li></NavLink>
             <div className="itemMenuDireita" onClick={()=>logoutAdm()}><li>SAIR</li></div>

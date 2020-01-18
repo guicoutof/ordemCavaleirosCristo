@@ -1,21 +1,53 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './blog.css'
+import api from '../../../services/api'
 
 
 
-export default function blog(props){
+export default class Blog extends Component{
+    constructor(){
+        super()
+        this.state={
+            posts:[],
+            pages:1,
+            limite:false
+        }
+    }
 
-    return(
+    async exibirCursos(id){
+        const params = {
+            page:id,
+        }
+        await api.get(`/publications`,{params})
+        .then(res=>{
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true}):this.setState({posts:res.data,page:id,limite:false})
+        })
+        
+    }
+
+    componentDidMount(){
+        this.exibirCursos(1)
+    }
+
+    render(){
+        return(
         <div>
-            {props.publications.map(post=>
+            {
+                this.state.posts.map(post=>
                 <div key={post.id}>
-                    <img src={post.url} alt={post.title}/>
-                    <div>{post.title}</div>
-                    <div>{post.text}</div>
+                    <img className="art0" src={post.url} alt={post.title} />
+                    <h1 className="artname0">{post.title}</h1>
+                    <div dangerouslySetInnerHTML={{__html: post.text}}></div>
                 </div>
-            )}
+                )
+            }
+            <div>
+                {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+            </div>
         </div>
-    )
+        )
+    }
 }
 
 

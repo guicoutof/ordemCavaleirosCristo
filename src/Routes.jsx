@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { isAuthenticated, isAdm } from "./services/auth";
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
-import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService} from './components/admPanel/panelAdm'
+import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService, AdmComments} from './components/admPanel/panelAdm'
 import AdmCourses from './components/admPanel/cursos/panelCursos'
 import AdmClass from './components/admPanel/admAulas/admAulas'
 import PanelUser, { UserBlog, UserConta, UserBiblioteca, UserCurso } from './components/userPanel/panelUser'
@@ -46,6 +46,7 @@ export default function routes() {
             <AdmRoute exact path="/articles" component={AdmBlog} />
             <AdmRoute exact path="/modules" component={AdmModule} />
             <AdmRoute exact path="/services" component={AdmService} />
+            <AdmRoute exact path="/comments" component={AdmComments} />
             <AdmRoute exact path="/module/:id" component={AdmCourses} />
             <AdmRoute exact path="/course/:id" component={AdmClass} />
             <AdmRoute exact path="/course/:id/edit" component={EditCurso} />

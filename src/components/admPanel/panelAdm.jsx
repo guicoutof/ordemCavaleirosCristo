@@ -8,6 +8,7 @@ import AdmArtigos from './admarticles/admarticles'
 import PainelUsuarios from './users/painelUsuarios'
 import AdmModulos from './modules/modules'
 import AdmServicos from './admServicos/admServicos'
+import Comments from './comments/comments'
 
 
 
@@ -86,4 +87,15 @@ export class AdmBlog extends Component{
         </div>
         )
     }
+}
+
+export function AdmComments(){
+    return(
+        <div className='principalADM'>
+            <Navbar />
+            <div className='containerADM'>
+                <Comments />
+            </div>
+        </div>
+    )
 }
