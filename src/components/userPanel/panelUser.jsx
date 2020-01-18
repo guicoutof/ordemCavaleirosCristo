@@ -56,38 +56,23 @@ export function UserConta(){
         <div className='principalUSR'>
             <Navbar/>
             <div className="containerUSR">
-            <Account user={getInfo()}/>
+            <Account />
             </div>
             <Footer/>
         </div>
         )
 }
 
-export class UserBiblioteca extends Component{
-    state={
-        courses:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/courses/module/1")
-            .then(
-                res=>{
-                    this.setState({courses:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='principalUSR'>
-                <Navbar/>
-                <div className="containerUSR">
-                <Library title="MEUS CURSOS" courses={this.state.courses}/>
-                </div>
-                <Footer/>
+export function UserBiblioteca (){
+    return(
+        <div className='principalUSR'>
+            <Navbar/>
+            <div className="containerUSR">
+            <Library  />
             </div>
-            )
-        }
+            <Footer/>
+        </div>
+        )    
 }
 
 export function UserCurso(){

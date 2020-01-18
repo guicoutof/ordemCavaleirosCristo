@@ -1,10 +1,8 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-import Image from '../assets/img/test.png'
-
 const api = axios.create({
-  baseURL: "https://cors-anywhere.herokuapp.com/http://74.117.156.74:3001"
+  baseURL: "http://74.117.156.74:3001"
 });
 
 api.interceptors.request.use(async config => {

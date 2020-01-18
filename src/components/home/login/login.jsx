@@ -28,32 +28,55 @@ class Login extends React.Component {
     this.state = {
       isForgotPSWDOpen: false,
       isLoginOpen: true,
+      tokenOpen: false,
+      alterPassOpen:false,
 
       email: "",
       password: "",
-      loginErrorMessage: [],
+      newPassword: "",
+      confNewPassword: "",
+      token:"",
+      loginErrorMessage: "",
 
     };
+    this.showTokenField = this.showTokenField.bind(this)
+    this.showAlterPassField = this.showAlterPassField.bind(this)
 
   }
 
   showLoginField(){
-    this.setState({ isForgotPSWDOpen: false, isLoginOpen: true })
+    this.setState({ isForgotPSWDOpen: false, isLoginOpen: true, tokenOpen:false, alterPassOpen: false })
   }
 
   showForgotPasswordField(){
-    this.setState({ isForgotPSWDOpen: true, isLoginOpen: false })
+    this.setState({ isForgotPSWDOpen: true, isLoginOpen: false, tokenOpen:false, alterPassOpen: false })
+  }
+
+  showTokenField(){
+    this.setState({ isForgotPSWDOpen: false, isLoginOpen: false, tokenOpen:true, alterPassOpen: false })
+    console.log(this.state)
+  }
+
+  showAlterPassField(){
+    this.setState({ isForgotPSWDOpen: false, isLoginOpen: false, tokenOpen:false, alterPassOpen: true })
   }
   
   handleSignIn = async e=>{
     e.preventDefault();
     const {email,password} = this.state;
+    this.setState({loginErrorMessage:''})
     if(!email || !password ){
       this.setState({loginErrorMessage: "Preencha e-mail e senha para continuar!"})
     }else{
       try{
         const response = await api.post("/sessions",{email,password});
-        login(response.data.token,response.data.user);
+        const info = {
+          id:response.data.user.id,
+          name:response.data.user.name,
+          module:response.data.user.module,
+          type:response.data.user.type
+        }
+        login(response.data.token,info);
         this.props.history.push("/home");
         window.location.reload();
       }catch(err){
@@ -72,45 +95,99 @@ class Login extends React.Component {
     }
   }
 
+  submitEmail(){
+    console.log('to token')
+    this.showTokenField()
+    console.log(this.state)
+  }
+  submitToken(){
+    console.log('to pass')
+    this.showAlterPassField()
+  }
+  submitPass(){
+    console.log('to login')
+    this.showLoginField()
+  }
+
   LoginForm() {
-    return (
-      <form id="login-form" >
-        <div className="logo-img">
-          <img  src={require('../../../assets/img/logo.png')} alt="Logo"/>
-        </div>
-        <p>{this.state.loginErrorMessage}</p>
-        <div className="input-group">
-          <div className="login-input-email">
-            <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({email:e.target.value})}></input>
+    if(this.state.isLoginOpen)
+      return (
+        <div className="login-form" >
+          <div className="logo-img">
+            <img  src={require('../../../assets/img/logo.png')} alt="Logo"/>
           </div>
-          <div className="login-input-password">
-            <input id="login-password" className="login-input" type="psd" name="password" placeholder="Senha" onChange={e=> this.setState({password:e.target.value})}></input>
+          <p>{this.state.loginErrorMessage}</p>
+          <div className="input-group">
+            <div className="login-input-email">
+              <input id="login-email" className="login-input" type="text" name="email" placeholder="Email" onChange={e=> this.setState({email:e.target.value})}></input>
+            </div>
+            <div className="login-input-password">
+              <input id="login-password" className="login-input" type="password" name="password" placeholder="Senha" onChange={e=> this.setState({password:e.target.value})}></input>
+            </div>
           </div>
+          <div className="button-group">
+            <button className="login-btn" onClick={this.handleSignIn}>Entrar</button>
+          </div>
+          <a className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</a>
         </div>
-        <div className="button-group">
-          <button id="login" className="login-btn" onClick={this.handleSignIn}>Entrar</button>
-        </div>
-        <a className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</a>
-      </form>
-    );
+      );
   }
 
   ForgotPasswordForm(){
+    if(this.state.isForgotPSWDOpen)
     return (
-      <form id="forgot-password-form">
+      <div id="forgot-password-form">
         <h3 className="forgot-password-title"> Digite abaixo o email para enviarmos o formulario para resetar a sua senha</h3>
         <p className="forgot-password-warning">Você apenas receberá o email, caso o email digitado abaixo seja válido e que esteja cadastrado no site</p>
         <div className="input-group">
           <div className="forgot-password-input-email">
-            <input id="forgot-email" className="forgot-password-input" type="text" name="email" placeholder="Email"></input>
+            <input id="forgot-email" className="forgot-password-input" type="text" name="email" placeholder="Email" value={this.state.email} onChange={e=> this.setState({email:e.target.value})}></input>
           </div>
         </div>
         <div className="button-group">
-          <button id="login" className="back-to-login-btn" onClick={this.showLoginField.bind(this)}>Voltar ao Login</button>
-          <button id="login" className="forgot-password-btn">Enviar o formulario</button>
+          <button className="back-to-login-btn" onClick={this.showLoginField.bind(this)}>Voltar ao Login</button>
+          <button className="forgot-password-btn" onClick={()=>this.submitEmail()}>Enviar o formulario</button>
         </div>
-      </form>
+      </div>
     );
+  }
+
+  TokenForm(){
+    if(this.state.tokenOpen)
+    return(
+        <div className="login-form">
+        <h3 className="token-title"> Digite abaixo o token que você recebeu por email</h3>
+        <p className="token-warning">O token fica ativo até <strong>10</strong> minutos após o envio do email</p>
+        <p className="token-warning">{this.state.loginErrorMessage}</p>
+        <div className="input-group">
+          <div className="forgot-password-input">
+            <input id="forgot-email" className="forgot-password-input" type="text" name="email" placeholder="TOKEN" value={this.state.token} onChange={e=> this.setState({token:e.target.value})}></input>
+          </div>
+        </div>
+        <div className="button-group">
+          <button className="login-btn" onClick={()=>this.submitToken()}>Enviar Token</button>
+        </div>
+      </div>
+    )
+  }
+
+  AlterPassForm(){
+    if(this.state.alterPassOpen)
+    return(
+      <div id="forgot-password-form">
+        <h3 className="forgot-password-title">Atualize sua senha</h3>
+        {/* <p className="forgot-password-warning">Você apenas receberá o email, caso o email digitado abaixo seja válido e que esteja cadastrado no site</p> */}
+        <div className="input-group">
+          <div className="forgot-password-input-email">
+            <input id="forgot-email" className="forgot-password-input" type="password" name="newpassword" placeholder="Senha" value={this.state.newPassword} onChange={e=> this.setState({newPassword:e.target.value})}></input>
+            <input id="forgot-email" className="forgot-password-input" type="password" name="confnewpassword" placeholder="Confirmar Senha" value={this.state.confNewPassword} onChange={e=> this.setState({confNewPassword:e.target.value})}></input>
+          </div>
+        </div>
+        <div className="button-group">
+          <button className="login-btn" onClick={()=>this.submitPass()}>Enviar senha</button>
+        </div>
+    </div>
+    )
   }
 
   render() {
@@ -128,8 +205,10 @@ class Login extends React.Component {
             <MdClose />
           </button> */}
           
-          {this.state.isLoginOpen ? this.LoginForm() : "" }
-          {this.state.isForgotPSWDOpen ? this.ForgotPasswordForm() : "" }
+          {this.LoginForm()}
+          {this.ForgotPasswordForm()}
+          {this.TokenForm()}
+          {this.AlterPassForm()}
         </Modal>
       </div>
     );

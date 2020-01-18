@@ -1,3 +1,18 @@
+.cad-container {
+    width: 100%;
+    height: 100%;  
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url('../../../assets/img/background.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* align-self: baseline; */
+
+    display: flex;
+    justify-content: center;
+}
+
 .debug {
     border: 1px dotted red;
 }
@@ -5,21 +20,12 @@
 input {
     border: none;
     outline: none;
-    border-bottom: 1px solid #AAA;
     margin-right: 10px;
     width: 300px;
 }
 
 .wrapper {
-    width: 100%;
-    height: 100%;
-    /* width: 100vw; */
-    /* height: 100vh; */
     font-family: 'Times New Roman', Times, serif;
-    /* flex-direction: column; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,35 +33,17 @@ input {
     background-color: transparent !important;
 }
 
-.cad-container {
-    width: 100vw;
-    height: 1200px;
-    margin-right: 10vw;
-    display: flex;
-    /* background-image: url('../../../assets/img/Pergaminho-cadastro.png') !important; */
-    background-color: rgb(255, 255, 255) ;
-    /* opacity: 0.8; */
-    border-radius: 60%;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    /*-webkit-background-size: cover !important; */
-    /*-moz-background-size: cover !important; */
-    /*-o-background-size: cover !important; */
-    background-size: contain !important;
-}
 
 .cad-form {
-    height: 80vh;
-    width: 1110px;
-    margin-top: 12.5%;
-    margin-left: 20.8%;
-    margin-right: 20.5%;
-   /* background-color: bisque; */
+    width: 90%;
 }
 
 .cad-input-group {
-    text-align: justify;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cad-button-group {
@@ -63,38 +51,38 @@ input {
 }
 
 .cad-input-ssm {
-    height: 45px;
-    width: 223px;
-    background-color: transparent;
-    font-size: 1.4em;
+    /* background-color: transparent; */
+    font-size: 1.5em;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .cad-input-sm {
-    height: 45px;
-    width: 250px;
-    background-color: transparent;
-    font-size: 1.6em;
+    /* background-color: transparent; */
+    font-size: 1.5em;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .cad-input-ms {
-    height: 45px;
-    width: 500px;
-    background-color: transparent;
-    font-size: 1.6em;
+    /* background-color: transparent; */
+    font-size: 1.5em;
+    width: 100%;
+    border-radius: 5px;
 }
 
 .cad-input-ls {
-    height: 45px;
-    width: 650px;
-    background-color: transparent;
-    font-size: 1.6em;
+    /* background-color: transparent; */
+    width: 100%;
+    font-size: 1.5em;
+    border-radius: 5px;
 }
 
 .cad-input-lss {
-    height: 45px;
-    width: 935px;
-    background-color: transparent;
-    font-size: 1.6em;
+    /* background-color: transparent; */
+    font-size: 1.5em;
+    width: 100%;
+    border-radius: 5px;    
 }
 
 .cad-btn {
@@ -113,16 +101,14 @@ input {
 }
 
 .label-input {
-    font-size: 1.8em;
-    display: inline-block;
+    font-size: 1.0em;
+    color: black;
+    font-weight: bold;
     text-align: left;
-    padding-right: 10px;
-    padding-left: 10px;
 }
 
 .cad-type-header {
-    margin-left: 4.5%;
-    font-size: 1.9em;
+    font-size: 1.5rem;
 }
 
 .cad-option-group {
@@ -135,13 +121,16 @@ input {
 
 .cad-option-view {
     font-size: 1.2em;
-   /* background-color: green; */
+    width: 80%;
     padding-left: 5px;
-    display:inline-block;
+    display: flex;
+    align-items: center;
 }
 
 .cad-option-view-header {
     font-size: 1.8em;
+    display: flex;
+    align-items: center;
     /* background-color: green; */
 }
 
@@ -156,24 +145,13 @@ input {
     margin-right: 4.5%;
 }
 
-/* Icone de check*/
-.icon-check {
-    font-size: 1.6em;
-    padding-left: 4.5%;
-    padding-right: 4.5%;
+.icon-check{
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
     /* background-color: aquamarine; */
-}
-
-/* Icone do usuario free*/
-.icon-free {
-    padding-left: 3%;
-    padding-right: 2.5%;
-}
-
-/* Icone do usuario premium*/
-.icon-premium {
-    padding-left: 3%;
-    padding-right: 2%;
 }
 
 .vertical-img {
@@ -186,439 +164,94 @@ li {
     list-style-type: none;
 }
 
-@media only screen and (max-width: 1486px) {
-    /* For everything lower than 1486px */
-    .label-input {
-        font-size: 1.05em;
-        padding-right: 10px;
-    }
-
-    .cad-type-header {
-        margin-left: 5%;
-        font-size: 1.3em;
-    }
-
-    .cad-container {
-        width: 100vw;
-        height: 900px;
-        margin-right: 10vw;
-        display: flex;
-        background-image: url('../../../assets/img/Pergaminho-cadastro.png') !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        /*-webkit-background-size: cover !important; */
-        /*-moz-background-size: cover !important; */
-        /*-o-background-size: cover !important; */
-        background-size: contain !important;
-    }
-
-    .cad-form {
-        height: 700px;
-        width: 1200px;
-        margin-top: 7.5%;
-        margin-left: 20%;
-    }
-
-    .cad-input-ssm {
-        height: 45px;
-        width: 125px;
-        background-color: transparent;
-        font-size: 1.3em;
-    }
-
-    .cad-input-sm {
-        height: 45px;
-        width: 200px;
-        background-color: transparent;
-        font-size: 1.3em;
-    }
-
-    .cad-input-ms {
-        height: 45px;
-        width: 300px;
-        background-color: transparent;
-        font-size: 1.3em;
-    }
-
-    .cad-input-ls {
-        height: 45px;
-        width: 450px;
-        background-color: transparent;
-        font-size: 1.3em;
-    }
-
-    .cad-input-lss {
-        height: 45px;
-        width: 650px;
-        background-color: transparent;
-        font-size: 1.3em;
-    }
-
-    .cad-btn {
-        font-family: 'Times New Roman', Times, serif;
-        cursor: pointer;
-        width: 150px;
-        height: 45px;
-        font-size: 1.2em;
-        text-align: center;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        background-color: whitesmoke;
-        display: block;
-        margin: 15px auto;
-    }
-
-    .label-input {
-        font-size: 1.24em;
-        display: inline-block;
-        text-align: left;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-
-    .cad-type-header {
-        margin-left: 4.5%;
-        font-size: 1.6em;
-    }
-
-    .cad-option-group {
-
-        height: 350px;
-        display: flex;
-    }
-
-    .cad-option-view {
-        font-size: 1.2em;
-        padding-left: 5px;
-        display:inline-block;
-    }
-
-    .cad-option-view-header {
-        font-size: 1.5em;
-    }
-
-    .checkboxe {
-        cursor: pointer;
-        /* position: absolute; */
-        width: 20px;
-        height: 20px;
-        /* top: 0; */
-        /* border-radius: 4px; */
-        margin-left: 4.5%;
-        margin-right: 4.5%;
-    }
-
-    /* Icone de check*/
-    .icon-check {
-        font-size: 1.6em;
-        padding-left: 4.5%;
-        padding-right: 4.5%;
-    }
-
-    /* Icone do usuario free*/
-    .icon-free {
-        padding-left: 3%;
-        padding-right: 2.5%;
-    }
-
-    /* Icone do usuario premium*/
-    .icon-premium {
-        padding-left: 3%;
-        padding-right: 2%;
-    }
+.divInputCadastro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
-@media only screen and (max-width: 1024px) {
-    /* For everything lower than 1024px */
-
-    .label-input {
-        font-size: 1.05em;
-        padding-right: 10px;
-    }
-
-    .cad-type-header {
-        margin-left: 5%;
-        font-size: 1.3em;
-    }
-
-    .cad-container {
-        width: 1024px;
-        height: 900px;
-        margin-right: 10vw;
-        display: flex;
-        background-image: url('../../../assets/img/Pergaminho-cadastro.png') !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        /*-webkit-background-size: cover !important; */
-        /*-moz-background-size: cover !important; */
-        /*-o-background-size: cover !important; */
-        background-size: contain !important;
-    }
-
-    .cad-form {
-        height: 650px;
-        width: 1200px;
-        margin-top: 120px;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-
-    .cad-input-ssm {
-        height: 45px;
-        width: 100px;
-        background-color: transparent;
-        font-size: 1.2em;
-    }
-
-    .cad-input-sm {
-        height: 45px;
-        width: 150px;
-        background-color: transparent;
-        font-size: 1.2em;
-    }
-
-    .cad-input-ms {
-        height: 45px;
-        width: 200px;
-        background-color: transparent;
-        font-size: 1.2em;
-    }
-
-    .cad-input-ls {
-        height: 45px;
-        width: 350px;
-        background-color: transparent;
-        font-size: 1.2em;
-    }
-
-    .cad-input-lss {
-        height: 45px;
-        width: 475px;
-        background-color: transparent;
-        font-size: 1.2em;
-    }
-
-    .cad-btn {
-        font-family: 'Times New Roman', Times, serif;
-        cursor: pointer;
-        width: 125px;
-        height: 35px;
-        font-size: 0.9em;
-        text-align: center;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        background-color: whitesmoke;
-        display: block;
-        margin: 15px auto;
-    }
-
-    .label-input {
-        font-size: 1.2em;
-        display: inline-block;
-        text-align: left;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-
-    .cad-type-header {
-        margin-left: 4.5%;
-        font-size: 1.4em;
-    }
-
-    .cad-option-group {
-
-        height: 350px;
-        display: flex;
-    }
-
-    .cad-option-view {
-        font-size: 1.2em;
-        padding-left: 5px;
-        display:inline-block;
-    }
-
-    .cad-option-view-header {
-        font-size: 1.3em;
-    }
-
-    .checkboxe {
-        cursor: pointer;
-        /* position: absolute; */
-        width: 20px;
-        height: 20px;
-        /* top: 0; */
-        /* border-radius: 4px; */
-        margin-left: 4.5%;
-        margin-right: 4.4%;
-    }
-
-    /* Icone de check*/
-    .icon-check {
-        font-size: 1.6em;
-        padding-left: 4.5%;
-        padding-right: 4.5%;
-    }
-
-    /* Icone do usuario free*/
-    .icon-free {
-        padding-left: 2.5%;
-        padding-right: 2%;
-    }
-
-    /* Icone do usuario premium*/
-    .icon-premium {
-        padding-left: 1.5%;
-        padding-right: 2%;
-    }
+.divInputCadastroEstado{
+    width: 39%
 }
 
-@media only screen and (max-width: 768px) {
-    /* For everything lower than 768px */
-    .label-input {
-        font-size: 0.9em;
-    }
-
-    .cad-type-header {
-        margin-left: 5%;
-        font-size: 1.3em;
-    }
-
-    .cad-container {
-        width: 768px;
-        height: 900px;
-        margin-right: 10vw;
-        display: flex;
-        background-image: url('../../../assets/img/Pergaminho-cadastro.png') !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
-        /*-webkit-background-size: cover !important; */
-        /*-moz-background-size: cover !important; */
-        /*-o-background-size: cover !important; */
-        background-size: contain !important;
-    }
-
-    .cad-form {
-        height: 500px;
-        width: auto;
-        margin-top: 200px;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-
-    .cad-input-ssm {
-        height: 45px;
-        width: 75px;
-        background-color: transparent;
-        font-size: 0.8em;
-    }
-
-    .cad-input-sm {
-        height: 45px;
-        width: 100px;
-        background-color: transparent;
-        font-size: 0.8em;
-    }
-
-    .cad-input-ms {
-        height: 45px;
-        width: 150px;
-        background-color: transparent;
-        font-size: 0.8em;
-    }
-
-    .cad-input-ls {
-        height: 45px;
-        width: 250px;
-        background-color: transparent;
-        font-size: 0.8em;
-    }
-
-    .cad-input-lss {
-        height: 45px;
-        width: 350px;
-        background-color: transparent;
-        font-size: 0.8em;
-    }
-
-    .cad-btn {
-        font-family: 'Times New Roman', Times, serif;
-        cursor: pointer;
-        width: 75px;
-        height: 25px;
-        font-size: 0.6em;
-        text-align: center;
-        border: 2px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        background-color: whitesmoke;
-        display: block;
-        margin: 15px auto;
-    }
-
-    .label-input {
-        font-size: 0.8em;
-        display: inline-block;
-        text-align: left;
-        padding-right: 5px;
-        padding-left: 5px;
-    }
-
-    .cad-type-header {
-        margin-left: 4.5%;
-        font-size: 1.0em;
-    }
-
-    .cad-option-group {
-        height: 250px;
-        display: flex;
-    }
-
-    .cad-option-view {
-        font-size: 0.7em;
-        padding-left: 5px;
-        display:inline-block;
-    }
-
-    .cad-option-view-header {
-        font-size: 1.0em;
-    }
-
-    .checkboxe {
-        cursor: pointer;
-        /* position: absolute; */
-        width: 15px;
-        height: 15px;
-        /* top: 0; */
-        /* border-radius: 4px; */
-        margin-left: 4.7%;
-        margin-right: 4.4%;
-    }
-
-    /* Icone de check*/
-    .icon-check {
-        font-size: 1.0em;
-        padding-left: 4.5%;
-        padding-right: 4.5%;
-    }
-
-    /* Icone do usuario free*/
-    .icon-free {
-        padding-left: 2.5%;
-        padding-right: 2%;
-    }
-
-    /* Icone do usuario premium*/
-    .icon-premium {
-        padding-left: 1.5%;
-        padding-right: 2%;
-    }
+.divInputCadastroCidade{
+    width: 60%;
 }
 
-@media only screen and (max-width: 425px) {
-    /* For everything lower than 425px */
+.divCadastroEndereco{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.divSenha{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.divInputCadastroSenha{
+    width: 49%;
+}
+
+.divContato{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.divInputCadastroContato{
+    width: 49%;
+}
+
+.divNomeData{
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.divInputCadastroNome{
+    width: 69%;
+}
+
+.divInputCadastroData{
+    width: 30%;
+}
+
+.divVantagens{
+    margin-top: 0.5rem;
+    display: flex;
+}
+
+.divCheckBox{
+    margin-top: 1rem;
+    display: flex;
+}
+
+.divInputCheckBox{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.checkmark{
+    background-color: red;
+}
+
+.divInputCheckBox > input{
+    margin: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
 }

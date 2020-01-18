@@ -30,13 +30,16 @@ export default class index extends Component{
         await api.get("/modules")
             .then(
                 res=>{
-                    this.setState(()=>{
-                        const coursesSpotlight = res.data[0].courses.filter((course)=>{
-                            if(course.highlight) return course
+                    res.data.map(m=>{
+                    m.courses.map(course=>{
+                            if(course.highlight)
+                                this.setState(state=>{
+                                    const coursesSpotlight = [...state.coursesSpotlight,course]
+
+                                    return {coursesSpotlight}
+                                })
                             else return null
                         })
-
-                        return {coursesSpotlight}
                     })
                     
                 }
@@ -87,29 +90,14 @@ export function indexCadastro(){
         </div>
     )
 }
-export class indexCourses extends Component{
-    state = {
-        courses:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/modules")
-            .then(
-                res=>{
-                    this.setState({courses:res.data[0].courses})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='index'>
-            <Navbar/>
-            <Courses title={'CURSOS'} courses={this.state.courses}/>
-            <Footer/>
-        </div>
-        )
-    }
+export function indexCourses(){
+    return(
+        <div className='index'>
+        <Navbar/>
+        <Courses />
+        <Footer/>
+    </div>
+    )
 }
 export class indexServices extends Component{
     state = {

@@ -1,73 +1,95 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './admarticles.css'
+import api from '../../../services/api'
+import { NavLink } from 'react-router-dom'
+import Confirm from '../confirm/confirm'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
-export default function articles(props){
-    return(
-        <div>
-            {props.publications.map((p)=>
-                <div key={p.id}>
-                    <img src={p.url} alt={p.title}/>
-                    <div>{p.id}</div>
-                    <div>{p.title}</div>
-                    <div>{p.text}</div>
-                    <br></br>
-                </div>
-            )}
-        </div>
-    )
-}
+export default class PanelBlog extends Component {
 
-// export default (props) => {
-//     return(
+    constructor() {
+        super()
+        this.state={
+            posts:[],
+            modalC:false,
+            id:0,
+            page:1,
+            limite:false,
+            search:'',
+            loading:true
+        }
+
+        this.close = this.close.bind(this)
+        this.confirm = this.confirm.bind(this)
+    }
+
+    async exibirCursos(id){
+        this.setState({loading:true})
+        const params = {
+            page:id,
+        }
+        await api.get(`/publications`,{params})
+        .then(res=>{
+            res.data.length<5?this.setState({posts:res.data,page:id,limite:true,loading:false}):this.setState({posts:res.data,page:id,limite:false,loading:false})
+        })
         
-//         <div className="backimg">
-//             <div className="container1">
-//                 <div className="containerbuttons">
-//                     <button className="addart">
-//                         <p>+  Adicionar Artigo</p>
-//                     </button>
-//                     <input className="search1" placeholder="Pesquisar"> 
-//                     </input>
-//                 </div>
-//                 <div className="containerarticles">
-//                     <div className="art0">
-//                         <h1 className="artname0">ARTIGO III</h1>
-//                         <div className="divforbutt0">
-//                             <button className="editart0">Editar</button>
-//                             <button className="removeart0">Remover</button>
-//                         </div>
-//                         </div>
-//                     <div className="art1">
-//                         <h1 className="artname1">ARTIGO II</h1>
-//                         <div className="divforbutt1">
-//                             <button className="editart1">Editar</button>
-//                             <button className="removeart1">Remover</button>
-//                         </div>
-//                     </div>
-//                     <div className="art2">
-//                     <h1 className="artname2">ARTIGO I</h1>
-//                         <div className="divforbutt2">
-//                             <button className="editart2">Editar</button>
-//                             <button className="removeart2">Remover</button>
-//                         </div>
-//                     </div>
+    }
 
-//                 </div>
-//                 <div className="containerbuttons2">
-//                 <button className="getback">
-//                         <p> VOLTAR </p>
-//                     </button>
-//                     <button className="saveart">
-//                         <p> SALVAR </p>
-//                     </button>
+    componentDidMount(){
+        this.exibirCursos(1)
+    }
 
-//                 </div>
-                
+    close() {
+        this.setState({ modalC: false })
+    }
+
+    async confirm() {
+        this.setState({ modalC: false })
+        await api.delete(`/publications/${this.state.id}`)
+        window.location.reload();
+    }
+
+    render() {
+ 
+        return (
+            <div className="backimg">
+                <div className="container1">
+                    <div className="containerbuttons">
+                        <NavLink to={`/post/create`}><button className="botaoCriarArtigo">Adicionar Artigo</button></NavLink>
+                        <input className="search1" placeholder="Pesquisar" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}>
+                        </input>
+                    </div>
+                    <Confirm open={this.state.modalC} title={'Deseja realmente excluir este artigo?'} close={this.close} confirm={this.confirm} />
+                    <div className="containerarticles">
+                        {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                            :this.state.posts.map(post =>
+                                <div key={post.id}>
+                                    {
+                                        post.title.indexOf(this.state.search)!==-1?
+                                        <div className="divPost">
+                                            <h1 className="artname0">{post.title}</h1>
+                                            <img className="art0" src={post.url} alt={post.title} />
+                                            <div className="divTexto" dangerouslySetInnerHTML={{ __html: post.text }}></div>
+                                            <div className="divBotoesBlog">
+                                                <NavLink to={`/post/${post.id}/edit`}><button className="botaoEditarBlog">Editar</button></NavLink>
+                                                <button className="botaoRemoverBlog" onClick={() => this.setState({ modalC: true, id: post.id })}>Remover</button>
+                                            </div>
+                                        </div>
+                                    :<div></div>    
+                                    }
+                                </div>
+                            )
+                        }
+                    </div>
+                    <div className="containerbuttons2">
+                        {this.state.page>1?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}
+                        {!this.state.limite?<button className='botaoVoltar' onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
+                    </div>
+                </div>
+            </div>
 
 
-//             </div>
-//         </div>
-    
-    
-//     )
-// }
+        )
+    }
+}

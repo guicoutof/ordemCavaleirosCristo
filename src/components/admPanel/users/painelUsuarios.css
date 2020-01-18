@@ -1,31 +1,33 @@
-.panelUser-principal{
+.panelUser-principal {
     width: 100%;
-    height: 100%;  
+    height: 100%;
     font-family: 'Times New Roman', Times, serif;
     background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    align-self: baseline;
 }
 
-.panelUser-container{
+.panelUser-container {
     width: 100%;
-    height: 100%;  
+    height: 100%;
     justify-content: space-around;
     display: flex;
     flex-wrap: wrap;
 }
 
-.panelUser-header{
+.panelUser-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1rem 2rem 0 2rem;
 }
 
-.panelUserCreate-user-btn{
+.panelUserCreate-user-btn {
     width: 150px;
     height: 40px;
     margin-top: 16px;
@@ -42,26 +44,26 @@
     outline: none;
 }
 
-.panelUser-h2{
+.panelUser-h2 {
     text-align: left;
     font-size: 1.25rem;
 }
 
-.panelUser-input{
+.panelUser-input {
     width: 200px;
     height: 30px;
-    margin-top: 16px;
     border-radius: 5px;
     border-style: none;
     padding-left: 0.25rem;
 }
 
-.panelUser-table{
+.panelUser-table {
     width: 100%;
     padding: 0rem 2rem 0 2rem;
     min-width: 80%;
     font-size: 18px;
 }
+
 
 /*
 .panelUser-table-container{
@@ -76,7 +78,7 @@
     box-shadow: 1.2px 1.0px 1.0px 1.0px rgb(0, 0, 0);
 } */
 
-.panelUser-div-users{
+.panelUser-div-users {
     background-color: #fafafa;
     border-radius: 5px;
     display: flex;
@@ -87,7 +89,7 @@
     align-content: center !important;
 }
 
-.panelUser-info-curso{
+.panelUser-info-curso {
     margin: 15px;
     display: flex;
     flex-direction: row;
@@ -96,11 +98,11 @@
     /* text-align: left; */
 }
 
-.panelUser-contents{
+.panelUser-contents {
     margin: 15px
 }
 
-.panelUser-p{
+.panelUser-p {
     font-size: 1.20rem;
     padding-left: 15px;
     padding-right: 15px;
@@ -109,41 +111,45 @@
     align-content: center !important;
 }
 
-.panelUser-btn-group{
+.panelUser-btn-group {
     margin-top: 16px;
     margin-bottom: 16px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding-right: 1rem;
 }
 
-.panelUser-edit-btn{
+.panelUser-btn {
     width: auto;
     height: auto;
     margin-right: 5px;
-    background-color: #4673F6;
+    background-color: #fafafa;
     border-radius: 15px;
     border: none;
     cursor: pointer;
     outline: none;
 }
 
-.panelUser-remove-btn{
-    width: auto;
-    height: auto;
-    margin-left: 5px;
-    background-color: #F64646;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    outline: none;
+.btn-excluir {
+    color: #DE2626;
 }
 
-.divInfo{
+.btn-editar {
+    color: #266CDE;
+}
+
+.divInfo {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     white-space: nowrap;
+}
+
+.selectTipoUsuario {
+    width: auto;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
 }

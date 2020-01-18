@@ -3,12 +3,14 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { isAuthenticated, isAdm } from "./services/auth";
 import indexHome, { indexDonate, indexContato, indexCadastro, indexCourses, indexServices } from './components/home/indexHome'
-import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService} from './components/admPanel/panelAdm'
+import PanelAdm, { AdmUser, AdmBlog, AdmModule, AdmService, AdmComments} from './components/admPanel/panelAdm'
 import AdmCourses from './components/admPanel/cursos/panelCursos'
 import AdmClass from './components/admPanel/admAulas/admAulas'
 import PanelUser, { UserBlog, UserConta, UserBiblioteca, UserCurso } from './components/userPanel/panelUser'
-import CadCurso from './components/admPanel/cadCursos/cadCurso'
+import CadCurso, {EditCurso} from './components/admPanel/cadCursos/cadCurso'
 import CadClass, {CadClassEdit} from './components/admPanel/cadAula/cadAula'
+import CadBlog, {CadBlogEdit} from './components/admPanel/blog/cadastrarArtigoBlog'
+import CadServ from './components/admPanel/admServicos/cadastrarServico/cadastrarServico'
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -45,11 +47,17 @@ export default function routes() {
             <AdmRoute exact path="/articles" component={AdmBlog} />
             <AdmRoute exact path="/modules" component={AdmModule} />
             <AdmRoute exact path="/services" component={AdmService} />
+            <AdmRoute exact path="/services/create" component={CadServ} />
+            <AdmRoute exact path="/services/:id/edit" component={CadServ} />
+            <AdmRoute exact path="/comments" component={AdmComments} />
             <AdmRoute exact path="/module/:id" component={AdmCourses} />
             <AdmRoute exact path="/course/:id" component={AdmClass} />
+            <AdmRoute exact path="/course/:id/edit" component={EditCurso} />
             <AdmRoute exact path="/module/:id/create" component={CadCurso} />
             <AdmRoute exact path="/course/:id/create" component={CadClass} />
             <AdmRoute exact path="/course/:idClass/class/:id/edit" component={CadClassEdit} />
+            <AdmRoute exact path="/post/create" component={CadBlog} />
+            <AdmRoute exact path="/post/:id/edit" component={CadBlogEdit} />
 
 
             {/* User */}
