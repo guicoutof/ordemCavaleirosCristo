@@ -1,46 +1,55 @@
-import React, { Component } from 'react';
-import './cadastrarServico.css';
+import React, {Component} from 'react'
 import Navbar from '../../../home/navbar/navbar'
-import CKEditor from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import api from '../../../../services/api'
+import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom'
+import api from '../../../../services/api'
 
-export default class CadastrarArtigoBlog extends Component {
-    constructor(props) {
-        super(props);
+import './cadastrarServico.css'
 
-        this.state = {
-            title: "",
-            text:"",
-            file: null,
-            msg: "",
-        }
+export default class CreateCurso extends Component {
+
+    state={
+        name:'',
+        module_id:this.props.match.params.id,
+        description:'',
+        hours:0,
+        price:'',
+        file:'',
+        book:'',
+        assistance:'',
+        highlight:false,
+
+        msg:''
     }
 
-    async submitPost(){
+     submitCourse = async e =>{
         var data = new FormData();
 
         data.append("file",this.state.file,this.state.file.name);
-        data.append("title",this.state.title);
-        data.append("text",this.state.text);
+        data.append("name",this.state.name);
+        data.append("module_id",this.state.module_id);
+        data.append("description",this.state.description);
+        data.append("hours",this.state.hours);
+        data.append("price",this.state.price);
+        data.append("book",this.state.book);
+        data.append("assistance",this.state.assistance);
+        data.append("highlight",this.state.highlight);
 
         try{
 
-            await api.post("/publications",data,{headers:{'Content-Type': 'multipart/form-data'}})
+            await api.post("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
-                this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
+                this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso criado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
         }catch(err){
             // console.log(err)
-            this.setState({msg:'Problema ao criar o artigo'})
+            this.setState({msg:'Problema ao criar o curso'})
         }
 
     }
-
+    
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
@@ -70,108 +79,123 @@ export default class CadastrarArtigoBlog extends Component {
         this.setState({file:files[0]})
     }
 
-    render() {
-        return (
-            <div className="containerPrincipal">
-                <Navbar/>
-                <div className="cad-blog-box">
-
-                    <div className="divCabecalhoArtigo">
-                        <NavLink to={`/articles`} className="botaoVoltar">
-                            <FontAwesomeIcon icon={faArrowLeft} className="seta"/>
-                        </NavLink>
-                        <h1 className="tituloCadastrarArtigo">Criar Artigo</h1>
+    render(){
+        return(
+            <div className="divPrincipal">
+                <Navbar />
+                <div className="divContainerTitulo">
+                    <div className="divArrowLeft">
+                    <NavLink to={`/module/${this.props.match.params.id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
                     </div>
-                    
-                    {this.state.msg}
-
-                    <div className="divTituloArtigo">
-                        <label htmlFor="titulo" className="labelTituloArtigo">Título: </label>
-                        <input id="titulo" className="inputTituloArtigo" type="text" value={this.state.title} onChange={e=>this.setState({title:e.target.value})}/>
+                    <div className="divTitulo">
+                        <h1 className="tituloPagina">Cadastrar Serviço</h1>
+                        {this.state.msg}
                     </div>
-
-                    <div className="imagem">
-                        <label htmlFor='files' id='labelCarregarImagem'>Inserir imagem de capa</label>
-                        <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
-                        <output id="list"></output>
+                </div>
+                <div className="formularioCurso">
+                    <div className="infoBasicaServico">
+                        <input type="text" name="nomeCurso" placeholder="Nome do Curso" className="inputNomeServico" value={this.state.name} onChange={e=>this.setState({name:e.target.value})}/>
+                        <input type="text" name="linkCurso" placeholder="Link forms" className="inputFormsServico" />
+                        <input type="text" name="valorCurso" placeholder="Valor" className="inputValorServico" />
                     </div>
-
-                    <div className="divTextoArtigo">
-                        <label className="cad-blog-label">Texto do artigo:</label>
-                        <CKEditor
-                            className="editorArtigo"
-                            editor={ ClassicEditor }
-                            data={this.state.text}
-                            onInit={ editor => {
-                                // You can store the "editor" and use when it is needed.
-                                // console.log( 'Editor is ready to use!', editor );
-                            } }
-                            onChange={ ( event, editor ) => {
-                                const data = editor.getData();
-                                this.setState({text:data})
-                                // console.log( { event, editor, data } );
-                            } }
-                            onBlur={ ( event, editor ) => {
-                                // console.log( 'Blur.', editor );
-                            } }
-                            onFocus={ ( event, editor ) => {
-                                // console.log( 'Focus.', editor );
-                            } }
-                        />
-                        <button className="botaoSalvarArtigo" onClick={()=>this.submitPost()}>Publicar</button>
+                    <div className="divDescricao">
+                        <textarea name="nomeCurso" placeholder="Descrição" className="descricaoServico" value={this.state.description} onChange={e=>this.setState({description:e.target.value})}></textarea>
+                        <div className="imagem">
+                            <label htmlFor='files' id='labelCarregarImagem'>Carregar imagem de capa</label>
+                            <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
+                            <output id="list"></output>
+                        </div>
+                    </div>
+                    <div>
+                        <button className="submitCurso" onClick={this.submitCourse}>Salvar</button>
                     </div>
                 </div>
 
             </div>
-        );
+        )
     }
 }
-export class CadBlogEdit extends Component {
-    constructor(props) {
-        super(props);
+export class EditCurso extends Component {
 
-        this.state = {
-            title: "",
-            text:"",
-            file: null,
-            msg: "",
-        }
+    state={
+        name:'',
+        module_id:0,
+        description:'',
+        hours:0,
+        price:'',
+        file:null,
+        book:'',
+        assistance:'',
+        highlight:false,
+        id:0,
+
+        msg:''
     }
 
     componentDidMount = async ()=>{
-        await api.get(`/publications/${this.props.match.params.id}`)
+        await api.get(`/courses/${this.props.match.params.id}`)
             .then(
                 res=>{
+                    // console.log(res.data)
                     this.setState({
-                        title:res.data.title,
-                        text:res.data.text,
-                    })
+                        id:res.data.id,
+                        name:res.data.name,
+                        description:res.data.description,
+                        hours:res.data.hours,
+                        assistance:res.data.assistance,
+                        book:res.data.book,
+                        price:res.data.price,
+                        // file:res.data.url,
+                        // file_name:res.data.path,
+                        module_id:res.data.module_id,
+                        highlight:res.data.highlight})
+
+                        // document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
+
+                        // var span = document.createElement('span');
+                        // span.innerHTML = ['<img class="thumb" src="', res.data.url,
+                        //                 '" title="', escape(res.data.path), '"/>'].join('');
+                        // document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
+                        // document.getElementById('list').insertBefore(span, null);
                 }
             )
+            // await api.get(this.state.file)
+            //     .then(res=>{
+            //         console.log(res.data)
+            //         this.setState({file:res.data})
+            //     })
+            // console.log(this.state)
     }
 
-    async submitPost(){
+     updateCourse = async e =>{
         var data = new FormData();
 
-        data.append("file",this.state.file,this.state.file.name);
-        data.append("title",this.state.title);
-        data.append("id",this.props.match.params.id);
-        data.append("text",this.state.text);
+        if(this.state.file){data.append("file",this.state.file,this.state.file.name);alert('trocou')}
+        data.append("id",this.state.id);
+        data.append("name",this.state.name);
+        data.append("module_id",this.state.module_id);
+        data.append("description",this.state.description);
+        data.append("hours",this.state.hours);
+        data.append("price",this.state.price);
+        data.append("book",this.state.book);
+        data.append("assistance",this.state.assistance);
+        data.append("highlight",this.state.highlight);
 
         try{
 
-            await api.put("/publications",data,{headers:{'Content-Type': 'multipart/form-data'}})
+            await api.put("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
-                this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
+                // console.log(res)
+                this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso atualizado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
         }catch(err){
-            console.log(err)
-            this.setState({msg:'Problema ao criar o artigo'})
+            // console.log(err)
+            this.setState({msg:'Problema ao atualizar o curso'})
         }
 
     }
-
+    
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
@@ -201,49 +225,47 @@ export class CadBlogEdit extends Component {
         this.setState({file:files[0]})
     }
 
-    render() {
-        return (
-            <div className="cad-blog-container">
-                <Navbar/>
-                <div className="cad-blog-box">
-                    <NavLink to={`/articles`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
-                    <h1>Editar Artigo</h1>
-                    {this.state.msg}
-                    <div className="cad-blog-title-input-container">
-                        <label className="cad-blog-label-input">Título: </label>
-                        <input id="titulo" className="cad-blog-title-input" type="text" value={this.state.title} onChange={e=>this.setState({title:e.target.value})}/>
+    render(){
+        return(
+            <div className="divPrincipal">
+                <Navbar />
+                <div className="divContainerTitulo">
+                    <div className="divArrowLeft">
+                    <NavLink to={`/module/${this.state.module_id}`}><FontAwesomeIcon icon={faArrowLeft} className="seta"/></NavLink>
                     </div>
-                    <div className="imagem">
-                        <label htmlFor='files' id='labelCarregarImagem'>Carregar imagem de capa</label>
-                        <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
-                        <output id="list"></output>
+                    <div className="divTitulo">
+                        <h1 className="tituloPagina">Editar Curso</h1>
+                        {this.state.msg}
                     </div>
-                    <div className="cad-blog-textarea-container">
-                        <label htmlFor="story"  className="cad-blog-label">Escreve abaixo o artigo do blog:</label>
-                        <CKEditor
-                            editor={ ClassicEditor }
-                            data={this.state.text}
-                            onInit={ editor => {
-                                // You can store the "editor" and use when it is needed.
-                                // console.log( 'Editor is ready to use!', editor );
-                            } }
-                            onChange={ ( event, editor ) => {
-                                const data = editor.getData();
-                                this.setState({text:data})
-                                // console.log( { event, editor, data } );
-                            } }
-                            onBlur={ ( event, editor ) => {
-                                // console.log( 'Blur.', editor );
-                            } }
-                            onFocus={ ( event, editor ) => {
-                                // console.log( 'Focus.', editor );
-                            } }
-                        />
-                        <button className="cad-blog-submit-btn" onClick={()=>this.submitPost()}>Atualizar</button>
+                </div>
+                <div className="formularioCurso">
+                    <div className="infoBasica">
+                        <input type="text" name="nomeCurso" placeholder="Nome do Curso" className="nomeCurso" value={this.state.name} onChange={e=>this.setState({name:e.target.value})}/>
+                        Modulo: {this.state.module_id}
+                    </div>
+                    <div className="divDescricao">
+                        <textarea name="nomeCurso" placeholder="Descrição do Curso" className="descricaoCurso" value={this.state.description} onChange={e=>this.setState({description:e.target.value})}></textarea>
+                        <div className="imagem">
+                            <label htmlFor='files' id='labelCarregarImagem'>Carregar imagem de capa</label>
+                            <input type="file" id="files" name="files[]" onChange={e=>this.handleFileSelect(e)} placeholder="eae filhao" />
+                            <output id="list"></output>
+                        </div>
+                    </div>
+                    <div className="quantidadesAulaValor">
+                        <input type="number" className="aulasCurso" name="horasCurso" placeholder="Horas" value={this.state.hours} onChange={e=>this.setState({hours:e.target.value})}/>
+                        <input type="text" className="valorCurso" name="assistenciaCurso" placeholder="Assistencia" value={this.state.assistance} onChange={e=>this.setState({assistance:e.target.value})}/>
+                        <input type="text" className="valorCurso" name="bookCurso" placeholder="Livro" value={this.state.book} onChange={e=>this.setState({book:e.target.value})}/>
+                        <input type="text" className="valorCurso" name="valorCurso" placeholder="Valor" value={this.state.price} onChange={e=>this.setState({price:e.target.value})}/>
+                    </div>
+                    <div>
+                        <div>Destaque (Aparece na tela inicial do site) <input type="checkbox" className="valorCurso" name="valorCurso" placeholder="Valor" checked={this.state.highlight} onChange={e=>this.setState({highlight:e.target.checked})}/></div>
+                        <button className="submitCurso" onClick={this.updateCourse}>Salvar</button>
+
                     </div>
                 </div>
 
             </div>
-        );
+        )
     }
 }
+  
