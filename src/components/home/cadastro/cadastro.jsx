@@ -18,6 +18,8 @@ class CadScreen extends Component {
     phone_number: "",
     type: "",
     error:"",
+    plan:'-1',
+    button:null
   };
   handleSubmit = async e => {
     e.preventDefault();
@@ -52,7 +54,17 @@ class CadScreen extends Component {
     
   }
 
-
+  handleChange= e=>{
+    this.setState({plan:e.target.value})
+  }
+  
+  async payment(){
+    alert('Concordo que ao me afiliar, perco acesso ao sistema devido a personalização dos afiliados')
+    const {plan} = this.state
+    const response = await api.post('affiliatePayment',{plan})
+    console.log(response)
+    this.setState({button:response.data})
+  }
   render() {
     return (
       <div className="App">
@@ -169,87 +181,34 @@ class CadScreen extends Component {
                       <div className="divInputCheckBox">
                         <input id="cad-afiliado" className="checkmark" type="radio" name="accountType" onClick={e => this.setState({type:2})}/>  
                       </div>
-                    </div>         
+                    </div>
+                    <div>{this.state.error}</div>
+                    {this.state.type===2?
+                    <div>
+                      <select className="selectTipoUsuario" value={this.state.plan}onChange={this.handleChange}>
+                          <option value={'-1'}>Tipo de Mensalidade</option>
+                          <option value={0}>R$90 (mensalidade)</option>
+                          <option value={1}>R$250 (três meses)</option>
+                          <option value={2}>R$500 (seis meses)</option>
+                          <option value={3}>R$900 (doze meses)</option>
+                      </select> 
+                      {this.state.plan!=='-1'?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
+                    </div>
+                    :<div></div>}         
+                    {this.state.button?
+                    <div>
+                      <a className="btn" href={`https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${this.state.button}`} target="_blank">Pagar</a>
+                    </div>
+                    :<div></div>}
               </div>
             </div>
-              {this.state.error}
-            <button type="submit" className="cad-btn" onClick={this.handleSubmit}>Concluir</button>
+            {this.state.plan==='-1'?<button type="submit" className="cad-btn" onClick={this.handleSubmit}>Concluir</button>:<div></div>}
+
           </form>
         </div>
       </div>
     );
   }
 }
-
-/*
-<div className="cad-container">
-          <form className="cad-form">
-            <div className="cad-input-group">
-              <label className="label-input" htmlFor="name">Nome: </label>
-              <input id="nome" className="cad-input-lss" type="text" name="username" placeholder="Nome" />
-              <br />
-              <label className="label-input" htmlFor="email">Email: </label>
-              <input id="email" className="cad-input-ls" type="email" name="email" placeholder="Email" />
-              <br/>
-              <label className="label-input" htmlFor="city">Cidade: </label>
-              <input id="cad-cidade" className="cad-input-ms" type="text" placeholder="Digite o nome da cidade" />
-              <label className="label-input" htmlFor="state">Estado: </label>
-              <input id="cad-estado" className="cad-input-ms" type="text" placeholder="Digite o nome do estado" />
-              <label className="label-input" htmlFor="country">País: </label>
-              <input id="cad-pais" className="cad-input-sm" type="text" placeholder="Digite o nome do país" />
-              <br/>
-              <label className="label-input" htmlFor="cellphone">Celular: </label>
-              <input id="cad-celular" className="cad-input-ms" type="text" placeholder="Digite o número do celular" />
-              <br/>
-              <label className="label-input" htmlFor="password">Senha: </label>
-              <input id="senha" className="cad-input-ms" type="password" name="psw" placeholder="Senha" />
-              <br />
-              <label className="label-input" htmlFor="password">Confirme a senha: </label>
-              <input id="senha-confirm" className="cad-input-ms" type="password" name="psw" placeholder="Confirme a senha" />
-            </div>
-            <div className="cad-option-group">
-              <p className="tipo-cad">Tipo de cadastro:</p>
-              <div  className="cad-option-view">
-                <div id="cad-free-option" className="cad-option1">
-                  <MdPersonFree color="#000000" />
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10005;</li>
-                  <li className="li-no-dots">&#10005;</li>
-                  <li className="li-no-dots">&#10005;</li>
-                  <li className="li-no-dots">&#10005;</li>
-                  <li className="li-no-dots">
-                    <input id="cad-free" className="checkboxe" type="checkbox" />
-                  </li>
-                </div>
-                <div id="cad-afiliado-option" className="cad-option2">
-                  <MdPersonPremium color="#000000" />
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">&#10003;</li>
-                  <li className="li-no-dots">
-                    <input id="cad-afiliado" className="checkboxe" type="checkbox" />
-                  </li>
-                </div>
-                <div className="info-option">
-                  <h4 className="cad-h3">Vantagens</h4>
-                  <li>Acesso a Artigos</li>
-                  <li>Acesso a Cursos</li>
-                  <li>Acompanhamento via WhatsApp ou Skype</li>
-                  <li>Acesso ao grupo fechado da Ordem ( WhatsApp )</li>
-                  <li>Certificado de Estudante de Mistérios ao concluir o cronograma</li>
-                  <li>Poderá participar dos encontros anuais dos membros da OCC, onde ocorrem palestras, rituais, orientações filosóficas e vivência espiritual</li>
-                </div>
-              </div>
-            </div>
-            <div className="cad-button-group">
-              <button type="button" className="cad-btn">Concluir</button>
-            </div>
-          </form>
-        </div>
-*/
 
 export default CadScreen;

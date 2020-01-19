@@ -42,9 +42,9 @@ export default class Contato extends Component {
             <form action="" className='formulario'>
                 {this.state.error}
                 <input type="text" placeholder='Nome' className='inputSimples' value={this.state.name} onChange={e=>this.setState({name:e.target.value})}/>
-                <input type="email" placeholder='Email' className='inputSimples' value={this.state.email} onChange={e=>this.setState({name:e.target.email})}/>
-                <input type="text" placeholder='Assunto' className='inputSimples' value={this.state.assunto} onChange={e=>this.setState({name:e.target.subject})}/>
-                <textarea placeholder='Mensagem' className='inputTexto' value={this.state.message} onChange={e=>this.setState({name:e.target.message})}></textarea>
+                <input type="email" placeholder='Email' className='inputSimples' value={this.state.email} onChange={e=>this.setState({email:e.target.value})}/>
+                <input type="text" placeholder='Assunto' className='inputSimples' value={this.state.subject} onChange={e=>this.setState({subject:e.target.value})}/>
+                <textarea placeholder='Mensagem' className='inputTexto' value={this.state.message} onChange={e=>this.setState({message:e.target.value})}></textarea>
 
                 <input type="submit" className='submit' onClick={this.handleSubmit}/>
             </form>            

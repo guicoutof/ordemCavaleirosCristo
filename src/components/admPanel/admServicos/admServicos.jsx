@@ -60,13 +60,13 @@ export default class Services extends Component{
                                         <h5 className="nomeServico">{service.name}</h5>
                                         <p className="descricaoServico">{service.description}</p>
                                     </div>
-                                        <a className="linkServico">{service.link}</a>
+                                        <a className="linkServico" href={service.link} target="_blank" rel="noopener noreferrer" >{service.link}</a>
                                 </div>
                                 <div className="duracaoAula">
                                     <h3>{service.price}</h3>
                                 </div>
                                 <div className="botoesServico">
-                                    <button className="botaoEditarServico">Editar</button>
+                                    <NavLink to={`services/${service.id}/edit`}><button className="botaoEditarServico">Editar</button></NavLink>
                                     <button className="botaoRemoverServico" onClick={()=>this.removeService(service.id)} >Remover</button>
                                 </div>
                             </div>    
