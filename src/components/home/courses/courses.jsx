@@ -85,9 +85,6 @@ function cortar(minhaString){
 }
 
 export class CursoAprovado extends Component{
-    constructor(){
-        super()
-    }
     async componentDidMount(){
         const course_id = this.props.match.params.id
         const user_id = getInfo().id
@@ -109,9 +106,7 @@ export class CursoAprovado extends Component{
     }
 }
 export class CursoPendente extends Component{
-    constructor(){
-        super()
-    }
+
     async componentDidMount(){
         const course_id = this.props.match.params.id
         const user_id = getInfo().id

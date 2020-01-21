@@ -9,8 +9,8 @@ import CadCurso, {EditCurso} from './components/admPanel/cadCursos/cadCurso'
 import CadClass, {CadClassEdit} from './components/admPanel/cadAula/cadAula'
 import CadBlog, {CadBlogEdit} from './components/admPanel/blog/cadastrarArtigoBlog'
 import CadServ, {EditServico} from './components/admPanel/admServicos/cadastrarServico/cadastrarServico'
-import indexHome, { indexDonate, indexContato, indexCadastroReprovado, indexCourses, indexServices } from './components/home/indexHome'
-import {indexCadastro,indexCadastroAprovado,indexCadastroPendente,} from './components/home/indexHome'
+import indexHome, { indexDonate, indexContato, indexCourses, indexServices } from './components/home/indexHome'
+import {indexCadastro} from './components/home/indexHome'
 import {CursoPendente, CursoReprovado, CursoAprovado } from './components/home/courses/courses'
 import {ServicoPendente, ServicoReprovado, ServicoAprovado } from './components/home/services/services'
 import {UserContaAprovado, UserContaPendente, UserContaReprovado } from './components/userPanel/account/account'
@@ -115,9 +115,9 @@ export default function routes() {
             <Route exact path="/doacoes" component={indexDonate} />
             <Route exact path="/contato" component={indexContato} />
             <Route exact path="/cadastro" component={indexCadastro}/>
-            <Route exact path="/cadastro/:id/aprovado" component={indexCadastroAprovado}/>
-            <Route exact path="/cadastro/:id/pendente" component={indexCadastroPendente}/>
-            <Route exact path="/cadastro/reprovado" component={indexCadastroReprovado}/>
+            <Route exact path="/cadastro/aprovado" component={UserContaAprovado}/>
+            <Route exact path="/cadastro/pendente" component={UserContaPendente}/>
+            <Route exact path="/cadastro/reprovado" component={UserContaReprovado}/>
             <Route exact path="/servicos" component={indexServices}/>
 
 

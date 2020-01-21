@@ -53,7 +53,8 @@ export default class CreateCurso extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f; f = files[i]; i++) {
+        for (var i = 0, f;  i++;) {
+            f = files[i];
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;
@@ -206,7 +207,8 @@ export class EditCurso extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f; f = files[i]; i++) {
+        for (var i = 0, f; i++;) {
+            f = files[i];
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;

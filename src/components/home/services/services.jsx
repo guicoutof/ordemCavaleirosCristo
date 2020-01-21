@@ -106,9 +106,7 @@ export class ServicoAprovado extends Component{
     }
 }
 export class ServicoPendente extends Component{
-    constructor(){
-        super()
-    }
+
     async componentDidMount(){
         console.log('pendente')
         const service_id = this.props.match.params.id

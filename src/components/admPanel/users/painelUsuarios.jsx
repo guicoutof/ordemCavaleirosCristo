@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import api from '../../../services/api'
 import './painelUsuarios.css'
 import './userCSS/createAndEditUser.css'
-import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -300,17 +299,17 @@ export default class panelUsuarios extends Component {
                                         <b>Modulo atual:</b> {element.module}
                                     </div>
                                     <div className="panelUser-contents">
-                                        <b>Tipo de usuario:</b> {element.type?element.type==2?'Afiliado':'Pendente':'Gratuito'}
+                                        <b>Tipo de usuario:</b> {element.type?element.type===2?'Afiliado':'Pendente':'Gratuito'}
                                     </div>
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                {element.type==2?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,0)}>
+                                {element.type===2?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,0)}>
                                     <abbr title="Retornar para gratuito">
                                         <FontAwesomeIcon className="icon" icon={faUser} size="3x"/>
                                     </abbr>
                                 </button>:<div></div>}
-                                {element.type==1?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,2)}>
+                                {element.type===1?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,2)}>
                                     <abbr title="Aprovar Afiliação">
                                         <FontAwesomeIcon className="icon" icon={faUserPlus} size="3x"/>
                                     </abbr>

@@ -10,7 +10,7 @@ import FeaturedCourses from './featuredCourses/featuredCourses'
 import Article from './articlespreview/articlespreview'
 import Donate from './donate/donate'
 import Contacts from './contato/contato'
-import Cadastro, {CadastroAprovado, CadastroPendente,CadastroReprovado} from './cadastro/cadastro'
+import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
 import Services from './services/services'
 
@@ -40,8 +40,9 @@ export default class index extends Component{
                                     return {coursesSpotlight}
                                 })
                             else return null
-                        })
-                    })
+                            return null
+                        });return null
+                    });
                     
                 }
             )
@@ -87,36 +88,6 @@ export function indexCadastro(){
         <div className='index'>
             <Navbar/>
             <Cadastro/>
-            <Footer/>
-        </div>
-    )
-}
-export function indexCadastroAprovado(){
-
-    return(
-        <div className='index'>
-            <Navbar/>
-            <CadastroAprovado/>
-            <Footer/>
-        </div>
-    )
-}
-export function indexCadastroPendente(){
-
-    return(
-        <div className='index'>
-            <Navbar/>
-            <CadastroPendente/>
-            <Footer/>
-        </div>
-    )
-}
-export function indexCadastroReprovado(){
-
-    return(
-        <div className='index'>
-            <Navbar/>
-            <CadastroReprovado/>
             <Footer/>
         </div>
     )

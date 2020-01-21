@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './cadastro.css';
 import api from "../../../services/api";
+import {login} from "../../../services/auth";
 import MdPersonFree from 'react-ionicons/lib/MdPerson'
 import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
 import { withRouter } from 'react-router-dom'
@@ -19,20 +20,27 @@ class CadScreen extends Component {
     phone_number: "",
     type: 0,
     numberOfFees:0,
-    id:0,
     button:null,
     error:"",
   };
   async handleSubmit(){
     const{email,password,confsenha,name,city,state,country,phone_number,type,birth_date} = this.state;
-    if(!email || !password ||  !confsenha || !name || !(type == 0 || type == 2)){
+    if(!email || !password ||  !confsenha || !name || !(type === 0 || type === 2)){
       this.setState({error: "Preencha todos os campos para continuar!"})
     }else{
       if(password !== confsenha){
         this.setState({error: "Senhas não conferem!"})
       }else{
         try{
-          const res = await api.post("/users",{email,password,name,city,birth_date,state,country,phone_number,type:0,module:1});
+          await api.post("/users",{email,password,name,city,birth_date,state,country,phone_number,type:0,module:1});
+          const response = await api.post("/sessions",{email,password});
+          const info = {
+            id:response.data.user.id,
+            name:response.data.user.name,
+            module:response.data.user.module,
+            type:response.data.user.type
+          }
+          login(response.data.token,info);
           this.setState({
             error:"Criado com sucesso",
             name: "",
@@ -45,8 +53,6 @@ class CadScreen extends Component {
             country: "",
             phone_number: "",
             type: 0,
-            numberOfFees:0,
-            id:res.data.id
           });
         }catch(err){
           this.setState({error:'Problema ao criar a conta'})
@@ -60,11 +66,10 @@ class CadScreen extends Component {
     alert('Concordo que ao me afiliar, perco acesso ao sistema devido a personalização dos afiliados')
     try{
       await this.handleSubmit()
-      const {numberOfFees,id} = this.state
+      const {numberOfFees} = this.state
       const type = false
       const response = await api.post('/affiliatePayment',{numberOfFees,type})
-      console.log(response)
-      this.setState({button:response.data})
+      window.location.assign(response.data)
     }catch(err){
       this.setState({error:'Algo de errado aconteceu'})
     }
@@ -194,11 +199,6 @@ class CadScreen extends Component {
                       {this.state.numberOfFees?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
                     </div>
                     :<div></div>}         
-                    {this.state.button?
-                    <div>
-                      <a className="btn" href={this.state.button} target="_blank" rel="noopener noreferrer">Pagar</a>
-                    </div>
-                    :<div></div>}
               </div>
             </div>
             {this.state.type===0?<button type="submit" className="cad-btn" onClick={()=>this.handleSubmit()}>Concluir</button>:<div></div>}
@@ -210,45 +210,3 @@ class CadScreen extends Component {
   }
 }
 export default withRouter(CadScreen);
-
-export class CadastroAprovado extends Component{
-  constructor(){
-    super()
-  }
-  async componentDidMount(){
-    // const resaponse = await api.post('approve')
-    // console.log(response)
-  }
-  render(){
-
-    return(
-      <div>
-       APROVADO
-    </div>
-    )
-  }
-}
-export class CadastroPendente extends Component{
-  constructor(){
-    super()
-  }
-  async componentDidMount(){
-    // const resaponse = await api.post('approve')
-    // console.log(response)
-  }
-  render(){
-
-    return(
-      <div>
-        PENDENTE
-    </div>
-    )
-  }
-}
-export function CadastroReprovado(){
-  return(
-    <div>
-      REPROVADO
-    </div>
-  )
-}

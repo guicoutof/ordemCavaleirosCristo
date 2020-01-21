@@ -154,7 +154,7 @@ class Login extends React.Component {
           <div className="button-group">
             <button className="login-btn" onClick={this.handleSignIn}>Entrar</button>
           </div>
-          <a className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</a>
+          <li className="login-forgot-password" onClick={this.showForgotPasswordField.bind(this)}>Esqueceu a senha ?</li>
         </div>
       );
   }

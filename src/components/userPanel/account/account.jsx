@@ -124,7 +124,7 @@ export default class Account extends Component{
                     <div>Pais</div>
                     <input id="country" type="text" value={this.state.country||''} onChange={e => this.setState({country:e.target.value})} />                       
                     <div>Tipo de Usuario</div>
-                    <div>{this.state.type?this.state.type==2?'Afiliado':'Pendente':'Gratuito'}</div>                      
+                    <div>{this.state.type?this.state.type===2?'Afiliado':'Pendente':'Gratuito'}</div>                      
 
                     <button onClick={()=>this.submitUser()}>Salvar</button>
                     <button onClick={()=>this.setState({modalC:true})}>EXCLUIR CONTA</button>
