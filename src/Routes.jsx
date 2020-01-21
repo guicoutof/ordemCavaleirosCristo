@@ -16,6 +16,7 @@ import {CursoPendente, CursoReprovado, CursoAprovado } from './components/home/c
 import {ServicoPendente, ServicoReprovado, ServicoAprovado } from './components/home/services/services'
 import {UserContaAprovado, UserContaPendente, UserContaReprovado } from './components/userPanel/account/account'
 import PanelUser, { UserBlog, UserConta, UserBiblioteca,UserCurso} from './components/userPanel/panelUser'
+import {ServicePending} from './components/admPanel/admServicos/admServicos'
 
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -79,6 +80,7 @@ export default function routes() {
             <AdmRoute exact path="/module/:id" component={AdmCourses} />
             <AdmRoute exact path="/module/:id/create" component={CadCurso} />
             <AdmRoute exact path="/coursePending" component={CoursePending} />
+            <AdmRoute exact path="/servicePending" component={ServicePending} />
             <AdmRoute exact path="/course/:id" component={AdmClass} />
             <AdmRoute exact path="/course/:id/edit" component={EditCurso} />
             <AdmRoute exact path="/course/:id/create" component={CadClass} />

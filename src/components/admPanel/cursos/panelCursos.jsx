@@ -73,7 +73,7 @@ export default class panelCurso extends Component{
                                             <img src={course.url} alt={course.path}className="imgCurso"/>
                                             <div className="infoTexto">
                                                 <h5 className="nomeCurso">{course.name}</h5>
-                                                {/* <p className="descricaoCurso">{course.id}</p> */}
+                                                <p className="descricaoListaCurso"><b>Id:</b> {course.id}</p>
                                                 <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {course.description}</p>
                                                 <p className="descricaoListaCurso"><b>Horas:</b> {course.hours}</p>
                                                 <p className="descricaoListaCurso"><b>Assistência:</b> {course.assistance}</p>
@@ -113,14 +113,21 @@ export class CoursePending extends Component{
             courses:[],
             search:'',
             loading:true,
+            course:{},
+            user:{}
         }
     }
 
-    async componentDidMout(){
+    async componentDidMount(){
         const response = await api.get('/student_courses')
-        console.log(response)
         this.setState({courses:response.data,loading:false})
     }
+
+    async aprovar(id){
+        await api.put('/student_courses',{id,paid:true})
+        window.location.reload()
+    }
+
     render(){
         return(
             <div className="principalCursos">
@@ -136,21 +143,17 @@ export class CoursePending extends Component{
                         :this.state.courses.map(course=>
                             <div key={course.id} >
                                 {
-                                    course.name.indexOf(this.state.search)!==-1?
                                     <div className="divListaCursos">
                                         <div className="infoCurso">
-                                            <img src={course.url} alt={course.path}className="imgCurso"/>
                                             <div className="infoTexto">
-                                                <h5 className="nomeCurso">{course.name}</h5>
-                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {course.description}</p>
+                                                <div>Id do usuário: {course.user_id}</div>
+                                                <div>Id do curso: {course.course_id}</div>
                                             </div>
                                         </div>
-                                        <h4 className="precoCurso">Valor: {course.price}</h4>
                                         <div className="botoesCurso">
-                                            <button className="botaoRemoverCurso" >Aprovar</button>
+                                            <button onClick={()=>this.aprovar(course.id)} className="botaoAbrirCurso" >Aprovar</button>
                                         </div>
                                     </div>
-                                    :<div></div>
                                 }
                             </div>
                         )    

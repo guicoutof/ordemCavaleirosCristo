@@ -270,6 +270,9 @@ export default class panelUsuarios extends Component {
                             <div className="panelUser-info-curso">
                                 <div className="divInfo">
                                     <div className="panelUser-contents">
+                                        <b>Id:</b> {element.id}
+                                    </div>
+                                    <div className="panelUser-contents">
                                         <b>Nome:</b> {element.name}
                                     </div>
                                     <div className="panelUser-contents">
