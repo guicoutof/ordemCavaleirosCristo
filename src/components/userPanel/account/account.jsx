@@ -3,6 +3,10 @@ import './account.css'
 import api from "../../../services/api";
 import {login,logout} from '../../../services/auth'
 import Confirm from '../../admPanel/confirm/confirm'
+import {getInfo} from '../../../services/auth'
+import Navbar from '../../home/navbar/navbar'
+import Footer from '../../home/footer/footer'
+import {NavLink} from 'react-router-dom'
 
 export default class Account extends Component{
     constructor(){
@@ -21,6 +25,8 @@ export default class Account extends Component{
             country:'',
             type:0,
             modalC:false,
+            numberOfFees:0,
+            affiliate:false,
             msg:''
         }
 
@@ -79,6 +85,20 @@ export default class Account extends Component{
         logout()
     }
 
+    async payment(){
+        alert('Concordo que ao me afiliar, perco acesso ao sistema devido a personalização dos afiliados')
+        try{
+          const {numberOfFees} = this.state
+          const id = getInfo().id
+          const type = true
+          console.log(numberOfFees,id)
+          const response = await api.post('/affiliatePayment',{numberOfFees,type})
+          window.location.assign(response.data)
+        }catch(err){
+          this.setState({msg:'Algo de errado aconteceu'})
+        }
+      }
+
     render(){
         return(
             <div>
@@ -111,9 +131,83 @@ export default class Account extends Component{
                     <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perdera todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>
                 <div><p>Texto que mostra as vantagens de ser afiliado</p>
-                    {!this.state.type?<button onClick={()=>console.log('Upgrade')}>Upgrade para afiliado</button>:<div></div>}
+                    {!this.state.type?
+                    <div>
+                    <button onClick={()=>this.setState({affiliate:!this.state.affiliate})}>Upgrade para afiliado</button>
+
+                    {this.state.affiliate?
+                        <div>
+                        <div>R$90 (mensalidade)</div>
+                        <input type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
+                        {this.state.numberOfFees?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
+                        </div>
+                    :<div></div>}
+                    
+                    </div>
+                    :<div></div>}
+
                 </div>
             </div>
         )
     }
+}
+
+export class UserContaAprovado extends Component{
+
+    async componentDidMount(){
+        const response = await api.get('getUser')
+        await api.put('/users',{name:response.data.name,email:response.data.email,type:2})
+        // setTimeout(logout(),10000)
+    }
+
+    render(){
+        return(
+            <div>
+                <Navbar />
+                <div>
+                    <h2>AFILIAÇÃO REALIZADA COM SUCESSO</h2>
+                    <h3>Realizamos seu logout</h3>
+                </div>
+                <Footer/>
+            </div>
+        )
+    }
+}
+export class UserContaPendente extends Component{
+
+    async componentDidMount(){
+        let response = await api.get('getUser')
+        await api.put('/users',{name:response.data.name,email:response.data.email,type:1})
+    }
+
+    render(){
+        return(
+            <div>
+                <Navbar />
+                <div>
+                <h2>AFILIAÇÃO PENDENTE, AGUARDANDO APROVAÇÃO DO ADMINISTRADOR</h2>
+                <h3>Enviar comprovante de pagamento/depósito para o email</h3>
+                <h2>cavaleirosdecristostaff@gmail.com</h2>
+                </div>
+                <NavLink to={'/conta'}><button >VOLTAR</button></NavLink>
+
+                <Footer/>
+            </div>
+        )
+    }
+}
+export function UserContaReprovado(){
+
+    return(
+        <div>
+                <Navbar />
+                <div>
+                    <h2>COMPRA RECUSADA</h2>
+                    <h3>Revise suas informações de pagamento e tente novamente</h3>
+                </div>
+                <NavLink to={'/conta'}><button >VOLTAR</button></NavLink>
+
+                <Footer/>
+            </div>
+    )
 }

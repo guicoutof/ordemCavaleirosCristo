@@ -4,6 +4,7 @@ import './cadastro.css';
 import api from "../../../services/api";
 import MdPersonFree from 'react-ionicons/lib/MdPerson'
 import MdPersonPremium from 'react-ionicons/lib/MdPersonAdd'
+import { withRouter } from 'react-router-dom'
 
 class CadScreen extends Component {
   state = {
@@ -16,13 +17,13 @@ class CadScreen extends Component {
     state: "",
     country: "",
     phone_number: "",
-    type: "",
+    type: 0,
+    numberOfFees:0,
+    id:0,
+    button:null,
     error:"",
-    plan:'-1',
-    button:null
   };
-  handleSubmit = async e => {
-    e.preventDefault();
+  async handleSubmit(){
     const{email,password,confsenha,name,city,state,country,phone_number,type,birth_date} = this.state;
     if(!email || !password ||  !confsenha || !name || !(type == 0 || type == 2)){
       this.setState({error: "Preencha todos os campos para continuar!"})
@@ -31,8 +32,7 @@ class CadScreen extends Component {
         this.setState({error: "Senhas não conferem!"})
       }else{
         try{
-          const response = await api.post("/users",{email,password,name,city,birth_date,state,country,phone_number,type,module:1});
-          // alert('Criado com sucesso');
+          const res = await api.post("/users",{email,password,name,city,birth_date,state,country,phone_number,type:0,module:1});
           this.setState({
             error:"Criado com sucesso",
             name: "",
@@ -44,32 +44,36 @@ class CadScreen extends Component {
             state: "",
             country: "",
             phone_number: "",
-            type: "",
+            type: 0,
+            numberOfFees:0,
+            id:res.data.id
           });
         }catch(err){
-          console.log(err)
+          this.setState({error:'Problema ao criar a conta'})
         }
       }
     }
     
   }
-
-  handleChange= e=>{
-    this.setState({plan:e.target.value})
-  }
   
   async payment(){
     alert('Concordo que ao me afiliar, perco acesso ao sistema devido a personalização dos afiliados')
-    const {plan} = this.state
-    const response = await api.post('affiliatePayment',{plan})
-    console.log(response)
-    this.setState({button:response.data})
+    try{
+      await this.handleSubmit()
+      const {numberOfFees,id} = this.state
+      const type = false
+      const response = await api.post('/affiliatePayment',{numberOfFees,type})
+      console.log(response)
+      this.setState({button:response.data})
+    }catch(err){
+      this.setState({error:'Algo de errado aconteceu'})
+    }
   }
   render() {
     return (
       <div className="App">
         <div className="cad-container">
-          <form className="cad-form">
+          <div className="cad-form">
             <div className="cad-input-group">
               <h1>Cadastro</h1>    
                   <div className="divNomeData">
@@ -185,30 +189,66 @@ class CadScreen extends Component {
                     <div>{this.state.error}</div>
                     {this.state.type===2?
                     <div>
-                      <select className="selectTipoUsuario" value={this.state.plan}onChange={this.handleChange}>
-                          <option value={'-1'}>Tipo de Mensalidade</option>
-                          <option value={0}>R$90 (mensalidade)</option>
-                          <option value={1}>R$250 (três meses)</option>
-                          <option value={2}>R$500 (seis meses)</option>
-                          <option value={3}>R$900 (doze meses)</option>
-                      </select> 
-                      {this.state.plan!=='-1'?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
+                      <div>R$90 (mensalidade)</div>
+                      <input type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
+                      {this.state.numberOfFees?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
                     </div>
                     :<div></div>}         
                     {this.state.button?
                     <div>
-                      <a className="btn" href={`https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${this.state.button}`} target="_blank">Pagar</a>
+                      <a className="btn" href={this.state.button} target="_blank" rel="noopener noreferrer">Pagar</a>
                     </div>
                     :<div></div>}
               </div>
             </div>
-            {this.state.plan==='-1'?<button type="submit" className="cad-btn" onClick={this.handleSubmit}>Concluir</button>:<div></div>}
+            {this.state.type===0?<button type="submit" className="cad-btn" onClick={()=>this.handleSubmit()}>Concluir</button>:<div></div>}
 
-          </form>
+          </div>
         </div>
       </div>
     );
   }
 }
+export default withRouter(CadScreen);
 
-export default CadScreen;
+export class CadastroAprovado extends Component{
+  constructor(){
+    super()
+  }
+  async componentDidMount(){
+    // const resaponse = await api.post('approve')
+    // console.log(response)
+  }
+  render(){
+
+    return(
+      <div>
+       APROVADO
+    </div>
+    )
+  }
+}
+export class CadastroPendente extends Component{
+  constructor(){
+    super()
+  }
+  async componentDidMount(){
+    // const resaponse = await api.post('approve')
+    // console.log(response)
+  }
+  render(){
+
+    return(
+      <div>
+        PENDENTE
+    </div>
+    )
+  }
+}
+export function CadastroReprovado(){
+  return(
+    <div>
+      REPROVADO
+    </div>
+  )
+}

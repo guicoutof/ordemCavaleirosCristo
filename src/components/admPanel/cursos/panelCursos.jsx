@@ -105,3 +105,62 @@ export default class panelCurso extends Component{
         )
     }
 }
+
+export class CoursePending extends Component{
+    constructor(){
+        super()
+        this.state={
+            courses:[],
+            search:'',
+            loading:true,
+        }
+    }
+
+    async componentDidMout(){
+        const response = await api.get('/student_courses')
+        console.log(response)
+        this.setState({courses:response.data,loading:false})
+    }
+    render(){
+        return(
+            <div className="principalCursos">
+                <Navbar/>
+                <div className="containerCURSO">
+                <div className="headerCursos">
+                        <h2 className="nomeCurso">Cursos Pendentes</h2>
+                    <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
+                </div>
+
+                <div className="tabelaCursos">
+                    {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                        :this.state.courses.map(course=>
+                            <div key={course.id} >
+                                {
+                                    course.name.indexOf(this.state.search)!==-1?
+                                    <div className="divListaCursos">
+                                        <div className="infoCurso">
+                                            <img src={course.url} alt={course.path}className="imgCurso"/>
+                                            <div className="infoTexto">
+                                                <h5 className="nomeCurso">{course.name}</h5>
+                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {course.description}</p>
+                                            </div>
+                                        </div>
+                                        <h4 className="precoCurso">Valor: {course.price}</h4>
+                                        <div className="botoesCurso">
+                                            <button className="botaoRemoverCurso" >Aprovar</button>
+                                        </div>
+                                    </div>
+                                    :<div></div>
+                                }
+                            </div>
+                        )    
+                    }
+                    <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
+                </div>
+                
+            </div>
+            </div>
+        )
+    }
+
+}

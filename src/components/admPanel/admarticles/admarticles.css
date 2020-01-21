@@ -1,8 +1,12 @@
+.backimg{
+    align-self: baseline;
+}
 .container1 {
     width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
+
 }
 
 .containerbuttons {

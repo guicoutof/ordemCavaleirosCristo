@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MdArrowBack from 'react-ionicons/lib/MdArrowBack';
 import './curso.css';
 import api from '../../../services/api'
 import { NavLink, withRouter } from 'react-router-dom'
@@ -30,15 +29,14 @@ export class Curso extends Component {
                             course:res.data[0].course,
                             className:res.data[0].name,
                             classDescription:res.data[0].description,
-                            iframeLink:res.data[0].link
+                            iframeLink:res.data[0].link.replace("watch?v=","embed/")
                         })
                     }
                 )
 
     }
-
     changeFrame(c){
-        this.setState({className:c.name,iframeLink:c.link,classDescription:c.description})
+        this.setState({className:c.name,iframeLink:c.link.replace("watch?v=","embed/"),classDescription:c.description})
     }
 
     handleChange(event){

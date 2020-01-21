@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import api from '../../../services/api'
 import './painelUsuarios.css'
 import './userCSS/createAndEditUser.css'
+import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTrash, faUserPlus, faUser, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
-export class panelUsuarios extends Component {
+export default class panelUsuarios extends Component {
 
     constructor() {
         super();
@@ -314,6 +315,7 @@ export class panelUsuarios extends Component {
                                         <FontAwesomeIcon className="icon" icon={faUserPlus} size="3x"/>
                                     </abbr>
                                 </button>:<div></div>}
+                                {/* <NavLink to={`/user/${element.id}/course`}><button>Cursos</button></NavLink> */}
                                 <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
                                     <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
                                 </button>
@@ -339,4 +341,27 @@ export class panelUsuarios extends Component {
     }
 }
 
-export default panelUsuarios;
+export class UserCourse extends Component{
+    constructor(){
+        super()
+        this.state={
+            courses:[]
+        }
+    }
+    componentDidMount = async ()=>{
+        await api.get(`/student_courses/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    console.log(res)
+                    this.setState({users:res.data,loading:false})
+                }
+            )
+    }
+    render(){
+        return(
+            <div>
+
+            </div>
+        )
+    }
+}

@@ -153,7 +153,7 @@ export class CadBlogEdit extends Component {
     async submitPost(){
         var data = new FormData();
 
-        data.append("file",this.state.file,this.state.file.name);
+        if(this.state.file)data.append("file",this.state.file,this.state.file.name);
         data.append("title",this.state.title);
         data.append("id",this.props.match.params.id);
         data.append("text",this.state.text);
