@@ -10,6 +10,7 @@ import CadClass, {CadClassEdit} from './components/admPanel/cadAula/cadAula'
 import CadBlog, {CadBlogEdit} from './components/admPanel/blog/cadastrarArtigoBlog'
 import CadServ, {EditServico} from './components/admPanel/admServicos/cadastrarServico/cadastrarServico'
 import indexHome, { indexDonate, indexContato, indexCourses, indexServices } from './components/home/indexHome'
+import { indexDonateAprovado, indexDonatePendente, indexDonateReprovado } from './components/home/indexHome'
 import {indexCadastro} from './components/home/indexHome'
 import {CursoPendente, CursoReprovado, CursoAprovado } from './components/home/courses/courses'
 import {ServicoPendente, ServicoReprovado, ServicoAprovado } from './components/home/services/services'
@@ -113,6 +114,9 @@ export default function routes() {
             <Route exact path="/" component={indexHome} />
             <Route exact path="/cursos" component={indexCourses} />
             <Route exact path="/doacoes" component={indexDonate} />
+            <Route exact path="/doacoes/aprovado" component={indexDonateAprovado} />
+            <Route exact path="/doacoes/pendente" component={indexDonatePendente} />
+            <Route exact path="/doacoes/reprovado" component={indexDonateReprovado} />
             <Route exact path="/contato" component={indexContato} />
             <Route exact path="/cadastro" component={indexCadastro}/>
             <Route exact path="/cadastro/aprovado" component={UserContaAprovado}/>
