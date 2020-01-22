@@ -47,14 +47,15 @@ export default class FeaturedCourses extends Component{
                 <h1>CURSOS</h1>
             </div>
             <div className="cards"> 
-            {
+            {   this.state.cards.length>0?
                 this.state.cards.map((c)=>
                     <div key={c.id} className="card">
                         <img className="image" src={c.url} alt={c.name}/>
                         <h3 className="title">{c.name}</h3>
-                        <li className="btn">DETALHES</li>
+                        <p className="btn"><strong>Assistencia de {c.assistance}</strong></p>
                     </div>
                 )
+                :<h2>Nenhum curso em destaque</h2>
             } 
             </div>
             <div className="list">

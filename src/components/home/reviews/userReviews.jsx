@@ -39,16 +39,23 @@ export default class Feedbacks extends Component{
                 <h1>VEJA O QUE NOSSOS ESTUDANTES ACHARAM</h1>
             </div>
             <div className="carousel">
-                <li className="pointer" onClick={()=> ((this.state.carrosel-1)>=0)? this.exibirComentario(this.state.carrosel-1) : this.exibirComentario(0) }><FontAwesomeIcon icon={faCaretLeft} size="3x"/></li>
-                {this.state.comment.map(c=>
-                    <div className="cardCarousel" key={c.id}>
-                            {c.status===2?<h3 className="name">{c.user.name}</h3>:<h3 className="name">Usuário Anônimo</h3>}
-                            <h4 className="text">{c.content}</h4>
-                        </div>
-                    )
+                {
+                    this.state.comment?
+                    <div className={"carouselRow"}>
+                        <li className="pointer" onClick={()=> ((this.state.carrosel-1)>=0)? this.exibirComentario(this.state.carrosel-1) : this.exibirComentario(0) }><FontAwesomeIcon icon={faCaretLeft} size="3x"/></li>
+                        {
+                        this.state.comment.map(c=>
+                            <div className="cardCarousel" key={c.id}>
+                                {c.status===2?<h3 className="name">{c.user.name}</h3>:<h3 className="name">Usuário Anônimo</h3>}
+                                <h4 className="text">{c.content}</h4>
+                            </div>
+                        )
+                        }
+                        <li className="pointer" onClick={()=> ((this.state.carrosel+1)<this.state.comments.length)? this.exibirComentario(this.state.carrosel+1) : this.exibirComentario(this.state.carrosel) }><FontAwesomeIcon icon={faCaretRight} size="3x"/></li>
+                    </div>
+                    :<h2>Ainda não recebemos nenhum comentário</h2>
                 }
                 
-                <li className="pointer" onClick={()=> ((this.state.carrosel+1)<this.state.comments.length)? this.exibirComentario(this.state.carrosel+1) : this.exibirComentario(this.state.carrosel) }><FontAwesomeIcon icon={faCaretRight} size="3x"/></li>
             </div>
             <div className="list">{
                 this.state.comments.map((c,i)=>

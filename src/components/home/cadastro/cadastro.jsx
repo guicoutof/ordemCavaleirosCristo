@@ -19,7 +19,7 @@ class CadScreen extends Component {
     country: "",
     phone_number: "",
     type: 0,
-    numberOfFees:0,
+    numberOfFees:1,
     button:null,
     error:"",
   };
@@ -83,7 +83,7 @@ class CadScreen extends Component {
               <h1>Cadastro</h1>    
                   <div className="divNomeData">
                     <div className="divInputCadastroNome">
-                      <label htmlFor="name" className="label-input">Nome Completo</label>
+                      <label htmlFor="name" className="label-input">Nome Completo</label><p className="inline"> *obrigatório</p>
                       <input id="name" className="cad-input-lss" type="text" value={this.state.name} onChange={e => this.setState({name:e.target.value})} required/>
                     </div>
 
@@ -117,91 +117,103 @@ class CadScreen extends Component {
                     </div>
 
                     <div className="divInputCadastroContato">
-                      <label htmlFor="email" className="label-input">E-mail</label>
+                      <label htmlFor="email" className="label-input">E-mail</label><p className="inline"> *obrigatório</p>
                       <input id="email" className="cad-input-sm" type="email" value={this.state.email} onChange={e => this.setState({email:e.target.value})} required/>
                     </div>  
                   </div>
 
                   <div className="divSenha">
                     <div className="divInputCadastroSenha">
-                      <label htmlFor="password" className="label-input">Senha</label>
+                      <label htmlFor="password" className="label-input">Senha</label><p className="inline"> *obrigatório</p>
                       <input id="password" className="cad-input-ssm" type="password" value={this.state.password} onChange={e => this.setState({password:e.target.value})} required/>
                     </div>
 
                     <div className="divInputCadastroSenha">
-                      <label htmlFor="confsenha" className="label-input">Confirmar Senha</label>
+                      <label htmlFor="confsenha" className="label-input">Confirmar Senha</label><p className="inline"> *obrigatório</p>
                       <input id="confsenha" className="cad-input-ssm" type="password" value={this.state.confsenha} onChange={e => this.setState({confsenha:e.target.value})} required/>     
                     </div>
                   </div>
             </div>
-            <h2 className="cad-type-header">Tipo de cadastro:</h2>
-            <div className="cad-option-group">
-              <div className="cad-option">
-                    <div className="divVantagens">
-                      <span className="icon-check">
-                        <MdPersonFree color="#000000" fontSize="3rem" />
-                        </span>
-                      <span className="icon-check">
-                        <MdPersonPremium color="#000000" fontSize="3rem" />
-                        </span>
-                      <span className="cad-option-view-header">Vantagens:</span>
-                    </div>
-                  
-                    <div className="divVantagens">
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Acesso a Artigos</span>  
-                    </div>                                        
+            <div className="row-type-mens">
+            <div className="cad-type">
 
-                    <div className="divVantagens">
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Acesso a Cursos</span>  
-                    </div>                                      
-
-                    <div className="divVantagens">
-                      <span className="icon-check">&#10008;</span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Acompanhamento via WhatsApp ou Skype</span>  
-                    </div>                        
-
-                    <div className="divVantagens">
-                      <span className="icon-check">&#10008;</span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Acesso ao grupo fechado da Ordem ( WhatsApp )</span>  
-                    </div>                        
-
-                    <div className="divVantagens">
-                      <span className="icon-check">&#10008;</span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Certificado de Estudante de Mistérios ao concluir o cronograma</span>  
-                    </div>                        
-
-                    <div className="divVantagens">
-                      <span className="icon-check">&#10008;</span>
-                      <span className="icon-check"><b>&#10003;</b></span>
-                      <span className="cad-option-view">Poderá participar dos encontros anuais da OCC, onde ocorrem palestras, rituais, orientações filosóficas e vivência espiritual</span>  
-                    </div>                          
-
-                    <div className="divCheckBox">
-                      <div className="divInputCheckBox">
-                        <input id="cad-free" className="checkmark" type="radio" name="accountType" onClick={e => this.setState({type:0})}/>
+              <h2 className="cad-type-header">Tipo de cadastro</h2><p className="inline"> *obrigatório</p>
+              <div className="cad-option-group">
+                <div className="cad-option">
+                      <div className="divVantagens">
+                        <span className="icon-check">
+                          <MdPersonFree color="#000000" fontSize="3rem" />
+                          </span>
+                        <span className="icon-check">
+                          <MdPersonPremium color="#000000" fontSize="3rem" />
+                          </span>
+                        <span className="cad-option-view-header">Vantagens:</span>
                       </div>
-                      <div className="divInputCheckBox">
-                        <input id="cad-afiliado" className="checkmark" type="radio" name="accountType" onClick={e => this.setState({type:2})}/>  
+                    
+                      <div className="divVantagens">
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Acesso a Artigos</span>  
+                      </div>                                        
+
+                      <div className="divVantagens">
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Acesso a Cursos</span>  
+                      </div>                                      
+
+                      <div className="divVantagens">
+                        <span className="icon-check">&#10008;</span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Acompanhamento via WhatsApp ou Skype</span>  
+                      </div>                        
+
+                      <div className="divVantagens">
+                        <span className="icon-check">&#10008;</span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Acesso ao grupo fechado da Ordem ( WhatsApp )</span>  
+                      </div>                        
+
+                      <div className="divVantagens">
+                        <span className="icon-check">&#10008;</span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Certificado de Estudante de Mistérios ao concluir o cronograma</span>  
+                      </div>                        
+
+                      <div className="divVantagens">
+                        <span className="icon-check">&#10008;</span>
+                        <span className="icon-check"><b>&#10003;</b></span>
+                        <span className="cad-option-view">Poderá participar dos encontros anuais da OCC, onde ocorrem palestras, rituais, orientações filosóficas e vivência espiritual</span>  
+                      </div>                          
+
+                      <div className="divCheckBox">
+                        <div className="divInputCheckBox">
+                          <input id="cad-free" className="checkmark" type="radio" name="accountType" onClick={e => this.setState({type:0})}/>
+                        </div>
+                        <div className="divInputCheckBox">
+                          <input id="cad-afiliado" className="checkmark" type="radio" name="accountType" onClick={e => this.setState({type:2})}/>  
+                        </div>
                       </div>
-                    </div>
-                    <div>{this.state.error}</div>
-                    {this.state.type===2?
-                    <div>
-                      <div>R$90 (mensalidade)</div>
-                      <input type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
-                      {this.state.numberOfFees?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
-                    </div>
-                    :<div></div>}         
+                      <div>{this.state.error}</div>
+                  </div>
+                </div>
+              </div>
+              <div className="cad-mens">
+                {this.state.type===2?
+                <div >
+                  <h3 className="cad-type-header">Mensalidade - R$ 90,00</h3>
+                  <div>
+                    <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <strong>agencia: TAL cc: TAL</strong></p>
+                  </div>
+                  <div className="cad-mensalidade">
+                    <h4>Numero de meses: </h4><input className="divInputMensalidade" type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
+                  </div>
+                  {this.state.numberOfFees?<div><button  className="cad-btn" onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
+                </div>
+                :<div></div>}         
               </div>
             </div>
-            {this.state.type===0?<button type="submit" className="cad-btn" onClick={()=>this.handleSubmit()}>Concluir</button>:<div></div>}
+            {this.state.type===0?<button className="cad-btn" onClick={()=>this.handleSubmit()}>Concluir</button>:<div></div>}
 
           </div>
         </div>

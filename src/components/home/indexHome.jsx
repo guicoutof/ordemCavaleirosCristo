@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import './indexHome.css'
-import api, {feedbacks} from '../../services/api'
+import React from 'react'
 import {NavLink} from 'react-router-dom'
+import './indexHome.css'
+
 import Navbar from './navbar/navbar'
-import Title from './title/title'
 import Footer from './footer/footer'
+import Title from './title/title'
 import UserReviews from './reviews/userReviews'
 import FeaturedCourses from './featuredCourses/featuredCourses'
 import Article from './articlespreview/articlespreview'
@@ -14,34 +14,17 @@ import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
 import Services from './services/services'
 
-export default class index extends Component{
-    state = {
-        feedbacks:feedbacks,
-        publication:[],
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/publications")
-            .then(
-                res=>{
-                    this.setState({publication:res.data[0]})
-                }
-            )
-        
-    }
-
-    render(){
-        return(
+export default function index(){
+    return(
         <div className='index'>
             <Navbar/>
             <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
-            <Article publication={this.state.publication} />
+            <Article />
             <FeaturedCourses />
-            <UserReviews feedbacks={this.state.feedbacks} />
+            <UserReviews />
             <Footer/> 
         </div>
-        )
-    }
+    )
 }
 
 export function indexContato(){

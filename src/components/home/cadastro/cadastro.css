@@ -37,7 +37,10 @@ input {
 .cad-form {
     width: 90%;
 }
-
+.inline{
+    display: inline;
+    font-weight : lighter;
+}
 .cad-input-group {
     padding-top: 2rem;
     display: flex;
@@ -106,17 +109,25 @@ input {
     font-weight: bold;
     text-align: left;
 }
-
+.row-type-mens{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.cad-type{
+    width: 70% !important;
+}
 .cad-type-header {
     font-size: 1.5rem;
+    display: inline-table;
 }
 
 .cad-option-group {
-
-    height: 350px;
+    /* height: 350px; */
     /* background-color: purple; */
     display: flex;
-    
+    flex-wrap: wrap;
 }
 
 .cad-option-view {
@@ -254,4 +265,29 @@ li {
     height: 25px;
     width: 25px;
     border-radius: 50%;
+}
+.cad-mens{
+    width: 30%;
+}
+.cad-mensalidade{
+    text-align: center;
+}
+.cad-detalhes{
+    text-align: justify;
+}
+.divInputMensalidade{
+    width: 50%;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5%;
+    font-size: 1.5rem;
+    
+}
+@media only screen and (max-width: 600px) {
+    .row-type-mens{
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+    }
 }
