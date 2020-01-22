@@ -70,6 +70,7 @@ render(){
         <div className='principalModulo'>
             <button className='criarModulo' onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
             <NavLink to={'/coursePending'}><button >Cursos Pendentes</button></NavLink>
+            <h1>Modulos</h1>
             <div className='containerADM'>
                 <Modal className="modalTamanho" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
                     <h1 className="tituloCriarModulo">Criar Módulo</h1>

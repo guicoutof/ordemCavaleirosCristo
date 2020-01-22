@@ -95,7 +95,6 @@ export class ServicePending extends Component{
     }
     async componentDidMount(){
         const response = await api.get('/service_purchase')
-        console.log(response)
         this.setState({services:response.data,loading:false})
     }
 
@@ -110,15 +109,16 @@ export class ServicePending extends Component{
                 <Navbar/>
                 <div className="containerCURSO">
                 <div className="headerCursos">
-                        <h2 className="nomeCurso">Cursos Pendentes</h2>
-                    <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
+                        <h1 className="nomeCurso">Cursos Pendentes</h1>
+                    {/* <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/> */}
                 </div>
 
                 <div className="tabelaCursos">
                     {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                         :this.state.services.map(service=>
                             <div key={service.id} >
-                                {
+                                {   
+                                // service.user_id === +this.state.search || service.service_id === +this.state.search?
                                     <div className="divListaCursos">
                                         <div className="infoCurso">
                                             <div className="infoTexto">
@@ -130,6 +130,7 @@ export class ServicePending extends Component{
                                             <button onClick={()=>this.aprovar(service.id)} className="botaoAbrirCurso" >Aprovar</button>
                                         </div>
                                     </div>
+                                    // :<div></div>
                                 }
                             </div>
                         )    

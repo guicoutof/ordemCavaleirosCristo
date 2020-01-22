@@ -57,6 +57,7 @@ export default class PanelBlog extends Component {
                 <div className="container1">
                     <div className="containerbuttons">
                         <NavLink to={`/post/create`}><button className="botaoCriarArtigo">Adicionar Artigo</button></NavLink>
+                        <h1>Artigos</h1>
                         <input className="search1" placeholder="Pesquisar" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}>
                         </input>
                     </div>

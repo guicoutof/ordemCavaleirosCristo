@@ -58,7 +58,7 @@ export default class panelCurso extends Component{
                 <div className="headerCursos">
                     <NavLink to={`/module/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Novo Curso</button></NavLink>
                         <h2 className="nomeCurso">Modulo {this.props.match.params.id}</h2>
-                    <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
+                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
 
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este curso?'} close={this.close} confirm={this.confirm}/> 
@@ -67,7 +67,8 @@ export default class panelCurso extends Component{
                         :this.state.courses.map(course=>
                             <div key={course.id} >
                                 {
-                                    course.name.indexOf(this.state.search)!==-1?
+                                    course.name.indexOf(this.state.search)!==-1
+                                    ||(course.id === +this.state.search)?
                                     <div className="divListaCursos">
                                         <div className="infoCurso">
                                             <img src={course.url} alt={course.path}className="imgCurso"/>
@@ -135,7 +136,7 @@ export class CoursePending extends Component{
                 <div className="containerCURSO">
                 <div className="headerCursos">
                         <h2 className="nomeCurso">Cursos Pendentes</h2>
-                    <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
+                    {/* <input className="pesquisarCurso" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/> */}
                 </div>
 
                 <div className="tabelaCursos">
