@@ -18,7 +18,7 @@ export default (props) => {
     }
 
     return(
-        <div className="backimg">
+        <div className="containerDoacao">
             <div className="option">
                 <h1 className="tit">{props.titulo}</h1>
             </div>
@@ -26,11 +26,12 @@ export default (props) => {
                 <div className="introText">
                     <p className="texto">{props.conteudo}</p>
                 </div>
-                {msg}
-                Valor: <input type='number' step="0.01" min='0' value={value} onChange= {(e) => setValue(+e.target.value)}/>
-                <button onClick={donation}>Doar</button>
-
-                    {/* <img src={require('../../../assets/img/mercado-pago-logo.png')} alt="Doação Mercado Pago"/> */}
+                <div className="divDoacao">
+                    {msg}
+                    Valor: <input className="inputDoacao" type='number' step="0.01" min='0' value={value} onChange= {(e) => setValue(+e.target.value)}/>
+                    <button className="enviarDoacao" onClick={donation}>Doar</button>
+                </div>
+                {/* <img src={require('../../../assets/img/mercado-pago-logo.png')} alt="Doação Mercado Pago"/> */}
             </div>
 
         </div>

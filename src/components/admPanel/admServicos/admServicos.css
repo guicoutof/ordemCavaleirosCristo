@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1rem 2rem 0 2rem;
 }
@@ -41,6 +42,7 @@
     border-radius: 5px;
     border-style: none;
     padding-left: 0.25rem;
+    height: 2rem;
 }
 
 .tabelaServicos{
@@ -91,7 +93,7 @@
     border: none;
     font-weight: bold;
     color: white;
-    Servicor: pointer;
+    cursor: pointer;
     outline: none;
 }
 
@@ -103,7 +105,7 @@
     border: none;
     font-weight: bold;
     color: white;
-    Servicor: pointer;
+    cursor: pointer;
     outline: none;
 }
 
@@ -114,4 +116,16 @@
 
 .imgServico{
     width: 5rem;
+}
+
+.botaoServicosPendentes{
+    background-color: #4673F6;
+    border-radius: 7px;
+    height: 2rem;
+    width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    outline: none;
 }

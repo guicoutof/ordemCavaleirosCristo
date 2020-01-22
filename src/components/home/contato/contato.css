@@ -1,5 +1,4 @@
 .contato{
-    width: 50%;
     border-bottom-width: 1px;
     border-bottom-color: black;
     border-bottom-style: solid;
@@ -7,16 +6,17 @@
 }
 
 .formulario{
-    width: 50%;
-    margin-top: 3%;
-    font-family: 'Times New Roman', Times, serif;
-
+    width: 60%;
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
 }
 
+.backimg{
+    text-align: -webkit-center;
+}
 
 .inputSimples{
     width: 100%;
@@ -25,7 +25,6 @@
     padding-left: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-style: groove;
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
 
@@ -35,6 +34,7 @@
 .inputTexto{
     width: 100%;
     border-radius: 10px;
+    border: none;
     margin-top: 10px;
     margin-bottom: 5px;
     height: 6rem;
@@ -42,6 +42,7 @@
     font-size: 20px;
     font-family: 'Times New Roman', Times, serif;
     resize: none;
+    outline: none;
 }
 
 .submit{
@@ -63,7 +64,8 @@
     background-color: rgb(250, 228, 178) ;
     /* border-style: solid; */
 }
-@media only screen and (max-width: 600px) {
+
+/* @media only screen and (max-width: 600px) {
     .formulario{
         width: 80%;
         margin-top: 3%;
@@ -74,4 +76,4 @@
         flex-wrap: wrap;
         justify-content: space-around;
     }
-}
+} */

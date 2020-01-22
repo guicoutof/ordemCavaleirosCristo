@@ -46,7 +46,7 @@ export default class Services extends Component{
             <div className="containerServico">
                 <div className="headerServicos">
                     <NavLink to={"/services/create"}><button className="botaoCriarServico">Criar Serviço</button></NavLink>
-                    <NavLink to={"/servicePending"}><button >Serviços Pendentes</button></NavLink>
+                    <NavLink to={"/servicePending"}><button className="botaoServicosPendentes">Serviços Pendentes</button></NavLink>
                     <h2 className="panelUser-h2">Serviços</h2>
                     <input className="pesquisarServico" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
