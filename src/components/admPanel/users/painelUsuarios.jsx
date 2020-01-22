@@ -253,7 +253,7 @@ export default class panelUsuarios extends Component {
                         <option value={1}>Pendente</option>
                         <option value={2}>Afiliado</option>
                     </select>
-                    <h2 className="panelUser-h2">Usuários</h2>
+                    <h1 className="panelUser-h2">Usuários</h1>
                     <input className="panelUser-input" placeholder="Pesquisar" type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
@@ -261,6 +261,7 @@ export default class panelUsuarios extends Component {
                     <div key={element.id} className="panelUser-table">
                     {( ((element.name.indexOf(this.state.search)!==-1)
                     ||(element.email.indexOf(this.state.search)!== -1)
+                    ||(element.id === +this.state.search)
                     // ||(element.city.indexOf(this.state.search)!== -1)
                     // ||(element.state.indexOf(this.state.search)!== -1)
                     // ||(element.country.indexOf(this.state.country)!== -1)
