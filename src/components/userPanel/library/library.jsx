@@ -42,18 +42,18 @@ export default class Library extends Component{
             <div className="cards">
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.courses.map((c)=>
-                    <div key={c.id} className="card">
+                    <div key={c.id} className="cardLibrary">
                         <img src={c.course.url} alt={`Curso ${c.id}`} />
-                        {<div className="module">Modulo {c.course.module_id}</div>}
-                        <div className="title" >{c.course.name}</div>
+                        {<div className="module"><strong>Modulo {c.course.module_id}</strong></div>}
+                        <div className="title" ><strong>{c.course.name}</strong></div>
                         <div className="desc">{c.course.description}</div>
                         <div>
                             <div>Duração: {c.course.hours} horas</div>
                             <div>Assistencia: {c.course.assistance}</div>
                         </div>
-                        <div>Livro {c.book}</div>
+                        <div>Livro: <a href={c.course.book}>{c.course.book}</a></div>
                         <div className="bottom">
-                            <NavLink to={`/curso/${c.course.id}`}><button className="btn">Abrir</button></NavLink>
+                            <NavLink to={`/curso/${c.course.id}`}><button className="btnLibrary">Abrir</button></NavLink>
                         </div>
                     </div>
                 )}

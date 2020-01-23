@@ -23,32 +23,19 @@ export default function PanelUser(){
     )
 } 
 
-export class UserBlog extends Component{
-    state={
-        publications:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/publications")
-            .then(
-                res=>{
-                    this.setState({publications:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-        <div className='principalUSR'>
-            <Navbar/>
-            <div className="containerUSR">
-            <Blog publications={this.state.publications}/>
-            </div>
-            <Footer/>
+export function UserBlog (){
+    
+    return(
+    <div className='principalUSR'>
+        <Navbar/>
+        <div className="containerUSR">
+        <Blog />
         </div>
-        )
-    }
+        <Footer/>
+    </div>
+    )
 }
+
 
 export function UserConta(){
 

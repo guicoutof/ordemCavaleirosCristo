@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './curso.css';
 import api from '../../../services/api'
+import {getInfo} from '../../../services/auth'
 import { NavLink, withRouter } from 'react-router-dom'
 export class Curso extends Component {
     constructor(){
@@ -14,8 +15,8 @@ export class Curso extends Component {
             course:{},
             class:[],
     
-            comments:'',
-            restriction:2
+            content:'',
+            status:2
         }
     }
     
@@ -40,7 +41,16 @@ export class Curso extends Component {
     }
 
     handleChange(event){
-        this.setState({restriction:event.target.value})
+        this.setState({status:event.target.value})
+    }
+
+    async submitComment(){
+        const {content,status} = this.state
+        const course_id=this.state.course.id
+        const user_id = getInfo().id
+        const response = await api.post('comments',{content,status,user_id,course_id})
+        console.log(response)
+        this.setState({content:''})
     }
 
     render() {
@@ -59,6 +69,19 @@ export class Curso extends Component {
                             )}
                             <NavLink to="/biblioteca" ><button className="curso-module-span" >Voltar</button></NavLink>
                         </div>
+                        <div className="curso-comentario">
+                            <div>
+                                <select className="selectTipoUsuario" value={this.state.status}onChange={this.handleChange}>
+                                    <option value={2}>Exibir meu comentário na página inicial</option>
+                                    <option value={1}>Exibir meu comentário como anônimo</option>
+                                    <option value={0}>Não exibir na página inicial</option>
+                                </select>
+                            </div>
+                            <textarea value={this.state.content} onChange={e=>this.setState({content:e.target.value})} />
+                            <div>
+                                <button onClick={()=>this.submitComment()}>Enviar</button>
+                            </div>
+                        </div>
                     </div>
                     <div className="curso-content">
                         <header className="curso-header-name">
@@ -67,19 +90,12 @@ export class Curso extends Component {
                             </h1>
                         </header>
                         <iframe title="cursoFrame" className="curso-video" src={this.state.iframeLink} frameBorder="0" allowFullScreen />
-                        {this.state.classDescription}
+                        <div>
+                            {this.state.classDescription}
+                        </div>
                     </div>
-                </div>
+                </div>  
                 
-                <div>
-                    <textarea value={this.state.comments} onChange={e=>this.setState({comments:e.target.value})} />
-                    <select className="selectTipoUsuario" value={this.state.restriction}onChange={this.handleChange}>
-                        <option value={2}>Exibir meu comentário na página inicial</option>
-                        <option value={1}>Exibir meu comentário como anônimo</option>
-                        <option value={0}>Não exibir na página inicial</option>
-                    </select>
-                    <button>Enviar</button>
-                </div>
 
             </div>
         );

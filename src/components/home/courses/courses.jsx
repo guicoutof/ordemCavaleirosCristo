@@ -68,7 +68,7 @@ export default class Courses extends Component{
                             <a className="btn" href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=237102186-12e0c26e-66dc-4d47-b812-268c84c2ea1a" target="_blank" rel="noopener noreferrer">Pagar</a>
                             </div> */}
 
-                            {this.state.button?<a className="btn" href={this.state.button} target="_blank" rel="noopener noreferrer">Confirmar Compra</a>:<button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>}
+                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
                         </div>
                     </div>
                 )}
@@ -106,7 +106,6 @@ export class CursoAprovado extends Component{
     }
 }
 export class CursoPendente extends Component{
-
     async componentDidMount(){
         const course_id = this.props.match.params.id
         const user_id = getInfo().id

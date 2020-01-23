@@ -102,6 +102,10 @@
 }
 */
 
+.curso-comentario{
+    text-align: center;
+}
+
 .curso-content{
     height: fit-content;
     width: fit-content;
