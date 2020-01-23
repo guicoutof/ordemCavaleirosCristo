@@ -41,7 +41,7 @@ export default class Services extends Component{
         return(
         <div className="courses">
             <div className='title'>
-                <h1>SERVICOS</h1>
+                <h1>SERVIÇOS</h1>
             </div>
             <div className="cards">
             {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>

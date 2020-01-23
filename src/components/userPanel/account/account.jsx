@@ -8,6 +8,9 @@ import Navbar from '../../home/navbar/navbar'
 import Footer from '../../home/footer/footer'
 import {NavLink} from 'react-router-dom'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSave, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+
 export default class Account extends Component{
     constructor(){
         super()
@@ -101,48 +104,89 @@ export default class Account extends Component{
 
     render(){
         return(
-            <div>
+            <div className="divContainerInfoConta">
+                <div className="headerInfoConta">
+                    <h1 className="titleInfoConta">Informações da Conta</h1>
+                </div>
                 <div>{this.state.msg}
-                    <div>Nome</div>
-                    <input id="name" type="text" value={this.state.name} onChange={e => this.setState({name:e.target.value})} />
-                    <div>Email</div>
-                    <input id="email" type="email" value={this.state.email} onChange={e => this.setState({email:e.target.value})} />
-                    <div>Senha Antiga</div>
-                    <input id="oldsenha" type="password" value={this.state.oldPassword} onChange={e => this.setState({oldPassword:e.target.value})} />
-                    <div>Nova Senha</div>
-                    <input id="senha" type="password" value={this.state.password} onChange={e => this.setState({password:e.target.value})} />
-                    <div>Confirmar Nova Senha</div>
-                    <input id="confsenha" type="password" value={this.state.confirmPassword} onChange={e => this.setState({confirmPassword:e.target.value})} />
-                    <div>Numero</div>
-                    <input id="phone" type="text" value={this.state.phone_number||''} onChange={e => this.setState({phone_number:e.target.value})} />
-                    <div>Data de nascimento</div>
-                    <input id="birth" type="date" value={this.state.birth_date||''} onChange={e => this.setState({birth_date:e.target.value})} />
-                    <div>Cidade</div>
-                    <input id="city" type="text" value={this.state.city||''} onChange={e => this.setState({city:e.target.value})} />
-                    <div>Estado</div>
-                    <input id="state" type="text" value={this.state.state||''} onChange={e => this.setState({state:e.target.value})} />
-                    <div>Pais</div>
-                    <input id="country" type="text" value={this.state.country||''} onChange={e => this.setState({country:e.target.value})} />                       
-                    <div>Tipo de Usuario</div>
-                    <div>{this.state.type?this.state.type===2?'Afiliado':'Pendente':'Gratuito'}</div>                      
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="name">Nome</label>
+                        <input className="inputInfoConta" id="name" type="text" value={this.state.name} onChange={e => this.setState({name:e.target.value})} />
+                    </div>
+                    
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="email">Email</label>
+                        <input className="inputInfoConta" id="email" type="email" value={this.state.email} onChange={e => this.setState({email:e.target.value})} />
+                    </div>
 
-                    <button onClick={()=>this.submitUser()}>Salvar</button>
-                    <button onClick={()=>this.setState({modalC:true})}>EXCLUIR CONTA</button>
-                    <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perdera todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="oldsenha">Senha Antiga</label>
+                        <input className="inputInfoConta" id="oldsenha" type="password" value={this.state.oldPassword} onChange={e => this.setState({oldPassword:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="senha">Senha Nova</label>
+                        <input className="inputInfoConta" id="senha" type="password" value={this.state.password} onChange={e => this.setState({password:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="confsenha">Confirmar Senha</label>
+                        <input className="inputInfoConta" id="confsenha" type="password" value={this.state.confirmPassword} onChange={e => this.setState({confirmPassword:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="phone">Telefone</label>
+                        <input className="inputInfoConta" id="phone" type="text" value={this.state.phone_number||''} onChange={e => this.setState({phone_number:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="birth">Data de Nascimento</label>
+                        <input className="inputInfoConta" id="birth" type="date" value={this.state.birth_date||''} onChange={e => this.setState({birth_date:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="city">Cidade</label>
+                        <input className="inputInfoConta" id="city" type="text" value={this.state.city||''} onChange={e => this.setState({city:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="state">Estado</label>
+                        <input className="inputInfoConta" id="state" type="text" value={this.state.state||''} onChange={e => this.setState({state:e.target.value})} />
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="country">País</label>
+                        <input className="inputInfoConta" id="country" type="text" value={this.state.country||''} onChange={e => this.setState({country:e.target.value})} />                       
+                    </div>
+
+                    <div className="divInfoConta">
+                        <label className="labelInfoConta" htmlFor="">Cadastro</label>
+                        <div>{this.state.type?this.state.type===2?'Afiliado':'Pendente':'Gratuito'}</div>                      
+                    </div>
+
+                    <div className="divBotoesInfoConta">
+                        <button className="botaoInfoConta verde" onClick={()=>this.submitUser()}>
+                            <FontAwesomeIcon className="icon" icon={faSave} size="2x"/>
+                        </button>
+                        <button className="botaoInfoConta vermelho" onClick={()=>this.setState({modalC:true})}>
+                            <FontAwesomeIcon className="icon" icon={faTrashAlt} size="2x"/>
+                        </button>
+                    </div>
+                    <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perderá todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>
                 <div><p>Texto que mostra as vantagens de ser afiliado</p>
                     {!this.state.type?
-                    <div>
-                    <button onClick={()=>this.setState({affiliate:!this.state.affiliate})}>Upgrade para afiliado</button>
+                    <div className="divUpgradeInfoConta">
+                        <button className="botaoUpgradeInfoConta" onClick={()=>this.setState({affiliate:!this.state.affiliate})}>Upgrade para afiliado</button>
 
-                    {this.state.affiliate?
-                        <div>
-                        <div>R$90 (mensalidade)</div>
-                        <input type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
-                        {this.state.numberOfFees?<div><button onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
-                        </div>
-                    :<div></div>}
-                    
+                        {this.state.affiliate?
+                            <div className="divUpgradeInfoConta">
+                                <div>R$90 (mensalidade)</div>
+                                <input className="inputInfoConta" type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
+                                {this.state.numberOfFees?<div><button className="botaoUpgradeInfoConta" onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
+                            </div>
+                        :<div></div>}
+                        
                     </div>
                     :<div></div>}
 

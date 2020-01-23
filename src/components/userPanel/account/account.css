@@ -1,0 +1,75 @@
+.inputInfoConta{
+    height: 2rem;
+    padding-left: 5px;
+    border-radius: 15px;
+    margin:0;
+}
+
+.divInfoConta{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.labelInfoConta{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.titleInfoConta{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.divContainerInfoConta{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.divBotoesInfoConta{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.botaoInfoConta{
+    border: none;
+    background-color: unset;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.verde{
+    color: #28CE11;
+}
+
+.vermelho{
+    color: red;
+}
+
+.botaoUpgradeInfoConta{
+    background-color: #4673F6;
+    border-radius: 7px;
+    height: 1.75rem;
+    /* width: 5rem; */
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.divUpgradeInfoConta{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
