@@ -27,9 +27,9 @@
 }
 
 .botaoCriarCurso{
-    background-color: rgb(76, 246, 70);
+    background-color: forestgreen;
     border-radius: 7px;
-    /* height: 1.75rem; */
+    height: 1.8rem;
     width: auto;
     border: none;
     font-weight: bold;
@@ -70,6 +70,7 @@
 .infoTexto > .nomeCurso{
     text-align: left;
     font-size: 1.25rem;
+    width: 50vw;
 }
 
 .precoCurso{

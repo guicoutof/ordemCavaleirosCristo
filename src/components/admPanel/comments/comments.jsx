@@ -22,19 +22,25 @@ export default class Comments extends Component{
 
     render(){
         return(
-            <div>
-                <div>
+            <div className="containerComments">
+                <h2 align="center">
                     COMENTÁRIOS
-                </div>
+                </h2>
+                <div className="comments">
                 {
                     this.state.comments.map(coment=>
-                        <div key={coment.id}>
-                            <div>Nome: {coment.status?coment.status===2?<div>{coment.user.name}</div>:<div>Anonimo</div>:<div>{coment.user.name}</div>}</div>
-                            <div>Comentário: {coment.content}</div>
-                            {coment.status?(!coment.approved)?<button onClick={()=>this.approve(coment.id,true)}>Publicar na pagina Inicial</button>:<button onClick={()=>this.approve(coment.id,false)}>Retirar da pagina Inicial</button>:<div></div>}
+                        <div className="infoComments"key={coment.id}>
+                            <div>
+                                <div><strong>Nome:</strong> {coment.status?coment.status===2?<div className="inline">{coment.user.name}</div>:<div  className="inline">Anonimo</div>:<div  className="inline">{coment.user.name}</div>}</div>
+                                <div><strong>Comentário:</strong> {coment.content}</div>
+                            </div>
+                            <div className="btnComments">
+                                {coment.status?(!coment.approved)?<button className="publicar" onClick={()=>this.approve(coment.id,true)}>Publicar na pagina Inicial</button>:<button className="remover" onClick={()=>this.approve(coment.id,false)}>Retirar da pagina Inicial</button>:<div></div>}
+                            </div>
                         </div>
                     )
                 }
+                </div>
             </div>
         )
     }

@@ -75,7 +75,7 @@ export default class AdmClass extends Component{
                     </div>
                     )
             }
-            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button>Voltar</button></NavLink> 
+            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button className="botaoVoltar">Voltar</button></NavLink> 
             </div>
             </div>
         )

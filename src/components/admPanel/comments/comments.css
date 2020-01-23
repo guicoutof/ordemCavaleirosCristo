@@ -1,0 +1,46 @@
+.containerComments{
+    align-self: baseline;
+}
+
+.comments{
+    width: 60vw;
+    padding: 3%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px groove gray;
+}
+
+.infoComments{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.nameComments{
+    /* width: 100%; */
+}
+
+.btnComments{
+    margin-left: auto;
+}
+
+.btnComments > .publicar{
+    width: 6vw;
+    background-color: #3667FC;
+    border-radius: 5%;
+    padding: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.btnComments > .remover{
+    width: 6vw;
+    background-color: #F64646;
+    border-radius: 5%;
+    padding: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}

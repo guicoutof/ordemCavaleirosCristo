@@ -60,13 +60,13 @@ export default class Services extends Component{
                                 <div className="infoServico">
                                     <div className="infoTexto">
                                         <h5 className="nomeServico">{service.name}</h5>
-                                        <p className="descricaoServico"><b>Id: </b>{service.id}</p>
+                                        <p><b>Id: </b>{service.id}</p>
                                         <p className="descricaoServico">{service.description}</p>
-                                    </div>
                                         <a className="linkServico" href={service.link} target="_blank" rel="noopener noreferrer" >{service.link}</a>
+                                    </div>
                                 </div>
                                 <div className="duracaoAula">
-                                    <h3>{service.price}</h3>
+                                    <h3>R$ {service.price}</h3>
                                 </div>
                                 <div className="botoesServico">
                                     <NavLink to={`services/${service.id}/edit`}><button className="botaoEditarServico">Editar</button></NavLink>
