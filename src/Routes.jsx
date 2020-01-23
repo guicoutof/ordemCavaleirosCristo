@@ -51,19 +51,19 @@ export default function routes() {
 
         Curso:     /curso/id/aprovado
         Servico:   /servico/id/aprovado
-        Doação:    /doacao/aprovado
-        Afiliação: /cadastro/id/aprovado  
+        Doação:    /doacoes/aprovado
+        Afiliação: /cadastro/aprovado  
         Upgrade:   /conta/aprovado   
 
         Curso:     /curso/id/pendente
         Servico:   /servico/id/pendente
-        Doação:    /doacao/pendente
-        Afiliação: /cadastro/id/pendente
+        Doação:    /doacoes/pendente
+        Afiliação: /cadastro/pendente
         Upgrade:   /conta/pendente   
 
         Curso:     /curso/reprovado
         Servico:   /servico/reprovado
-        Doação:    /doacao/reprovado
+        Doação:    /doacoes/reprovado
         Afiliação: /cadastro/reprovado
         Upgrade:   /conta/reprovado     
 
@@ -72,7 +72,6 @@ export default function routes() {
             <Switch>
             {/* Admin */}
             <AdmRoute exact path="/admin" component={PanelAdm} />
-
             <AdmRoute exact path="/user" component={AdmUser} />
             {/* <AdmRoute exact path="/user/:id/course" component={UserCourse} /> */}
             

@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
+import './panelUser.css'
+
 import Navbar from '../home/navbar/navbar'
 import Footer from '../home/footer/footer'
-import api from '../../services/api'
 import {getInfo} from '../../services/auth'
 import Blog from './blog/blog'
 import Title from '../home/title/title'
@@ -9,7 +10,6 @@ import Account from './account/account'
 import Library from './library/library'
 import Curso from './curso/curso'
 
-import './panelUser.css'
 
 export default function PanelUser(){
     return(

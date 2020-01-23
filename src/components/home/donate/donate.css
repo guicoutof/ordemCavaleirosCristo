@@ -1,27 +1,28 @@
-.option{
+.containerDoacao > .option{
     width: 50%;
     border-bottom-width: 1px;
     border-bottom-color: black;
     border-bottom-style: solid;
 }
-.tit{
+.containerDoacao > .option > .tit{
     text-align: center;
 }
-.Content{
+.containerDoacao > .Content{
     width: 100%;
     height: 100%;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    align-items: baseline;
 }
 
-.introText{
-    width: 60%;
+.containerDoacao > .Content > .introText{
+    width: 50%;
     overflow: hidden;
+    padding: 10%;
 }
 
-.texto{
+.containerDoacao > .Content > .introText > .texto{
     text-align: justify;
     margin-top: 15px;
     text-indent: 1.5rem;
@@ -41,9 +42,17 @@
 
 .inputDoacao{
     height: 2rem;
+    width: 5rem;
     border-radius: 15px;
     padding-left: 15px;
     font-size: 1rem;
+    text-align: center;
+}
+
+.doacaoName{
+    display: inline;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .enviarDoacao{
@@ -62,6 +71,7 @@
 
 .divDoacao{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -70,7 +80,7 @@
 
 .containerDoacao{
     width: 100%;
-    height: 100%;
+    height: 75%;
     background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
     background-position: center;
@@ -81,4 +91,18 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+}
+@media only screen and (max-width: 600px) {
+    .containerDoacao{
+        height: auto;
+    }
+    .containerDoacao > .Content{
+        width: 80%;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+
+    }
+    .containerDoacao > .Content > .introText{
+        width: 100%;
+    }
 }

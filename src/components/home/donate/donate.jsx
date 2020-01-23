@@ -27,8 +27,10 @@ export default (props) => {
                     <p className="texto">{props.conteudo}</p>
                 </div>
                 <div className="divDoacao">
-                    {msg}
-                    Valor: <input className="inputDoacao" type='number' step="0.01" min='0' value={value} onChange= {(e) => setValue(+e.target.value)}/>
+                    <div>
+                        <div className="doacaoName">Valor:</div> <input className="inputDoacao" type='number' step="0.01" min='0' value={value} onChange= {(e) => setValue(+e.target.value)}/>
+                        {msg}
+                    </div>
                     <button className="enviarDoacao" onClick={donation}>Doar</button>
                 </div>
                 {/* <img src={require('../../../assets/img/mercado-pago-logo.png')} alt="Doação Mercado Pago"/> */}

@@ -1,12 +1,14 @@
 .contato{
+    width: 50%;
     border-bottom-width: 1px;
     border-bottom-color: black;
     border-bottom-style: solid;
     text-align: center;
 }
 
-.formulario{
+.backimg > .formulario{
     width: 60%;
+    padding: 3%;
     margin-top: 15px;
     display: flex;
     flex-direction: column;
@@ -16,9 +18,10 @@
 
 .backimg{
     text-align: -webkit-center;
+    height: 72%;
 }
 
-.inputSimples{
+.backimg > .formulario > .inputSimples{
     width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -31,7 +34,7 @@
     outline: 0;
 }
 
-.inputTexto{
+.backimg > .formulario > .inputTexto{
     width: 100%;
     border-radius: 10px;
     border: none;
@@ -45,7 +48,7 @@
     outline: none;
 }
 
-.submit{
+.backimg > .formulario > .submit{
     margin-top: 20px;
     width: 7rem;
     height: 37px;
