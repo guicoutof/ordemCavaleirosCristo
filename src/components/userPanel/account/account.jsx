@@ -174,14 +174,23 @@ export default class Account extends Component{
                     </div>
                     <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perderá todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>
-                <div><p>Texto que mostra as vantagens de ser afiliado</p>
+                <div>
+                    <p>Vantagens: Acesso a Artigos, Acesso a Cursos, Acompanhamento via WhatsApp ou Skype, Acesso ao grupo fechado da Ordem ( WhatsApp ), Certificado de Estudante de Mistérios ao concluir o cronograma, Poderá participar dos encontros anuais da OCC, onde ocorrem palestras, rituais, orientações filosóficas e vivência espiritual</p>
                     {!this.state.type?
                     <div className="divUpgradeInfoConta">
                         <button className="botaoUpgradeInfoConta" onClick={()=>this.setState({affiliate:!this.state.affiliate})}>Upgrade para afiliado</button>
 
                         {this.state.affiliate?
                             <div className="divUpgradeInfoConta">
-                                <div>R$90 (mensalidade)</div>
+                                <h3>Mensalidade - R$ 90,00</h3>
+                                <div>
+                                    <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <br/><br/>
+                                    Bruno Brisola Gonçalves Claro <br/>
+                                            Banco do Brasil</p>
+                                            <strong>CPF :</strong> 417.248.418-23 <br/>
+                                            <strong>Agencia :</strong> 203-8 <br/>
+                                            <strong>Conta corrente :</strong>  44602-5 <br/>
+                                </div>
                                 <input className="inputInfoConta" type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
                                 {this.state.numberOfFees?<div><button className="botaoUpgradeInfoConta" onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
                             </div>
