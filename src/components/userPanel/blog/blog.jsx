@@ -35,13 +35,13 @@ export default class Blog extends Component{
 
     render(){
         return(
-        <div>
+        <div className="container1">
             {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.posts.map(post=>
-                <div key={post.id}>
+                <div className="divPost" key={post.id}>
+                    <h1 className="artname0">{post.title}</h1>       
                     <img className="art0" src={post.url} alt={post.title} />
-                    <h1 className="artname0">{post.title}</h1>
-                    <div dangerouslySetInnerHTML={{__html: post.text}}></div>
+                    <div className="divTexto" dangerouslySetInnerHTML={{__html: post.text}}></div>
                 </div>
                 )
             }
