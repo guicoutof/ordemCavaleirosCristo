@@ -203,7 +203,12 @@ class CadScreen extends Component {
                 <div >
                   <h3 className="cad-type-header">Mensalidade - R$ 90,00</h3>
                   <div>
-                    <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <strong>agencia: TAL cc: TAL</strong></p>
+                    <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <br/><br/>
+                    Bruno Brisola Gonçalves Claro <br/>
+                            Banco do Brasil</p>
+                            <strong>CPF :</strong> 417.248.418-23 <br/>
+                            <strong>Agencia :</strong> 203-8 <br/>
+                            <strong>Conta corrente :</strong>  44602-5 <br/>
                   </div>
                   <div className="cad-mensalidade">
                     <h4>Numero de meses: </h4><input className="divInputMensalidade" type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>

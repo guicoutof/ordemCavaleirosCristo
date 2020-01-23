@@ -13,7 +13,8 @@ export default class Library extends Component{
             courses:[],
             page:1,
             limite:false,
-            loading:true
+            loading:true,
+            msg:''
         }
     }
     
@@ -33,12 +34,33 @@ export default class Library extends Component{
 
     }
 
+    async upgradeModule(){
+        const id = getInfo().module
+        const response = await api.get(`/modules/${id}`)
+        const qtd_course_modulo = response.data.module.courses_quantity
+        const courses_user = this.state.courses.filter(courses=>{
+            if(courses.course.module_id === id)return courses
+            else return null
+        })
+        if(qtd_course_modulo===courses_user.length){
+            const email = getInfo().email
+            const name = getInfo().name
+            const type = getInfo().type
+            await api.put('/users',{email,name,type,module:(id+1)})
+            this.setState({msg:`Parabens, agora você esta no modulo ${id+1}, por favor, relogue para atualizar suas informações`})
+        }
+        else this.setState({msg:'É necessário o conhecimento de todos os cursos do modulo atual para prosseguir ao próximo'})
+
+    }
+
     render(){
         return(
         <div className="courses">
+            <button onClick={()=>this.upgradeModule()}>Subir de Modulo</button>
             <div className='title'>
                 <h1>MEUS CURSOS</h1>
             </div>
+            {this.state.msg}
             <div className="cards">
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.courses.map((c)=>

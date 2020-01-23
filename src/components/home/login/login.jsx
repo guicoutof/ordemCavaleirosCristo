@@ -70,6 +70,7 @@ class Login extends React.Component {
       try{
         const response = await api.post("/sessions",{email,password});
         const info = {
+          email:response.data.user.email,
           id:response.data.user.id,
           name:response.data.user.name,
           module:response.data.user.module,

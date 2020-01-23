@@ -4,6 +4,7 @@ import api from '../../../services/api'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faEye, faEyeSlash, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+import Confirm from '../confirm/confirm'
 
 
 export default class Comments extends Component{
@@ -11,8 +12,12 @@ export default class Comments extends Component{
         super()
         this.state={
             comments:[],
-            id:0
+            id:0,
+            modalC:false
         }
+        this.confirm = this.confirm.bind(this)
+        this.close = this.close.bind(this)
+
     }
     async componentDidMount(){
         const response = await api.get('/comments')
@@ -24,6 +29,21 @@ export default class Comments extends Component{
         window.location.reload()
     }
 
+    async confirm(){
+        const {id} = this.state
+        this.setState({modalC:false})
+        await api.delete(`/comments/${id}`)
+        window.location.reload();
+    }
+    
+    close(){
+        this.setState({modalC:false});
+    }
+
+    remove(id){
+        this.setState({modalC:true,id:id})
+
+    }
 
     render(){
         return(
@@ -32,6 +52,7 @@ export default class Comments extends Component{
                     COMENTÁRIOS
                 </h2>
                 <div>
+                <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este comentário?'} close={this.close} confirm={this.confirm}/> 
                 {
                     this.state.comments.map(coment=>
                         <div className="comments infoComments"key={coment.id}>
@@ -42,13 +63,13 @@ export default class Comments extends Component{
                             <div className="btnComments">
                                 {coment.status?(!coment.approved)?
                                 <button className="publicar" onClick={()=>this.approve(coment.id,true)}>
-                                    <FontAwesomeIcon className="icon" icon={faEye} size="3x"/>
+                                    <FontAwesomeIcon className="icon" icon={faEye} size="2x"/>
                                 </button>:
                                 <button className="remover" onClick={()=>this.approve(coment.id,false)}>
-                                    <FontAwesomeIcon className="icon" icon={faEyeSlash} size="3x"/>
+                                    <FontAwesomeIcon className="icon" icon={faEyeSlash} size="2x"/>
                                 </button>:<div></div>}
-                                <button className="excluir">
-                                    <FontAwesomeIcon className="icon" icon={faTrashAlt} size="3x"/>
+                                <button onClick={()=>this.remove(coment.id)}className="excluir">
+                                    <FontAwesomeIcon className="icon" icon={faTrashAlt} size="2x"/>
                                 </button>
                             </div>
                         </div>
