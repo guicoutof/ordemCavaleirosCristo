@@ -47,7 +47,7 @@ export default class Services extends Component{
                 <div className="headerServicos">
                     <NavLink to={"/services/create"}><button className="botaoCriarServico">Criar Serviço</button></NavLink>
                     <NavLink to={"/servicePending"}><button className="botaoServicosPendentes">Serviços Pendentes</button></NavLink>
-                    <h2 className="panelUser-h2">Serviços</h2>
+                    <h2 className="tituloServicosAdmin">Serviços</h2>
                     <input className="pesquisarServico" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este serviço ?'} close={this.close} confirm={this.confirm}/> 
@@ -58,15 +58,15 @@ export default class Services extends Component{
                             <div className="divServicos">
                                 <img src={service.url} alt={service.path} className='imgServico'/>
                                 <div className="infoServico">
-                                    <div className="infoTexto">
+                                    <div className="infoTextoServicos">
                                         <h5 className="nomeServico">{service.name}</h5>
-                                        <p><b>Id: </b>{service.id}</p>
+                                        <p className="idServico"><b>Id: </b>{service.id}</p>
                                         <p className="descricaoServico">{service.description}</p>
                                         <a className="linkServico" href={service.link} target="_blank" rel="noopener noreferrer" >{service.link}</a>
                                     </div>
                                 </div>
                                 <div className="duracaoAula">
-                                    <h3>R$ {service.price}</h3>
+                                    <h3 className="valorServico">R$ {service.price}</h3>
                                 </div>
                                 <div className="botoesServico">
                                     <NavLink to={`services/${service.id}/edit`}><button className="botaoEditarServico">Editar</button></NavLink>
