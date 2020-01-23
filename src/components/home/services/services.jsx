@@ -54,7 +54,7 @@ export default class Services extends Component{
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
                             <div className="price">R$ {c.price}</div>
-                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
+                            <button className="btnComprarServico" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
                         </div>
                         <form action="/processar_pagamento" method="POST">
                         <script
