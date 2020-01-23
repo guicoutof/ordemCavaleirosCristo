@@ -139,7 +139,7 @@ export class CoursePending extends Component{
                     {/* <input className="pesquisarCurso" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/> */}
                 </div>
 
-                <div className="tabelaCursos">
+                <div className="tabelaDeCursos">
                     {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                         :this.state.courses.map(course=>
                             <div key={course.id} >
@@ -147,8 +147,8 @@ export class CoursePending extends Component{
                                     <div className="divListaCursos">
                                         <div className="infoCurso">
                                             <div className="infoTexto">
-                                                <div>Id do usuário: {course.user_id}</div>
-                                                <div>Id do curso: {course.course_id}</div>
+                                                <div><b>Id do usuário:</b> {course.user_id}</div>
+                                                <div><b>Id do curso:</b> {course.course_id}</div>
                                             </div>
                                         </div>
                                         <div className="botoesCurso">
