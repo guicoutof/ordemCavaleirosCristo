@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import './comments.css'
 import api from '../../../services/api'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faEye, faEyeSlash, faTrashAlt} from '@fortawesome/free-solid-svg-icons';
+
+
 export default class Comments extends Component{
     constructor(){
         super()
@@ -36,8 +41,15 @@ export default class Comments extends Component{
                             </div>
                             <div className="btnComments">
                                 {coment.status?(!coment.approved)?
-                                <button className="publicar" onClick={()=>this.approve(coment.id,true)}>Publicar na pagina Inicial</button>:
-                                <button className="remover" onClick={()=>this.approve(coment.id,false)}>Retirar da pagina Inicial</button>:<div></div>}
+                                <button className="publicar" onClick={()=>this.approve(coment.id,true)}>
+                                    <FontAwesomeIcon className="icon" icon={faEye} size="3x"/>
+                                </button>:
+                                <button className="remover" onClick={()=>this.approve(coment.id,false)}>
+                                    <FontAwesomeIcon className="icon" icon={faEyeSlash} size="3x"/>
+                                </button>:<div></div>}
+                                <button className="excluir">
+                                    <FontAwesomeIcon className="icon" icon={faTrashAlt} size="3x"/>
+                                </button>
                             </div>
                         </div>
                     )
