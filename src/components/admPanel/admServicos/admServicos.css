@@ -153,6 +153,7 @@
     color: white;
     cursor: pointer;
     outline: none;
+    margin-left: 5px;
 }
 
 .infoTextoServicos{
@@ -162,6 +163,12 @@
 
 .valorServico{
     width: 45px;
+}
+
+.botoesHeaderServicos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
