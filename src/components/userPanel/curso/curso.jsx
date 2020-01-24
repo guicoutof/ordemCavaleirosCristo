@@ -59,7 +59,7 @@ export class Curso extends Component {
                 <div key={this.state.courseID} className="curso-container">
                     <div className="curso-button-content">
                         <div className="curso-module">
-                            <img src={this.state.course.url} alt={this.state.course.name}/>
+                            <img class="curso-img" src={this.state.course.url} alt={this.state.course.name}/>
                             <h2 className="curso-h2">{ this.state.course.name }</h2>
                             <p className="curso-module-name">{this.state.course.description}</p>
                         </div>
@@ -70,16 +70,16 @@ export class Curso extends Component {
                             <NavLink to="/biblioteca" ><button className="curso-module-span" >Voltar</button></NavLink>
                         </div>
                         <div className="curso-comentario">
-                            <div>
+                            <div className="textAreaCurso">
                                 <select className="selectTipoUsuario" value={this.state.status}onChange={this.handleChange}>
                                     <option value={2}>Exibir meu comentário na página inicial</option>
                                     <option value={1}>Exibir meu comentário como anônimo</option>
                                     <option value={0}>Não exibir na página inicial</option>
                                 </select>
+                                <textarea className="textAreaCurso" value={this.state.content} onChange={e=>this.setState({content:e.target.value})} />
                             </div>
-                            <textarea value={this.state.content} onChange={e=>this.setState({content:e.target.value})} />
                             <div>
-                                <button onClick={()=>this.submitComment()}>Enviar</button>
+                                <button className="botaoUpgradeInfoConta" onClick={()=>this.submitComment()}>Enviar</button>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@ export class Curso extends Component {
                             </h1>
                         </header>
                         <iframe title="cursoFrame" className="curso-video" src={this.state.iframeLink} frameBorder="0" allowFullScreen />
-                        <div>
+                        <div className="descriptionCurso">
                             {this.state.classDescription}
                         </div>
                     </div>

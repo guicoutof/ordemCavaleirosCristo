@@ -10,18 +10,25 @@
 
 .curso-container{
     display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.descriptionCurso{
+    margin-left: 20px;
+    width: 100%;
 }
 
 .curso-button-content{
     margin-top: 2%;
-    margin-left: 5%;
     height: fit-content;
     width: fit-content;
     display: inline-block;
+    width:20%;
 }
 
 .curso-module{
-    width: 375px;
+    width: 100%;
     text-align: center;
     border: 2px solid rgb(197, 151, 66);
     box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
@@ -43,7 +50,7 @@
     display: block;
     text-align: center;
     text-decoration: none;
-    width: fit-content;
+    width: 100%;
     margin-top: 2%;
     margin-left: 1%;
 }
@@ -62,11 +69,16 @@
     display: block;
 }
 
+.curso-img{
+    width: 100%;
+    height: auto;
+}
+
 .curso-module-btn {
     font-size: 1.3em;
     font-family: "Bookman Old Style";
     cursor: pointer;
-    width: 375px;
+    width: 100%;
     height: 80px;
     border-radius: 4px;
     border: 2px solid rgb(197, 151, 66);
@@ -82,7 +94,7 @@
     font-size: 1.3em;
     font-family: "Bookman Old Style";
     cursor: pointer;
-    width: 375px;
+    width: 100%;
     height: 80px;
     opacity: 0.6;
     transition: 0.3s;
@@ -107,20 +119,23 @@
 }
 
 .curso-content{
-    height: fit-content;
-    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    height: initial;
+    width: 70%;
 }
 
 .curso-header-name{
-    width: 1250px;
+    width: 100%;
     padding-bottom: 0.5px;
     margin-bottom: 3%;
-    margin-left: 5%;
+    margin-left: 20px;
     box-shadow: 0px 1.2px 0px 0px rgb(0, 0, 0);
 }
 
 .curso-title{
     text-align: left;
+    margin-top: 0;
 }
 
 .curso-classes{
@@ -128,11 +143,31 @@
     width: fit-content;
 }
 
+.selectTipoUsuario{
+    width: 100%;
+}
+
+.textAreaCurso{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.textAreaCurso > textarea{
+    width: 100%;
+    padding: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    resize: none;
+    border-radius: 5px;
+}
+
 .curso-video{
-    margin-left: 5%;
+    margin-left: 20px;
     border: 1px;
-    height: 700px;
-    width: 1250px;
+    width: 100%;
+    height: 100%;
 }
 
 .li-no-bullets{
@@ -140,8 +175,8 @@
 }
 
 .curso-h2{
-    width: 70%;
-    margin-left: 15%;
+    width: 100%;
+    text-align: center;
     font-size: 1.6em;
     font-weight:normal;
     box-shadow: 0px 1.2px 0px 0px rgb(0, 0, 0);
@@ -149,4 +184,18 @@
 
 .notbold{
     font-weight:normal;
+}
+
+@media only screen and (max-width: 600px) {
+    .curso-module-btn{
+        font-size: small;
+    }
+
+    .curso-h2{
+        font-size: medium;
+    }
+
+    .curso-module-name{
+        font-size: medium;
+    }
 }
