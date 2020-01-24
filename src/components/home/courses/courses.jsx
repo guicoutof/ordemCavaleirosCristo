@@ -73,9 +73,9 @@ export default class Courses extends Component{
                     </div>
                 )}
             </div>
-            <div>
-                {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
-                {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+            <div className="divBotoesProxPagCursos">
+                {this.state.page>1?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}
+                {!this.state.limite?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
             </div>
             <div>
                 <h4 className="cad-detalhes">Os pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta </h4>
