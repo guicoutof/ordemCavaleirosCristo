@@ -56,12 +56,12 @@ export default class Services extends Component{
                     <div key={service.id} className="tabelaServicos">
                         {service.name.indexOf(this.state.search)!==-1?
                             <div className="divServicos">
-                                <img src={service.url} alt={service.path} className='imgServico'/>
                                 <div className="infoServico">
+                                    <img src={service.url} alt={service.path} className='imgServico'/>
                                     <div className="infoTextoServicos">
                                         <h5 className="nomeServico">{service.name}</h5>
                                         <p className="idServico"><b>Id: </b>{service.id}</p>
-                                        <p className="descricaoServico">{service.description}</p>
+                                        <p className="descricaoServico">{cortar(service.description)}</p>
                                         <a className="linkServico" href={service.link} target="_blank" rel="noopener noreferrer" >{service.link}</a>
                                     </div>
                                 </div>
@@ -82,6 +82,12 @@ export default class Services extends Component{
         </div>
         )
     }
+}
+
+function cortar(minhaString){
+    if (minhaString.length > 80) 
+        return minhaString.slice(0, 80)+'...' 
+    else return minhaString
 }
 
 export class ServicePending extends Component{
