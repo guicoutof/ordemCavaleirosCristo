@@ -87,3 +87,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.descVantagens{
+    width: 60%;
+    background-color: white;
+    padding: 2%;
+    border-radius: 40px;
+}

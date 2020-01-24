@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import './courses.css'
 import api from '../../../services/api'
-import {getInfo} from '../../../services/auth'
+import {getInfo, getToken} from '../../../services/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../navbar/navbar'
@@ -68,7 +68,7 @@ export default class Courses extends Component{
                             <a className="btn" href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=237102186-12e0c26e-66dc-4d47-b812-268c84c2ea1a" target="_blank" rel="noopener noreferrer">Pagar</a>
                         </div> */}
 
-                            <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
+                            {getToken()&&getInfo().type!==2?<button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>:<div></div>}
                         </div>
                     </div>
                 )}
@@ -78,12 +78,12 @@ export default class Courses extends Component{
                 {!this.state.limite?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
             </div>
             <div>
-                <h4 className="cad-detalhes">Os pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta </h4>
-                    Bruno Brisola Gonçalves Claro <br/>
-                    Banco do Brasil <br/>
-                    <strong>CPF :</strong> 417.248.418-23 <br/>
-                    <strong>Agencia :</strong> 203-8 <br/>
-                    <strong>Conta corrente :</strong>  44602-5 <br/>
+                <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <br/><br/>
+                <strong>Bruno Brisola Gonçalves Claro</strong><br/>
+                        <strong>Banco do Brasil</strong><br/>
+                        <strong>CPF :</strong> 417.248.418-23<br/>
+                        <strong>Agencia :</strong> 203-8<br/>
+                        <strong>Conta corrente :</strong>  44602-5<br/></p>
             </div>
         </div>
         )

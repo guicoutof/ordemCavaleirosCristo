@@ -3,7 +3,7 @@ import './services.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 import api from '../../../services/api';
-import {getInfo} from '../../../services/auth';
+import {getInfo, getToken} from '../../../services/auth';
 import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
 import {NavLink} from 'react-router-dom'
@@ -54,7 +54,7 @@ export default class Services extends Component{
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
                             <div className="price">R$ {c.price}</div>
-                            <button className="btnComprarServico" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
+                            {getToken()&&getInfo().type!==2?<button className="btnComprarServico" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>:<div></div>}
                         </div>
                         <form action="/processar_pagamento" method="POST">
                         <script
@@ -66,12 +66,12 @@ export default class Services extends Component{
                 )}
             </div>
             <div>
-                <h4 className="cad-detalhes">Os pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta </h4>
-                    Bruno Brisola Gonçalves Claro <br/>
-                    Banco do Brasil <br/>
-                    <strong>CPF :</strong> 417.248.418-23 <br/>
-                    <strong>Agencia :</strong> 203-8 <br/>
-                    <strong>Conta corrente :</strong>  44602-5 <br/>
+                <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <br/><br/>
+                <strong>Bruno Brisola Gonçalves Claro</strong><br/>
+                        <strong>Banco do Brasil</strong><br/>
+                        <strong>CPF :</strong> 417.248.418-23<br/>
+                        <strong>Agencia :</strong> 203-8<br/>
+                        <strong>Conta corrente :</strong>  44602-5<br/></p>
             </div>
         </div>
         )
