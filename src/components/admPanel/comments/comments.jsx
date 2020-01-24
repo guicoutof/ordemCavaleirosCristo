@@ -62,15 +62,17 @@ export default class Comments extends Component{
                             </div>
                             <div className="btnComments">
                                 {coment.status?(!coment.approved)?
-                                <appr title="Publicar na pagina inicial"><button className="publicar" onClick={()=>this.approve(coment.id,true)}>
-                                    <FontAwesomeIcon className="icon" icon={faEye} size="2x"/>
-                                </button></appr>:
-                                <appr title="Retirar da pagina inicial"><button className="remover" onClick={()=>this.approve(coment.id,false)}>
+                                <abbr title="Publicar na pagina inicial">
+                                    <button className="publicar" onClick={()=>this.approve(coment.id,true)}>
+                                        <FontAwesomeIcon className="icon" icon={faEye} size="2x"/>
+                                    </button>
+                                </abbr>:
+                                <abbr title="Retirar da pagina inicial"><button className="remover" onClick={()=>this.approve(coment.id,false)}>
                                     <FontAwesomeIcon className="icon" icon={faEyeSlash} size="2x"/>
-                                </button></appr>:<div></div>}
-                                <appr title="Excluir comentario"><button onClick={()=>this.remove(coment.id)}className="excluir">
+                                </button></abbr>:<div></div>}
+                                <abbr title="Excluir comentario"><button onClick={()=>this.remove(coment.id)}className="excluir">
                                     <FontAwesomeIcon className="icon" icon={faTrashAlt} size="2x"/>
-                                </button></appr>
+                                </button></abbr>
                             </div>
                         </div>
                     )

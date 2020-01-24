@@ -29,7 +29,7 @@
     flex-direction: column;
 }
 
-.btnComments > .publicar{
+.publicar{
     width: 4rem;
     background-color: #3667FC;
     border-radius: 5%;
@@ -39,7 +39,7 @@
     cursor: pointer;
     outline: none;
 }
-.btnComments > .remover{
+.remover{
     width: 4rem;
     background-color: #F64646;
     border-radius: 5%;
