@@ -7,11 +7,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    align-self: baseline;
 }
 
 .containerServico{
     width: 100%;
-    height: 100%;  
     justify-content: space-around;
     display: flex;
     flex-wrap: wrap;
@@ -21,29 +22,55 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1rem 2rem 0 2rem;
 }
 
 .botaoCriarServico{
-    background-color: rgb(76, 246, 70);
+    background-color: #26DA0D;
     border-radius: 7px;
     height: 2rem;
     width: auto;
     border: none;
     font-weight: bold;
     color: white;
+    cursor: pointer;
+}
+
+.botaoCriarServico:hover{
+
 }
 
 .pesquisarServico{
     border-radius: 5px;
     border-style: none;
     padding-left: 0.25rem;
+    height: 2rem;
 }
 
 .tabelaServicos{
     width: 100%;
     padding: 1rem 5rem 0 5rem;
+}
+
+.descricaoServico{
+    margin-bottom: 10px;
+
+    border-radius: 3px;
+    /* height: 6.5rem; */
+    width: 100%;
+    margin-right: 10px;
+    margin-top: 0.5rem;
+    text-align: left;
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: 0;
+    resize: none;
 }
 
 .divServicos{
@@ -55,7 +82,7 @@
 }
 
 .imgServico{
-    width: 20%;
+    width: 30%;
     height: auto;
     margin-right: 1rem;
 }
@@ -63,7 +90,7 @@
 .infoServico{
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 50%;
     align-items: center;
 }
 
@@ -71,6 +98,12 @@
     margin-right: 2rem;
     align-items: center;
     font-size: 1.25rem;
+}
+
+.nomeServico{
+    font-size: 1.5rem;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .botoesServico{
@@ -89,7 +122,7 @@
     border: none;
     font-weight: bold;
     color: white;
-    Servicor: pointer;
+    cursor: pointer;
     outline: none;
 }
 
@@ -101,7 +134,7 @@
     border: none;
     font-weight: bold;
     color: white;
-    Servicor: pointer;
+    cursor: pointer;
     outline: none;
 }
 
@@ -110,6 +143,74 @@
     align-items: center;
 }
 
-.imgServico{
+.botaoServicosPendentes{
+    background-color: #3667FC;
+    border-radius: 7px;
+    height: 2rem;
     width: 5rem;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    margin-left: 5px;
 }
+
+.infoTextoServicos{
+    display: flex;
+    flex-direction: column;
+}
+
+.valorServico{
+    width: 45px;
+}
+
+.botoesHeaderServicos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .pesquisarServico{
+        width: 60%;
+        margin: 0;
+    }
+
+    .tituloServicosAdmin{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .headerServicos{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .infoServico{
+        width: 30%;
+    }
+
+    .infoTextoServicos{
+        width: 100%;
+    }
+
+    .descricaoServico{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .idServico{
+        width: 100%;
+    }
+
+    .nomeServico{
+        width: 100%;
+    }
+
+    .tabelaServicos{
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+  }

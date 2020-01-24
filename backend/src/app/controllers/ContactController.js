@@ -1,5 +1,5 @@
 const Yup = require('yup');
-const ContactMail = require('../jobs/ConctactMail');
+const ContactMail = require('../jobs/ContactMail');
 
 class ClassController {
   async store(req, res) {

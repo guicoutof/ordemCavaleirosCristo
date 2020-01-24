@@ -4,6 +4,8 @@ import Modal from 'react-modal';
 import api from '../../../services/api'
 import Confirm from '../confirm/confirm'
 import './modules.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class AdmModules extends Component{
     constructor(){
@@ -15,7 +17,8 @@ export default class AdmModules extends Component{
             name:'',
             confirm:false,
             id:'',
-            modalE:false
+            modalE:false,
+            loading:true
         }
         this.confirm = this.confirm.bind(this);
         this.close = this.close.bind(this);
@@ -25,7 +28,7 @@ export default class AdmModules extends Component{
         await api.get("/modules")
             .then(
                 res=>{
-                    this.setState({modulos:res.data})
+                    this.setState({modulos:res.data,loading:false})
                 }
             )
     }
@@ -65,7 +68,11 @@ export default class AdmModules extends Component{
 render(){
     return(
         <div className='principalModulo'>
-            <button className='criarModulo' onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
+            <div className="botoesModulo">
+                <button className='criarModulo' onClick={()=>this.setState({modal:true})}>Criar Modulo</button>
+                <NavLink to={'/coursePending'}><button className="aprovarModulo" >Cursos Pendentes</button></NavLink>
+            </div>
+            
             <div className='containerADM'>
                 <Modal className="modalTamanho" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
                     <h1 className="tituloCriarModulo">Criar Módulo</h1>
@@ -75,8 +82,8 @@ render(){
                     </div>
                 </Modal>
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este modulo?'} close={this.close} confirm={this.confirm}/> 
-            {
-                this.state.modulos.map((modulo) =>
+            {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                :this.state.modulos.map((modulo) =>
                 <div key={modulo.module.id}className='cardModulo'>
                         <h3 className='nomeCurso'>{modulo.module.name}</h3>
                         <p className='qtdCurso'>Cursos: {modulo.module.courses_quantity}</p>

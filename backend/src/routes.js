@@ -4,10 +4,16 @@ const UserController = require('./app/controllers/UserController');
 const SessionController = require('./app/controllers/SessionController');
 const DashboardController = require('./app/controllers/DashboardController');
 const AdminController = require('./app/controllers/AdminController');
+
 const ApproveStudentController = require('./app/controllers/ApproveStudentController');
+const CommentController = require('./app/controllers/CommentController');
+const ApproveCommentController = require('./app/controllers/ApproveCommentController');
 
 const ContactController = require('./app/controllers/ContactController');
+const ForgotPasswordController = require('./app/controllers/ForgotPasswordController');
+const ChangePasswordController = require('./app/controllers/ChangePasswordController');
 
+const ServiceController = require('./app/controllers/ServiceController');
 const ModuleController = require('./app/controllers/ModuleController');
 const CourseController = require('./app/controllers/CourseController');
 const StudentCoursesController = require('./app/controllers/StudentCoursesController');
@@ -28,6 +34,9 @@ routes.post('/sessions', SessionController.store);
 routes.post('/dashboard', DashboardController.store);
 
 routes.post('/contact', ContactController.store);
+routes.post('/forgotPassword', ForgotPasswordController.store);
+routes.post('/verifyCode', ForgotPasswordController.update);
+routes.post('/changePassword/:id', ChangePasswordController.store);
 
 routes.get('/admins', authAdminMiddleware, AdminController.index);
 routes.get('/admins/:id', authAdminMiddleware, AdminController.show);
@@ -35,11 +44,35 @@ routes.post('/admins', authAdminMiddleware, AdminController.store);
 routes.put('/admins', authAdminMiddleware, AdminController.update);
 routes.delete('/admins', authAdminMiddleware, AdminController.delete);
 
+routes.get('/services', ServiceController.index);
+routes.get('/services/:id', ServiceController.show);
+routes.post(
+  '/services',
+  [upload.single('file'), authAdminMiddleware],
+  ServiceController.store
+);
+routes.put(
+  '/services',
+  [upload.single('file'), authAdminMiddleware],
+  ServiceController.update
+);
+routes.delete('/services/:id', authAdminMiddleware, ServiceController.delete);
+
 routes.get('/modules', ModuleController.index);
 routes.get('/modules/:id', ModuleController.show);
 routes.post('/modules', authAdminMiddleware, ModuleController.store);
 routes.put('/modules', authAdminMiddleware, ModuleController.update);
 routes.delete('/modules/:id', authAdminMiddleware, ModuleController.delete);
+
+routes.get('/comments', authAdminMiddleware, CommentController.index);
+routes.get('/comments/:id', authAdminMiddleware, CommentController.show);
+routes.delete('/comments/:id', authAdminMiddleware, CommentController.delete);
+routes.get('/approvedComments', ApproveCommentController.index);
+routes.post(
+  '/approveComment/:id',
+  authAdminMiddleware,
+  ApproveCommentController.store
+);
 
 routes.get('/courses/module/:id', CourseController.index);
 routes.get('/courses/:id', CourseController.show);
@@ -94,10 +127,18 @@ routes.post(
   ApproveStudentController.store
 );
 
+routes.delete(
+  '/deleteStudent/:id',
+  authAdminMiddleware,
+  ApproveStudentController.delete
+);
+
 routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
 routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
+
+routes.post('/comments', CommentController.store);
 
 routes.get('/student_courses/:id', StudentCoursesController.show);
 routes.post('/student_courses', StudentCoursesController.store);

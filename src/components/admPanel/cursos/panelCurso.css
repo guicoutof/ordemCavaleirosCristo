@@ -27,9 +27,9 @@
 }
 
 .botaoCriarCurso{
-    background-color: rgb(76, 246, 70);
+    background-color: forestgreen;
     border-radius: 7px;
-    /* height: 1.75rem; */
+    height: 2rem;
     width: auto;
     border: none;
     font-weight: bold;
@@ -42,9 +42,10 @@
     padding-left: 0.25rem;
 }
 
-.tabelaCursos{
+.tabelaDeCursos{
     width: 100%;
-    padding: 2rem 4rem 0 4rem;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .divListaCursos{
@@ -52,8 +53,11 @@
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
+    padding: 15px;
+    font-size: 19px;
 }
 
 .imgCurso{
@@ -70,12 +74,14 @@
 .infoTexto > .nomeCurso{
     text-align: left;
     font-size: 1.25rem;
+    width: 50vw;
 }
 
 .precoCurso{
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     align-items: center;
     font-size: 1.25rem;
+    widows: 20px;
 }
 
 .botoesCurso{
@@ -123,7 +129,9 @@
 }
 
 .descricaoListaCurso{
-    height: 1.5rem;
+    /* height: 1.5rem; */
+    width: 80%;
+    word-break: break-all;
 }
 
 .botaoVoltar{
@@ -133,4 +141,16 @@
     margin-bottom: 1.5rem;
     outline: none;
     cursor: pointer;
+}
+
+.divBotoesPanelCurso{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) { 
+    .tabelaCursos{
+        padding: 0;
+    }
+
 }

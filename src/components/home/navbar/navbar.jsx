@@ -39,7 +39,7 @@ export default class navbar extends React.Component {
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
-            <div className="itemMenu"><li>LOJA</li></div>
+            <div className="itemMenu"><a className="link" href="https://www.instagram.com/adharalojaocc/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
 
             <div className="itemMenuDireita" onClick={()=>this.openModalLogin()} ><li>ENTRAR</li></div>
         </div>
@@ -47,7 +47,7 @@ export default class navbar extends React.Component {
     }
     navUsuarioLogado(){
         return(
-        <div className='navbar'>
+            <div className='navbar'>
             <div className="itemMenu">
                 <img src={require('../../../assets/img/logo.png')} className='itemMenuLogo' alt="logo"/>
             </div>
@@ -58,7 +58,8 @@ export default class navbar extends React.Component {
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
-            {/* <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink> */}
+            <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
+            <div className="itemMenu"><a className="link" href="https://www.instagram.com/adharalojaocc/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
             {/* <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink> */}
             <div className="itemMenuDireita" onClick={()=>logout()}><li>SAIR</li></div>
         </div>            
@@ -75,6 +76,7 @@ export default class navbar extends React.Component {
             <NavLink to="/admin" className="itemMenu"><li>INÍCIO</li></NavLink>
             <NavLink to="/user" className="itemMenu"><li>USUÁRIOS</li></NavLink>
             <NavLink to="/modules" className="itemMenu"><li>CURSOS</li></NavLink>
+            <NavLink to="comments" className="itemMenu"><li>COMENTARIOS</li></NavLink>
             <NavLink to="/services" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/articles" className="itemMenu"><li>BLOG</li></NavLink>
             <div className="itemMenuDireita" onClick={()=>logoutAdm()}><li>SAIR</li></div>

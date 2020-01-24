@@ -2,11 +2,22 @@
     border: 1px dotted red;
 }
 
-.cad-blog-container{
-    width: 100vw;
-    height: auto;
-    font-family: 'Times New Roman', Times, serif;
+.containerPrincipal{
+    width: 100%;
     background-image: url('../../../assets/img/background.png');
+    
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent !important;
+}
+
+#root{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/img/background.png');
+    
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,36 +26,32 @@
 }
 
 .cad-blog-box{
-    margin-left: 10%;
-    width: fit-content;
-    height: auto;
-    display: inline-block;
-}
-
-.cad-blog-title-input-container{
     display: flex;
-    margin-top: 5%;
-    margin-left: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.cad-blog-title-input{
+.divTituloArtigo{
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.inputTituloArtigo{
     border: none;
     outline: none;
-    margin-right: 10px;
     border-bottom: 1px solid #AAA;
-    width: 900px;
+    width: 80%;
     background-color: transparent;
     font-size: 2.3em;
 }
 
-.cad-blog-label-input{
-    font-size: 2.3em;
-    display: flex;
-    text-align: left;
-    display: flex;
-    flex-direction: row;
-    padding-right: 64px;
-    padding-left: 10px;
+.labelTituloArtigo{
+    width: 15%;
+    font-size: 2rem;
 }
 
 .cad-blog-bgd-container{
@@ -85,7 +92,20 @@
     margin: 75px auto;
 }
 
-.cad-blog-textarea-container{
+.divCabecalhoArtigo{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-right: 5%;
+}
+
+.botaoVoltar{
+    align-self: flex-end;
+    margin-left: 5%;
+    color: black;
+}
+
+.divArtigoBlog{
     display: block;
     margin-top: 10%;
     margin-left: 5%;
@@ -125,630 +145,29 @@
     margin: 75px auto;
 }
 
-@media only screen and (max-width: 1700px) {
-
-    .cad-blog-box{
-        margin-left: 10%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 22%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 600px;
-        font-size: 2.3em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 64px;
-        padding-left: 10px;
-    }
-
-    .cad-blog-bgd-container{
-        margin-top: 5%;
-        margin-left: 5%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 5%;
-        width: 600px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 75px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.6em;
-        width: 1200px;
-        height: 575px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 75px auto;
-    }
+.tituloCadastrarArtigo{
+    text-align: center;
+    width: 100%;
 }
 
-@media only screen and (max-width: 1486px) {
-
-    .cad-blog-box{
-        margin-left: 10%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 22%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 600px;
-        font-size: 2.3em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 64px;
-        padding-left: 10px;
-    }
-
-    .cad-blog-bgd-container{
-        margin-top: 5%;
-        margin-left: 5%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 5%;
-        width: 600px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 75px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.6em;
-        width: 1000px;
-        height: 575px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 75px auto;
-    }
+.divTextoArtigo{
+    margin-top: 20px;
+    width: 75%;
 }
 
-@media only screen and (max-width: 1024px) {
+.botaoSalvarArtigo{
+    border:none;
+    border-radius: 15px;
+    align-self: center;
+    height: 2rem;
+    background-color: #28F600;
+    color: white;
+    font-weight: bold;
 
-    .cad-blog-box{
-        margin-left: 10%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
+    margin-top: 0.5rem;
 
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 12.5%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 500px;
-        font-size: 2.3em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 90px;
-        padding-left: 0px;
-    }
-
-    .cad-blog-bgd-container{
-        margin-top: 5%;
-        margin-left: 0%;
-        margin-right: 5%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        width: fit-content;
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 5%;
-        width: 600px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 75px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.6em;
-        width: 750px;
-        height: 575px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 75px auto;
-    }
-
+    margin-left: auto;
+    display: flex;
+    align-self: center;
+    margin-right: 0rem;
 }
-
-@media only screen and (max-width: 768px) {
-
-    .cad-blog-box{
-        margin-left: 5%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 12%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 385px;
-        font-size: 2.3em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 45px;
-        padding-left: 0px;
-    }
-
-    .cad-blog-bgd-container{
-        margin-top: 5%;
-        margin-left: 0%;
-        margin-right: 0%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        width: fit-content;
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 0%;
-        margin-right: 15%;
-        width: 500px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 75px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.6em;
-        width: 600px;
-        height: 575px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 30px 0px 25px 205px;
-    }
-}
-
-@media only screen and (max-width: 475px) {
-    .cad-blog-box{
-        margin-left: 5%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 15%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 120px;
-        font-size: 1.7em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 45px;
-        padding-left: 0px;
-    }
-
-    .cad-blog-bgd-container{
-        display: inline-block;
-        margin-top: 5%;
-        margin-left: 15%;
-        margin-right: 0%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        width: fit-content;
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 0%;
-        margin-right: 15%;
-        width: 285px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 35px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.6em;
-        width: 320px;
-        height: 475px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 155px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 30px auto;
-    }
-    
-}
-
-@media only screen and (max-width: 400px) {
-    .cad-blog-box{
-        margin-left: 5%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 10%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 120px;
-        font-size: 1.7em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 15px;
-        padding-left: 0px;
-    }
-
-    .cad-blog-bgd-container{
-        display: inline-block;
-        margin-top: 5%;
-        margin-left: 5%;
-        margin-right: 0%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        width: fit-content;
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.0em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 0%;
-        margin-right: 15%;
-        width: 285px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 35px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.4em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.4em;
-        width: 275px;
-        height: 475px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 155px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 30px auto;
-    }
-    
-}
-
-@media only screen and (max-width: 320px) {
-    .cad-blog-box{
-        margin-left: 5%;
-        width: fit-content;
-        height: auto;
-        display: inline-block;
-    }
-
-    .cad-blog-title-input-container{
-        display: flex;
-        margin-top: 5%;
-        margin-left: 3%;
-    }
-
-    .cad-blog-title-input{
-        border: none;
-        outline: none;
-        margin-right: 10px;
-        border-bottom: 1px solid #AAA;
-        width: 120px;
-        font-size: 1.7em;
-    }
-
-    .cad-blog-label-input{
-        font-size: 2.3em;
-        padding-right: 45px;
-        padding-left: 0px;
-    }
-
-    .cad-blog-bgd-container{
-        display: inline-block;
-        margin-top: 5%;
-        margin-left: 0%;
-        margin-right: 0%;
-        /* background-color: red; */
-    }
-
-    .cad-blog-label-bgd {
-        width: fit-content;
-        margin-top: 7.5%;
-        margin-left: 5%;    
-        font-size: 2.3em;
-    }
-
-    .cad-blog-image-header{
-        margin-left: 0%;
-        margin-right: 15%;
-        width: 285px;
-        height: 220px;
-    }
-
-    .cad-blog-load-image-btn {
-        width: 200px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 3px solid #ccc;
-        box-shadow: 1px 1px 1.2px 0px #999;
-        border-radius: 30px;
-        background-color: #fafafa;
-        margin: 35px auto;
-    }
-
-    .cad-blog-textarea-container{
-        margin-top: 10%;
-        margin-left: 5%;
-    }
-
-    .cad-blog-label {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-    }
-
-    .cad-blog-textarea{
-        font-size: 1.4em;
-        width: 235px;
-        height: 475px;
-        padding: 10px;
-    }
-
-    .cad-blog-submit-btn{
-        width: 155px;
-        height: 55px;
-        font-size: 1.5em;
-        border: 4px solid rgb(238, 191, 104);
-        box-shadow: 1px 1px 1.2px 0px rgb(245, 217, 166);
-        border-radius: 6px;
-        margin: 30px auto;
-    }
-    
-}
-

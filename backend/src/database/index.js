@@ -7,10 +7,22 @@ const Class = require('../app/models/Class');
 const Module = require('../app/models/Module');
 const Publication = require('../app/models/Publication');
 const StudentCourse = require('../app/models/StudentCourse');
+const Service = require('../app/models/Service');
+const Comment = require('../app/models/Comment');
 
 const DataBaseConfig = require('../config/database');
 
-const models = [User, Admin, Course, Class, Module, Publication, StudentCourse];
+const models = [
+  User,
+  Admin,
+  Course,
+  Class,
+  Module,
+  Publication,
+  StudentCourse,
+  Service,
+  Comment,
+];
 
 class Database {
   constructor() {

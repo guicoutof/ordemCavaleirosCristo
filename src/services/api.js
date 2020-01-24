@@ -1,8 +1,6 @@
 import axios from "axios";
 import { getToken } from "./auth";
 
-import Image from '../assets/img/test.png'
-
 const api = axios.create({
   baseURL: "http://74.117.156.74:3001"
 });

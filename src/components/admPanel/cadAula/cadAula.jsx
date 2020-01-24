@@ -1,7 +1,6 @@
 import React,{Component} from 'react'
 import './cadAula.css'
 
-import Footer from '../../home/footer/footer'
 import Navbar from '../../home/navbar/navbar'
 import { NavLink } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -31,7 +30,6 @@ export default class CadAulas extends Component{
 
     submitClass = async e=>{
         let {name,link,description,course_id} = this.state;
-        link = link.replace("watch?v=","embed/")
         try{
             await api.post("/classes",{name,link,description,course_id})
             .then(res=>{
@@ -39,7 +37,7 @@ export default class CadAulas extends Component{
             }) 
 
         }catch(err){
-            console.log(err)
+            // console.log(err)
             this.setState({msg:'Algum erro ocorreu'})
         }
     }
@@ -108,7 +106,7 @@ export class CadClassEdit extends Component{
             }) 
 
         }catch(err){
-            console.log(err)
+            // console.log(err)
             this.setState({msg:'Algum erro ocorreu'})
         }
     }

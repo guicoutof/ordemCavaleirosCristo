@@ -6,7 +6,7 @@ import Navbar from '../../home/navbar/navbar'
 import { NavLink } from 'react-router-dom'
 import Confirm from '../confirm/confirm'
 import './admAulas.css'
-import { render } from 'react-dom'
+import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
 export default class AdmClass extends Component{
     constructor(){
@@ -14,7 +14,8 @@ export default class AdmClass extends Component{
         this.state={
             classes:[],
             modal:false,
-            classId:0
+            classId:0,
+            loading:true
         }
 
         this.close = this.close.bind(this);
@@ -25,8 +26,7 @@ export default class AdmClass extends Component{
         await api.get(`/classes/course/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    console.log(res.data)
-                    this.setState({classes:res.data})
+                    this.setState({classes:res.data,loading:false})
                 }
             )
     }
@@ -42,7 +42,6 @@ export default class AdmClass extends Component{
     }
 
     render(){
-
         return(
             <div className="principalAulas">
                 <Navbar />
@@ -50,10 +49,10 @@ export default class AdmClass extends Component{
                 <div className="headerCursos">
                     <NavLink to={`/course/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Nova Aula</button> </NavLink> 
                     <h2 className="nomeCurso">{this.state.classes.length>0?this.state.classes[0].course.name:'Nenhuma Aula'}</h2>
-                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/>
+                    {/* <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/> */}
                 </div>
-            {
-                this.state.classes.map((c)=>
+            {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                :this.state.classes.map((c)=>
                     <div key={c.id} className="tabelaCursos">
                         <div className="divCursos">
                             <div className="infoCurso">
@@ -76,7 +75,7 @@ export default class AdmClass extends Component{
                     </div>
                     )
             }
-            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button>Voltar</button></NavLink> 
+            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button className="botaoVoltar">Voltar</button></NavLink> 
             </div>
             </div>
         )

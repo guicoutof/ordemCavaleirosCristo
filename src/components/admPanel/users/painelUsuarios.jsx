@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import MDArrowBack from 'react-ionicons/lib/MdArrowBack'
-import MDTrashCan from 'react-ionicons/lib/MdTrash'
-import MDEdit from 'react-ionicons/lib/MdPaper'
 import api from '../../../services/api'
 import './painelUsuarios.css'
 import './userCSS/createAndEditUser.css'
 import Confirm from '../confirm/confirm'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faTrash, faUserEdit} from '@fortawesome/free-solid-svg-icons';
+import {faTrash, faUserPlus, faUser, faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 
-export class panelUsuarios extends Component {
+export default class panelUsuarios extends Component {
 
     constructor() {
         super();
@@ -33,7 +30,7 @@ export class panelUsuarios extends Component {
                 country:'',
                 module:1,
                 type:0,
-
+            loading:true
         }
 
         this.close = this.close.bind(this)
@@ -45,7 +42,7 @@ export class panelUsuarios extends Component {
         await api.get("/getUsers")
             .then(
                 res=>{
-                    this.setState({users:res.data})
+                    this.setState({users:res.data,loading:false})
                 }
             )
     }
@@ -256,13 +253,15 @@ export class panelUsuarios extends Component {
                         <option value={1}>Pendente</option>
                         <option value={2}>Afiliado</option>
                     </select>
-                    <h2 className="panelUser-h2">Usuários</h2>
+                    <h1 className="panelUser-h2">Usuários</h1>
                     <input className="panelUser-input" placeholder="Pesquisar" type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
-                {this.state.users.map((element,i) =>
+                {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                    :this.state.users.map((element,i) =>
                     <div key={element.id} className="panelUser-table">
                     {( ((element.name.indexOf(this.state.search)!==-1)
                     ||(element.email.indexOf(this.state.search)!== -1)
+                    ||(element.id === +this.state.search)
                     // ||(element.city.indexOf(this.state.search)!== -1)
                     // ||(element.state.indexOf(this.state.search)!== -1)
                     // ||(element.country.indexOf(this.state.country)!== -1)
@@ -271,6 +270,9 @@ export class panelUsuarios extends Component {
                         <div className="panelUser-div-users">
                             <div className="panelUser-info-curso">
                                 <div className="divInfo">
+                                    <div className="panelUser-contents">
+                                        <b>Id:</b> {element.id}
+                                    </div>
                                     <div className="panelUser-contents">
                                         <b>Nome:</b> {element.name}
                                     </div>
@@ -301,17 +303,22 @@ export class panelUsuarios extends Component {
                                         <b>Modulo atual:</b> {element.module}
                                     </div>
                                     <div className="panelUser-contents">
-                                        <b>Tipo de usuario:</b> {element.type?element.type==2?'Afiliado':'Pendente':'Gratuito'}
+                                        <b>Tipo de usuario:</b> {element.type?element.type===2?'Afiliado':'Pendente':'Gratuito'}
                                     </div>
                                 </div>
                             </div>
                             <div className="panelUser-btn-group">
-                                {element.type==2?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,0)}>
-                                    Retornar para gratuito
+                                {element.type===2?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,0)}>
+                                    <abbr title="Retornar para gratuito">
+                                        <FontAwesomeIcon className="icon" icon={faUser} size="3x"/>
+                                    </abbr>
                                 </button>:<div></div>}
-                                {element.type==1?<button /*className="panelUser-btn btn-editar"*/ onClick={()=>this.approveUser(element.id,2)}>
-                                    Aprovar Afiliação Pendente
+                                {element.type===1?<button className="panelUser-btn btn-editar" onClick={()=>this.approveUser(element.id,2)}>
+                                    <abbr title="Aprovar Afiliação">
+                                        <FontAwesomeIcon className="icon" icon={faUserPlus} size="3x"/>
+                                    </abbr>
                                 </button>:<div></div>}
+                                {/* <NavLink to={`/user/${element.id}/course`}><button>Cursos</button></NavLink> */}
                                 <button className="panelUser-btn btn-excluir" onClick={()=>this.removeUser(i)}>
                                     <FontAwesomeIcon className="icon" icon={faTrash} size="3x"/>
                                 </button>
@@ -337,4 +344,27 @@ export class panelUsuarios extends Component {
     }
 }
 
-export default panelUsuarios;
+export class UserCourse extends Component{
+    constructor(){
+        super()
+        this.state={
+            courses:[]
+        }
+    }
+    componentDidMount = async ()=>{
+        await api.get(`/student_courses/${this.props.match.params.id}`)
+            .then(
+                res=>{
+                    console.log(res)
+                    this.setState({users:res.data,loading:false})
+                }
+            )
+    }
+    render(){
+        return(
+            <div>
+
+            </div>
+        )
+    }
+}

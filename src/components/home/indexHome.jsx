@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
+import {NavLink} from 'react-router-dom'
 import './indexHome.css'
-import api, {feedbacks} from '../../services/api'
 
 import Navbar from './navbar/navbar'
-import Title from './title/title'
 import Footer from './footer/footer'
+import Title from './title/title'
 import UserReviews from './reviews/userReviews'
 import FeaturedCourses from './featuredCourses/featuredCourses'
 import Article from './articlespreview/articlespreview'
@@ -12,57 +12,17 @@ import Donate from './donate/donate'
 import Contacts from './contato/contato'
 import Cadastro from './cadastro/cadastro'
 import Courses from './courses/courses'
+import Services from './services/services'
 
-export default class index extends Component{
-    state = {
-        coursesSpotlight:[],
-        feedbacks:feedbacks,
-        publication:[],
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/publications")
-            .then(
-                res=>{
-                    this.setState({publication:res.data[0]})
-                }
-            )
-        await api.get("/modules")
-            .then(
-                res=>{
-                    this.setState(()=>{
-                        const coursesSpotlight = res.data[0].courses.filter((course)=>{
-                            if(course.highlight) return course
-                            else return null
-                        })
-
-                        return {coursesSpotlight}
-                    })
-                    
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='index'>
-            <Navbar/>
-            <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
-            <Article publication={this.state.publication} />
-            <FeaturedCourses cards={this.state.coursesSpotlight} />
-            <UserReviews feedbacks={this.state.feedbacks} />
-            <Footer/> 
-        </div>
-        )
-    }
-}
-export function indexDonate(){
+export default function index(){
     return(
         <div className='index'>
             <Navbar/>
-            <Donate titulo="DOAÇÕES" conteudo="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book." 
-            />
-            <Footer/>
+            <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
+            <Article />
+            <FeaturedCourses />
+            <UserReviews />
+            <Footer/> 
         </div>
     )
 }
@@ -78,7 +38,7 @@ export function indexContato(){
 }
 
 export function indexCadastro(){
-
+    
     return(
         <div className='index'>
             <Navbar/>
@@ -96,27 +56,60 @@ export function indexCourses(){
     </div>
     )
 }
-export class indexServices extends Component{
-    state = {
-        services:[]
-    }
-
-    componentDidMount = async ()=>{
-        await api.get("/courses/module/1")
-            .then(
-                res=>{
-                    this.setState({services:res.data})
-                }
-            )
-    }
-
-    render(){
-        return(
-            <div className='index'>
+export function indexServices (){
+    return(
+        <div className='index'>
+        <Navbar/>
+        <Services />
+        <Footer/>
+    </div>
+    )
+    
+}
+export function indexDonate(){
+    return(
+        <div className='index'>
             <Navbar/>
-            <Courses title={'SERVIÇOS'}courses={this.state.services}/>
+            <Donate titulo="DOAÇÕES" conteudo="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been theindustry's standard dummy text ever since the 1500s,when an unknown printer took a galley of type andscrambled it to make a type specimen book." 
+            />
             <Footer/>
         </div>
-        )
-    }
+    )
+}
+export function indexDonateAprovado(){
+    return(
+        <div className="conteudoAprovacao">
+            <Navbar/>
+            <div className="conteudoAprovacao">
+                <h2>Doação aprovada, muito obrigado pela sua doação!</h2>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+export function indexDonatePendente(){
+    return(
+        <div className="conteudoAprovacao">
+            <Navbar/>
+            <div className="conteudoAprovacao">
+                <h2>Aguardaremos ansiosamente a sua doação!</h2>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
+            </div>
+            <Footer/>
+        </div>
+    )
+}
+export function indexDonateReprovado(){
+    return(
+        <div className="conteudoAprovacao">
+            <Navbar/>
+            <div className="conteudoAprovacao">
+                <h2>Infelizmente sua doação não foi consolidada</h2>
+                <h3>Confira suas informações de pagamento e tente novamente!</h3>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
+            </div>
+            <Footer/>
+        </div>
+    )
 }
