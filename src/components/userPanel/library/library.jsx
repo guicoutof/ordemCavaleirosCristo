@@ -65,15 +65,15 @@ export default class Library extends Component{
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.courses.map((c)=>
                     <div key={c.id} className="cardLibrary">
-                        <img src={c.course.url} alt={`Curso ${c.id}`} />
+                        <img className="imagemCurso" src={c.course.url} alt={`Curso ${c.id}`} />
                         {<div className="module"><strong>Modulo {c.course.module_id}</strong></div>}
                         <div className="title" ><strong>{c.course.name}</strong></div>
-                        <div className="desc">{c.course.description}</div>
+                        <appr title={c.course.description}><div className="divInfoCurso">{cortar(c.course.description)}</div></appr>
                         <div>
-                            <div>Duração: {c.course.hours} horas</div>
-                            <div>Assistencia: {c.course.assistance}</div>
+                            <div className="divInfoCurso">Duração: {c.course.hours} horas</div>
+                            <div className="divInfoCurso">Assistencia: {c.course.assistance}</div>
                         </div>
-                        <div>Livro: <a href={c.course.book}>{c.course.book}</a></div>
+                        <div className="divInfoCurso">Livro: <a href={c.course.book}>{c.course.book}</a></div>
                         <div className="bottom">
                             <NavLink to={`/curso/${c.course.id}`}><button className="btnLibrary">Abrir</button></NavLink>
                         </div>
@@ -87,4 +87,10 @@ export default class Library extends Component{
         </div>
         )
     }
+}
+
+function cortar(minhaString){
+    if (minhaString.length > 40) 
+        return minhaString.slice(0, 40)+'...' 
+    else return minhaString
 }

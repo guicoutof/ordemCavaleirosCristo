@@ -49,7 +49,7 @@ export default class Services extends Component{
                     <div key={c.id} className="card">
                         <img className="imagemCurso" src={c.url} alt={`Servico ${c.id}`} />
                         <div className="title" >{c.name}</div>
-                        <abbr title={c.description}><div className="divInfoCurso">{cortar(c.description)}</div></abbr>
+                        <appr title={c.description}><div className="divInfoCurso">{cortar(c.description)}</div></appr>
 
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
