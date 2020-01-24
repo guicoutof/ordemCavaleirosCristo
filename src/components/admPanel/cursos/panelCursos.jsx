@@ -75,7 +75,7 @@ export default class panelCurso extends Component{
                                             <div className="infoTexto">
                                                 <h5 className="nomeCurso">{course.name}</h5>
                                                 <p className="descricaoListaCurso"><b>Id:</b> {course.id}</p>
-                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {course.description}</p>
+                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {cortar(course.description)}</p>
                                                 <p className="descricaoListaCurso"><b>Horas:</b> {course.hours}</p>
                                                 <p className="descricaoListaCurso"><b>Assistência:</b> {course.assistance}</p>
                                                 <p className="descricaoListaCurso"><b>Livro:</b> {course.book}</p>
@@ -94,17 +94,24 @@ export default class panelCurso extends Component{
                             </div>
                         )    
                     }
-                    <div>
-                        {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
-                        {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                    <div className="divBotoesPanelCurso">
+                        <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
+                        
+                        {this.state.page>1?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}
+                        {!this.state.limite?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
                     </div>
-                    <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
                 </div>
                 
             </div>
         </div>
         )
     }
+}
+
+function cortar(minhaString){
+    if (minhaString.length > 40) 
+        return minhaString.slice(0, 40)+'...' 
+    else return minhaString
 }
 
 export class CoursePending extends Component{

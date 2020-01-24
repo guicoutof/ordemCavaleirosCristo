@@ -29,7 +29,7 @@
 .botaoCriarCurso{
     background-color: forestgreen;
     border-radius: 7px;
-    height: 1.8rem;
+    height: 2rem;
     width: auto;
     border: none;
     font-weight: bold;
@@ -78,9 +78,10 @@
 }
 
 .precoCurso{
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     align-items: center;
     font-size: 1.25rem;
+    widows: 20px;
 }
 
 .botoesCurso{
@@ -128,7 +129,9 @@
 }
 
 .descricaoListaCurso{
-    height: 1.5rem;
+    /* height: 1.5rem; */
+    width: 80%;
+    word-break: break-all;
 }
 
 .botaoVoltar{
@@ -138,4 +141,16 @@
     margin-bottom: 1.5rem;
     outline: none;
     cursor: pointer;
+}
+
+.divBotoesPanelCurso{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 600px) { 
+    .tabelaCursos{
+        padding: 0;
+    }
+
 }
