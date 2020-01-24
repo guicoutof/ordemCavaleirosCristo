@@ -105,7 +105,7 @@ export class ServicoAprovado extends Component{
                 <Navbar />
                 <div className="conteudoAprovacao">
                     <h2>COMPRA REALIZADA COM SUCESSO</h2>
-                    <button onClick={()=>window.location.assign(this.state.link)}>IR PARA O FORMULARIO</button>
+                    <button className="toLibrary" onClick={()=>window.location.assign(this.state.link)}>IR PARA O FORMULARIO</button>
                 </div>
 
                 <Footer/>
