@@ -28,7 +28,7 @@ export default class Account extends Component{
             country:'',
             type:0,
             modalC:false,
-            numberOfFees:0,
+            numberOfFees:1,
             affiliate:false,
             msg:''
         }
@@ -165,12 +165,12 @@ export default class Account extends Component{
                     </div>
 
                     <div className="divBotoesInfoConta">
-                        <appr title="Salvar"><button className="botaoInfoConta verde" onClick={()=>this.submitUser()}>
+                        <abbr title="Salvar"><button className="botaoInfoConta verde" onClick={()=>this.submitUser()}>
                             <FontAwesomeIcon className="icon" icon={faSave} size="2x"/>
-                        </button></appr>
-                        <appr title="Excluir conta"><button className="botaoInfoConta vermelho" onClick={()=>this.setState({modalC:true})}>
+                        </button></abbr>
+                        <abbr title="Excluir conta"><button className="botaoInfoConta vermelho" onClick={()=>this.setState({modalC:true})}>
                             <FontAwesomeIcon className="icon" icon={faTrashAlt} size="2x"/>
-                        </button></appr>
+                        </button></abbr>
                     </div>
                     <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perderá todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>
@@ -191,6 +191,7 @@ export default class Account extends Component{
                                             <strong>Agencia :</strong> 203-8 <br/>
                                             <strong>Conta corrente :</strong>  44602-5 <br/>
                                 </div>
+                                <h3>Número de mêses</h3>
                                 <input className="inputInfoConta" type="number" placeholder="Numero de meses" min="1" value={this.state.numberOfFees} onChange={e => this.setState({numberOfFees:e.target.value})}/>
                                 {this.state.numberOfFees?<div><button className="botaoUpgradeInfoConta" onClick={()=>this.payment()}>Afiliar-se</button></div>:<div></div>}
                             </div>
