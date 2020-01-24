@@ -56,10 +56,10 @@ export default class Library extends Component{
     render(){
         return(
         <div className="courses">
-            <button onClick={()=>this.upgradeModule()}>Subir de Modulo</button>
             <div className='title'>
                 <h1>MEUS CURSOS</h1>
             </div>
+            <button className="botaoVoltarCursos alignModule" onClick={()=>this.upgradeModule()}>Subir de Modulo</button>
             {this.state.msg}
             <div className="cards">
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
@@ -80,8 +80,8 @@ export default class Library extends Component{
                     </div>
                 )}
                 <div>
-                    {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
-                    {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                    {this.state.page>1?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                    {!this.state.limite?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
                 </div>
             </div>
         </div>

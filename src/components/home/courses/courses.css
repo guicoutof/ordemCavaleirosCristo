@@ -1,6 +1,6 @@
 .courses{
     width: 100%;
-    min-height: 100%;
+    min-height: 75%;
 
     background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
@@ -23,6 +23,7 @@
 
 .courses > .cards{
     margin-top: 2%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

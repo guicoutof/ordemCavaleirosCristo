@@ -20,7 +20,16 @@
 
 }
 
-
+.alignModule{
+    margin-right: auto;
+    margin-left: 1%;
+    border: 1px groove black;
+    border-radius: 5px;
+    background-color: beige;
+}
+.alignModule:hover{
+    background-color: goldenrod;
+}
 .cardLibrary:hover{
     box-shadow: 0px 0px 10px black;
 }
