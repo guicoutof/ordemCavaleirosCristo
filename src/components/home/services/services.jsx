@@ -49,7 +49,7 @@ export default class Services extends Component{
                     <div key={c.id} className="card">
                         <img className="imagemCurso" src={c.url} alt={`Servico ${c.id}`} />
                         <div className="title" >{c.name}</div>
-                        <div className="divInfoCurso">{cortar(c.description)}</div>
+                        <appr title={c.description}><div className="divInfoCurso">{cortar(c.description)}</div></appr>
 
                         {/* <div>Livro {c.book}</div> */}
                         <div className="bottom">
@@ -64,6 +64,14 @@ export default class Services extends Component{
                         </form>
                     </div>
                 )}
+            </div>
+            <div>
+                <h4 className="cad-detalhes">Os pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta </h4>
+                    Bruno Brisola Gonçalves Claro <br/>
+                    Banco do Brasil <br/>
+                    <strong>CPF :</strong> 417.248.418-23 <br/>
+                    <strong>Agencia :</strong> 203-8 <br/>
+                    <strong>Conta corrente :</strong>  44602-5 <br/>
             </div>
         </div>
         )

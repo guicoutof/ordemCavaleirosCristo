@@ -165,12 +165,12 @@ export default class Account extends Component{
                     </div>
 
                     <div className="divBotoesInfoConta">
-                        <button className="botaoInfoConta verde" onClick={()=>this.submitUser()}>
+                        <appr title="Salvar"><button className="botaoInfoConta verde" onClick={()=>this.submitUser()}>
                             <FontAwesomeIcon className="icon" icon={faSave} size="2x"/>
-                        </button>
-                        <button className="botaoInfoConta vermelho" onClick={()=>this.setState({modalC:true})}>
+                        </button></appr>
+                        <appr title="Excluir conta"><button className="botaoInfoConta vermelho" onClick={()=>this.setState({modalC:true})}>
                             <FontAwesomeIcon className="icon" icon={faTrashAlt} size="2x"/>
-                        </button>
+                        </button></appr>
                     </div>
                     <Confirm open={this.state.modalC}  title={'Deseja realmente excluir sua conta? Você perderá todos os seus cursos comprados'} close={this.close} confirm={this.confirm}/>
                 </div>

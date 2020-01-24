@@ -40,9 +40,10 @@ export default class CreateCurso extends Component {
 
             await api.post("/courses",data,{headers:{'Content-Type': 'multipart/form-data'}})
             .then(res=>{
-                this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:'',msg:'Curso criado com sucesso'})
+                this.setState({name:'',description:'',hours:0,price:'',book:'',assistance:'',highlight:false,file:null,msg:'Curso criado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
+            window.location.reload()
         }catch(err){
             // console.log(err)
             this.setState({msg:'Problema ao criar o curso'})
@@ -53,8 +54,8 @@ export default class CreateCurso extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f;  i++;) {
-            f = files[i];
+        for (var i = 0, f;f = files[i];  i++) {
+            
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;
@@ -144,7 +145,6 @@ export class EditCurso extends Component {
         await api.get(`/courses/${this.props.match.params.id}`)
             .then(
                 res=>{
-                    // console.log(res.data)
                     this.setState({
                         id:res.data.id,
                         name:res.data.name,
@@ -153,26 +153,10 @@ export class EditCurso extends Component {
                         assistance:res.data.assistance,
                         book:res.data.book,
                         price:res.data.price,
-                        // file:res.data.url,
-                        // file_name:res.data.path,
                         module_id:res.data.module_id,
                         highlight:res.data.highlight})
-
-                        // document.getElementById("list").innerHTML = "<h3>Atualize a imagem</h3>";
-
-                        // var span = document.createElement('span');
-                        // span.innerHTML = ['<img class="thumb" src="', res.data.url,
-                        //                 '" title="', escape(res.data.path), '"/>'].join('');
-                        // document.getElementById("list").innerHTML = ""; //deletando imagem que possa estar no elemento
-                        // document.getElementById('list').insertBefore(span, null);
                 }
             )
-            // await api.get(this.state.file)
-            //     .then(res=>{
-            //         console.log(res.data)
-            //         this.setState({file:res.data})
-            //     })
-            // console.log(this.state)
     }
 
      updateCourse = async e =>{
@@ -207,8 +191,8 @@ export class EditCurso extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f; i++;) {
-            f = files[i];
+        for (var i = 0, f; f = files[i]; i++) {
+           
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;

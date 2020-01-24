@@ -14,33 +14,33 @@ export default class Courses extends Component{
         this.state={
             courses:[],
             loading:true,
-            button:null
+            button:null,
+            page:1,
+            limite:false
         }
     }
 
-    componentDidMount = async ()=>{
+    componentDidMount = ()=>{
+        this.exibirCursos(1)
+    }
+
+    async exibirCursos(id){
+        this.setState({loading:true})
+        const params = {
+            page:id,
+        }
         const modulo = getInfo().module;
-        await api.get(`/courses/module/${modulo}`)
+        await api.get(`/courses/module/${modulo}`,{params})
             .then(
                 res=>{
-                    this.setState({courses:res.data,loading:false})
+                    res.data.length<3?this.setState({courses:res.data,page:id,limite:true,loading:false}):this.setState({courses:res.data,page:id,limite:false,loading:false})
                 }
             )
     }
 
-    async buyCourse(user_id,course_id){
+    async buyCourse(course_id){
         const response = await api.post(`/coursePayment/${course_id}`)
         window.location.assign(response.data)
-        // this.setState({button:response.data})
-        // try{
-        //     await api.post(`student_courses`,{user_id,course_id})
-        //     .then(res=>{
-        //         console.log(res)
-        //     })
-        // }catch(err){
-        //     console.log(err)
-        //     alert('Você já possui este curso')
-        // }
     }
 
     render(){
@@ -56,7 +56,7 @@ export default class Courses extends Component{
                         <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
-                        <div className="divInfoCurso">{cortar(c.description)}</div>
+                        <appr title={c.description}><div className="divInfoCurso">{cortar(c.description)}</div></appr>
                         <div>
                             <div className="divInfoCurso">Duração: {c.hours} horas</div>
                             <div className="divInfoCurso">Assistencia: {c.assistance}</div>
@@ -66,12 +66,24 @@ export default class Courses extends Component{
                             <div className="price">R$ {c.price}</div>
                             {/* <div>
                             <a className="btn" href="https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=237102186-12e0c26e-66dc-4d47-b812-268c84c2ea1a" target="_blank" rel="noopener noreferrer">Pagar</a>
-                            </div> */}
+                        </div> */}
 
                             <button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>
                         </div>
                     </div>
                 )}
+            </div>
+            <div>
+                {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
+                {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+            </div>
+            <div>
+                <h4 className="cad-detalhes">Os pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta </h4>
+                    Bruno Brisola Gonçalves Claro <br/>
+                    Banco do Brasil <br/>
+                    <strong>CPF :</strong> 417.248.418-23 <br/>
+                    <strong>Agencia :</strong> 203-8 <br/>
+                    <strong>Conta corrente :</strong>  44602-5 <br/>
             </div>
         </div>
         )

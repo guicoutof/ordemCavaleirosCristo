@@ -34,6 +34,7 @@ export default class CadastrarArtigoBlog extends Component {
                 this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
+            window.location.reload()
         }catch(err){
             // console.log(err)
             this.setState({msg:'Problema ao criar o artigo'})
@@ -44,8 +45,8 @@ export default class CadastrarArtigoBlog extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f;  i++;) {
-            f = files[i];
+        for (var i = 0, f;f = files[i];  i++) {
+            
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;
@@ -166,6 +167,7 @@ export class CadBlogEdit extends Component {
                 this.setState({title:'',text:'',file:null,msg:'Artigo criado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
+            window.location.reload()
         }catch(err){
             console.log(err)
             this.setState({msg:'Problema ao criar o artigo'})
@@ -176,8 +178,8 @@ export class CadBlogEdit extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f;  i++;) {
-            f = files[i];
+        for (var i = 0, f;f = files[i];  i++) {
+            
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;

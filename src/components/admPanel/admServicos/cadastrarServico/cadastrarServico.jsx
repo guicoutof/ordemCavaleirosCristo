@@ -35,6 +35,7 @@ export default class CreateCurso extends Component {
                 this.setState({name:'',description:'',price:'',link:'',file:'',msg:'Serviço criado com sucesso'})
                 document.getElementById("list").innerHTML = "";
             })
+            window.location.reload()
         }catch(err){
             // console.log(err)
             this.setState({msg:'Problema ao criar o serviço'})
@@ -45,8 +46,8 @@ export default class CreateCurso extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f;  i++;) {
-            f = files[i];
+        for (var i = 0, f;f = files[i];  i++) {
+            
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;
@@ -159,8 +160,8 @@ export class EditServico extends Component {
     handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         
-        for (var i = 0, f;  i++;) {
-            f = files[i];
+        for (var i = 0, f; f = files[i]; i++) {
+            
           // Fazendo apenas imagens serem processadas
           if (!f.type.match('image.*')) {
             continue;
