@@ -123,3 +123,17 @@
     outline: none;
     cursor: pointer;
 }
+
+.toLibrary{
+    width: 16rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: goldenrod;
+    cursor: pointer;
+    margin-bottom: 20%;
+}
+.toLibrary:hover{
+    font-weight: bold;
+}

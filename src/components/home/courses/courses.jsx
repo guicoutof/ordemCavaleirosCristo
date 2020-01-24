@@ -118,7 +118,7 @@ export class CursoAprovado extends Component{
                 <Navbar />
                 <div className="conteudoAprovacao">
                     <h2>COMPRA REALIZADA COM SUCESSO</h2>
-                    <NavLink to={'/biblioteca'}><button>IR PARA BIBLIOTECA</button></NavLink>
+                    <NavLink to={'/biblioteca'}><button className="toLibrary">IR PARA BIBLIOTECA</button></NavLink>
                     <NavLink to={'/cursos'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
                 <Footer/>
@@ -140,7 +140,7 @@ export class CursoPendente extends Component{
                     <h2>COMPRA PENDENTE, AGUARDANDO APROVAÇÃO DO ADMINISTRADOR</h2>
                     <h3>Enviar comprovante de pagamento/depósito para o email</h3>
                     <h2>cavaleirosdecristostaff@gmail.com</h2>
-                    <NavLink to={'/biblioteca'}><button>IR PARA BIBLIOTECA</button></NavLink>
+                    <NavLink to={'/biblioteca'}><button className="toLibrary">IR PARA BIBLIOTECA</button></NavLink>
                     <NavLink to={'/cursos'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
 
@@ -156,7 +156,7 @@ export function CursoReprovado (){
                 <div className="conteudoAprovacao">
                     <h2>COMPRA RECUSADA</h2>
                     <h3>Revise suas informações de pagamento e tente novamente</h3>
-                    <NavLink to={'/biblioteca'}><button>IR PARA BIBLIOTECA</button></NavLink>
+                    <NavLink to={'/biblioteca'}><button className="toLibrary">IR PARA BIBLIOTECA</button></NavLink>
                     <NavLink to={'/cursos'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
 
