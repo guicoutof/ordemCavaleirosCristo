@@ -101,12 +101,12 @@ export class ServicoAprovado extends Component{
     }
     render(){
         return(
-            <div>
+            <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                     <h2>COMPRA REALIZADA COM SUCESSO</h2>
+                    <button onClick={()=>window.location.assign(this.state.link)}>IR PARA O FORMULARIO</button>
                 </div>
-                <button onClick={()=>window.location.assign(this.state.link)}>IR PARA O FORMULARIO</button>
 
                 <Footer/>
             </div>
@@ -124,14 +124,15 @@ export class ServicoPendente extends Component{
     }
     render(){
         return(
-            <div>
+            <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                     <h2>COMPRA PENDENTE, AGUARDANDO APROVAÇÃO DO ADMINISTRADOR</h2>
                     <h3>Enviar comprovante de pagamento/depósito para o email</h3>
                     <h2>cavaleirosdecristostaff@gmail.com</h2>
+                    <h4>O link para o formulário será enviado ao seu email assim que o administrador confirmar seu pagamento</h4>
+                    <NavLink to={'/servicos'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
-                <NavLink to={'/servicos'}><button>VOLTAR</button></NavLink>
 
                 <Footer/>
             </div>
@@ -140,18 +141,15 @@ export class ServicoPendente extends Component{
 }
 export function ServicoReprovado (){
     return(
-        <div>
-            <div>
+        <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                     <h2>COMPRA RECUSADA</h2>
                     <h3>Revise suas informações de pagamento e tente novamente</h3>
+                    <NavLink to={'/servicos'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
 
-                <NavLink to={'/servicos'}><button>VOLTAR</button></NavLink>
-
                 <Footer/>
-            </div>
         </div>
     )
     

@@ -37,7 +37,18 @@
     text-decoration: none;
     color: black;
 }
+.itemMenu > a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
 
+.itemMenu > a:hover{
+    list-style-type: none;
+    text-decoration: bold;
+    border-bottom: 1px solid #696969;
+    cursor: pointer;
+}
 .itemMenu > li:hover{
     list-style-type: none;
     text-decoration: bold;

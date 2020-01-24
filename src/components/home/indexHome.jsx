@@ -78,37 +78,37 @@ export function indexDonate(){
 }
 export function indexDonateAprovado(){
     return(
-        <div className='index'>
+        <div className="conteudoAprovacao">
             <Navbar/>
-            <div>
+            <div className="conteudoAprovacao">
                 <h2>Doação aprovada, muito obrigado pela sua doação!</h2>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
             </div>
-            <NavLink to={"/doacoes"}><button>Voltar</button></NavLink>
             <Footer/>
         </div>
     )
 }
 export function indexDonatePendente(){
     return(
-        <div className='index'>
+        <div className="conteudoAprovacao">
             <Navbar/>
-            <div>
+            <div className="conteudoAprovacao">
                 <h2>Aguardaremos ansiosamente a sua doação!</h2>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
             </div>
-            <NavLink to={"/doacoes"}><button>Voltar</button></NavLink>
             <Footer/>
         </div>
     )
 }
 export function indexDonateReprovado(){
     return(
-        <div className='index'>
+        <div className="conteudoAprovacao">
             <Navbar/>
-            <div>
+            <div className="conteudoAprovacao">
                 <h2>Infelizmente sua doação não foi consolidada</h2>
                 <h3>Confira suas informações de pagamento e tente novamente!</h3>
+                <NavLink to={"/doacoes"}><button className="botaoVoltar">Voltar</button></NavLink>
             </div>
-            <NavLink to={"/doacoes"}><button>Voltar</button></NavLink>
             <Footer/>
         </div>
     )

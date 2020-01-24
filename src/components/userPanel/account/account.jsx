@@ -211,14 +211,14 @@ export class UserContaAprovado extends Component{
     async componentDidMount(){
         const response = await api.get('getUser')
         await api.put('/users',{name:response.data.name,email:response.data.email,type:2})
-        // setTimeout(logout(),10000)
+        setTimeout(logout(),20000)
     }
 
     render(){
         return(
-            <div>
+            <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                     <h2>AFILIAÇÃO REALIZADA COM SUCESSO</h2>
                     <h3>Realizamos seu logout</h3>
                 </div>
@@ -236,14 +236,14 @@ export class UserContaPendente extends Component{
 
     render(){
         return(
-            <div>
+            <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                 <h2>AFILIAÇÃO PENDENTE, AGUARDANDO APROVAÇÃO DO ADMINISTRADOR</h2>
                 <h3>Enviar comprovante de pagamento/depósito para o email</h3>
                 <h2>cavaleirosdecristostaff@gmail.com</h2>
+                <NavLink to={'/conta'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
-                <NavLink to={'/conta'}><button >VOLTAR</button></NavLink>
 
                 <Footer/>
             </div>
@@ -253,13 +253,13 @@ export class UserContaPendente extends Component{
 export function UserContaReprovado(){
 
     return(
-        <div>
+        <div className="containerAprovacao">
                 <Navbar />
-                <div>
+                <div className="conteudoAprovacao">
                     <h2>COMPRA RECUSADA</h2>
                     <h3>Revise suas informações de pagamento e tente novamente</h3>
+                    <NavLink to={'/conta'}><button className="botaoVoltar">VOLTAR</button></NavLink>
                 </div>
-                <NavLink to={'/conta'}><button >VOLTAR</button></NavLink>
 
                 <Footer/>
             </div>
