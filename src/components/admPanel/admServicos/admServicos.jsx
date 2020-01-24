@@ -117,7 +117,7 @@ export class ServicePending extends Component{
                 <Navbar/>
                 <div className="containerCURSO">
                 <div className="headerCursos">
-                        <h1 className="nomeCurso">Cursos Pendentes</h1>
+                        <h1 className="nomeCurso">Serviço Pendentes</h1>
                     {/* <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/> */}
                 </div>
 
