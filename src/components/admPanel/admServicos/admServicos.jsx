@@ -107,7 +107,8 @@ export class ServicePending extends Component{
     }
 
     async aprovar(id){
-        await api.put('/service_purchase',{id,paid:true})
+        const response = await api.put('/service_purchase',{id,paid:true})
+        console.log(response)
         window.location.reload()
     }
 
