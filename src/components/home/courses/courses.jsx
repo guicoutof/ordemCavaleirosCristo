@@ -61,7 +61,8 @@ export default class Courses extends Component{
             </div>
             <div className="cards">
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
-                    :this.state.courses.map((c)=>
+                    :this.state.courses.length>0?
+                    this.state.courses.map((c)=>
                     <div key={c.id} className="card">
                         <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
@@ -81,7 +82,8 @@ export default class Courses extends Component{
                             {getToken()&&getInfo().type!==2?<button className="btn" onClick={()=>this.buyCourse(getInfo().id,c.id)}>Comprar</button>:<div></div>}
                         </div>
                     </div>
-                )}
+                ):<h3>Ainda não há nenhum curso</h3>
+            }
             </div>
             <div className="divBotoesProxPagCursos">
                 {this.state.page>1?<button className="botaoVoltarCursos" onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}

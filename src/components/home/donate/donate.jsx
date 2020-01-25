@@ -24,7 +24,13 @@ export default (props) => {
             </div>
             <div className="Content">
                 <div className="introText">
-                    <p className="texto">{props.conteudo}</p>
+                    <h4 className="texto">
+                    Shalom Aleichem!
+                    <br/><br/>
+                    Se você gosta do trabalho que a Ordem dos Cavaleiros de Cristo está realizando para difundir os mistérios da Antiga Religião, colabore com um pequeno valor ou, seja um doador ativo! Desta forma nossos conteúdos estarão acessíveis para cada vez mais pessoas. Muito obrigado! 
+                    <br/><br/>
+                    Aleph Yaakov<br/>
+                    Diretor Espiritual da O.C.C.</h4>
                 </div>
                 <div className="divDoacao">
                     <div>

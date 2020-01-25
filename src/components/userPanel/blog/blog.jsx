@@ -37,13 +37,14 @@ export default class Blog extends Component{
         return(
         <div className="container1">
             {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
-                :this.state.posts.map(post=>
+                :this.state.posts.length>0?
+                this.state.posts.map(post=>
                 <div className="divPost" key={post.id}>
                     <h1 className="artname0">{post.title}</h1>       
                     <img className="art0" src={post.url} alt={post.title} />
                     <div className="divTexto" dangerouslySetInnerHTML={{__html: post.text}}></div>
                 </div>
-                )
+                ):<h3 className="divPost">Ainda não há nenhum artigo</h3>
             }
             <div>
                 {this.state.page>1?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}

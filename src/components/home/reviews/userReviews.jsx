@@ -40,7 +40,7 @@ export default class Feedbacks extends Component{
             </div>
             <div className="carousel">
                 {
-                    this.state.comment?
+                    this.state.comment.length>0?
                     <div className={"carouselRow"}>
                         <li className="pointer" onClick={()=> ((this.state.carrosel-1)>=0)? this.exibirComentario(this.state.carrosel-1) : this.exibirComentario(0) }><FontAwesomeIcon icon={faCaretLeft} size="3x"/></li>
                         {
@@ -53,7 +53,7 @@ export default class Feedbacks extends Component{
                         }
                         <li className="pointer" onClick={()=> ((this.state.carrosel+1)<this.state.comments.length)? this.exibirComentario(this.state.carrosel+1) : this.exibirComentario(this.state.carrosel) }><FontAwesomeIcon icon={faCaretRight} size="3x"/></li>
                     </div>
-                    :<h2>Ainda não recebemos nenhum comentário</h2>
+                    :<h2 className={"carouselRow"}>Ainda não recebemos nenhum comentário</h2>
                 }
                 
             </div>

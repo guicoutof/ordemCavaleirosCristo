@@ -24,9 +24,9 @@
 }
 
 .containerDoacao > .Content > .introText > .texto{
-    text-align: justify;
+    text-align: center;
     margin-top: 15px;
-    text-indent: 1.5rem;
+    /* text-indent: 1.5rem; */
 }
 
 .simbol{

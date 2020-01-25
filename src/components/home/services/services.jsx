@@ -45,7 +45,8 @@ export default class Services extends Component{
             </div>
             <div className="cards">
             {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
-                    :this.state.services.map((c)=>
+                    :this.state.services.length>0?
+                    this.state.services.map((c)=>
                     <div key={c.id} className="card">
                         <img className="imagemCurso" src={c.url} alt={`Servico ${c.id}`} />
                         <div className="title" >{c.name}</div>
@@ -63,7 +64,8 @@ export default class Services extends Component{
                         </script>
                         </form>
                     </div>
-                )}
+                ):<h3>Ainda não há nenhum serviço</h3>
+            }
             </div>
             <div>
                 <p className="cad-detalhes">O pagamento pode ser feito com ou sem conta no mercado pago, cartão, boleto ou depósito na conta <br/><br/>
