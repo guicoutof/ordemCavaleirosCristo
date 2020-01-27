@@ -9,7 +9,8 @@ class ContactMail {
 
   async handle(contact) {
     await Mail.sendMail({
-      to: `OCC Atendimento <atendimento@cavaleirosdecristo>`,
+      to: process.env.MAIL_USER,
+      from: contact.email,
       subject: contact.subject,
       template: 'contact',
       context: {

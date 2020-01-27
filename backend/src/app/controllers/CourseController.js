@@ -88,13 +88,14 @@ class CourseController {
     if (!course)
       return res.status(400).json({ error: 'This course does not exist!' });
 
-    await unlinkAsync(
-      resolve(__dirname, '..', '..', 'temp', 'uploads', course.path)
-    );
-
     let { path } = course;
 
-    if (req.file) path = req.file.filename;
+    if (req.file) {
+      await unlinkAsync(
+        resolve(__dirname, '..', '..', 'temp', 'uploads', course.path)
+      );
+      path = req.file.filename;
+    }
 
     await course.update({ ...req.body, path });
 

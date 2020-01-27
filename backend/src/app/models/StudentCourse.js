@@ -3,7 +3,9 @@ const Sequelize = require('sequelize');
 class StudentCourse extends Sequelize.Model {
   static init(sequelize) {
     super.init(
-      {},
+      {
+        paid: Sequelize.BOOLEAN,
+      },
       {
         sequelize,
       }

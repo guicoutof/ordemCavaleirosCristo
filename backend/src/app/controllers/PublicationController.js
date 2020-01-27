@@ -59,13 +59,14 @@ class PublicationController {
         .status(400)
         .json({ error: 'This publication does not exist!' });
 
-    await unlinkAsync(
-      resolve(__dirname, '..', '..', 'temp', 'uploads', publication.path)
-    );
-
     let { path } = publication;
 
-    if (req.file) path = req.file.filename;
+    if (req.file) {
+      await unlinkAsync(
+        resolve(__dirname, '..', '..', 'temp', 'uploads', publication.path)
+      );
+      path = req.file.filename;
+    }
 
     await publication.update({ ...req.body, path });
 
