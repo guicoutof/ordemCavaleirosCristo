@@ -1,0 +1,77 @@
+.cardLibrary{
+    display: flex;
+    flex-direction: column;
+
+    width: 250px;
+    height: 24rem;
+    margin: 2%;
+    /* border: 1.4px solid black; */
+    border-radius: 5%;
+    box-shadow: 0px 0px 15px gray
+}
+.btnLibrary{
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgb(135, 159, 243);
+    cursor: pointer;
+    margin-bottom: 20%;
+
+}
+
+.alignModule{
+    margin-right: auto;
+    margin-left: 1%;
+    border: 1px groove black;
+    border-radius: 5px;
+    background-color: beige;
+}
+.alignModule:hover{
+    background-color: goldenrod;
+}
+.cardLibrary:hover{
+    box-shadow: 0px 0px 10px black;
+}
+.cardLibrary > img{
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+
+    border-bottom: 1px solid black;
+    height: 40%;
+    width: auto;
+    
+}
+.cardLibrary > .module{
+    padding: 1%;
+    width: 80%;
+    font-weight: 600;
+    text-align: center;
+    align-self: center;
+}
+.cardLibrary > .title{
+    padding: 5%;
+    width: 80%;
+    font-weight: bold;
+    text-align: center;
+    align-self: center;
+}
+.cardLibrary > .desc{
+    padding-left:0.5rem;
+    padding-right:0.5rem;
+    text-align: justify;
+    overflow: hidden;
+}
+.cardLibrary > .bottom{
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4%;
+}
+ .btnLibrary:hover{
+    cursor: pointer;
+    /* background: greenyellow; */
+    font-weight: bolder;
+    
+}

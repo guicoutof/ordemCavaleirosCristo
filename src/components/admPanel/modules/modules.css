@@ -27,7 +27,8 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
-    background-color: rgb(235, 219, 181);
+    background-color: #FFF8EE;
+    /* background-color: rgb(235, 219, 181); */
     padding: 10px;
 }
 
@@ -37,8 +38,9 @@
 }
 
 .qtdCurso{
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .botoes{
@@ -53,7 +55,8 @@
     border-radius: 7px;
     height: 1.75rem;
     width: 5rem;
-    border: none
+    cursor: pointer;
+    border: none;
 }
 
 .editarModulo{
@@ -61,7 +64,13 @@
     border-radius: 7px;
     height: 1.75rem;
     width: 5rem;
-    border: none
+    border: none;
+    cursor: pointer;
+}
+
+.editarModulo:hover{
+    font-weight: bold;
+    color: white;
 }
 
 .removerModulo{
@@ -69,17 +78,20 @@
     border-radius: 7px;
     height: 1.75rem;
     width: 5rem;
-    border: none
+    border: none;
+    cursor: pointer;
 }
 
 .abrirModulo:hover{
     background-color: green;
     font-weight: bold;
+    color:white
 }
 
 .removerModulo:hover{
     background-color: #CC0D0D;
     font-weight: bold;
+    color: white;
 }
 
 .criarModulo{
@@ -91,8 +103,9 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     
-    background-color: #3667FC;
+    background-color: #00ADC2;
     color: white;
+    cursor: pointer;
 }
 
 .criarModulo:hover{
@@ -134,4 +147,27 @@
     background-size: cover;
     
     justify-content: center;
+}
+
+.botoesModulo{
+    display: flex;
+    align-items: center;
+}
+
+.aprovarModulo{
+    border:none;
+    border-radius: 4px;
+    width: 7rem;
+    height: 2rem;
+    margin-left: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    
+    background-color: #3667FC;
+    color: white;
+    cursor: pointer;
+}
+
+.aprovarModulo:hover{
+    font-weight: bold;
 }

@@ -58,7 +58,7 @@ export default class panelCurso extends Component{
                 <div className="headerCursos">
                     <NavLink to={`/module/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Novo Curso</button></NavLink>
                         <h2 className="nomeCurso">Modulo {this.props.match.params.id}</h2>
-                    <input className="pesquisarCurso" placeholder='Nome do Curso' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
+                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/>
                 </div>
 
                 <Confirm open={this.state.modalC}  title={'Deseja realmente excluir este curso?'} close={this.close} confirm={this.confirm}/> 
@@ -67,14 +67,15 @@ export default class panelCurso extends Component{
                         :this.state.courses.map(course=>
                             <div key={course.id} >
                                 {
-                                    course.name.indexOf(this.state.search)!==-1?
+                                    course.name.indexOf(this.state.search)!==-1
+                                    ||(course.id === +this.state.search)?
                                     <div className="divListaCursos">
                                         <div className="infoCurso">
                                             <img src={course.url} alt={course.path}className="imgCurso"/>
                                             <div className="infoTexto">
                                                 <h5 className="nomeCurso">{course.name}</h5>
-                                                {/* <p className="descricaoCurso">{course.id}</p> */}
-                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {course.description}</p>
+                                                <p className="descricaoListaCurso"><b>Id:</b> {course.id}</p>
+                                                <p className="descricaoListaCurso"><b>Descrição do Curso:</b> {cortar(course.description)}</p>
                                                 <p className="descricaoListaCurso"><b>Horas:</b> {course.hours}</p>
                                                 <p className="descricaoListaCurso"><b>Assistência:</b> {course.assistance}</p>
                                                 <p className="descricaoListaCurso"><b>Livro:</b> {course.book}</p>
@@ -93,15 +94,84 @@ export default class panelCurso extends Component{
                             </div>
                         )    
                     }
-                    <div>
-                        {this.state.page>1?<button onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}
-                        {!this.state.limite?<button onClick={()=>this.exibirCursos(this.state.page+1)}>Proxima Pagina</button>:<div></div>}
+                    <div className="divBotoesPanelCurso">
+                        <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
+                        
+                        {this.state.page>1?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page-1)}>Página Anterior</button>:<div></div>}
+                        {!this.state.limite?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page+1)}>Próxima Página</button>:<div></div>}
                     </div>
-                    <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
                 </div>
                 
             </div>
         </div>
         )
     }
+}
+
+function cortar(minhaString){
+    if (minhaString.length > 40) 
+        return minhaString.slice(0, 40)+'...' 
+    else return minhaString
+}
+
+export class CoursePending extends Component{
+    constructor(){
+        super()
+        this.state={
+            courses:[],
+            search:'',
+            loading:true,
+            course:{},
+            user:{}
+        }
+    }
+
+    async componentDidMount(){
+        const response = await api.get('/student_courses')
+        this.setState({courses:response.data,loading:false})
+    }
+
+    async aprovar(id){
+        await api.put('/student_courses',{id,paid:true})
+        window.location.reload()
+    }
+
+    render(){
+        return(
+            <div className="principalCursos">
+                <Navbar/>
+                <div className="containerCURSO">
+                <div className="headerCursos">
+                        <h2 className="nomeCurso">Cursos Pendentes</h2>
+                    {/* <input className="pesquisarCurso" placeholder='Pesquisar' type="text" value={this.state.search} onChange={e=>this.setState({search:e.target.value})}/> */}
+                </div>
+
+                <div className="tabelaDeCursos">
+                    {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
+                        :this.state.courses.map(course=>
+                            <div key={course.id} >
+                                {
+                                    <div className="divListaCursos">
+                                        <div className="infoCurso">
+                                            <div className="infoTexto">
+                                                <div><b>Id do usuário:</b> {course.user_id}</div>
+                                                <div><b>Id do curso:</b> {course.course_id}</div>
+                                            </div>
+                                        </div>
+                                        <div className="botoesCurso">
+                                            <button onClick={()=>this.aprovar(course.id)} className="botaoAbrirCurso" >Aprovar</button>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        )    
+                    }
+                    <NavLink to={`/modules`}><button className="botaoVoltar">Voltar</button></NavLink>
+                </div>
+                
+            </div>
+            </div>
+        )
+    }
+
 }

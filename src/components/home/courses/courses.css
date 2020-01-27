@@ -1,6 +1,6 @@
 .courses{
     width: 100%;
-    min-height: 100%;
+    min-height: 75%;
 
     background-image: url('../../../assets/img/background.png');
     background-attachment: fixed;
@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-self: baseline;
 }
 .courses > .title{
     width: 50%;
@@ -22,6 +23,7 @@
 
 .courses > .cards{
     margin-top: 2%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -104,4 +106,34 @@
 
 .divInfoCurso{
     padding-left: 10px;
+}
+
+.divBotoesProxPagCursos{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.botaoVoltarCursos{
+    background-color: unset;
+    border: none;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.toLibrary{
+    width: 16rem;
+    height: 2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: goldenrod;
+    cursor: pointer;
+    margin-bottom: 20%;
+}
+.toLibrary:hover{
+    font-weight: bold;
 }

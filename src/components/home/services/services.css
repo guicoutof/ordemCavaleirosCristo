@@ -1,0 +1,9 @@
+.btnComprarServico{
+    color: white;
+    background-color: #4CFF1D;
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    font-weight: bold;
+    cursor: pointer;
+}

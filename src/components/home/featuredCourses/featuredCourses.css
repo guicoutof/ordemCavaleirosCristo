@@ -50,13 +50,16 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
 .fCourses > .cards > .card > img{
     width: 70%;
+    height:140px;
     margin-top: 90px;
+    opacity: 0.9;
+    border-radius:2%;
 }
 
 .fCourses > .cards > .card > .title{
@@ -65,21 +68,17 @@
 }
 
 .fCourses > .cards > .card > .btn{
-    width: 60%;
-    height: 8%;
+    /* width: 60%;
+    height: 8%; */
     border-radius: 6%;
-    margin-bottom: 20%;
-    border: 1px solid rgba(213,182,115,1);
-    background-color: white;
-    cursor: pointer;
+    /* margin-bottom: 20%; */
+    /* border: 1px solid rgba(213,182,115,1); */
+    /* background-color: white; */
+    /* cursor: pointer; */
 
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.fCourses > .cards > .card > .btn:hover{
-    background-color:rgba(213,182,115,1) ;
 }
 
 .fCourses > .list{

@@ -49,7 +49,7 @@ export default class AdmClass extends Component{
                 <div className="headerCursos">
                     <NavLink to={`/course/${this.props.match.params.id}/create`}><button className="botaoCriarCurso">Nova Aula</button> </NavLink> 
                     <h2 className="nomeCurso">{this.state.classes.length>0?this.state.classes[0].course.name:'Nenhuma Aula'}</h2>
-                    <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/>
+                    {/* <input className="pesquisarCurso" placeholder='Pesquisar' type="text"/> */}
                 </div>
             {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.classes.map((c)=>
@@ -75,7 +75,7 @@ export default class AdmClass extends Component{
                     </div>
                     )
             }
-            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button>Voltar</button></NavLink> 
+            <NavLink to={this.state.classes.length>0?`/module/${this.state.classes[0].course.module_id}`:'/modules'}><button className="botaoVoltar">Voltar</button></NavLink> 
             </div>
             </div>
         )

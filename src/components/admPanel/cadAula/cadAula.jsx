@@ -30,7 +30,6 @@ export default class CadAulas extends Component{
 
     submitClass = async e=>{
         let {name,link,description,course_id} = this.state;
-        link = link.replace("watch?v=","embed/")
         try{
             await api.post("/classes",{name,link,description,course_id})
             .then(res=>{

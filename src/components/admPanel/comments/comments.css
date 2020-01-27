@@ -1,0 +1,63 @@
+.containerComments{
+    align-self: baseline;
+}
+
+.comments{
+    width: 60vw;
+    padding: 3%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px groove gray;
+    margin-bottom: 2%;
+}
+
+.infoComments{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 19px;
+}
+
+.nameComments{
+    /* width: 100%; */
+}
+
+.btnComments{
+    margin-left: auto;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+}
+
+.publicar{
+    width: 4rem;
+    background-color: #3667FC;
+    border-radius: 5%;
+    padding: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.remover{
+    width: 4rem;
+    background-color: #F64646;
+    border-radius: 5%;
+    padding: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.excluir{
+    width: 4rem;
+    background-color: #F64646;
+    border-radius: 5%;
+    padding: 8px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-top: 15px;
+}

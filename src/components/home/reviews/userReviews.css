@@ -25,28 +25,36 @@
 }
 
 .feedback > .carousel{
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.feedback > .carousel > .pointer{
+.feedback > .carousel > .carouselRow{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.feedback > .carousel > .carouselRow > .pointer{
   cursor: pointer;
   color:#696969;
 }
 
-.feedback > .carousel > .cardCarousel{
+.feedback > .carousel > .carouselRow > .cardCarousel{
   padding: 10%;
   align-self: center;
 }
 
-.feedback > .carousel > .cardCarousel > .name{
+.feedback > .carousel > .carouselRow > .cardCarousel > .name{
   text-align: center;
   font-size: 1.6rem;
 }
 
-.feedback > .carousel > .cardCarousel > .text{
+.feedback > .carousel > .carouselRow > .cardCarousel > .text{
   text-align: justify;
   font-size: 1.2rem;
   font-weight: 500;
