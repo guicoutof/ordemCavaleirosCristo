@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2ac6d296.chunk.css",
+    "main.js": "/static/js/main.0350b9c8.chunk.js",
+    "main.js.map": "/static/js/main.0350b9c8.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3a5cd4d3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3a5cd4d3.js.map",
+    "static/js/2.dd20fc18.chunk.js": "/static/js/2.dd20fc18.chunk.js",
+    "static/js/2.dd20fc18.chunk.js.map": "/static/js/2.dd20fc18.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.3e86327ed0f27751ec7ae5526a2323de.js": "/precache-manifest.3e86327ed0f27751ec7ae5526a2323de.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2ac6d296.chunk.css.map": "/static/css/main.2ac6d296.chunk.css.map",
+    "static/js/2.dd20fc18.chunk.js.LICENSE": "/static/js/2.dd20fc18.chunk.js.LICENSE",
+    "static/media/curso.css": "/static/media/background.ed08c809.png",
+    "static/media/logo.png": "/static/media/logo.a5555a33.png",
+    "static/media/featuredCourses.css": "/static/media/pergaminho.6db7546a.png",
+    "static/media/admarticles.css": "/static/media/soldier.48e3974e.jpg",
+    "static/media/blog.css": "/static/media/test.b0b91c44.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a5cd4d3.js",
+    "static/js/2.dd20fc18.chunk.js",
+    "static/css/main.2ac6d296.chunk.css",
+    "static/js/main.0350b9c8.chunk.js"
+  ]
+}

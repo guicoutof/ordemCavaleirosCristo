@@ -7,8 +7,9 @@ class ForgotPasswordMail {
 
   async handle(contact) {
     await Mail.sendMail({
+      from: process.env.MAIL_USER,
       to: contact.email,
-      subject: contact.subject,
+      subject: 'OCC - Recuperação de senha',
       template: 'forgotPassword',
       context: {
         code: contact.code,

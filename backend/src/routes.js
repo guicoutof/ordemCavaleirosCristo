@@ -14,12 +14,18 @@ const ForgotPasswordController = require('./app/controllers/ForgotPasswordContro
 const ChangePasswordController = require('./app/controllers/ChangePasswordController');
 
 const ServiceController = require('./app/controllers/ServiceController');
+const ServicePurchaseController = require('./app/controllers/ServicePurchaseController');
 const ModuleController = require('./app/controllers/ModuleController');
 const CourseController = require('./app/controllers/CourseController');
 const StudentCoursesController = require('./app/controllers/StudentCoursesController');
 const ClassController = require('./app/controllers/ClassController');
 
 const PublicationController = require('./app/controllers/PublicationController');
+
+const DonationController = require('./app/controllers/DonationController');
+const CoursePaymentController = require('./app/controllers/CoursePaymentController');
+const ServicePaymentController = require('./app/controllers/ServicePaymentController');
+const AffiliatePaymentController = require('./app/controllers/AffiliatePaymentController');
 
 const authUserMiddleware = require('./app/middlewares/authUser');
 const authAdminMiddleware = require('./app/middlewares/authAdmin');
@@ -32,6 +38,11 @@ const routes = new Router();
 routes.post('/sessions', SessionController.store);
 
 routes.post('/dashboard', DashboardController.store);
+
+routes.post('/donation', DonationController.store);
+routes.post('/coursePayment/:id', CoursePaymentController.store);
+routes.post('/servicePayment/:id', ServicePaymentController.store);
+routes.post('/affiliatePayment', AffiliatePaymentController.store);
 
 routes.post('/contact', ContactController.store);
 routes.post('/forgotPassword', ForgotPasswordController.store);
@@ -133,6 +144,42 @@ routes.delete(
   ApproveStudentController.delete
 );
 
+routes.get(
+  '/student_courses',
+  authAdminMiddleware,
+  StudentCoursesController.index
+);
+
+routes.put(
+  '/student_courses',
+  authAdminMiddleware,
+  StudentCoursesController.update
+);
+
+routes.delete(
+  '/student_courses/:id',
+  authAdminMiddleware,
+  StudentCoursesController.delete
+);
+
+routes.get(
+  '/service_purchase',
+  authAdminMiddleware,
+  ServicePurchaseController.index
+);
+
+routes.put(
+  '/service_purchase',
+  authAdminMiddleware,
+  ServicePurchaseController.update
+);
+
+routes.delete(
+  '/service_purchase/:id',
+  authAdminMiddleware,
+  ServicePurchaseController.delete
+);
+
 routes.use(authUserMiddleware);
 routes.get('/getUser', UserController.show);
 routes.put('/users', UserController.update);
@@ -142,5 +189,6 @@ routes.post('/comments', CommentController.store);
 
 routes.get('/student_courses/:id', StudentCoursesController.show);
 routes.post('/student_courses', StudentCoursesController.store);
+routes.post('/service_purchase', ServicePurchaseController.store);
 
 module.exports = routes;

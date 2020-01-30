@@ -65,13 +65,14 @@ class ServiceController {
     if (!service)
       return res.status(400).json({ error: 'This service does not exist!' });
 
-    await unlinkAsync(
-      resolve(__dirname, '..', '..', 'temp', 'uploads', service.path)
-    );
-
     let { path } = service;
 
-    if (req.file) path = req.file.filename;
+    if (req.file) {
+      await unlinkAsync(
+        resolve(__dirname, '..', '..', 'temp', 'uploads', service.path)
+      );
+      path = req.file.filename;
+    }
 
     await service.update({ ...req.body, path });
 

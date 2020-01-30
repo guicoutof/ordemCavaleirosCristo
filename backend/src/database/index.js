@@ -7,6 +7,7 @@ const Class = require('../app/models/Class');
 const Module = require('../app/models/Module');
 const Publication = require('../app/models/Publication');
 const StudentCourse = require('../app/models/StudentCourse');
+const ServicePurchase = require('../app/models/ServicePurchase');
 const Service = require('../app/models/Service');
 const Comment = require('../app/models/Comment');
 
@@ -21,6 +22,7 @@ const models = [
   Publication,
   StudentCourse,
   Service,
+  ServicePurchase,
   Comment,
 ];
 

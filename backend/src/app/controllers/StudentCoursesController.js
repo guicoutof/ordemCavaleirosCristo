@@ -4,11 +4,20 @@ const User = require('../models/User');
 const Course = require('../models/Course');
 
 class StudentCoursesController {
+  async index(req, res) {
+    const purchases = await StudentCourse.findAll({
+      where: { paid: false },
+    });
+
+    res.json(purchases);
+  }
+
   async show(req, res) {
     const { page = 1 } = req.query;
     const studentCourses = await StudentCourse.findAll({
       where: {
         user_id: req.params.id,
+        paid: true,
       },
       include: [
         {
@@ -31,6 +40,7 @@ class StudentCoursesController {
     const schema = Yup.object().shape({
       user_id: Yup.number().required(),
       course_id: Yup.number().required(),
+      paid: Yup.boolean().required(),
     });
 
     if (!(await schema.isValid(req.body)))
@@ -60,6 +70,39 @@ class StudentCoursesController {
     const studentCourse = await StudentCourse.create(req.body);
 
     return res.json(studentCourse);
+  }
+
+  async update(req, res) {
+    const schema = Yup.object().shape({
+      id: Yup.number().required(),
+      paid: Yup.boolean().required(),
+    });
+
+    if (!(await schema.isValid(req.body)))
+      return res.status(400).json({ error: 'Invalid data!' });
+
+    const { id } = req.body;
+
+    const relation = await StudentCourse.findByPk(id);
+
+    if (!relation)
+      return res.status(400).json({ error: 'This purchase was not made!' });
+
+    const { user_id, course_id } = relation;
+
+    await relation.update({ ...req.body, user_id, course_id });
+
+    return res.json(relation);
+  }
+
+  async delete(req, res) {
+    await StudentCourse.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    return res.json({ msg: 'Purchase undone!' });
   }
 }
 
