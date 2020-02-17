@@ -40,7 +40,7 @@ export default class navbar extends React.Component {
             <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
-            <div className="itemMenu"><a className="link" href="https://www.instagram.com/adharalojaocc/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
+            <div className="itemMenu"><a className="link" href="https://www.adharalojacerimonial.com/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
 
             <div className="itemMenuDireita" onClick={()=>this.openModalLogin()} ><li>ENTRAR</li></div>
         </div>
@@ -60,7 +60,7 @@ export default class navbar extends React.Component {
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
             <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
-            <div className="itemMenu"><a className="link" href="https://www.instagram.com/adharalojaocc/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
+            <div className="itemMenu"><a className="link" href="https://www.adharalojacerimonial.com/" target="_blank" rel="noopener noreferrer">LOJA</a></div>
             {/* <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink> */}
             <div className="itemMenuDireita" onClick={()=>logout()}><li>SAIR</li></div>
         </div>            
