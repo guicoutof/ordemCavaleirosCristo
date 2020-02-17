@@ -1,36 +1,24 @@
-.divmain{
-    height: 100%;
-    width: 100%;
+.modalArtigo{
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.5rem;
+    height: 80%;
+    width: 80%;
+    border-radius: 30px;
+    outline: 0;
+
+    background-image: url(/static/media/background.ed08c809.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    overflow-y: auto;
+}
+
+.divArtigo{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-items: center;
-}
-
-.mainimg{
-    width: 80%;
-    height: 27%;
-    background-image: url('../../../assets/img/test.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    justify-content: center;
-}
-
-.thetext{
-    height: 100%;
-    width: 78%;
-    margin-top: 3%;
-    overflow: auto;
-}
-
-.titulimg{
-    font-style: italic;
-}
-.txtinside{
-    font-size: medium;
-    text-align: center;
-
 }
