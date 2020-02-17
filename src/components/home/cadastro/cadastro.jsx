@@ -63,7 +63,7 @@ class CadScreen extends Component {
   }
   
   async payment(){
-    alert('Concordo que ao me afiliar, perco acesso ao sistema devido a personalização dos afiliados')
+    alert('Concordo que ao me afiliar, perco acesso aos cursos do sistema devido a personalização dos afiliados')
     try{
       await this.handleSubmit()
       const {numberOfFees} = this.state
