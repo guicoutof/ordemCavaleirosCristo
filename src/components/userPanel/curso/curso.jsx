@@ -48,8 +48,7 @@ export class Curso extends Component {
         const {content,status} = this.state
         const course_id=this.state.course.id
         const user_id = getInfo().id
-        const response = await api.post('comments',{content,status,user_id,course_id})
-        console.log(response)
+        await api.post('comments',{content,status,user_id,course_id})
         this.setState({content:''})
     }
 
