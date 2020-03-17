@@ -35,8 +35,11 @@ export default class Library extends Component{
     }
 
     async upgradeModule(){
-        const id = getInfo().module
-        const response = await api.get(`/modules/${id}`)
+        let id = getInfo().module
+        const response = await api.get('/modules');
+        id  = response.data[id-1].module.id;
+
+        response = await api.get(`/modules/${id}`)
         const qtd_course_modulo = response.data.module.courses_quantity
         const courses_user = this.state.courses.filter(courses=>{
             if(courses.course.module_id === id)return courses

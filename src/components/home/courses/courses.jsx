@@ -30,7 +30,10 @@ export default class Courses extends Component{
             page:id,
         }
         if(getToken()){
-            const modulo = getInfo().module;
+            let modulo = getInfo().module;
+            const response = await api.get('/modules');
+            modulo  = response.data[modulo-1].module.id;
+
             await api.get(`/courses/module/${modulo}`,{params})
                 .then(
                     res=>{
@@ -38,7 +41,10 @@ export default class Courses extends Component{
                     }
                 )
         }else{
-            const modulo = 1;
+            let modulo = 1;
+            const response = await api.get('/modules');
+            modulo  = response.data[modulo-1].module.id;
+            
             await api.get(`/courses/module/${modulo}`,{params})
                 .then(
                     res=>{
