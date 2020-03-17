@@ -19,6 +19,7 @@ export default class Library extends Component{
             content:'',
             status:2
         }
+
     }
     
     async componentDidMount(){
@@ -39,9 +40,10 @@ export default class Library extends Component{
 
     async submitComment(){
         const {content,status} = this.state
-        const course_id=this.state.course.id
+        // const course_id = this.state.course.id
         const user_id = getInfo().id
-        const response = await api.post('comments',{content,status,user_id,course_id})
+        const response = await api.post('comments',{content,status,user_id})
+        console.log(response.data)
         this.setState({content:''})
     }
 
@@ -76,11 +78,11 @@ export default class Library extends Component{
             {this.state.msg}
             <div className="cards">
                 {
-                    getInfo().type===2?
+                    // getInfo().type===2?
                     <div className="curso-comentario">
-                        <h3>Caro aluno e amigo afiliado, deixe aqui uma mensagem para nós !</h3>
+                        <h3>Caro aluno e amigo, deixe aqui uma mensagem para nós !</h3>
                         <div className="textAreaCurso">
-                            <select className="selectTipoUsuario" value={this.state.status}onChange={this.handleChange}>
+                            <select className="selectTipoUsuario" value={this.state.status}onChange={e=>this.setState({status:e.target.value})}>
                                 <option value={2}>Exibir meu comentário na página inicial</option>
                                 <option value={1}>Exibir meu comentário como anônimo</option>
                                 <option value={0}>Não exibir na página inicial</option>
@@ -91,7 +93,7 @@ export default class Library extends Component{
                             <button className="botaoUpgradeInfoConta" onClick={()=>this.submitComment()}>Enviar</button>
                         </div>
                     </div>
-                    :<div></div>
+                    // :<div></div>
                 }
                 {this.state.loading?<FontAwesomeIcon className="icon" icon={faCircleNotch} size="3x" spin/>
                 :this.state.courses.map((c)=>
