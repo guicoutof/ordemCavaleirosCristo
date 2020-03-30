@@ -43,7 +43,7 @@ export default class Courses extends Component{
         }else{
             let modulo = 1;
             const response = await api.get('/modules');
-            modulo  = response.data[modulo-1].module.id;
+            if(response.data)modulo  = response.data[modulo-1].module.id;
             
             await api.get(`/courses/module/${modulo}`,{params})
                 .then(
