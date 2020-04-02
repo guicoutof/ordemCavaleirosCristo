@@ -73,7 +73,9 @@ export default class Courses extends Component{
                         <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
-                        <appr title={c.description}><div className="divInfoCurso">{cortar(c.description)}</div></appr>
+                        <appr title={c.description}>
+                            <div className="divInfoCurso">{cortar(c.description)}</div>
+                            </appr>
                         <div>
                             <div className="divInfoCurso">Duração: {c.hours} horas</div>
                             <div className="divInfoCurso">Assistencia: {c.assistance}</div>

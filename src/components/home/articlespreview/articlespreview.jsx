@@ -26,7 +26,8 @@ export default class ArticlesPreview extends Component{
                 this.state.publication?
                 <div className="mainToBackGND">
                         <div className="articleTitle">
-                            <h1 className="Titlee">{this.state.publication.title}</h1> 
+                            {/* <h1 className="Titlee">{this.state.publication.title}</h1>  */}
+                            <img className="imgPost" src={this.state.publication.url} alt={this.state.publication.title} />
                         </div>
                         <div className="articleContent">
                             {/* <p className="Text">{this.state.publication.text}</p> */}

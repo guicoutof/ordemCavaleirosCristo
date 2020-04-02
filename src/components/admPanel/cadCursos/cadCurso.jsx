@@ -162,7 +162,7 @@ export class EditCurso extends Component {
      updateCourse = async e =>{
         var data = new FormData();
 
-        if(this.state.file){data.append("file",this.state.file,this.state.file.name);alert('trocou')}
+        if(this.state.file){data.append("file",this.state.file,this.state.file.name);}
         data.append("id",this.state.id);
         data.append("name",this.state.name);
         data.append("module_id",this.state.module_id);
