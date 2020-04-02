@@ -33,9 +33,9 @@ class ServicePaymentController {
         },
       ],
       back_urls: {
-        success: `https://179.127.64.111:3000/servico/${id}/aprovado`,
-        failure: 'https://179.127.64.111:3000/servico/reprovado',
-        pending: `https://179.127.64.111:3000/servico/${id}/pendente`,
+        success: `http://www.cavaleirosdecristo.com.br/servico/${id}/aprovado`,
+        failure: 'http://www.cavaleirosdecristo.com.br/servico/reprovado',
+        pending: `http://www.cavaleirosdecristo.com.br/servico/${id}/pendente`,
       },
       auto_return: 'approved',
       payment_methods: {

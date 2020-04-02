@@ -27,9 +27,9 @@ class DonationController {
         },
       ],
       back_urls: {
-        success: 'https://179.127.64.111:3000/doacoes/aprovado',
-        failure: 'https://179.127.64.111:3000/doacoes/reprovado',
-        pending: 'https://179.127.64.111:3000/doacoes/pendente',
+        success: 'http://www.cavaleirosdecristo.com.br/doacoes/aprovado',
+        failure: 'http://www.cavaleirosdecristo.com.br/doacoes/reprovado',
+        pending: 'http://www.cavaleirosdecristo.com.br/doacoes/pendente',
       },
       auto_return: 'approved',
       payment_methods: {

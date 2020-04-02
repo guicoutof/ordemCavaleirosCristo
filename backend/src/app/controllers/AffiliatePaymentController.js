@@ -39,9 +39,9 @@ class AffiliatePaymentController {
         },
       ],
       back_urls: {
-        success: `https://179.127.64.111:3000/${return_url}/aprovado`,
-        failure: `https://179.127.64.111:3000/${return_url}/reprovado`,
-        pending: `https://179.127.64.111:3000/${return_url}/pendente`,
+        success: `http://www.cavaleirosdecristo.com.br/${return_url}/aprovado`,
+        failure: `http://www.cavaleirosdecristo.com.br/${return_url}/reprovado`,
+        pending: `http://www.cavaleirosdecristo.com.br/${return_url}/pendente`,
       },
       auto_return: 'approved',
       payment_methods: {
@@ -50,7 +50,7 @@ class AffiliatePaymentController {
             id: 'pec',
           },
         ],
-        installments: 1,
+        installments: numberOfFees,
       },
     };
 

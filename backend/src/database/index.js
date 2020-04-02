@@ -22,8 +22,8 @@ const models = [
   Publication,
   StudentCourse,
   Service,
-  ServicePurchase,
   Comment,
+  ServicePurchase,
 ];
 
 class Database {

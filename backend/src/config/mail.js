@@ -1,11 +1,12 @@
 module.exports = {
-  host: 'smtp.mailtrap.io',
-  port: 2525,
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
-    user: '49084d12ef37b4',
-    pass: '1800d9b6315b88',
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASSWORD,
   },
-  default: {
-    from: 'Aluno <aluno@occ.com>',
+  tls: {
+    rejectUnauthorized: false,
   },
 };
