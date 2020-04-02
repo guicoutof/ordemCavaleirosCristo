@@ -37,6 +37,7 @@ export default class navbar extends React.Component {
             <NavLink to="/cadastro" className="itemMenu"><li>CADASTRO</li></NavLink>
             <NavLink to="/cursos" className="itemMenu"><li>CURSOS</li></NavLink>
             <NavLink to="/servicos" className="itemMenu"><li>SERVIÇOS</li></NavLink>
+            <NavLink to="/blog" className="itemMenu"><li>BLOG</li></NavLink>
             <NavLink to="/doacoes" className="itemMenu"><li>DOAÇÕES</li></NavLink>
             <NavLink to="/contato" className="itemMenu"><li>CONTATO</li></NavLink>
             <div className="itemMenu"><a className="link" href="https://www.instagram.com/adharalojaocc/" target="_blank" rel="noopener noreferrer">LOJA</a></div>

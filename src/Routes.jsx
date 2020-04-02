@@ -98,7 +98,6 @@ export default function routes() {
 
             {/* User */}
             <PrivateRoute exact path="/home" component={PanelUser} />
-            <PrivateRoute exact path="/blog" component={UserBlog} />
             <PrivateRoute exact path="/conta" component={UserConta} />
             <PrivateRoute exact path="/conta/aprovado" component={UserContaAprovado} />
             <PrivateRoute exact path="/conta/pendente" component={UserContaPendente} />
@@ -114,6 +113,7 @@ export default function routes() {
 
             <Route exact path="/" component={indexHome} />
             <Route exact path="/cursos" component={indexCourses} />
+            <Route exact path="/blog" component={UserBlog} />
             <Route exact path="/doacoes" component={indexDonate} />
             <Route exact path="/doacoes/aprovado" component={indexDonateAprovado} />
             <Route exact path="/doacoes/pendente" component={indexDonatePendente} />

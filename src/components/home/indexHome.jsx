@@ -18,7 +18,7 @@ export default function index(){
     return(
         <div className='index'>
             <Navbar/>
-            <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO!' subtitulo='TREINAMENTO ESPIRITUAL E FILOSÓFICO'/>
+            <Title titulo='ORDEM DOS CAVALEIROS DE CRISTO' subtitulo='ESCOLA DE MISTÉRIOS DA ANTIGA RELIGIÃO'/>
             <Article />
             <FeaturedCourses />
             <UserReviews />
