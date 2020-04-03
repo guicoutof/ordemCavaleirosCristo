@@ -1,6 +1,6 @@
 const Yup = require('yup');
 const Comment = require('../models/Comment');
-const Course = require('../models/Course');
+
 const User = require('../models/User');
 
 class ApproveCommentController {
@@ -8,11 +8,6 @@ class ApproveCommentController {
     const comments = await Comment.findAll({
       where: { approved: true },
       include: [
-        {
-          model: Course,
-          as: 'course',
-          attributes: ['name'],
-        },
         {
           model: User,
           as: 'user',

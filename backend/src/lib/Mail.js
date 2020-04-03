@@ -6,13 +6,14 @@ const mailConfig = require('../config/mail');
 
 class Mail {
   constructor() {
-    const { host, port, secure, auth } = mailConfig;
+    const { host, port, secure, auth, tls } = mailConfig;
 
     this.transporter = nodemailer.createTransport({
       host,
       port,
       secure,
       auth: auth.user ? auth : null,
+      tls,
     });
 
     this.configureTemplates();

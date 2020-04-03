@@ -33,9 +33,9 @@ class CoursePaymentController {
         },
       ],
       back_urls: {
-        success: `https://179.127.64.111:3000/curso/${id}/aprovado`,
-        failure: 'https://179.127.64.111:3000/curso/reprovado',
-        pending: `https://179.127.64.111:3000/curso/${id}/pendente`,
+        success: `http://www.cavaleirosdecristo.com.br/curso/${id}/aprovado`,
+        failure: 'http://www.cavaleirosdecristo.com.br/curso/reprovado',
+        pending: `http://www.cavaleirosdecristo.com.br/curso/${id}/pendente`,
       },
       auto_return: 'approved',
       payment_methods: {
