@@ -7,6 +7,7 @@ import {faCircleNotch} from '@fortawesome/free-solid-svg-icons';
 import Navbar from '../navbar/navbar'
 import Footer from '../footer/footer'
 import {NavLink} from 'react-router-dom'
+import Modal from 'react-modal';
 
 export default class Courses extends Component{
     constructor(){
@@ -16,7 +17,10 @@ export default class Courses extends Component{
             loading:true,
             button:null,
             page:1,
-            limite:false
+            limite:false,
+
+            modal:false,
+            idModal:1,
         }
     }
 
@@ -70,13 +74,26 @@ export default class Courses extends Component{
                     :this.state.courses.length>0?
                     this.state.courses.map((c)=>
                     <div key={c.id} className="card">
-                        <img className="imagemCurso" src={c.url} alt={`Curso ${c.id}`} />
+                        <img className="imagemCurso" src={c.url} alt={` ${c.name}`} />
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
-                        <appr title={c.description}>
+                        <Modal className="modalTamanho" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
+                            <img className="imagemCurso" src={this.state.courses[this.state.idModal-1].url} alt={` ${this.state.courses[this.state.idModal-1].name}`} />
+                            <div className="title" >{this.state.courses[this.state.idModal-1].name}</div>
+                            <div className="divInfoCurso">{this.state.courses[this.state.idModal-1].description}</div>
+                            <div className="divInfoCurso">Duração: {this.state.courses[this.state.idModal-1].hours} horas</div>
+                            <div className="divInfoCurso">Assistencia: {this.state.courses[this.state.idModal-1].assistance}</div>
+                            <div className="divInfoCurso">Livro: {c.book}</div>
+                            <div className="modalModulo">
+                                <button className={'abrirModulo'} onClick={()=>this.setState({modal:false})}>Voltar</button>
+                            </div>
+                        </Modal>
+                        {/* <appr title={c.description}> */}
                             <div className="divInfoCurso">{cortar(c.description)}</div>
-                            </appr>
+                            {c.description.length>40?<div className=" divInfoCurso verMais" onClick={()=>this.setState({modal:true,idModal:c.id})}>Ver mais</div>:<div></div>}
+                            {/* </appr> */}
                         <div>
+                            <div className="divInfoCurso">Livro: {c.book}</div>
                             <div className="divInfoCurso">Duração: {c.hours} horas</div>
                             <div className="divInfoCurso">Assistencia: {c.assistance}</div>
                         </div>
