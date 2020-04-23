@@ -25,7 +25,7 @@ export class Curso extends Component {
             await api.get(`/classes/course/${this.props.match.params.id}`)
                 .then(
                     res=>{
-                        if(res.data.length>1)this.setState({
+                        if(res.data.length>0)this.setState({
                             class:res.data,
                             course:res.data[0].course,
                             className:res.data[0].name,
@@ -38,10 +38,6 @@ export class Curso extends Component {
     }
     changeFrame(c){
         this.setState({className:c.name,iframeLink:c.link.replace("watch?v=","embed/"),classDescription:c.description})
-    }
-
-    handleChange(event){
-        this.setState({status:event.target.value})
     }
 
     async submitComment(){
@@ -58,7 +54,7 @@ export class Curso extends Component {
                 <div key={this.state.courseID} className="curso-container">
                     <div className="curso-button-content">
                         <div className="curso-module">
-                            <img class="curso-img" src={this.state.course.url} alt={this.state.course.name}/>
+                            <img className="curso-img" src={this.state.course.url} alt={this.state.course.name}/>
                             <h2 className="curso-h2">{ this.state.course.name }</h2>
                             <p className="curso-module-name">{this.state.course.description}</p>
                         </div>
@@ -70,7 +66,7 @@ export class Curso extends Component {
                         </div>
                         <div className="curso-comentario">
                             <div className="textAreaCurso">
-                                <select className="selectTipoUsuario" value={this.state.status}onChange={this.handleChange}>
+                                <select className="selectTipoUsuario" value={this.state.status}onChange={e=>this.setState({status:e.target.value})}>
                                     <option value={2}>Exibir meu comentário na página inicial</option>
                                     <option value={1}>Exibir meu comentário como anônimo</option>
                                     <option value={0}>Não exibir na página inicial</option>

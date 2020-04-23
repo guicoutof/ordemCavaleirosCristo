@@ -69,7 +69,7 @@ export default class Blog extends Component{
                         <img className="imgPost" src={post.url} alt={post.title} />
                         {/* <div className="divTexto" dangerouslySetInnerHTML={{__html: post.text}}></div> */}
                     </div>
-                    ):<h3 className="divPost">Ainda não há nenhum artigo</h3>
+                    ):<h3 className="divPost nback">Ainda não há nenhum artigo</h3>
                 }
                 <div>
                     {this.state.page>1?<button className="botaoVoltar" onClick={()=>this.exibirCursos(this.state.page-1)}>Pagina Anterior</button>:<div></div>}

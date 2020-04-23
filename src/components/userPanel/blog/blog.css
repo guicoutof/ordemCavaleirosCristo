@@ -15,7 +15,9 @@
     align-items: center;
     flex-wrap: wrap;
 }
-
+.nback{
+    background: none !important;
+}
 .divPostUser{
     width: 350px;
     height: 350px;
