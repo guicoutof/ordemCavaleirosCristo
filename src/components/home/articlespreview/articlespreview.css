@@ -22,9 +22,9 @@
     margin-top: 4%;
 }
 
-/* .articleTitle > .imgPost{
-    width: 60%;
-} */
+.articleTitle > .imgPost{
+    width: 70%;
+}
 
 .articleTitle > .title{
     color: black;
@@ -91,7 +91,7 @@
         height: 10%;
 
     }
-    .mainToBackGND > .articleTitle > {
+    .articleTitle > .imgPost > {
         width: 90%;
     }
 }
