@@ -78,7 +78,24 @@ export default class Courses extends Component{
                         {c.module?<div className="module">Modulo {c.module_id}</div>:<div></div>}
                         <div className="title" >{c.name}</div>
                         <Modal className="modalCurso" isOpen={this.state.modal} onRequestClose={()=>this.setState({modal:false})} ariaHideApp={false} >
-                            <img className="imagemCurso" src={this.state.courses[this.state.idModal-1].url} alt={` ${this.state.courses[this.state.idModal-1].name}`} />
+                            {
+                                this.state.courses.map((cm)=>
+                                    cm.id === this.state.idModal?
+                                    <>
+                                        <img className="imagemCurso" src={cm.url} alt={` ${cm.name}`} />
+                                        <div className="title" >{cm.name}</div>
+                                        <div className="divInfoCurso">{cm.description.replace("/n",<br></br>)}</div>
+                                        <div className="divInfoCurso">Duração: {cm.hours} horas</div>
+                                        <div className="divInfoCurso">Livro: {c.book}</div>
+                                        <div className="divInfoCurso">Assistencia: {cm.assistance}</div>
+                                        <div className="modalModulo">
+                                            <button className={'abrirModulo'} onClick={()=>this.setState({modal:false})}>Voltar</button>
+                                        </div>
+                                    </>
+                                    :<div></div>
+                                )
+                            }
+                            {/* <img className="imagemCurso" src={this.state.courses[this.state.idModal-1].url} alt={` ${this.state.courses[this.state.idModal-1].name}`} />
                             <div className="title" >{this.state.courses[this.state.idModal-1].name}</div>
                             <div className="divInfoCurso">{this.state.courses[this.state.idModal-1].description.replace("/n",<br></br>)}</div>
                             <div className="divInfoCurso">Duração: {this.state.courses[this.state.idModal-1].hours} horas</div>
@@ -86,7 +103,7 @@ export default class Courses extends Component{
                             <div className="divInfoCurso">Assistencia: {this.state.courses[this.state.idModal-1].assistance}</div>
                             <div className="modalModulo">
                                 <button className={'abrirModulo'} onClick={()=>this.setState({modal:false})}>Voltar</button>
-                            </div>
+                            </div> */}
                         </Modal>
                         {/* <appr title={c.description}> */}
                             <div className="divInfoCurso">{cortar(c.description)}</div>
